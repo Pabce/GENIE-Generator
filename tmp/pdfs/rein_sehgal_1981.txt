@@ -1,0 +1,3129 @@
+ANNALS      OF PHYSICS   133, 79-153 (1981)
+
+
+
+
+                         Neutrino-Excitation             of Baryon Resonances
+                                  and Single         Pion Production
+
+                               DIETER    REIN      AND   LALIT    M.     SEHGAL
+
+
+              III Physikalisches Institut, Technische Hochschule, Aachen, West Germany
+                                         Received October 3 1, 1980
+
+
+
+            This is an attempt to describe all existing data on neutrino production of single pions
+         in the resonance region up to W = 2 GeV in terms of the relativistic quark model of
+         Feynman, Kislinger and Ravndal (FKR). We considered single pion production to be
+         mediated by all interfering resonances below 2 GeV. A simple noninterfering, nonre-
+         sonant background of isospin Q was added. It improved agreement with experiment,
+         particularly in the ratio of isospin amplitudes in charged current reactions, at the expense
+         of one additional constant. All total cross sections, cross section ratios and W-distribu-
+         tions are well reproduced at low and high energies, with charged and neutral currents
+         (supposing the Salam-Weinberg theory with sin* 8, M 2 to be correct), and for neutrinos
+         and antineutrinos, giving predictions where data are lacking. New predictions have been
+         made for complex angular distributions in .krv channels exhibiting strong interference
+         between neighbouring resonances. These are sensitive (for I .1 GeV 5 W 5 1.5 GeV) to
+         the sign of the Roper resonance P,,(1450) which is controversial in photoproduction       ex-
+         periments.
+
+
+
+                                                1. INTRODUCTION
+
+
+   There is now growing conviction that for many low and moderate energy pheno-
+mena a nucleon can be treated as a bound state of three constituent quarks whose
+excitations are the resonances seen in the pion-nucleon system. One of the basic
+tasks of hadron dynamics is to produce a model that explains the energy levels of this
+system, the hadronic widths of the resonances,and the matrix elementsdescribing the
+transitions between the ground state and the excited levels, induced by weak or
+electromagnetic currents.
+   In this context, the process of single pion production by electrons and neutrinos
+acquires special significance, since the various resonances seen in the rr~V system
+should be present in the invariant massspectra of these reactions. Thus a model that
+specifies the matrix elements for resonance excitation can be subjected to tests in a
+multitude of reaction channels. The use of neutrinos as probes offers the advantage
+that one can measure the response of the 3-quark system to both vector and axial
+vector currents, and exploit the large variety of single pion production processes
+(14 in all!) that are accessibleto neutrino and antineutrino beams, counting both
+charged and neutral current reactions. In the case of the neutral current channels,
+                                                         79
+                                                                                  0003-4916/81/050079-75$0.5.00/O
+                                                                          Copyright       0 1981 by Academic Press, Inc.
+                                                                   All   rights   of reproduction   in any form   reserved.
+
+
+5951133/r-6
+80                                  REIN AND SEHGAC
+
+one can also carry out an inverse analysis, in which the model, tested and calibrated
+with the aid of charged current reactions, helps in determining the properties of the
+neutral current.
+    This paper is devoted to a systematic analysis of all existing data on neutrino-
+production of pions, treating the final state as essentially a superposition of resonances.
+The model used is the harmonic oscillator quark model in the relativistic formulation
+proposed by Feynman, Kislinger, and Ravndal [l]. This model has been applied
+with considerable success to photoproduction         of nucleon resonances [23 (among
+other things, it predicts correctly the relative signs of various resonance amplitudes
+in 15 out of 16 cases), and its application to charged current neutrino-production      has
+been discussed by Ravndal [3]. We have extended this work by including practically
+all known resonances [4, 51 in the region W < 2 GeV, and have applied the model
+to both neutral and charged currents. A new feature is the detailed consideration
+given to the effects of overlapping resonances. A large amount of data, both from the
+low energy and high energy laboratories, is brought into confrontation with the
+predictions of this model.
+    In Section 2, we recapitulate the kinematics of neutrino-production      of pions, and
+discuss three aspects of the process, in order of increasing complexity: (i) the cross
+section for a single isolated resonance, (ii) the invariant mass distribution in the
+presence of several overlapping resonances, and (iii) the angular distribution of the
+pion in the pion nucleon center of mass frame, again including the effects of resonance
+interference. In Section 3, we discuss the dynamics of this process in the FKR model,
+and obtain all the transition matrix elements of interest. The results and the compari-
+son with experiment are described in Section 4. The concluding section contains a
+critical assessment of the model, and its comparison with some other approaches
+ [6-131. An Appendix displays in some detail the density matrix formalism for inter-
+fering resonances which should be used for analysing the pion angular distribution.
+
+
+                                       2. KINEMATICS
+
+                    2.1. Neutrino Production of Isolated Resonances
+  Let us first recall the neutrino excitation of a single nonstrange nucleon resonance
+by either charged or neutral weak currents. The process to be investigated is
+                                   lJ+JV”-+1+JV-*,                                    (2.1)
+
+where .N* denotes the nucleon resonance and the lepton 1is either charged or neutral.
+Thus we envisage a slightly more general situation than described by Ravndal [3],
+whose notation we essentially adopt. According to the effective current-current
+formulation of weak interactions the production matrix element is given by
+                                   NEUTRINO-EXCITATION                       OF    RESONANCES                                 81
+
+with G = GF cos 8, M GF the weak coupling constant for strangeness conserving
+transitions. The hadronic current operator J6+ contains a vector and an axial vector
+part and may be written factoring out the resonance mass M as
+
+                           JB+ = Vb - A6 = 2h4F, = 2M(FBV -- FBA).                                                         (2.3)
+
+The leptonic current matrix element C&l - y6) U, is interpreted as the virtual
+intermediate boson’s polarization vector, which may be decomposed into three
+standard polarization      vectors eLU, eR@, eDu corresponding to left-handed, right-
+handed and scalar polarization. With the 3-momentum of the virtual boson along the
+z-axis the usual definition is
+
+
+
+
+                                                  eRU= -$ (0, - 1) --i, 0).                                                (1.4,
+
+                                                  Cl)@= (1, 0, 0, O),
+                                           eL%,    +   =   eRue+Rw       =    -eOuenu      =    -   I.
+
+
+This decomposition is not unique but depends on the frame of reference. In the
+leptonic Breit system, where the 3-momentum vectors of the leptons are antiparallel
+along the z-axis, the Jeptonic current matrix element is
+
+   ~w“(l   -   Y3)   4   llepton                  = -2     z/z d-4’           eLu == -2         \dq2     (0, I, --i, 0).   (2.5)
+                         Breit     frsme
+
+
+Boosting to the hadronic Breit system with the incoming nucleon and the outgoing
+resonance being aligned along the z-direction (whereas the Jepton momenta aquire
+additional components in x-direction), one finds
+
+
+
+                                                               + (1 - cash [) eRU -L ? sinh &?,“).                         (2.6)
+
+The boost parameter e is expressed in terms of laboratory frame quantities according
+to
+
+               1 + cash f = Q f (E + E’)                                          sinh 8 = \‘cosh2 e - 1,                  (2.7)
+                                                       Q             ’
+where the incident and final lepton energies are denoted by E and E’, respectively.
+and Q is the modulus of the three momentum transfer in the Lab.
+  The most convenient frame of reference for practical purposes is, however, the
+82                                       REIN      AND    SEHGAL
+
+
+center of mass system of the outgoing hadrons, i.e., the resonance rest frame. It is
+furthermore well suited for calculating resonance excitation or decay processes with
+the aid of potential models for quarks, describing hadronic bound states in a simple
+and appealing way.
+   From the nucleonic Breit frame the resonance rest frame is reached again by a
+Lorentz-transformation   in the direction of the momentum transfer. This leaves the
+transverse polarization vectors eff,R unchanged, converting only eOUto
+
+
+
+
+where starred quantities now refer to the resonance rest frame. They are connected
+to their corresponding quantities in the Lab frame through
+
+                                                @     =   ,,2 -     Q2     =     y*2   -       Q*”
+
+
+
+m, being the nucleon mass.
+     For abbreviation    we use also
+
+                             .=E+E'+Q                               E+E’-Q
+                                                           v=                                         (2.9)
+                                         2E                              2E
+finding
+
+     fi&‘(l   - ~5) uv IWWUNX = -2            2/Z E       $         {u * eLp - v - eRu + 2/2uU . e,u}.
+                        rest frame
+                                                                                                     (2.10)
+The full neutrino excitation matrix element then reads
+                                                           2
+                ~(vJ+“-
+                    --+IN*) = -4G&fE                       $&(J~*IuF--vF+IJ(~)
+
+
+
+                                        +%&(J*IF,#)
+                                                                                           t
+with
+                                                    -1
+                               F+ = euRFu = T~(F”                 + iF,),
+
+                                                      1
+                               F- = epLF,, = a            (F, - iF,),                                (2.12)
+
+
+                                F,, =
+                                         -_
+                                         se,“F,,              =F,+-f-F,.
+                                          Q                                    Q*
+Although the whole matrix element is Lorentz-invariant the derivation shows that its
+hadronic parts (JV* 1F*,, 1 JV) are to be evaluated in the resonance rest frame. That
+                           NEUTRINO-EXCITATION                    OF    RESONANCES                  83
+
+is exactly the situation where the constituent quark model is considered to be appli-
+cable. But before entering dynamical models let us fully exploit the kinematics of
+resonance production by neutrinos and antineutrinos.
+   First we quote the production cross section of a single resonance with mass M and
+negligible width
+
+                               1
+           - da     z                   -1.       c           [T(vJv-    + LN*)12 S( W” - M”).   (2.13)
+           dq2 dv       32mmME2           2      sDins
+
+The three terms of T referring to different helicities of the incident current add up
+incoherently resulting in
+
+                       da       G2                    2
+                    (iq2 dv -- 4r2 ( __
+                                      it                  >
+                                                              K(U”a, $ V2a~ -- 2uvaJ.            (2.14)
+
+Here the partial cross sections for the absorption of an intermediate vector boson of
+virtual “mass” q2 and positive, negative or zero helicity are given by
+
+
+
+
+including a conventional     kinematical         factor
+
+                               K=V+-=            4”                                              (2.16)
+                                                                        2mx          .
+
+With the momentum       transfer along the z-direction the matrix elements
+
+
+
+
+are just the hehcity amplitudes for the production process. These are provided by the
+dynamical model.
+   For incident antineutrinos left- and right-handed current components are inter-
+changed and the transition matrix element takes the form
+ 84                                     REIN         AND   SEHGAL
+
+
+In the charged current case F and F differ by their isospin direction, for neutral currents
+they need not be distinguished. The antineutrino cross section is then given by
+
+                     dii    G” -q2
+                               -     K{U20~ + V%~ + 2uva,}.
+                    dq2dv =@  ( Q2 1
+
+   Having thus established the production cross sections for a single resonance in
+narrow width approximation we go over to resonances of finite width replacing the
+a-function in the partial cross sections by a Breit-Wigner factor
+
+                                                                                     (2.20)
+
+   For a first orientation we may take the total resonance width to be energy inde-
+pendent. Then the total cross sections are obtained by integrating (2.14) and (2.19)
+within the bounds
+
+             Wmin = rnx + m, < W < W,,                         = s = 2mNEy + mx2,
+                                                                                     (2.21)
+                                                  (s - mx2)(s - W2)
+              I s21 min =O    G ICI21 G 1421max =
+                                                          s
+
+
+                              2.2. Interfering Resonances
+   Our ultimate interest actually goes beyond neutrino excitation of single isolated re-
+sonances. In practice always several nearby resonances will overlap and even non-
+resonant background amplitudes of various quantum numbers may interfere to
+produce the measurable final state. So we now turn to a description of inelastic
+neutrino (antineutrino)-nucleon     scattering where the final hadronic state is selected
+to consist of a nucleon accompanied by a single pion.
+   There are altogether 14 reactions of this kind, 6 of them being mediated by
+charged currents
+                         VP-+ P-P+       (a)   32 -+ p+nrr- (a’) ’
+                         vn -+ /L-p79 0-9      i;p 4 /L+~TO (b’)                   (2.22)
+                       vrl -+ /.L-m-f      (c)             l’p + p+p7i-- (c’)
+
+while the remaining 8 reaction channels are populated by neutral current interactions
+                          vp + VITO (a)                    -vp + Spm” (a’)
+                         vp -+ vmr+ (b)                    ;p -+ ST+ (b’)
+                                                                                     (2.23)
+                         vn -+ vn7r”           (c)         Cn + Gz7r” (c’)
+                         vn -+ VET- (4                     Fn + cpw- Cd’)
+
+AI1 these reaction amplitudes are expected to be dominated by nucleon resonances as
+long as the pion-nucleon invariant energy does not exceed about 2 GeV.
+                         NEUTRINO-EXCITATION                OF   RESONANCES                          X.5
+
+
+   The formalism for describing single resonance production by neutrinos must
+consequently be extended to include several interfering resonances My* which, by
+simultaneous decay, feed the same final MT-state at a fixed invariant energy W. So we
+have to deal with a sum of helicity amplitudes fyi , f 52 , f&) for single resonance
+production each of them being accompanied with the corresponding decay amplitude
+#“) into the JY~T state under consideration.
+   For the subsequent calculations we have taken into account all nucleon resonances
+of unambiguous classification up to 2 GeV according to the most recent ~JY partial
+wave analysis [4, 51. Those are listed in Table 1.
+
+(a) Isospin Analysis of the Full NT-Reaction             Amplitude
+   Calling AFC, A,CCthe reduced amplitudes for producing a Jr-final     state with iso-
+spin $ (+) by a charged isovector current (CC), and Arc, AyC and S,Nc the correspond-
+ing neutral current (NC) amplitudes originating from the isovector and isoscalar part,
+respectively, we find from isospin Clebsch-Gordan rules:
+
+        Ampl(vp + ppn+) = ACC(pn+) = q/z A;c,                                                   (224a)
+
+        Ampl(vn + ~APTT'O) =     AcC(p#)       =    i(A;C        _   A,CCJ,                     (2.24b)
+
+        Ampl(vn + ,Wr+) = Acc(n7i+) = q                     (A,cC + 2A3,                        (2.24~)
+
+        Ampl(vp -+ vp7rO) = ANC(~+)            = ; A:C + f (A,NC -                d/3 S,““),    (2.25aj
+
+        Ampl(vp + WZ~+) = ANc(nrr+) = ?? ANC - q                              (ApC -   6Syc),   (2.25b)
+                                       3 3
+
+        AmpKvn - unr”) = ANC(m+‘) = ; Arc + f (A,NC + 43 qc),                                   (2.25~)
+
+        Ampl(vn -+ UJJW-)= ANY                  = X?3 A ,“” - 3z/z (AyC + dg SE”“), (2.25d)
+
+
+where each of these relations refers to every helicity component separately. Now
+AgC, AtC are dominated by isospin $ resonances while AfC, AyC and S,“” are dominated
+by isospin 4 resonances. Thus we may write for charged current amplitudes
+
+                         fl    A:’    = 1/3          1           aCC(J,*+),
+                                                  all r=g
+                                               resonance8
+                                                                                                 (2.26)
+                              $A,CC = fi              C    acc(NT+)
+                                                   all x=*
+                                               resonances
+86                                           REIN      AND    SEHGAL
+
+
+                                             TABLE I
+                      Nucleon Resonances below 2 GeV/c* according to Ref. [4]
+
+                           Central mass            Total            Elasticity
+        Resonance            value M               with        xa = ?rM branching             Quark-Model/
+         Symbola            [MeV/?]           r&WI                    ratio                   SU,-assignment
+
+         P,,(l’=Q             1234                  124                   1                   Ymh w, OfIll
+         P11t14501            1450                  370                 0.65                   WI/~ 156O+le
+         ~~~(15251            1525                  125                 0.56                  ‘Y81312E70, l-11
+         &,(15401             1540                  270                 0.45.                 Vha [70, l-11
+         Sd1620)              1620                  140                 0.25                  *m1/2 170, l-11
+         &,(1@w               1640                  140                 0.60                  m/2 [70, l-11
+         Pd 640)              1640                  370                 0.20                  W)a/a [56,0+1~
+         &(1670)              1670                   80                 0.10                  *(8)9/1 [70, l-11
+         o,,ww                1680                  180                 0.35                  ‘(815/2 [70, l-11
+         ~16W80)              1680                  120                 0.62                  Ws12 W, 2+lz
+         PU(l710)             1710                  100                 0.19                  Y8)1/2 [70,0+12
+         &,(17301             1730                  300                 0.12                  YW3/2 170, l-11
+         Pldl740)             1740                  210                 0.19                  Wa/z [56,2+12
+         ~,,(1920)            1920                  300                 0.19                  4u0h 156,2+lZ
+         ~,~(19201            1920                  340                 0.15                  YlO)~/s [56,2+1,
+         F&1950)              1950                  340                 0.40                  *Wh ]56,2+12
+         P,,(19601            1960                  300                 0.17                  W%/e [56,2+12
+         &(1970)              1970                  325                 0.06                  W,/2 170,2+12
+
+
+  DA resonance is specified by the TN-partial          wave from which it arises, the labels indicating isospin
+and spin : Lai , 21 (mass).
+
+and correspondingly        in the neutral current case
+
+                     $A,NC = 1/s        ,I           aNC(N$+)      = d$              C          aNc(J$“),         (2.27a)
+                                        al1 I=*                                    all I= #
+                                     resonances                                 resonances
+
+
+
+     g(A,Nc-   q/3S,Nc)=       - xf&           c           uNC(.Aq'),                                             (2.27b)
+                                            a11 I= +
+                                         resonances
+
+
+
+     S<Arc + &S,Nc)        = + 4               1           LP+V-;~),                                              (2.27~)
+                                            a11 I=$
+                                         resonances
+
+
+where .N$T, Nz: d enote resonances (of isospin t or 4) being in zero or positively
+charged siates, re’spectively.
+                            NEUTRINO-EXCITATION       OF RESONANCES                        87
+
+For illustration we may form
+
+                     Acyn?7+)
+                           = 2/J1 .y/v-,*+>+ 1/zc aCC(J-1*+).                          (2.28)
+
+Now in calculating W-distributions or total cross sections where the angular
+dependence has already been integrated out only those resonances are allowed to
+interfere which have the same spin and X7r orbital angular momentum. Thus, e.g.,
+the overlapping tails of the resonancesP&1234) and P,,(1740) can interfere while
+there is no interference between, e.g., P&1234) and P,,(1450) or I&,(1730). More
+specifically, starting with Eq. (2.28) we may write
+
+
+
+
+  Any of the charged or neutral current amplitudes u~(JV~) referring to one single
+resonance in a definite state of isospin, charge and helicity (k = 2jJ consists of two
+factors describing the production of the resonance JVT and its subsequentdecay into
+the JVV final state:
+
+              CIyyJv;)     = f,yJ”(vJv-       - Jlry*) . +/v-$f - -4-77)   fiy’ . p.   (2.30)
+
+The resonance production amplitudes fp’ (k = 2j, = &3, fl, Ok) for single
+resonances-V: have already been introduced in Eqs. (2.17). The corresponding decay
+amplitudes 7(y) in turn can be split into three factors.
+       (i)   First there is the Breit-Wigner factor
+
+                         &(W) = d--CL--.-  1
+                                  2~ W - MY + (i/2) .F,
+                                                        . --_                          (2.31)
+                                                            ,:Y               ’
+
+where the total resonance width r, has the usual threshold behaviour
+
+                                                                                       (2.32)
+
+with
+
+             qn(W) = I qn IN~-CMS = {(W2 - mx2 - rnn2j2- 4m~2m,“)1i” * hw
+88                                        REIN   AND    SEHGAL
+
+
+and a correction close to one,
+
+
+                         NV = Jrn         dwg          (W-     M;2 + rap
+                                   wmin                          Y        Y
+
+
+has been applied for keeping the Breit-Wigner factor approximately normalized.
+      (ii) A second factor is the square root of the elasticity xg’ of the resonance
+taking care of the branching ratio into the JVVT final state.
+      (iii) The third factor is a pure sign. In principle, production and subsequent
+decay of a resonance have to be calculated in the same model in order to obtain a
+coherent prediction for the JV, excitation amplitude. However, in replacing the latter
+by the experimental Breit-Wigner factor, the sign of the decay amplitude is lost and
+has to be attached as a separate factor. For single resonance production this sign
+would not matter. For interfering resonances, however, it is important and must be
+carefully included.
+  So we have in total for the decay amplitude                of a single resonance Mz:
+
+                                                                                         (2.33)
+
+irrespective of its isospin, charge or helicity.
+    The production and decay amplitudes are now to be attached according to Eq.
+(2.30). Summing up all contributing resonances then gives us the fuI1 NT amplitude
+to be used in the cross-section formulae of Eqs. (2.14) and (2.19).
+
+(b) One Example in Detail
+  For illustrating   the procedure let us consider again the charged current reaction
+
+
+
+The square of a typical matrix element has been written down in Eq. (2.29). We will
+make the helicity information explicit:
+
+                     Acc(nn+)   -+ A;n+(q2, W),               k = f3,    -j&O&-.         (2.34)
+
+Then the helicity cross sections uL$S are constructed along the lines of Section 2.1
+replacing everywhere the resonance mass M by the invariant energy W of the .NP
+system.
+
+ uy+(q2, W) = -$f&          * ; (I A:;‘(q”,      WI”   + I .q;+(q”,     wm,
+  R
+                                                                                         (2.35)
+                          NEUTRINO-EXCITATION           OF     RESONANCES                                  89
+
+where now Q and K are given by
+
+ Q   --- muI   {( W2 - mM2 - q2)’ - 4mx2q2)1J2,
+
+                                                                                                      (2.36)
+Finally the genera1 cross section formula reads
+
+          du(vn 4 prim)      G2
+                                                      K;U2U;n+(q2,     w)   +   I,%7;n+(q2,      w)
+              dq2dW       = &?
+
+                              + 2#va~+(q2,      W)]                                                   (2.37)
+
+and a similar equation holds for the charge conjugate antineutrino reaction (2.22~‘)
+where essentially the left- and right-handed cross sections are interchanged:
+                                                                                                      (2.38)
+
+(The latter equation follows from charge symmetry.) All other cross sections for single
+pion neutrino (antineutrino) production are obtained in exactly the same way.
+
+     2.3. X*-Decay   Angular Distributions      in Case of Several Interfering                Resonances
+    Single pion neutrino production has now reached a stage where the experimental
+study of angular distributions of the final particles in the JV* rest frame becomes
+feasible. The theoretical analysis is relatively easy if the W-domain of a single resonance
+can be cut out for separate investigation. However, neighbouring resonances may well
+influence the result even if their cross sections are small compared with that of the
+leading resonance. In order to provide a kinematical framework for this possibility
+we thus have to generalize the usual density matrix formalism to several interfering
+resonances decaying simultaneously into a two particle final state.
+    fn the preceding section we have parametrized a typical ~JV production amplitude
+as a sum of unitarized production amplitudes of single resonances
+
+
+
+
+where C(I,,) stands symbolically for the (NT -+ NT)-isospin Clebsch-Gordan coeffi-
+cients involved.
+   The angular distribution should be obtained by essentially squaring Eq. (2.39).
+This is, however, not completely true, since every Ak(q2, W) refers to only one helicity
+component of the current whereas all of them are supposed to contribute. Hence we
+must start more generally with the transition amplitude
+
+                 1Dz(wv
+                      + l-n-) = c (dv7.r1Jv-;><Jv-;
+                                                 , I 1iep+f
+                                                         / Jv-,v)                                     (2.40)
+                                        Y
+90                                 REIN   AND   SEHGAL
+
+
+made up of resonance production amplitudes (M,? , 1 1~6~ / .N, V) and their
+projections (MT 1MT) onto the particular J+‘-T final state. The former are taken
+to be unitarized, i.e., to include the resonance decay via Breit-Wigner amplitudes thus
+corresponding to the product f(y). $7) in Eq. (2.39). We will denote them by TV in
+accordance with the basic definition (2.2). The latter reduce essentially to isospin
+Clebsch-Gordan coefficients C((M,)I,        13) corresponding in an obvious manner to
+those of Eq. (2.39) with some additional angular functions involved. If the spin states
+of the nucleon JV and the resonance JV$ are specified by S, and j, , respectively, the
+transition matrix element TY is labelled accordingly: Ti’. . In squaring (2.40) we obtain
+various products of such transition matrix elements including those where the two
+factors refer to different resonances. These interference terms give rise to a generalized
+density matrix with elements ~$3’ :
+
+                                                                                     (2.41)
+
+
+They reduce to the usual form if there is only one resonance (r           y’) present. The
+normalization is provided by
+
+                                                                                     (2.42)
+
+
+With the aid of this generalized density matrix and the definition
+
+                                                                                     (2.43)
+
+where the dji ,(@ are tabulated [14] for all interesting angular momenta j, j’ and helici-
+ties A, we rniy write down the desired generalized angular distribution of pions in the
+.N7r center of mass system:
+
+
+
+
+                                                                                      (2.44)
+
+Here the set y of quantum numbers characterizing a resonance .A’: has been made
+explicit in specifying spin, isospin and parity of .N: . The sign u in Z&“‘“‘“(e)         is
+positive if the interfering resonances have both equal spin and equal parities or if they
+have opposite parities and differ in spin by one unit. For all other configurations u is
+negative.
+   Equation (2.44) is our general result. Its detailed derivation is deferred to the appen-
+dix. Here we will briefly discuss two cases of interest:
+                         NEUTRINO-EXCITATION                            OF       RESONANCES                     91
+
+      (i) The simplest situation occurs when only one resonance                                 is present and the
+ inner sum in Eq. (2.44) degenerates to a single term. CaIling
+
+                                                                                                           (2.45a)
+and
+
+
+
+ we recover the well-known    single resonance formula                                 [15]
+
+
+
+
+                                                                                                            (2.46)
+
+where
+
+
+
+                                   A3     =      Pm     312     +       P-3/2       -312    3
+                                                                                                            (2.47)
+                                   P31    =      P3/2   l/2     -        P-l/%      --xi2   ,
+
+                                 h-1      =      P3/2   -l/2        +        PllZ   --R/2
+
+
+and all pj,,: can be chosen real.
+     (ii) A less trivial example is provided by the interference of the d-resonance
+with the P,,(l640) which is practically the only additional resonance able to contribute
+to the pion angular distribution in the PX+ channel. Those two resonances have equal
+quantum numbers I.j, P but unequal massesand widths. Then the angular distribution
+has almost the sameform as in (2.46) reading now:
+
+
+
+
+with the same definitions as in (2.47) apart from the more complicated structure of
+Pi,ji   1
+
+
+                                         Pi,j,     =      i         PT,sj; .                                (2.49)
+                                                        T.S=l
+
+
+Since pjzJ; obtains contributions from two resonancesdiffering in their production
+92                                  'REIN AND SEHGAL
+
+matrix elements including the (complex) Breit-Wigner           factors the nondiagonal
+elements with r # s are in general also complex. This causes the angular distribution
+(2.48) to include some extra terms compared to (2.46) which are sometimes dubbed
+“illegal.”
+    In turning to the mixed isospin channel (vn + PM+) or likewise (Pp + @rr-),
+which is easier to measure, we have to envisage the possibility of even more than two
+nearby resonances interfering strongly with the leading d-resonance. Actually we
+have taken into account altogether four prominent resonances. The angular distribu-
+tion formula then gets rather lengthy involving also higher rank spherical harmonics.
+It will be given in the Appendix.
+
+
+                               2.4. Nonresonant   Background
+
+   The quark model approach adopted in this paper describes the final ~JV state
+entirely in terms of resonances, leaving no room for a possible nonresonant back-
+ground. Some background amplitude is necessary, however, both on general grounds
+(for example, Born graphs [16, 171) and on the basis of comparison with data (see
+Section 4). From a certain combination of charged current total cross sections, it is
+possible to extract the isospin -$ to 1 ratio (AFc/Agc). By comparison with the reso-
+nance model, we find that some I = + nonresonant background is needed. In the
+spirit of the quark model, we have represented the background by a resonance ampli-
+tude of PI1 character (like the nucleon), with the Breit-Wigner factor replaced by an
+adjustable constant. The corresponding cross section is added incoherently to the
+resonant cross section. This ansatz ensures that the background is smooth and
+phase-space-like and affects only the I = -$ cross section. While subtle effects of
+coherence are ignored by this procedure, we are able to incorporate the background
+effects in a reasonable way at the expense of only one additional constant. As we
+shall see later, many of our results are affected only slightly by the background, which
+justifies the approximate treatment described above.
+
+
+                3. DYNAMICS OF SINGLE PION NEUTRINO-PRODUCTION
+
+     In the preceding section, we have set up a kinematical frame for calculating differen-
+tial cross sections and angular distributions in terms of resonance excitation matrix
+ elements. The dynamical task is to compute the production and decay amplitudes
+fk(q2, IV) and T(W) defined in Eqs. (2.30). To this end we adopt the quark model,
+ because of its simplicity and predictive power. The version used is that proposed by
+ Feynman, Kislinger, and Ravndal- [l] (FKR), which we outline below. Although in
+ some respect relativistic the FKR-model depicts the basic quark-quark interaction
+ still as an oscillator potential allowing for the definition of a three quark wave function.
+ The transition matrix elements are then determined by the current operator and the
+ wave function. The latter is assumed, as usual in quark models, to be largely
+                                NEUTRINO-EXCITATION                 OF       RESONANCES                                           93
+
+predicted by spin-flavor symmetry leading to a classification pattern of states in terms
+of SU,, multiplets (181. The dynamical model then gives the spatial part of the wave
+functions and specifies the form of the quark-current interaction.
+
+              3.1. Brief Reuiew              of the Feynrnan-Kislinger-Raundal                                     Model
+  The quark model proposed by FKR is given by the four-dimensional                                                         harmonic
+oscillator Hamiltonian
+
+  2F = 3(/I<,? i pb2 + pc2) -t $ Lq(u,                       - Ub)2 + (u* - u,)’ 4 lu, - u,)z] + const.
+                                                                                                   (3.1)
+Here pn represents the four-momentum           operator of quark a, and U, its conjugate
+position, so that pcl,, = i(a/au,u). Introducing the center-of-mass and relative coordi-
+nates
+
+                   p = Pn + Pil -t Pr 5                        R = ; (u, +                 ub        -t   it,.)    +
+
+
+
+
+                   t       =   PC   +   pb   -    2psr   ,     .y   =    ’       (u,   +   &,    -        h,,),                 (3.3)
+                                                                             6
+
+
+
+one can write A? as
+
+                       2       = P2 - g,
+                                                                                                                                (7.3)
+                       % = -&y                   + @x2) - $(?f + Q-y”) I const.
+
+showing that if S-l is interpreted as the propagator of the three quark system, the
+eigenvalues of % correspond to the squared masses of the baryonic states. Introducing
+annihilation and creation operators corresponding to the x- and y-type oscillators
+(with permutation symmetry (Yand /I, respectively),
+
+
+                    t = J$(a*                     -t a).        x = -;\                i--&(a*                    - a),
+                                                                                                                                (3.4)
+
+                   77’              p (b” --tb),                y = -i
+satisfying the algebra
+                                        [a, , dl = Lb,, b,*l = -g,,                                                             (3.5)
+one can write ‘% as
+
+                                    % = -f&a:as              + b,*bff) + const.,                                                0.6)
+94                                     REIN   AND   SEHGAL
+
+
+whose eigenvalues are integer multiples of a (up to a constant C). The baryonic
+spectrum in Table I is classified according to the eigenstates of this operator, and the
+parameter LJ is determined [l] from the Regge slope of baryon trajectories to be
+1.05 GeV2.
+  Electromagnetic and weak interactions are introduced into the model by the minimal
+coupling scheme, pa -+$& - Q&(u,), etc. (Note that p(,fia = pa2, and the oscillator
+Hamiltonian   in the absence of spin-orbit forces applies to each component of the
+quark spinor separately). Hence a vector current is given by
+
+                                                                                    (3.7)
+
+where the sum is over the quarks in the nucleon, and the corresponding axial vector
+current operator is introduced replacing y,, by Z~,J+ .
+   The unitary spin matrix QU specifies the SU, character of the current. Restriction
+to nonstrange baryons and baryon resonances reduces Q. to the appropriate isospin
+matrix; so electromagnetic and weak neutral currents contain 73 , whereas charged
+currents are characterized by 7i . The axial vector renormalization         constant Z is
+introduced to compensate for the difference between the Sue-predicted value 4 for the
+nucleon’s axial vector form factor at q2 = 0 and its experimental value of about 5.
+Consequently Z will be chosen to be Q. Alternatively [19], abandoning SU, for the
+wave function, and coupling spin and orbital angular momentum of a quark indivi-
+dually, would allow us to deal with an unrenormalized axial vector current of the
+quark (Z = 1). We follow, however, the conventions in the field picking up the first
+alternative.
+    The reduction of the interaction term to a form suitable for application to resonance
+excitation has been carried through in Refs. [ 1, 31 and need not be repeated here. The
+result is:
+                   evLeA = 2 W(e,FrsA + ezF,V,A - e+FI*A - e-F:A),                  (3.8)
+
+where the charged current operators read [1, 31
+
+                               F,’   = -9r+(Rva+      + TV+) eeAnz,
+
+                               F * A = &9r+(RAak      + TAa,) euAas,
+                                                                                    (3.9)
+                               Fov = +9T+SewAaz,
+
+                               FoA = -9~+[Cu~       + B(oa)] e@“.
+
+Application   to transitionsfrom the ground-state baryons (the nucleons) makes the
+a* operators inoperative,  so that they can be dropped. The neutral current operators,
+according to the Salam-Weinberg theory [20], are obtained replacing T+ by &3 -
+2 sin20, . 7em for the vector current, and by +r3 for the axial vector current, respec-
+tively. Charged and neutral currents contain unitary spin operators (T+, T3, Tern =
+                          NEUTRINO-EXCITATION               OF   RESONANCES              95
+
+(73 + 1)/2) and spin operators (I, cr) acting on the SU, part of the resonance wave
+functions. The oscillator operators
+
+                                                                                      (3.10)
+
+
+act on the spatial part. The coefficients in Eq. (3.8) are the same as in Ravndal’s paper
+(Ref. [3]) with the resonance mass M replaced by the r-4’ invariant energy W. We will
+quote them for the reader’s convenience:
+
+
+
+
+                        1
+                  TV = 3w           F          GY(q2) = T,
+                                J
+
+                  RV    = &!!%                 (W + mv> Q      G”(q’) = R,
+                                    w        (W + rn”,“)” - q2
+
+                                    2 3 wwv 6t&42 - KY2 Gv(q’),
+                   s-(3)
+                                               AS2
+                                                                                      (3.11)
+                                                                 Q
+                                                                              GAW).
+                                        2          w   (Wfm,-)“-qq”
+                                                               2nSZw
+                                                           (W + nz,+~)”- q2 GA(q2>.
+
+                                                        w’ - meb’2+ 9:) GA(q2),
+                       B = w
+                                                       ( W $ m-6.)’ - q’
+                         Z
+                   ’ = 6m..,-Q
+
+  The final comment concerns the transition form factors Gp’,,4(q2)included in the
+quantities of Eq. (3.11). These are assumedto have the form
+
+
+
+
+The dipole factor represents the experimentally measured elastic form factors, the
+parameters my and mA taking the values [21]
+
+                                            fllV   = 0.84 GeV/c,
+                                                                                      (3.13)
+                                            mA     = 0.95 GeV/c.
+
+The additional factor (1 - q2/4mx 2) 1/2-n depends on the number n of oscillator
+96                                                    REIN   AND    SEHGAL
+
+
+quanta present in the final resonance. It is an ad hoc factor introduced in order to
+remedy certain unphysical aspects of the model associated with the existence of time-
+like excitations [l].
+
+                  3.2. Transition Amplitudes for Neutrino Reactions
+   From the vector and axialvector currents (3.9) we form the relevant (V-A)-combina-
+tions needed for evaluating the transition matrix elements between a nucleon and a
+nucleon resonance. For the charged current operators we then find:
+
+                 FCC    =    F        v -     F       A =    gT+    . (T&a?   + R*-a*} e-Aaz,   (3.14a)
+                  f               *               *
+
+                 F,Cc = Fov - FOA = 9r+ * {S + Ca, + Boa} e-‘“.,                                (3.14b)
+
+where
+
+                       T* = -(TV                  f      TA),           Rh = -(Rv     f RA).     (3.15)
+
+The neutral current operators are composed of isovector parts F2, F3 which are the
+same as F2.5 ap art from the replacement of T+ by ~~/2 in Eqs. (3.14), and of electro-
+magnetic pieces
+
+                            pm         =     g q                (T’a,     + RvaJ    e-“““,
+                              *
+
+
+                            F,em = 9 73 + 1 6Je-Ao,                                             (3.16b)
+                                        2         *
+
+We therefore obtain
+
+                                      F,Nc = F: - 2 sin2 Bw * Fim”,                             (3.17a)
+
+                                      F,NC = F: - 2 sin2 8, . F,em.                             (3.17b)
+
+The exponential function may be expanded to second order in a, (we are not interested
+in resonances corresponding to more than two units of radial excitation). This gives,
+e.g.,
+
+                            F: = 9 2 /R%+                       + [T*a-+ - XR*u,a,]
+
+
+                                            + [--XT-ta,a,               + y R+cr*az2] + *..I    (3.18a)
+                           NEUTRINO-EXCITATION               OF   RESONANCES                      97
+
+
+and similarly
+
+  F,$ = 9 2 IS + CU, + [(B - AC) a,a, - ASa, - B 42 u+a+ + B d? o-a-]
+
+          + [-    (Bh -;     C) u,az2 + i             Saz2 + B V? (u+a+a, - u-a-a,)   A] + **.I
+
+                                                                                           (3.18b)
+with corresponding expansions for Tern and Ftm.
+   The first line applies to resonances with n = 0, the second to singly excited [70, 1-h
+resonances and the third to twice excited resonances belonging to [56, O+], or [56, 2’-le ,
+[70, O+], and [70, 2’1, .
+   The application of these operators to the resonance states now proceeds along the
+lines indicated in the Appendix of the FKR paper [I]. For proper construction of the
+baryonic wave functions one may also consult Ref. [17]. The procedure thus need not
+be repeated here, in fact some of the tables given there can immediately be used for
+our purposes. Hence we will display in Table II only the final results on
+
+                                L-3 = W, t I F- I J+‘-*,9,
+                                f-1 = (N,        -;     I F- J .A’-*, $),
+                                f+l = W-3 ii I F+ I J’-*,          -;>,                     (3.19)
+                                f+a = CM, -B IF+ I J’“*,              -$J,
+                                fo+ = <J’-, I-t& IF, I .A’-*, 2x&>,
+
+where for charged currents F,,,Cc the incoming nucleon .M is taken to be a neutron
+whereas for neutral (and electromagnetic) currents F,,,NC both positively charged and
+neutral states have to be considered.
+
+Decay Signs
+   As indicated before, however, the production amplitudes J; (j = +-3, ~1, Of)
+are not directly measured in single pion neutrino production. The decay amplitudes of
+the resonances into a particular NW-state are equally necessary before comparing
+the calculation with data. The same problem has also been met in single pion photo-
+and electroproduction     122, 231. Now the respective decay amplitudes are calculable
+in the framework of the FKR model if the usual PCAC assumptions are incorporated.
+It is the divergence of the axial current operator which causes the decay of a resonance
+into a nucleon and a pseudoscalar meson and this divergence is given in the model.
+It will be sufficient to consider only no emission described by the transition operator
+
+        91p = 6GA(q2) ~~(yu~ - [Ay(l + 8) - /3] u,a, - d\/z j?[a+a+ - u-a-]
+                 + &Wy(l    +    26) - 2fil u,az2 + h d/Z/3[u+a+a, - u-a-a,] + .*e},
+                                                                                            (3.20)
+98                                         REIN AND SEHGAL
+
+
+
+                 Production       Amplitudes    for Positively Charged (P) or Neutral (N) Resonances Prbdqce
+                                                                                                         -
+  Resonance     1Helicit                       Electrom;   letic                             Weak CC
+  (Multiplet)    ampl.                     P                        N                           N
+
+
+                  f-s         -d/aR                                             +x&R-
+                  f-l         -VCZR                                             fv’?! R-
+                  f +1        +dR                                               --SIR+
+                                                                   N=P
+                  f +3        +6R                                               -x&R+
+                  f 0+        3                                                 -2&C
+                  fo-         3                                                 -2vTic
+
+
+
+M1540)            f-1         +GT+                                              +2dT-+;hR-
+
+
+V3M70, l-11       f +1
+
+
+                  f Of        +
+
+
+                  fo-         -
+
+
+
+
+&W5)              f-3                                                           i-2 j9T-
+"@M70. l-1,       f-1         +      ;T-       d/3XR                           + 2/8 T- -4dy     AR-
+
+
+                  f +1                                                         +&T++R+
+
+
+                  f +3
+
+                  f 0+
+
+                  fo-         -v2hS                        +-\/3#Ls
+                                      NEUTRINO-EXCITATION               OF    RESONANCES                                99
+
+
+,y &ctromagnetic,      Weak Charged and Neutral Currents in the FKR-Model
+
+
+                              Weak NC (Salam-We       berg, x = sin2 0,)
+                        P                                                               N
+-___-          _____-__.
+- d6 (R- + 2xR)
+     j2 (R- + 2xR)
+- id (R’ + 2xR)
+                                                                                        N =P
+-y%((R+     + 2xR)
+  3v’ZC
+-2 d/2C
+
+
+
+- v’5(T-    + 2xT) +                                        - ti/3(T-+2xT)-                     R- +2x+R
+
+
+                                                            -I- d/3 CT+ + 2x77 +
+
+
+                                                                   3                        2
+                                                            -     jhS(1 - 2x) -             5 (AC - 38)
+
+                                                                  5                        z
+                                                            +     2 hS(1 - 2x) -           j (XC - 3B)
+
+
+
+                                                                  9
+-&T-i       + 2xT)                                      -         2 (T- + 2xT)
+
+      !-
+-,/;(T-+2xT)-&R-+ZX.;R)                                 -        ;(T-        + 2xT) +
+
+   i.s                                                            3 + 2xT)
+ &(T++2xT)-.                                                      5U-+                              + 2x .
+
+                                                                 5
+ $      (T+ + 2xT)                                               2 (T+ + 2xT)
+
+                                                        + IOJLs(l            - 2x) + $“C
+
+                                                        f -\/3hS(l       - 2X) - $9,
+
+
+                                                                                                          Table continued
+100                            REIN     AND   SEHGAL
+
+
+
+
+ Resonance      Ielicity              Electromagnetic                            Weak CC
+ (Multiplet)    ampl.           P                               N                   N
+
+
+                                                     i
+                 f-1       0
+                                                   -JP
+                                                            i
+                 f +1      0                       t        ;hR
+                                                        J
+                 f 0+      0                       1
+
+
+
+                  fL       0                       0
+
+
+
+&0670)            f-9      0                       - li 9zXR
+                                                       ,-
+V%/o[70, l-11     f-1      0                       - d&AR           I.
+                                                   -       i-
+                  f +1     0
+                                                        21 ziAR
+
+                                                   -       9
+                  f +s     0
+                                                        li fOhR
+
+                  f 0+     0                       0
+
+                                                                           z
+                  fo-      0                       0                 +
+                                                                         d iF
+
+
+                                                                     -        3
+&,WW              f-3      0                                                  3 XR-
+                                                                         li
+
+                                                                     -        3
+W,/,[70, 1-11     f--L     0                                                  G XR-
+                                                                         4
+
+                  f +1     0
+
+
+                   f +0    0
+                                   NEUTRINO-EXCITATION                        OF   RESONANCES                                101
+
+ -63ntinued
+
+
+                            Weak NC (Salam-Weinberg,                x = sin* 0,)
+                        P                                                                       N
+
+
+     I       i
+r-           ; AR-
+     2
+
+-- 1         i
+             - AR+
+     2 J 6
+
+         i
+         ; (XC -- 38)
+-4
+
+
+
+
+                                                  A-
+                                                          +             f (XC -     3B)
+
+
+
+                                                                1        3-
+                                                          --             G A(R- + 4xR)
+                                                                2d
+
+                                                             1    T
+                                                          -- 2 21 3. A(R-            + 4xR)
+
+                                                             1 i-
+                                                          -- 2 21 3. h(R+ + 4xR)
+
+                                                                1        3-
+                                                                         lo A(R+ + 4xR)
+                                                         -- 2 d
+
+                                                                       i
+                                                         +f
+                                                                    li lshC
+                                                            1 2
+                                                         -- 2 21 iP
+                                                         ___-
+                                                  T      +;         4   3
+                                                                                                    -----.             ~--   -_
+
+
+                                                                        3 A(R- + 4xR)
+
+                                                         +; 21 7
+                                                               zYR-                 + 4xR)
+
+                                                            1 T
+                                                                z h(R’ + 4xR)
+                                                         -- 2 4
+
+
+
+                                                  L                                + 4xR)
+
+
+                                                                                                             Table continued
+102                                    REIN AND SEHGAL
+
+                                                                                                     TABLE- -
+
+   Resonance        ielicity                Electromagnetic                                Weak CC
+   (Multiplet)      ampl.               P                          N                          N
+
+
+
+                     f 0+      0
+
+
+                     fo-       0
+
+
+
+&IWO)                f-l
+
+
+W,,,[70,     l-11    f fl
+                                                        N=P
+
+                     f Of
+
+
+                     fo-
+
+
+&(1730)              f-3                                                    - jT-9
+                                                                            -       5
+“W,,,[70,    1-1,     f-l                                                           z T-
+                                                                                d
+                                                                                    5
+                     f +I                                                   -       5T+ -
+                                                                                J
+                                                        N=P
+                                                                            -       5
+                      f +3                                                          jT+
+
+
+                      f Of     - d\/JhS
+
+                      fo-      -d3XS
+
+
+PnU450)               f-l                                +
+                                                              Ji
+                                                               5 h2R
+                                                                                5
+                                                                            - 6 v’3
+                                                                                      -
+                                                                                          X=R-
+
+                                                               i
+wl,,m       0+12      f +1                               +     3 XaR        - ; d/3 X=R+
+                                                                       -L
+                                                                  NEUTRINO-EXCITATION        OF   RESONANCES             103
+
+
+
+
+                                                     Weak NC (Salam-Weinberg,           x = sin2 8,)
+                                   P                                                                           N
+                                                                                    I
+
+
+
+
+                                              i
+1’3 (T-        + 2x77      -                  ; h(R-       + 2xR)
+                                   zi’
+
+VQ CT+ + 2xT)              +                  ;A@+         + 2xR)
+                                   21
+                                             .-                                                                    N=P
+
+4;       AS(1 - 2x)        -                  ; (AC -       3B)
+                                   4
+
+
+\[;      Wl       - 2x)    - i’f                   (AC -    3B)
+
+
+
+
+:d-    f (T-   + 2xT)
+
+
+ ‘3
+4 j (.I-- + 2xT) + 21’ ; A(R- + 24
+q
+      is2 (r+ +    2x7-j       +
+                                                  i
+                                                  T h(~+   + 2.r~)
+                                       2;’
+                                                                                                                   N=P
+
+J$T’           + 2xT)
+104                               REIN     AND   SEHGAL
+
+
+
+
+ Resonance         Helicity              Electromagnetic                       Weak CC
+ (Multiplet)        amp].                                   N                     N
+
+
+
+                     f OC
+
+
+                     fo-
+
+
+                     f-a
+
+W,,,t56    ‘)+I,     f-1
+
+                     f t1
+                                                      N=P
+                     f +4
+
+                                                                         i
+                     f 0+     D                                 +        +c-      28)
+                                                                    li
+
+                                                                         z
+                     fo-      Q                                 +        jh(hC - 2B)
+                                                                    J
+
+
+
+Pldl7W               f-3
+
+                                              5
+v3),,,[56,2+12       f-1                      3 X’R
+
+
+
+
+                     f Cl
+
+
+
+
+                      f +.
+                                  9
+                              - 21EAT
+                                       NEUTRINO-EXCITATION          OF RESONANCES                           105
+
+-Tontimed
+
+
+                                Weak NC (Salam-Wc      berg, x = sin* 0,)
+                         P                                                       N
+-____-
+
+
+
+
+                                                                    Ass - ;   43 A(AC - 2B)
+
+
+    -&(R-     + 2xR)
+
+    $j   P(R- + 2xR)
+
+    -&R+      + 2xR)
+                                                                                     N=P
+    +‘(R+     + 2xR)
+
+
+
+
+                       ____--
+
+
+                                                         --2I lo9 AT-
+         3-
+         E h(T- + 4xT)
+
+ 1 27                                                          J 27
+    G A(T- + 4xT)                                                lo XT-
+; J
+
+
+
+
+    1    27                                                1     5
+i        z h(T* + 4xT)                                  -- 2     G XT+
+
+
+                                                                          R+ +2rfR
+
+
+
+
+                                                                                              Table continued
+106                            REIN     AND   SEHGAL
+
+
+                                                                                  TABLE-
+                           T
+
+
+
+  Resonance      blicity              Electrom;   netic                 Weak CC
+ (Multiplet)     ampl.          P                            N             N
+
+
+
+                  f OC
+
+
+
+                  A-
+
+
+
+
+F,,ww             f--3                            0
+
+
+
+                                                          z
+W,,J%     2+1,    f-l                             -       s X=R
+
+
+
+
+                  f +1
+
+
+
+
+                  f +3
+
+
+
+                  f Of
+
+
+
+                  h-
+
+
+
+
+P*,W20)           f-1                                             ti
+                                                                   Is h2R’
+                                NEUTRINO-EXCITATION       OF   RESONANCES                   107
+
+3?wh’nued
+
+
+                         Weak NC (Salam-Weinberg,     x = sin2 19,)
+                     P                                                      N
+
+
+
+
+            R- + 2x . f R
+
+
+
+
+            + 2xR)
+
+
+                                                                                Table continued
+108                                       REIN    AND    SEHGAL
+
+
+
+
+  Resonance
+  (Multiple)
+                  Helicity
+                  ampl.
+                             T
+                                            P
+                                                 Electroms   netic
+                                                                     N
+                                                                         7                        Weak CC
+                                                                                                     N
+
+
+
+W),,J56    2+12    f +1      -
+                                 J    i-
+                                      iJ heR
+                                                             N=P
+
+                   f 0+
+
+
+                   fo-                                                       t          ; A(XC - 5B)
+                                                                                   li
+
+
+                                      i                                                 i
+                             -        j X2R                                  t
+Pd19W              f-3
+                                                                                   li s XeR-
+                                      T                                      -          -i
+"W,,,W,    2+12    f-l       +        GXaR                                              Is h2R-
+                                 li                                                21
+
+                             -        i-                                                i
+                   f +*               iJhaR                                  t          Is h2R+
+                                 21                          N=P                   21
+                                      i                                                 i
+                   f +3      +        5 hsR
+                                                                             -li        s h2RC
+
+                   f Of      0                                               t          ; X(AC - 5B)
+                                                                                   21
+
+
+                   fo-       0                                               t          ; X(X - 5B)
+                                                                                   21
+
+
+                                                                             -          ii
+~d1920)            f-3                                                                  35 h2R-
+                                                                                   li
+                                                                                      i
+YlO),,,P6, 2'12    f-l                                                       -
+                                                                                   21 35 h2R-
+
+                                                                             -          i
+                   f +1                                                                 35 h2R+
+                                                                                   d
+                                                             N=P
+
+                   f +S
+
+
+                   f 0+      0
+                                           NEUTRINO-EXCITATION    OF   RESONANCES                         109
+
+
+
+
+                                    Weak NC (Salam-Weinberg, x = sin* 0,)
+                                P                                              N
+                                                           I
+
+
+ i-i-
+vi-j       P(R+        + 2xR)
+                                                                                    N=P
+    I
+  I -L(AC          -     SB)
+“v I5
+
+      ‘4
+       E X(XC -          5B)
+II’
+
+
+    i
+  i
+“c 5 h2(R-         + 2xR)
+    -
+           A’(R-       + 2xR)
+&     1
+
+    IT
+v.i6       ha(R+       + 2xR)
+
+      .-                                                                           N=P
+
+      ; X*(R+      + 2xR)
+d
+      i--
+       &AC         -    SB)
+
+      -
+
+
+
+
+ &j
+4 G WR-                + 2xR)
+
+
+
+ &         Az(R-       + 2xR)
+
+
+
+\ I$       A*@+        + 2xR)
+                                                                                   N=P
+
+
+
+
+                                                                                          Table   continued
+110                                 REIN    AND    SEHGAL
+
+
+
+                     -
+
+   Resonance             1lelicit          Electrorr   :netic               Weak CC
+   (Multiple)             ampl.       P                         N             N
+                     L
+                            fo-
+
+
+F,,U950)                    f-3
+
+
+‘(q,,m        2+1*          f-l
+
+
+                            .f+,
+
+
+                            f +3
+
+
+                            f 0+
+
+
+                            fo-
+
+
+
+P,,U710)                    f-l
+
+
+Y~)1,2[70,    0+12          f +1
+
+
+                            f 0+
+
+
+                            fo-
+
+
+                                                                        ii h=R-
+M1970)                      f-3                                     -
+
+                                                                        5
+*@),,,[7’3,   2'12          f-l                                     -   35XeR-
+
+
+                             f +1
+                                NEUTRINO-EXCITATION              OF RESONANCES                                        111
+
+-G&hued
+
+
+                        Weak NC (Salam-Weinberg,           x = sin2 0,)
+
+
+
+
+                                                                                       N=P
+
+
+
+
+                                                                      R- + 2x . ; R
+
+
+
+                                                                      R’    + 2x . ; R
+
+
+
+
+                                                   -
+                                                       J     3
+                                                             8 PS(1        - 2x)   +
+                                                                                         i
+                                                                                         ; X(hC - 2B)
+
+
+
+
+                                                  +; T        7 X*(R-        + 4xR)
+
+
+                                                      3
+                                                  +;J         G h2(R-         + 4uR)
+
+
+                                                  --J 21      35 F(R+         + 4xR)
+
+
+
+                                                                                                        table continued
+
+          595/133/I-8
+112                                  REIN AND SEHGAL
+
+                                                                                            TABI@+-+
+                                                                                                 !
+ Resonane                 T
+                 Helicitj f                Electrom;     netic                    Weak CC
+ (Multiple)       ampl.                P                             N               N
+
+
+                                                         -       i
+                                                                 i X2R
+
+
+                                                         0
+
+
+                                                         0
+
+                          ~
+where X and GA(q2) have the same meaning as in Eqs. (3.1 l), (3.12) but
+
+                    Q =&M{(M2-mx2-                     m,2)2 - 4m~2mn2}1/2
+
+and
+                                                 3mn2
+                        Y=MQ     ( 1+       (M+mM)2-mm,2                 1 > 0,
+
+
+                        /3 =JF(M-mx)                   >0,                           (3.21)
+
+
+
+
+Sandwiching !Rp/GA(q2)between resonance state and nucleon state results in Table III.
+   We have included this table since we differ in sign in some entries with the corre-
+sponding Table II of FKR (Ref. [l]). Likewise we should mention that our table of
+production matrix elements (Table II) does not coincide in sign with Table I of FKR
+at every point of overlap. The photoproduction      amplitudes A&‘:, A:;,“, however, as
+given by FKR and extended to higher resonances by Moorhouse et al. (Ref. [2]) were
+reproduced by us without exceptions. This gives us confidence that our production
+matrix elements (Table II) and decay signs (Table III) are indeed correct. As an
+independent check we compared our production amplitudes with those calculated
+by Ravndal for electroproduction     [24] and charged current neutrino production [3]
+of resonances up to M = 1.7 GeV/c2 finding complete agreement in the electro-
+production case and almost complete agreement (except for a sign difference at
+S,,(1640) and 0,,(1680)) in the neutrino production case.
+    Ultimately, for the decay part of the single pion production process it is just the
+ sign of the resonance decay amplitude which must be calculated in the quark model
+ since the size of the decay matrix element is more accurately accounted for by the
+                            NEUTRINO-EXCITATION         OF RESONANCES                   113
+
+-0mhued
+
+                     Weak(NC (Salam-Weinberg,
+                                           x’ = sin*6,,)
+               P                                                 N
+                                         I
+
+
+
+
+                                                1
+                                              --&AT
+                                                2
+
+                                                  1    6
+                                                       35 AT
+                                              --2i'2
+
+
+     usual complex Breit-Wigner factor vcy)(W) (seeEq. (2.33)) containing the experimental
+     mass, width and elasticity xE of the resonance. An overall sign is fixed requiring the
+     P&1236) to have a positive isospin Clebsch-Gordan coefficient for its decay into
+     p+’ channels. So we may directly use the last column of Table III to obtain sgn (. +**)
+     entering the single pion production amplitudes azC3NCof Eq. (2.30).
+
+
+                                             4. RESULTS
+
+
+                              4.1, Excitation of Single Resonances
+
+     (a) General Features
+        Having now all production matrix elements at hand (Table II) the computation of
+     cross sections for the excitation of single isolated resonancesproceeds along the lines
+     of Section 2.1. First we may obtain the helicity cross sections aL,,(q2) and a,(q?) for
+     every resonance separately by integrating out the W-dependence mainly located in
+     the Breit-Wigner factor y(W). These helicity cross sections gL,R,s(q2)do not depend
+     on the incident neutrino energy. Once they are known the ordinary differential cross
+     sections for resonance production are available at any neutrino (antineutrino) energy
+     by esseritially attaching the appropriate energy dependent kinematical factors. It
+     appears as a general feature of neutrino production of resonancesthat crLis substan-
+     tially larger than uR and os. This was known [3] for charged current reactions and
+     resonancesbelow 1.7 GeV/?. Now it turns out to be true also for higher resonances
+     up to 2 GeV/c2 and for neutral current reactions. This means that quite generally
+     neutrino cross sections for resonance excitation lie above the corresponding anti-
+     neutrino crosssections. There is, however, one exception [3]: the S,,(1620) is predicted
+     to have uL < (TV, os leading to almost equal production cross sections for neutrinos
+     and antineutrinos. The q*-dependenceof individual resonancesis hardly measurable,
+114                                    REIN    AND    SEHGAL
+
+
+                                              TABLE    III
+                  Resonance Decay Amplitudes     for X*+     +p# in the FKR-Model
+
+                                                                      Numerical
+                                                                       value of     Decay
+      Resonance               <P, 4 I ‘W I N*+, ~)/GA(q3              < I I WA       sign
+
+
+
+      J’Jl236)                                                          $0.28        +
+
+      &0525)                                                            -0.82        -
+
+      &I(1 540)                                                         -0.83        -
+
+      &U 680)                                                           +0.61        +
+
+      &,WW                                                              +0.41         +
+
+      &U730)                                                            $0.64         +
+
+      .L(l640)                                                          +0.41         +
+
+      &,(16W                                                            -0.20         -
+
+      PII(l450)                                                         $0.16         +
+
+      J’wU 640)                                                         +0.12         +
+
+      &U680)                                                            $0.82         +
+
+      Pl,(l740)                                                         $1.28         +
+
+      Pod1 920)                                                         -1.27         -
+
+      P&960)                                                            +1.29         +
+
+      F,,(I 920)                                                        -0.78         -
+
+      Fw(1950)                                                          +2.10         +
+
+      PI,U710)                                                          -to.02        +
+
+      &(1970)                                                           $0.56         +
+                               NEUTRINO-EXCITATION          OF   RESONANCES                                 115
+
+
+
+
+                                                                       5              10    15         20
+                                                                              E,GeV
+
+
+   FIG. I. Single resonance cross sections of (a) I’,,( 1234), (b) D,,( 1525), (c) .S,,( 1540), (d) P,l( 1450):
+for charged and neutral current reactions induced by neutrinos or antineutrinos.
+
+ except in the caseof the A(1234) which will be discussedsubsequently in some detail.
+ Here we focus on the integrated cross sectionsas a function of the incident neutrinoi
+ antineutrino energy.
+   We have calculated a(E) for charged and neutral current resonance excitation at
+various energies using a realistic form of the Breit-Wigner decay probability with
+ L-dependent decay width l7 These cross sections are plotted in Figs. la-d for the
+lowest lying resonancesA( 1234), P,,(1450), I&(1525) and Srl( 1540) which are also
+most prominently excited in neutrino reactions (at least at low and moderate energies).
+For all higher resonanceswe will give a(E) only at two typical values, 2 and 20 GeV,
+which are approximately the peak energies of the neutrino beams at CERN/Brook-
+haven and CERN-SPS/Fermilab, respectively. These values are listed in Table IV.
+Quite generally the resonance cross sections rise steeply with energy as can be read
+off Fig. 1, and subsequently saturate at higher energies. Both neutrino and anti-
+neutrino cross sections approach each other with increasing energy levelling off
+asymptotically at a common value. This is the same as in elastic neutrino nucleon
+scattering processesand can be interpreted as the consequenceof the fast decreaseof
+the resonanceform factors. There are, however, differences in the energieswhere the
+cross sections start to flatten out. While the lower lying resonancesbelonging to the
+oscillator states with n = 0 and 1 level off between 10 and 20 GeV the resonances
+with n = 2 still have rising cross sections, thus becoming relatively more important
+at higher energies(Fig. 1). This is clearly a dynamical consequenceof the model and
+could in principle first be tested in the region of the Roper resonance P,,(l450).
+116                                     REIN   AND    SEHGAL
+
+
+   For neutrino energies E, 2 2 GeV, the invariant mass region W < 2 GeV is the
+only one accessible. It is thus of interest to see if the inclusive Y and i cross sections at
+such energies can be reproduced by the above model. The total resonant cross section
+on an “average” nucleon at an energy 2 GeV is found to be
+
+                    u res = 0.71 . lO-38 cm2,         I?,,, = 0.30 . lO-38 cm2
+
+for v and ;, respectively. At the same energy the elastic channel contributes [25, 261
+
+                 uelast= 0.40 . lO-38 cm2,            Celast= 0.23 . lO-38 cm2.
+
+As will be seen later, the nonresonant background which we introduce into the model
+in a phenomenological      way, gives a contribution of the same order as the Z = Q
+resonance part
+
+              Unonres    6z   0.20 . 1O-3s cm2,       Gnonres = 0.08 . lO-3* cm2.
+
+Taken together these cross sections amount to
+
+                        u = 1.31 . lO-38 cm2,         6 = 0.61 . 1O-38 cm2                 (4.1)
+at E = 2 GeV and thus yield “slope” parameters
+
+               (u/E) = 0.66 . lO-3s cm2,              (CT/E) = 0.31 * 1O-38 cm2.           (4.2)
+These numbers are in reasonable agreement with the corresponding                     parameters
+measured in the Gargamelle experiment [27]:
+
+            (u/E),,~~ = 0.74 * lO-38 cm2,             (IT/IE)~~~= 0.28 . 1O-38cm2.
+
+   Turning now to neutral current resonance cross sections inspection of Fig. 1 and
+Table IV shows a general suppression of neutral current cross sections compared with
+the corresponding charged current cross sections. The suppression factor depends
+on the isospin of the resonance ranging from l-2 for Z = $ resonances to 4-6 for
+Z = t resonances. This confirms earlier considerations of almost model independent
+nature [28] concluding that the ratio
+
+                                      u(vp --f WV-*+) + u(vn + vJv*o)
+                         R(.N-*) =                                                         (4.3)
+                                                  2u(vn -+p.N*+)
+
+should not exceed 2 if J+‘“* carries isospin 4, whereas for the d-resonance with isospin
+2 this same ratio should be close to 1 (in fact we find ~0.7). In all other respects the
+neutral current cross sections follow their charged current counterparts. For isospin +j
+resonances the NC cross sections off protons and neutrons are equal, since there only
+                                       NEUTRINO-EXCITATION                OF     RESONANCES                                              117
+
+                                                             TABLE       IV
+
+Resonance      Production      Cross     Sections      in Units     of IO-*O cm2 at Incident               Energies       of 2 and    20 GeV
+                                            (tn.4 = 0.95 GeV/c2,         sin2 0, = 0.22)
+
+
+                               Charged      current                                             Neutral        current
+                                                                                           _____-                            ___--
+
+                      ~cc(~-vR+)
+Resonance            E=2        E=20           E-2         E=20         E=2        E-20             E-2         E-20          E=~2     E-~ 20
+._____~                -..       ~~
+P&1234)               20.0       22.58          8.7        20.65         13.6       16.22           13.6        16.22          7.21     15.15
+P,,(1450)               3.90     10.93          0.66         8.92         0.56       1.89            0.69         2.15         0.18      1.66
+M1525)                 9.57      18.12          4.46        16.57         1.32      2.91             1.86         3.51         0.95      2.79
+%*(1540)                9.88     14.28          3.50        12.54         1.28       1.95            I.71         2.50         0.60       1.78
+&Cl 620)               0.20       0.57          0.23        0.56          0.12      0.31             0.12         0.31         0.14      0.30
+.%,(1640)               0.48      0.89          0.27         0.83         0.12      0.22             0.08         0.18         0.07      0.21
+f’,,(I 640)            0.88       4.54          0.08         3.66         0.55      3.49            0.55          3.49         0.10      3.00
+&,(1670)                1.15      2.04          0.14         1.65         0.29      0.51             0.10         0.23         0.03      0.41
+M16W                    1.52       3.73         0.52         3.36         0.38      0.93             0.19         0.66         0.13      0.84
+F,,(I680)              4.16      10.96          1.34         9.68         0.74      2.12             0.78         2.28         0.35      I .‘I6
+P,,(1710)              0.86        5.65         0.10         4.55         0.10      0.99             0.16         1.21         0.03      0.89
+Ml      730)            1.24      2.57          0.41        2.32          0.68      1.48            0.68          I .48        0.21      I.34
+P,,( 1740)             3.89      15.06          1.29       11.82          0.58      2.56             0.82         3.75         0.33      2.20
+fku     920)           0.13       1.28         0.08          1.15         0.11      1.14            0.11          1.14         0.09      I .07
+
+h(    1920)            0.64       2.20          0.05         1.75         0.40      1.49            0.40          1.49         0.08      I.24
+F&1950)                0.67       4.33         0.22         3.94          0.49      3.72            0.49          3.72         0.24      3.50
+f’,,U 960)             0.24       2.22          0.07         1.68         0.17      1.66            0.17          I .66        0.08      1.36
+F,,(l970)              0.26       1.55          0.05         1.34         0.07      0.39             0.03         0.27        0.01       0.34
+
+
+
+the isovector part of the neutral current can be operative, and the relevant isospin
+Clebsch-Gordan-coefficients are the same.Also for I = 4 resonancesthere is approxi-
+mate equality for most of the NC cross sections off protons and neutrons as can be
+read off Table IV. In contrast to charged current reactions the neutrino and anti-
+neutrino cross sections do not differ appreciably from each other. This is becausethe
+Salam-Weinberg theory predicts the axial vector cross section to be quite dominant,
+the corresponding vector cross section being reduced by the interference with the
+electromagnetic part of the current. This will be obvious from Figs. lOd-g where the
+vector and axial vector cross sectionsare shown together with the total cross sections.
+
+(b) Detailed       Discussion          of A~+
+  The d-resonance P,,( 1234) is excited by neutrinos as prominently as by photons or
+electrons. A specialadvantage available to neutrinos is the possibility to excite the A ’ ,
+a charge mode not accessibleto photoproduction or electroproduction. Since the 3
+118                                        REIN        AND       SEHGAL
+
+
+                                            “P-~-b**          11234)      WC 1.4 GeV
+                             I                                                                                        I
+
+
+
+
+                                                        E,.   GeV
+                  a
+
+
+                                                  vp -        p-a++ (12341
+
+
+
+
+                      0%
+                      0 6.                             ,_ _____.__              --____-     ------       -.------
+                                                                                                      -* ..95
+                                                                     ___r---^             - _ _-     __“a=??!!-
+                                                                                                           ___:
+                      0 4-
+
+                      0 2.
+
+                        0t
+                                            1           Ev.GeV                     10                               100
+                 b
+
+  FIG. 2. A++ cross section, as a function of neutrino energy; (a) comparison with data (Refs.
+[30-321) for W < I,4 GeV, (b) full excitation curve (without W-cut) for nz~ = 0.85,0.95,1.05 GeV/c*.
+
+
+is produced with a large cross section, and is well separated from higher Z = $
+resonances in the pi+ channel, it offers a clean testing ground for models of resonance
+production.
+   On the basis of the FKR model, we have calculated the d++ cross section as a
+function of neutrino energy. The mass parameter in the axial vector form factor was
+chosen as mA = 0.95 GeV/c2 which is the average result of recent quasi-elastic neutrino
+nucleon scattering experiments [25, 26, 291. The shape of the resonance was assumed
+to be of a normalized P-wave Breit-Wigner form. For reasons of comparison with
+experiments [30-321 our result, as shown in Fig. 2a, refers to the d++ with the tail of
+its Breit-Wigner factor cut off at W = 1.4 GeV. Also indicated in Fig. 2b is our
+prediction for the full excitation curve of the d ++ resonance without any restriction
+in W. We found, for a value pn, = 0.95 GeV/c2:
+
+                                 a@++; E, > 1 GeV) = 0.65 . IO-38 cm2.                                                    (4.4)
+                                        NEUTRINO-EXCITATION               OF   RESONANCES                             119
+
+This compares well with the experimental                            values:
+
+
+
+
+Note that the calculation is sensitive to the choice of the axial mass parameter: a 10 O;,
+variation of the value of m,,, changes the cross section by about 12 o/0in the same direc-
+tion. On the other hand the cross section depends very little on the assumed shape of
+the resonance. (The data, in fact, fit better to an S-wave type of Breit-Wigner formula,
+or to a P-wave form modified by a threshold factor (321).
+   The q2-distribution of the d++ channel at E, = 20 GeV (again cut at W = 1.4 GeV)
+is compared in Fig. 3 with data from two sources [31, 321. There is good agreement in
+the whole q2-region. One might, however, question the value of da/dq2 at q2 = 0.
+This is determined entirely by the divergence of the axial vector current, and so can be
+estimated by PCAC without recourse to a dynamical model. The FKR model, in fact,
+predicts for the d++ a value
+
+                              da
+                              _   le2=o = 1.18 11 - $&I                    * lo-% cm2 GeV-‘.                         (4.6)
+                              dq2
+
+
+
+
+                                                  04   08     12     16   20   24     28   32
+                                                                -q’GeV’
+
+   FIG.   3.    du(d++)/dq’       for     E, = 20 GeV       and     W < 1.4         GeV    compared   with   data   (mA =
+0.95 GeV/c*).
+120                                                REIN AND SEHGAL
+
+As shown by Ravndal                     [3] this is numerically      very close to what one obtains from
+Adler’s PCAC formula
+
+                                   da         G2 E’ Fr2
+                                          = ,z~~O;r~+d                        ++vo
+                             dv dq2 I,+,,
+
+after integrating over W. Thus the FKR model satisfies PCAC rather closely. The
+value of du/dq2 jp~,Oindicated in Fig. 3 is somewhat lower than the value in Eq. (4.6),
+owing to the cut W < 1.4 GeV, which removes the high-mass tail of the d++. The
+data fit nicely to the theoretical expectation, which may be considered a success of
+the PCAC idea.
+   A separate determination of the vector, axial vector and interference terms in the
+cross section o(d++) is useful as a basis for distinguishing competing models of
+resonance production. Our results are shown in Fig. 4. For comparison with other
+calculations we quote the values at E, = 1 GeV:
+
+                       {U v , uA , u,}~~=, = {0.095,0.155,0.154}                         * 1O-3* cm2
+
+giving a total u(Ev = 1) = 0.404 . 1O-38 cm2. The fact that u,., > uv reflects the domi-
+nance of the axial contribution in the low q2-region. This is evident in Fig. 5, where we
+have separated the V, A and I contributions to duldq2 for E, = 2 GeV. At E, = 1 GeV
+the curves appear to be the same except for being scaled down by the ratio of the total
+cross sections at 1 and 2 GeV. Our numerical values are close to those extracted from
+the Adler model [6, 331:
+
+                  {u
+                   v > us           , &,dler.   .E,=l   = {0.104,0.151,0.157}                 - 1O-38 cm2.
+
+They are, however, at variance with the static model calculation of Lee [34], which
+gave a ratio uv : uA : uI = 0.263:0.202:0.235, implying in particular that uv > uA ,
+in contrast to our findings. We have also compared our results with those obtained in
+
+
+
+
+                             0 6-                                                         flf0,
+                       7
+                         5   OS-
+                       -E
+                       z"    OL-
+                        '2                                              _______-.          ------
+
+
+                       3:    O3
+                             0 2.
+
+                             Ol-
+                                                                     '.... ..,,.(   ,,
+
+                                                   1                     10                         100
+                                                           E,.GeV'
+
+  Foci,. 4. Vector, axialvector, and VA-interference parts of the A ++ cross section as functions of
+Ey (m,i = .0.95GeV/?).
+                                    NEUTRINO-EXCITATION          OF    RESONANCES                          121
+
+
+
+
+   FIG. 5. Vector,         axialvector,    and VA-interference        parts of do/d@     at E, = 2 GeV   (mA =
+0.95 GeV/c2).
+
+the model of Fogli and Nardulli [ll]. From the paper of Fogli (Ref. [35]) one can
+extract the values of uv , u,., and oI appropriate to A-++ production in the Gargamelle
+neutrino spectrum, and one finds:
+
+
+                     1%’     3 uA   7   u,}GGM,Fogli = (0.23, 0.17, O.lO} ’ 10~~’ cm2.
+
+The corresponding result obtained by us is
+
+
+                 {uv>uA , ul}ooM.FKR = (0.14, 0.20, 0.14:                           lO-38 cm2.
+
+Once again we note a significant difference in the relative size of uv to oA . This illus-
+trates the general fact, summarized in Table V, that different models can differ quite
+strongly in their detailed predictions even though they give almost identical results
+for the total d++ cross section.
+   To conclude this subsection, we give below our results for density matrix elements
+in the d++ region. At low energies (E, g 1 GeV) these are essentially the same as those
+obtained by Ravndal [3], and are almost identical with the predictions of the Adler
+model as well as the model of Andreadis ef al. [9] and fairly compatible with the data
+[37]. We note that their dependence on the neutrino energy is very weak, at least on
+top of the d++-resonance peak where we have investigated them (see Fig. 6). For
+comparison with the BEBC and Fermilab data we have computed q2-averaged density
+122                                   REIN AND        SEHGAL
+
+
+                                          TABLE V
+                       Comparison of Various Models for A++ Production
+
+                                                                       o(A++)
+          EV                Model                   ov: OA: 01      (lo-** cm*)       Reference
+
+      1 GeV              Ours (FKR)              1: 1.63: 1.62         0.41
+                         Adler                   1: 1.45: 1.51         0.41           Ki 13,331
+                         B. W. Lee               1: 0.79: 0.89          -             (341
+                         Le Yaouanc              1: 1.98: 1.89         0.43           191
+                           et al.
+
+      Gargamelle         Ours(FKR)               1: 1.43: 1.0          0.48
+       spectrum          Adler                   1: 1.23:0.73          0.51           [6 331
+                         Le Yaouanc              1: 2.13: 1.10         0.49           [91
+                          et al.
+                         Fogli                   1: 0.74: 0.43         0.50           Ul, 351
+
+
+
+matrix elements for the A++ folding in the appropriate           neutrino spectrum. The results
+and the corresponding measurements are as follows:
+
+                                                          0.90 f 0.09 Ref. [31]
+                (/&)   = 0.582              Expt:
+                                        (                 0.60 f 0.08 Ref. [36] ) ’
+
+                                                         0.01 f 0.05 Ref. [31]
+                (psl) = -0.184          ( Expt:        -0.03 f 0.04 Ref. [36] ) ’
+
+
+               (&)     = 0.035          ( Expt:        -0.03
+                                                       -0.07   f 0.04
+                                                                 0.06 Ref. [31]
+                                                                           [36] 1’
+
+It should be remarked that there is a weak indication in the BEBC and Fermilab
+data for the occurrence of nonzero “illegal” density matrix elements, reflected in an
+asymmetry of the angular distribution around cos 0 = 0 and around 4 = 7r. These
+asymmetries require an interference between the dominant I = Q d++-amplitude and
+a background of the same isospin. Within a resonance model, the only possibility
+is to invoke an interference with the tail of a higher lying I = $ resonance, but this
+turns out to be negligibly small. The observed asymmetries thus suggest the existence
+of a small nonresonant Z = 3 background amplitude interfering with the d-resonance.
+Models that contain background contributions of this kind can, in principle, explain
+such effects. It appears that the Adler model does not reproduce the sign or magnitude
+of the observed asymmetries whereas the model of Fogli et al. (Ref. [35]) seems to be
+more successful in this respect.
+                            NEUTRINO-EXCITATION                      OF       RESONANCES              123
+
+                                              Yp 4     w-a+*   112341         IW=1,23L    GeVl
+
+
+
+
+                                I,,,,                            ,        ,              ,       J
+                                0       02   04      O-6 08    10    1.2          14     1.6     18
+                                                       -q2. IGeV/cJ2
+
+   FE. 6. Density matrix elements of the d+*(1234) as functions of -q2 for two values of neutrino
+energy: E, = 1 GeV (full line), E, = 20 GeV (dashed), (a) pzr(qe).(h) p3-l(q2),(c) &(q2), (mq =
+0.95 GeV/?-; variation with nz~ is indicated by dotted lines).
+
+
+                                             4.2. CrossSections
+
+(a) a(E) for Mixed Isospin Channels
+   Of the 14 single pion channels that can be excited by charged or neutral weak
+currents, only two (p-prr i and ~+nn-) are pure in isospin. In these two cases the nN
+system has Z = #, and the cross section is dominated by the 4(1234) resonance, which
+has been discussed in the preceding section. We wish now to focus on the remaining
+channels, which necessarily involve both I = 4 and I = # amplitudes. The discussion
+of these channels is complicated by two factors. (a) In any given mass range, there is a
+large number of resonances (of either isospin) which generally overlap and have to be
+added coherently. (b) There exists the possibility of a nonresonant background that
+is not included in a pure resonance description.
+   The first problem can be solved within the framework of the FKR resonance
+model, since both the absolute magnitudes and relative phases of the single resonance
+terms are specified. We are thus able to take account of all interference effects
+between resonances and derive a resonant cross section for every Jlrn channel that
+includes in a realistic way the elasticity of each resonance, its shape, and the effects of
+its overlap with neighbouring resonances. It may be recalled that as long as one is
+interested in angle-integrated cross sections, interferences can occur only between
+resonances that have identical (L,j) quantum numbers. Since such resonances are
+
+595/I3311-9
+124                                              REIN AND SEHGAL
+
+often well separated, the interference effects can, in practice, turn out to be small.
+    As to the question of a nonresonant background, we have represented it by an
+ incoherent I = 4 cross section generated so as to resemble a phase space distribution
+in the 7r.1Vinvariant mass. This was done by means of a simple and economic ansatz
+(described in Section 2.4) leaving only a scale factor free for adjustment. To determine
+this factor, we have appealed to low energy data [29,37] on the charged current chan-
+nels CL-pn+, p-nrr+ and ~-prrO, which allows one to extract the ratio of the average
+I = Q and I = 8 amplitudes:
+
+         (A?>                   3*[o(vn --+ p-p-O) + a(vn -          p-nr+)l - 49 - PDF+) “‘.                c48j
+         (A,c”>=           I                         2&P      -     /.-p+)                         I
+
+
+The scale factor needed to reproduce the above ratio turned out to be approximately
+one, in the sense that our background amplitude corresponded to a nucleon-like
+excitation with the usual Breit-Wigner factor replaced by unity. In Table VI, we list
+the cross sections predicted by the model at various energies, both with and without
+the background contribution. As evident from the comparison with GGM and ANL
+data (also listed in the table) the inclusion of background improves agreement. It
+may be noted that the incoherent nature of our background implies that the average
+
+                                                     TABLE          VI
+              Total Charged Current Cross Sections for Single Pion Neutrino              Production”
+
+                                             ANL-Spectrum                            GGM-Spectrum
+
+                                     Res. Res. + BG Data (Ref. [29])         Res. Res. + BG Data (Ref. [37])
+
+h-Pm+)                              0.214    0.214                           0.483   0.483        0.52 j, 0.09
+
+4r-P~)                              0.055    0.067                           0.151   0.192        0.18 f 0.06
+
+a(yna+)                             0.039    0.063                           0.134   0.216        0.37 f 0.08
+
+R’ zz 5                             0.71     0.94          0.89 f 0.17       0.89    1.13         2.2 f 0.76
+             7P
+
+R++      _- w+>       + (Pfl)       o . 44   0.61          0.55 f 0.07       0.59    0.84         1.03 f 0.17
+                  tin+)
+
+ <8>                                0.40     0.64           0.66 f 0.06      0.62    0.88         1.03 f 0.15
+ <AC’>
+    1
+(4)                                          90.30          (90 f    590             90.40        (73:;;)”
+
+
+  a Values given for (a) the FKR resonance model, (b) the same model including Z = $ nonresonant
+background, compared with low energy data (in units of lads cm*).
+                                   NEUTRINO-EXCITATION             OF RESONANCES                             125
+
+phase between the AFC and AZ” amplitudes is unchanged from the pure resonance
+value. As seen from the table, this phase defined by
+
+                       (AzCAyC*‘:
+cos Q = Re          (A;C)(A,CC)
+
+
+
+                          o(vn + p-m+) - 2o(vn + /qm”) t $-u(vp - p-p+) __-__
+           {gr(vp       + r*-p+)[a(vn --, p-mrf) + a(vn --f p-p”) - .!,utvp - p--pf’)}:“‘L
+                                                                                                            (4.9)
+is in quite adequate agreement with the data.
+    Having calibrated the background contribution, we proceed to detailed predictions
+for all charged and neutral current channels. As before, we have chosen the mass
+parameter m, to be 0.95 GeV. Changes in this parameter produce changes in the
+overall scale of the cross sections, but with little effect on relative ratios as those of
+ Eqs. (4.8) and (4.9). For neutral current channels we use the Salam-Weinberg       model
+with sir@, = 0.22, investigating also the dependence on this parameter in some cases.
+    The results for CT(E) are plotted in Figs. 7 and 8 for neutrino and antineutrino
+reactions, respectively. These refer to W < 2 GeV, which is essentially the whole
+mass region excited in the J+‘“T channels even at high energies. Data have been inserted
+where available [30, 36-401. We have also calculated flux-averaged cross sections
+for all .Mn channels for direct comparison with various experiments. These are
+displayed in Table VII. The variation of the neutral current cross sections with
+x,,, = sin??,. has been studied separately for the Gargamelle spectrum and presented
+
+                                                     TABLE        VII
+    Flux   Averaged        Total   Cross Section Predictions     for Various   Experiments   (Nonresonant
+                                   Background   Included),   in Units of 1O-38 cm2
+
+
+                                       ANL               GGM                BEBC             FNAL
+
+
+                                       0.214              0.483              0.643
+                                       0.067              0.192              0.309             :
+                                       0.063              0.216              0.379             ii
+                                       0.035              0.083              0.124
+                                       0.022              0.062              0.108              z
+
+                                       0.036              0.086              0.128              $Y)
+                                       0.023              0.068              0.118
+
+
+             (pL+nn-)                                     0.251                               0.597
+             (/L+mP)                                      0.095                a              0.292
+
+             &y 0                                         0.101
+                                                          0.053                z;             0.117
+                                                                                              0.356
+             (i&7+)                                       0.040                 1             0.103
+             (ianno)                                      0.053                               0.121
+             @Pd                                          0.041                               0.112
+                                                                                                           0161                                                                                t
+
+
+
+
+      OS-
+                                                                          ,+
+      Ob-
+
+      04.
+
+      02.
+                                                                                                           “1 /I:----------------_-_:
+                                                                                            a
+       o-
+                              1                         10                                      100                            1                  io                                     lci
+                                  Ey,GeV                                                                                           E,,GeV
+
+
+      04’                                                                                                   016-                                                                           L
+
+       0 3-                                                                                                 012.                            _____           - __--       -------
+
+       0 2.                                                                                                0 oe-
+                                                                                  t ANL ,rPf 32,                                                                     -wlh      BF
+       Ol-                                                                     - *,,h BG                   004.
+                                                                                                                                                                     . . .."D BG
+                                                                               .--. "0 BF
+"E      0.                                                                                    ,D,     "E     0.
+                                                                                                      3"
+gv     04~                                                                                            b     016-
+ b            Y" -sp-"lrnn'                                                                                        Y" -+vpn-
+
+ :D    0 3-                                                                                           -    012.
+       0 2-                                ______   . ..-        ------    _..-      __.-       --
+                                                                                                                                                       ______        -- --.-       ---
+                                                                                                           oos-
+        Ol-                                                                                                0 04.                            ---                      _fp:,:te;‘o,-
+                                                                                  t AINL ld PO,
+                                                                               - Wlfh BG
+                                                                               --.- "0 BF (L)                                                                        ---. no BG
+                                                                                                             0,                                                                      w
+        O-                                                                                        r
+                              1                             10                                   WI                            1                  10                                     100
+                                  Ey.GeV                                                                                           Ev,GeV
+
+   FIG. 7. Total neutrino cross sections for charged current Xa production      (a-c), and neutral current &“a production (d-g):
+predictions are made for the pure resonance model (dashed line) and for resonances plus incoherent nonresonant background (full
+line); data from ANL (Ref. [30]) and BEBC (Ref. [36]). (mA = 0.95 GeV/?, sinW, = 0.22).
+NEUTRINO-EXCITATION   OF   RESONANCES   127
+128                                         REIN AND SEHGAL
+
+                                              TABLE       VIII
+Variation      of Neutral Current Cross Sections with x, = sin*& for the GGM Neutrino      Experiment
+                          (and Other Experiments with the Same Neutrino Flux)
+
+                                x, = 0.20      x, = 0.25         x, = 0.30     x, = 0.35    x, = 0.22
+
+4fP+Y                             0.0867         0.0788           0.0717        0.0655        0.0834
+u(wm+)                            0.0646         0.0587           0.0535        0.0500        0.0622
+u(vfl7rq                          0.0894         0.0817           0.0748        0.0687        0.0862
+4vPa-)                            0.0704         0.0652           0.0604        0.0561        0.0682
+
+
+                                  0.46           0.42             0.38          0.35          0.45
+
+
+   Note. Cross sections in units of IO-** cme.
+
+in Table VlII. These results apply equally to other experiments using a similar flux,
+e.g., the Aachen-Padova and CIR experiments. It should be noted that because of
+the saturation of cross sections, the precise shape of the v/S flux for the higher energy
+experiments is rather unimportant. We have chosen therefore to give results for one
+neutrino experiment (BEBC v) and one antineutrino experiment (FNAL 5) of that
+class.
+   Data on absolute cross sections are not always given explicitly but often cross
+section ratios are available, especially for neutral current channels. The following
+ratios will be considered:
+         (i)   charged current case
+
+                         R = u(vn -El-Pro)                w, = “CfP -+ p+n7r”)
+                          1
+                             u(vp - p-p+)                      u(vn + p+m-) ’
+                                                                                                (4.10)
+                         R = a(vn -+ p-m+)
+                          2                               K, = u(fip - p+F-)
+                             U(VP- P-P+>                       u(lk + /.L+m-) .
+
+Note that sometimes instead of RI, Rz the combinations Rf = R21R, or Rff =
+RI + R, are given experimentally.
+                               These were included in Table VI.
+    (ii) neutral current case
+
+    R = u(vp -+ lym”) + u(vn + WmO)                               u(Fp + l@rO) + u(i+l + lk7F)
+     0                                                    R, =
+               2u(vn ---f p-pro)  ’                                     2u(Cp+ p+m”)           ’
+               u(vp + vp7rO)+ u(vn -        vm?q           i;l = @P + @n-O)+ a(% + 2zn7p)
+     rl =                                          ,                                                 3
+                     u(up --f vmr+)                                        u(Gn -+ i@r-)
+             u(Cp +  @TO)  + u(ih --t ikd)
+   ‘NC     = u(vp -+ vpr”) + u(vn -+ vn#) ’                                                     (4.11)
+     NEUTRINO-EXCITATION   OF   RESONANCES
+
+
+
+
+4%
+dd
+
+--
+GG
+--
+130                                REIN   AND   SEHGAL
+
+
+Comparison of all these cross-section ratios (including some additional combinations
+useful for framing experimental results) with experiment [39-44] is made in Table IX.
+   Table X shows how the FKR model compares with other theoretical models. While
+essentially all models agree about the cross section of the pn+-channel, i.e., the d++-
+excitation, there is somewhat more spread in the theoretical prediction of the mixed
+isospin channels; however, experimental data are not yet advanced enough to dis-
+tinguish between these models.
+   Inspection of Table X reveals the very near equality of neutral current 1~~production
+off protons and neutrons in all three models; essentially the same is true for neutral
+current n+ and n- production. This shows that despite the presence in the Weinberg-
+Salam model of a neutral current with both isovector and isoscalar components, the
+interference of these components produces very little asymmetry between the vprr”
+and vnr” channels (or between vpw- and vnr+). In this connection, it is worth mention-
+ing that NC single r” production near threshold can be related to elastic scattering
+UN ---f UN by a theorem of Adler [45]. Using this theorem we find cr(vn7~O)> a(vprO)
+near threshold. If we calculate the difference a(vn~~) - o(vp?rO), assuming the theorem
+to hold over the whole W-interval covered by the Gargamelle spectrum, we find a
+result of only 0.01 x 1O-38cm2, consistent with the very small difference produced
+by our model [46]. Thus the findings of the Gargamelle experiment, indicating a two
+standard deviation difference ( = -0.06 . 1O-38 cmz) between u(vprr”) and cr(vnnO),
+remain unexplained.
+
+(b) Invariant Mass Distributions
+   More detailed information than contained in total cross sections is exhibited by the
+ W-distributions in every MT-channel.       These we have calculated for a W-interval
+between MT-threshold       (1.08 GeV) and W = 2 GeV. In order to facilitate direct
+comparison with measured W-distributions we have again folded in neutrinolanti-
+neutrino spectra typical for experiments at Argonne, CERN/BNL             and CERN/
+Fermilab. Our results are displayed in Figs. 9-13 and compared with the corresponding
+experimental histograms where they exist.
+   The agreement between theoretical and experimental W-distributions is in general
+quite satisfactory throughout the whole energy range covered by experiments. In
+particular the measurement of the FNAL antineutrino collaboration [47] of the
+l-CP”- channel are remarkably well reproduced by the model. This channel is of
+course highly nontrivial and interesting since just here the Z = $ part of the J-n-
+production amplitude is strongly favored against the Z = Q part by isospin combina-
+tion rules. This can be verified looking at Eqs. (2.24) and (2.25). Consequently this
+antineutrino channel p+pm-, and its charge conjugate counterpart Z-FL-nrrfin neutrino
+reactions, are most sensitive to resonance excitation beyond the 4(1234) where the
+Z = 4 resonances play a prominent role. The Z = 4 enhancement is more pronounced
+at higher energies where all resonances are fully excited but could also be studied at
+Gargamelle energies if there is sufficient statistics. At FNAL and CERN-SPS energies,
+however, the resonance region around 1.5 GeV for the first time shows up more
+                                                              TABLE X
+    Comparison of Our Flux Averaged Cross-Section Predictions (FKR) for Neutrinos with Those of the Models of Adler [6] and of Fogli
+                                               and Nardulli [I I] (In Units of 10m3Rcma)
+
+                                        ANL Spectrum                                                                  GGM Spectrum                                      3
+                                                                                                                                                                        c
+             ___~              ___-                             -___                                                                           ~~__                     ;;I
+                         FKR                  Adler                    FN                             FKR                Adler                           FN
+                                         -~                                                                                            --___                            8
+              w <: 1.4         w ‘C 2     w<          1.4   w -: 1.4        W -: 1.6   w i      1.4         Wt2         w<       1.4     w<        1.4        W<1.6     g
+                                                                                                                                                                    -   7
+               0.200           0.214          0.219          0.23 I          0.243      0.416               0.483        0.421             0.502               0.585    $
+
+               0.056           0.067          0.073          0.079           0.085      0.118               0.192        0.147             0.187               0.263    ’
+               0.044           0.063          0.057          0.052           0.065      0.097               0.216        0.129             0.147               0.281    %
+                                                                                                                                                                        F
+               0.032           0.035          0.028                          0.036      0.066               0.083        0.053             0.068               0.090    g
+               0.018           0.022          0.020                          0.03 1     0.039               0.062        0.038             0.064               0.097    2
+                                                                                                                                                                        3
+               0.033           0.036          0.029                          0.038      0.067               0.086        0.054             0.075               0.105    g
+               0.019           0.023          0.019                          0.028      0.04 1              0.068        0.037             0.061               0.100
+
+
+” Neutral current cross sections evaluated for sina 0,, ~~ 0.22 (FKR and FN) or sin? II,,.            0.35 (Adler).
+
+
+
+
+                                                                                                                                                                        w
+132                                  REIN AND SEHGAL
+
+prominently in a particular Xv-channel         than the lowest lying A(l234)-resonance
+ -and this is predicted by the FKR-quark model of resonance excitation!
+   In the case vp -+ t.c-prr+ where no Z = 3 resonances can contribute the BEBC
+experiment [32] with its high statistics allowed also for a closer inspection of the line
+shape of the A++. There it was found that instead of a P-wave Breit-Wigner-factor
+ -which would be a natural choice (and was used by us)-an S-wave form or alter-
+natively a modified P-wave essentially equivaient to an S-wave gave the best fit. This
+seems to be a general feature of all neutrino/antineutrino  experiments as indicated by
+the plots of Figs. 9-13. While such a modification was also found necessary in photo-
+production analyses of resonances [16] the unprecedented small width of the A++
+also found at BEBC [32] has no immediate interpretation: although the production
+
+
+
+
+                   I-                        ,;        1:6   ;,   ,‘.a   ;.9   ’
+                                                  W,GeV
+
+
+
+
+   FIG. 9. W-distributions of charged current (a-c) and neutral current (d-g) .MT events, flux
+averaged for ANL Y spectrum; area normalized to total event number of histogram, where data
+available (Ref. [30]), (mu = 0.95 GeV/c*, sins 0, = 0.22), dotted lines for pure resonance model
+without nonresonant background.
+      NEUTRINO-EXCITATION                 OF   RESONANCES   133
+
+
+
+
+10.
+
+
+
+
+                             W.GeV
+
+
+
+
+3r
+I
+)_
+i
+                      FIG.      9.-Continued
+                                                                            10   12   14   16   18   20    22
+                                                                                                          W.Ge
+
+
+
+
+                                                                                                                                       GGM   Y
+
+
+
+
+     12   14   ,6   18   20   22        10    12   14   16   18   20   22                                                    16
+                                   W.   GeV
+
+
+   FIG. 10. Same as Fig. 9, but flux averaged for GGM v-spectrum, all curves include nonresonant            background,   additional   curves are
+drawn for the axial vector (dashed) and vector (dash-dotted) part of do/&‘.
+NEUTRINO-EXCITATION   OF   RESONANCES   135
+136   REIN   AND   SEHGAL
+NEUTRINO-EXCITATION   OF   RESONANCES   137
+138                                     REIN      AND   SEHGAL
+
+
+amplitudes have some W-dependence this does not lead to a large distortion of the
+resonance shape in Xrr-production.    So we must leave this as an open question for
+future theoretical and experimental investigation.
+
+         4.3. Angular Distributions         in Case of Several Interfering           Resonances
+
+(a) TWO Interfering P,, Resonancesin the pi+ Channel
+   Although the p-p~-k channel, as we have seen, is largely dominated by one single
+resonance d ++ = P&+( 1234) alone there are definitely higher I = $ resonances present,
+and even if they contribute only little to the cross section of that channel their
+interference with the leading 4(1234) might not be so negligible. The Jr angular
+distribution originating from the d ++ decay alone was described in terms of density
+matrix eIements j&, & and ,&I , defined in Section 2.3. They are functions of q2
+and we have studied them in some detail in Section 4.lb. Now we consider the inter-
+ference of the 4(1234) with its nearest I = # neighbour P,,(1640) carrying the same
+quantum numbers I, j, P as the d itself. The next higher Z = 8 resonances are still
+further away from the 4(1234) and therefore are assumed to give less contributions.
+The interference of the two Ps3 resonances causes the pik to obtain also imaginary
+parts measuring essentially the overlap between the interfering states.
+   If two (or more) separate resonances do interfere we found it more natural to study
+the density matrix elements-or      more generally, the coefficients of the spherical
+harmonics in the ~Y7r angular distribution-as      a function of W rather than of q2.
+This has the advantage of revealing quite clearly the changes which these quantities
+undergo when approaching the location of the perturbing resonance. We thus have
+plotted in Fig. 14, as one representative of the pik, the normalized quantity
+
+             p”33JmdW)         = b3/2 3/2 (w> + p-312      -3,2(   w))/p”(   w>   = !33(      w>~   (4.12)
+where
+          8 w> = p3/2    312   w> + P-3/2      -n/2vv    + PI,2 1,2(W) + P-112             -1/2w.
+
+
+For obtaining averaged numbers to be compared with experimental averages we
+integrated both the numerator and the denominator in Eq. (4.12) over an appropriate
+ W-interval which was chosen here to range from threshold to W = 2 GeV. If there
+were no higher d’s-as also indicated in Fig. 14--p”33,norm(W) would be a structureless,
+monotonizally decreasing function of W. Because of the P,,(1640), however, its slope
+changes when W approaches the higher resonance thus exhibiting nicely the effect
+of the interference. Although this effect is quite pronounced it would nevertheless
+be hard to measure it, since there are only a few events in this W-region and the statis-
+tical error is necessarily large.
+
+(b) Several Interfering Resonancesin the Mixed Isospin Channel (p+p~-)
+   A more promising channel for investigating the effect of interfering resonances in
+the Jlrrr angular distribution is provided by the reaction ik -+ p+pw at high energies
+                         NEUTRINO-EXCITATION                OF       RESONANCES                   139
+
+
+
+
+                                                W.GeV
+
+  FIG. 14. & as function of W in the channel gpzr+ at BEBC assuming A++ to be the only re-
+sonance (full line), or assuming d ++ - P,,(1640) interference (dashed).
+
+which has been explored recently by the Carnegie-Mellon-Argonne-Purdue         collabo-
+ration at Fermilab [47]. As evident from Fig. 13c the measured cross section does not
+lack in events in the resonance region around 1.5 GeV although the overall statistics
+is still small. The relatively high cross section in this W-domain, however, suggests
+the possibility of a substantial interference between the lowest lying 4(1234) and the
+next higher Z = + resonances. So we may expect quite drastic distortions of the angular
+distribution as compared to the pure d case. In the following we thus pursue the
+interference of the four most important resonances below 1.7 GeV which are also
+most adjacent to each other. These are the P&1234) or d-resonance and three
+Z = i- resonances: D,,( 1525), ,!&(I 540) and the Roper resonance P,,(1450). Among
+those the Roper resonance, although least pronounced, is the most interesting object
+since it is the only resonance where the FKR model seemed to fail in predicting the
+sign of the photoproduction     amplitude. It would be quite important to see whether
+this failure can be confirmed or disproved in neutrino reactions.
+    To this end we focussed our attention on the changes of the angular distribution
+terms which arise from reversing the sign of the production amplitudes of the Roper
+resonance. In order to keep disturbing interplay from higher resonances small we
+ limited ourselves to the W region between threshold and N 1.5 GeV. At W = 1.5 GeV
+ essentially ail higher resonances are off by more than half a width and hence should
+ safely be negligible. The angular distribution of the pion in the NT center of mass
+ system can be written in the form (see Appendix for more details):
+
+                 W(P+;       0,   $1   x   ~~ooYoO      +   ~lOY1°     +   ~20Yz0   +   Q3oY3O
+                                       + alIRe Y,l + a,rRe Y,l + a,,Re Y,”
+                                       + a,rRe Y,l + a3zRe Y32
+                                       + b,,Im Y,l + b,,Im Y,l + b,,Im Y,”
+                                       + b,rTm Y,l + b,zfrn Y32}.                                (4.13)
+140                                 REIN   AND   SEHGAL
+
+
+The coefficients aik , bik are measurable relatively to each other at every value of W or
+in every W-interval. So it is convenient to normalize them with respect to a, calling
+
+
+                        di,( W) = -4 W>          h&“(W) = $g        .                (4.14)
+                                  aooW> ’                  00
+
+Then all Ciik , Jil, attain values between - 1 and + 1. They are expressible in terms of
+generalized density matrix elements as given in the Appendix.
+   The angular distribution (4.13) originating from four interfering resonances with
+rather different quantum numbers 1, J, P is much more involved than the correspond-
+ing formula (4.12) where only two resonances of equal quantum numbers were
+allowed to interfere. This complexity limits the number of resonances that can be
+included in considerations of this kind-not    in principle, but in practice. In the present
+case, there exists a fairly extended W-domain where not more than four interfering
+resonances need to be considered: Even so the representations of the aik and bik in
+terms of generalized density matrix elements pIi , which in turn are products of single
+resonance production amplitudes, appeared to be so complicated that they had to be
+banished to the Appendix. Nevertheless everything is fixed by the model and all
+coefficients aik and bi, are calculable as functions of the Jtr, invariant energy W.
+   The coefficient a,, which serves as a normalization factor was evaluated to see
+whether it agrees grossly with the W-distribution-a,         would coincide in shape with
+the W-distribution if no interference term entered du/dW. This coming out correctly
+we selected those coefficients ciik , &, for display which showed appreciable size and
+variation in W. These have been plotted in Fig. 15a-f for three options:
+
+      (i) the signs of the Roper resonance matrix elements are chosen according to
+the prescriptions of the FKR model,
+      (ii)   the Roper resonance is completely neglected,
+     (iii) the signs of the Roper resonance matrix elements are chosen opposite to
+those given by the FKR model.
+
+   All other coefficients are predicted to be in general nonzero but small.
+   Two features of the results are worth noting: First we observe that among the various
+coefficients the 6,, and &,-corresponding        to the imaginary parts of generalized
+density matrix elements-are       quite large and comparable to the coefficients 8,, ,
+ 1     A
+a20 9 a,, , cizI which contain only real parts of the pIi . This means that it would be
+misleading to term the gil, or some of the & “illegal” since all of them are really
+expected to exist in case of several interfering resonances and some of them are quite
+respectable.
+   A second equally important point concerns the behaviour of these coefficients under
+a change of sign of the Roper resonance. Inspection of Fig. 15 shows rather pronounced
+differences, concentrated between 1.3 and 1.5 GeV. This should be recognizable
+experimentally even if the data are not too abundant.
+                            NEUTRINO-EXCITATION        OF RESONANCES                             141
+
+
+
+
+   FIG. 15. Some coefficients Gil, and 6,,. of the angular distribution in the p-pa- channel at FNAL
+for interfering resonances 41234), D&1525), &(1540), P,,(1450). Our prediction (full line) is corn,
+pared with the cases P,,C1450) ---f --P,,(1450) (dashed) and P,,(145U)        0 (dotted).
+142   REIN   AND   SEHGAL
+                        NEUTRINO-EXCITATION     OF RESONANCES                         143
+
+  Some average coefficients
+
+
+                                                                                    (4.15)
+
+
+(W, = 1.4 or 1.55 GeV undergoing significant changes under sign reversal of the
+Roper matrix elements are collected in Table XI.
+   We should, however, keep in mind that all interference between resonances and
+nonresonant background has been left out so far although this might not be completely
+true. Thus our conclusions on angular distributions could change if such resonance-
+background interference turned out to be appreciable.
+
+
+                                     5. CONCLUSION
+
+   In this paper we made an attempt to explain all single pion production data up to an
+invariant ~Vrr energy of W = 2 GeV in a simple and coherent way using a suitable
+and well-tested quark model, the relativistic harmonic oscillator quark model of
+Feynman, Kislinger, and Ravndal. Extending the application of the model to the whole
+ W domain between the NT-threshold        and 2 GeV and including essentially all reso-
+nances of that mass region, allowing them to interfere where they overlap we have
+gone beyond previous approaches in this field. Now at the end it is worthwhile to recall
+the assumptions on which calculations were based, and the conclusions which are to be
+drawn from successesand failures of resulting predictions.
+   The basic idea was to describe the amplitude for every final J1/‘r state (14 in all for
+CC and NC neutrino and antineutrino reactions) as a coherent superposition of ail
+nucleon resonances between 1 and 2 GeV contributing to the particular xrr channel
+under consideration. The charged and neutral current induced transition matrix
+elements from a ground state nucleon to a resonance are calculable in the oscillator
+quark model once the resonance state is specified by its SW, classification and its
+radial excitation mode. The only parameter of the model to be newly adjusted is the
+axial form factor mass m, which was fixed to be mA = 0.95 GeV. For neutral current
+interactions we employed the Salam-Weinberg theory with sin20, put at 0.22. (The
+variation of some of the results with sin20, was studied but no better agreement
+with data emerged from a different choice.) The resonance decay part, aside from a
+relative sign provided by the model, has been taken as an experimental input. In
+fact we assumed the resonance decay amplitude to be a Breit-Wigner form properly
+ shaped and normalized, and including the measured elasticity factor which repre-
+sents the probability amplitude for singling out the r&Y state among the decay
+products. in addition to resonances a small amount of a simple incoherent nonreso-
+nant background was included improving the agreement with experiment on cross
+sections and various cross section ratios at the expense of one additional constant.
+   As a result of calculations based on the FKR model, complemented by these addi-
+144                               REIN   AND   SEHGAL
+
+
+tional assumptions, we found cross sections, W-distributions and angular distributions
+nicely in agreement with experimental measurements wherever data exist at lower or
+at higher energies. The most prominent d ++ resonance as studied in the p-p&
+channel is well described by the FKR model. This is not surprising since its excitation
+in neutrino reactions is mostlqi determined by CVC and PCAC, and all models
+fulfilling these requirements agree among themselves on the d-cross section. A more
+striking result appears in the (-p v - p+pc) channel. This is the first place where
+higher resonances of isospin i outshine the lowest lying d resonance which was by
+far the brightest one in other channels. There our calculations have almost quantita-
+tively reproduced the measured excitation pattern up to 2 GeV. Our consideration of
+decay angular distributions led us to a generalization of the existing density matrix
+formalism adapted to the case of several interfering resonances. In the p-prrf channel
+dominated by the A ++ resonance we found small distortions of the angular distribution
+caused by a higher Pa3 resonance at W = 1.64 GeV/c2 interfering with the tail of the
+A(1234). Quite substantial changes, however, are predicted to occur in the Z = -$
+enhanced channels p--w+ and p+pr, respectively. Here the four lowest lying reso-
+nances are found to interfere quite strongly leading to an angular distribution sensi-
+tive to any changes of relative signs. We show how various coefficients in the multi-
+pole expansion of this angular distribution change under reversal of the sign of the
+Roper resonance. This would constitute an independent determination of the signs of
+production amplitudes of this resonance which, unambiguously predicted by the FKR
+model, are the only ones at variance with experiments in photoproduction.       It would
+be interesting to see whether the same discrepancy arises in neutrino-production
+experiments.
+   Comparison with other models reveals no dramatic differences in the low W-
+domain, which is the only domain in which predictions have previously been made.
+However, the models do differ in detail, and particularly in the vector/axial vector
+decomposition of cross sections, as exemplified by Table V. We have also tried to
+check the sensitivity of our results to specific ingredients of the FKR model, for
+example the damping factor (1 - q2/4m.,v2) 1J2-* in the resonance transition form factor
+which depends on the number IZ of oscillator excitations. We found that dropping
+this factor led to a significant enhancement of the higher resonance region in compel-
+ling disagreement with data.
+   In comparing the model with experiment, we encountered only two possible signs
+of disagreement. The model-in        common with other competing models-does not
+produce any sizeable asymmetry between neutral current no production off protons
+and neutrons. The experimentally observed asymmetry [41] (which is, however, only a
+two standard deviation effect) ought to be checked by other measurements. Also,
+with our assumption of an incoherent I = Q background, we are unable to generate
+any angular asymmetries (around 0 = 7r/2 and 4 = r) in the p-pnf channel, for
+which some hint exists in the data. This deficiency, however, is directly linked to our
+approximate treatment of the background amplitude, and does not detract from the
+success of the model in describing resonance production. We must conclude that the
+FKR model, embellished with a small amount of nonresonant background, can
+                         NEUTRINO-EXCITATION OF RESONANCES                                  145
+
+provide a comprehensive understanding of a large amount of data on neutrino-
+production of single pions, giving added support to the basic picture of this process
+as a transition between different states of a 3-quark system, induced by external cuc-
+rents acting on quark constituents.
+
+
+APPENDIX:      (NV)-DENSITY MATRIX FORMALISMIN CASEOF SEVERALINTERFERING
+                                 RESONANCES
+
+  Our starting point is the general transition    amplitude
+
+
+
+where the contributing resonances J$ are labelled by a set of quantum numbers
+y including isospin, spin and parity. The unitarized production amplitude <NT,
+1 1&$ I N. v‘ is denoted by Ty and we call the projection amplitude on the final
+,4’7i- state
+
+
+For evaluating the angular distribution of the emitted particle 71 (or x) in the rest
+frame of the resonance J”,* (identical to the CMS of particles n and A’“) we have to
+specify their angles relative to a fixed direction. According to Gottfried and Jackson
+[ 151this is best done in terms of helicity amplitudes and we shall follow their guidelines.
+Let IWY,        4; b-, X, = 0> denote the two particle plane wave state containing
+helicity and angular information of the final state configuration. Jt can be expanded
+into angular momentum eigenstates according to
+                                                                      __-
+           I(.N-Tr), 0, y: x.1. 1 A,‘\ = c l.j, i, , A.,’ . A,>>,\ i’                   (A.3)
+                                         j,ir
+with the usual definitions
+
+                                  h = A”, - A, = A,, .
+
+
+
+
+Separating the angular momentum       quantum numbers from the rest of y we may write
+more explicitly instead of (A.2)
+
+
+
+
+Obviously the matrix element in the angular momentum          basis is rotationally   invariant
+146                                 REIN   AND   SEHGAL
+
+
+and does not depend on the magnetic quantum numberj, . It contains, however, the
+parity and isospin assignments of the states involved.
+  We may therefore abbreviate ( j, j, ; AN , h, 1y ; j, j,) by KY&., , X,,) = F’(h)
+showing the reflection symmetry property
+
+                 zP(-A”#- , -A,)   = &<JY(-l)+-sJy-8~        * @(A... , X,)          64.6)
+
+ with &, 5, , 5, denoting the intrinsic paritties of the corresponding particles. Since
+ s,, = A,, = 0 and sx = 4 there is only one P’()c) for each resonance Jv;* with definite I,
+j, P, and this reduces to an isospin Clebsch-Gordan coefficient
+
+
+
+
+In the following we may drop h, without losing transparency.
+   The whole transition matrix element (A.l) then takes the form
+
+
+
+
+and the (normalized)   decay angular distribution     is given by
+
+
+
+
+where we have to sum over the intermediate quantum numbers j, , ji and yy’ and on
+final and initial helicities if no nucleon polarization is measured. Hence
+
+
+
+
+where y stands for the triple of quantum numbers (I, j, P) of the resouance N*.         We
+have defined a generalized density matrix by
+                        NEUTRINO-EXCITATION          OF   RESONANCES                             147
+
+which may be normalized     according to
+
+                                                                                             (A.1 I)
+
+
+Expression (A.9) can be simplified        by use of Eq. (A.6)
+
+                          I?(-A)      = (- l)~“‘“~,c[(.N7r)Z,          ZJ.                   (A. 12)
+Defining
+                                                                                             (A.13)
+
+
+with the obvious symmetry property
+
+
+                                     z;;j,“*(e) = z;;;;*(e)                                  (A. 14)
+
+we then obtain the desired generalized angular distribution              of pions in the NT-center
+of mass frame:
+
+
+
+
+                                                                                             (A.15)
+
+where the sign cr, obtained by means of Eq. (A.l2), is positive if the interfering reso-
+nances have both equal spins (note that 2j is always odd) and equal parities, or if they
+have unequal parities and spins differing by one unit. For all other configurations v
+is negative.
+   Equation (A.15) is our general result used in Section 2.3, and will be subsequently
+discussed in some detail.
+       (i) A first remark applies to interfering resonances of equal parity. Since the
+decay process conserves parity the decay angular distribution can include only spherical
+harmonics of even rank. Consider for example two resonances with jP = $+. Then
+all angular momenta between 0 and 2J = 3 could occur but parity selects only two of
+them, namely I= 0, 2. On the other hand resonances with equal j but different
+parities-which     may well be produced simultaneously through the parity violating
+weak interaction-will    generate all spherical harmonics up to I,,, = 2j.
+       (ii) In the (pn+) channel probably the dominant interference takes place
+between two resonances of the same (Z,j, P), namely, P&1236) and P,,(l640). fn
+this case the angular distribution is only slightly different from the corresponding
+distribution of a pure P,, resonance:
+148                                                         REIN            AND     SEHGAL
+
+
+
+                                 YoOp- J-
+                                       z/J Y20 (B3 - f p) + -&                                           Re Yzl Re psi
+
+
+                 --v&            Re Ys2 Re A-l -~ ;G                                lm Y2’ Im &I + --&                       Im ~~2 Im p”3--1
+                                                                                                                                            1.
+                                                                                                                                          (A-16)
+
+We only have to note the more complicated                                               structure of pmm’              :
+
+
+
+
+                                         p?7WB =           jilPL,,                         P = ~Pm??z.                                    (A.17)
+
+
+Since pmm ’ now gets contributions from two resonances differing in their production
+matrix elements including the Breit-Wigner phases the nondiagonal elements with
+r # s are in general complex. This was also noted in the text.
+     (iii) In the mixed isospin channel (vn + PM+) or likewise (QJ -+ p+pr-),
+which is easier to measure things get more complicated since at least three prominent
+Z = 3 resonances are close to the leading P&1236). Those are the even parity
+P,1(1450) and the odd parity resonances Z&,(1525) and &(1540). We have developed
+our basic formula (A.15) to cover this situation and found the following result
+containing contributions from all TN orbital angular momenta up to I= 3.
+
+
+we, y>= ; ; {uooyo”
+                + UIOY1°
+                     + a,,YzO
+                            + ~30Y3°
+                 + a,, Re Y,l + as1 Re Y,l + a22 Re Yz2
+                 + u31 Re Y31 + as2 Re Ys2 + b,, Im Y,l + b,, Im Y2i
+                 + bz2Im Y22 + b,, Im Y,l + b,, Tm Yz2 + as3 Re Ys3 + b,, Im Ya3}.
+                                                                               (A.18)
+
+The coefficients uik , bik are rather complicated combinations of generalized density
+matrix elements given by the following set of equations where:
+
+
+      a,,,   =    fpdd       +   2cpDD     +       ppp      +      p”“),,                                                                (A.19a)
+
+      a 10   = Re            i I’% (Pfi          3/2   -     P%z            -312)   +     &   d/6   (p;‘p,   l,2   -       p$,2   +2)
+                         I
+
+
+
+                  + ; d3 (Pz2              l/2     -       P%         -Id
+
+                                                                                                                                         (A.19b)
+                      NEUTRINO-EXCITATION          OF   RESONANCFS                      149
+
+
+
+
+a,,   -= Re I-   g   d%   Cpfi---1,2 - P14D2-3/z    + P"P!, ?,I? - P"_& 1/d 1 3   (A.19i)
+ 150                                                                REIN            AND               SEHGAL.
+
+
+                              4
+        41   =   Im
+                          I   3 (&l/2           +        &la-s/a                      -          pfllDal3,2           -     p$,2.42)
+
+
+
+                 +    ;       46        aL2                -        PY,2             l/2)         +       &        d/3        (p$&2                    - P%ld
+
+                 -    2 d               (Pi72 l/2      +           P~52           -l/2)           -       4(pzz 1,s + py.2 -1,s)
+
+                 - 2x&p”” l/2                  -l/2        +        PZ,2,,2)                      -       4 4              @f&2                   +          pfP                         (A.19k)
+
+
+       b21 = Im               - ; If,% (P&z                               -        P%z-I,&                        - ; 6                  (p&,2                 -       p!3sr24,2)
+                          I
+
+
+                 + f lm                  (P,4’2 -l/2                                                                                                     -         ~:;,a    ~2)          (A.   190
+                                                               -         P~:,2            l/2)        +       ;   da            (pfls,     -I,2
+                                                                                                                                                                                    I9
+
+
+       b22   = lm I i V% (P3”pz -112 + p%2                                                   ~2) $ t ~6 (p$i                                -1,2 $ p!$2 ,,,)/, (A.19m)
+
+       b,, = Im               --g&3(                  PZ           l/Z        +      P%               -312        -        pi-:3312        -          &/z--1,2)
+                          I
+                      6
+                                                                                                                                                                                         (A.19n)
+
+                                                                                                                      AD
+                                                           112 -                  /+I2AD-312              -       p-112        8/Z +                                                     (A.190)
+
+       b,, = 0.                                                                                                                                                                          (A.19~)
+   It remains to express the various density matrix elements in terms of the helicity
+amplitudes of the respective resonances. This is done by recalling the definition (A. 10)
+of pg&, :
+                                                    P$             = +               1                (T,:~,)(T$;)*,
+                                                                                  9,==*1/2
+
+
+where T$z is the weak production amplitude of the resonance M$ in the helicity
+statej, including its proper Breit-Wigner amplitude (qy)*
+
+
+
+According to Eq. (2.11) this is written
+
+                 T,:j= = -4GWE                                       $                      (A’“:, jz 1uF- - vF+ 1N, s,>
+                                                           IJ
+
+                                   + 9                <Jv;*, .A I Fo ~‘224~I J-3 ~2) CT’)*,                                                                                              (A.21)
+                           NEUTRINO-EXCITATION         OF RESONANCES                          151
+
+which may be cast into the form
+
+
+
+Herein the following abbreviations have been used:
+
+
+
+
+                                  fl=     -4GWE        -+,                                 (A.23)
+                                                   J
+
+                                  6 = -4GWEF                 \%ii.
+
+
+incorporating the decay factor (qy)* into the matrix elements we finally obtain
+according to Eq. (2.30)
+
+         Ts*,j2= {-442j,t>*      $.,.+I   + ,6(“~12jzI)*sj,,sz+l + %4~gnh,d* si,.s,)       (A.24)
+
+and correspondingly
+
+             (T.$i)* == {--(~a$:1 Sj~.pz-l+ flaY;2jll ~j;,sp+-l-t- s~cbg~~(.c,)
+                                                                           sj:,szt.        (A.25)
+
+With the matrix elements TY now at hand we may easily evaluate every density matrix
+element of interest. For example,
+
+
+
+
+             = @2(ad,(q2, W))” aQq2, W)
+
+             = @2f!3(42, w)ffi,(q2> W)hA( w*            vD( W)                             (A.26)
+
+and all other density matrix elements appearing in Eq. (A. 19) are found in the same
+way.
+  This completes our discussion of resonance interference patterns in the ,Yn-
+angular distributions. Other casesof interest may be treated accordingly.
+
+
+                                    ACKNOWLEDGMENTS
+
+   We thankfully acknowledge untiring encouragement and advice from Professor Helmut Faissner.
+We have profited much from conversation and/or correspondence, with Drs. R. M. Bamett, A. J. G.
+Hey, E. H. Monsay, L. Oliver and F. Ravndal. We are deeply indebted to our experimental colleagues
+at Aachen who participated in the Aachen-Padua, Gargamelle and BEBC measurements. Special
+ 152                                    REIN   AND   SEHGAL
+
+
+thanks go to Drs. Martin Pohl from the Gargamelle collaboration and P. Allen from BEBC who
+met our questions and inquiries concerning the data with never-ending patience and cooperation.
+We would like to thank Professor R. Rodenberg for reading the final manuscript, and the German
+Bundesministerium fur Forschung und Technologie for financial support.
+
+
+
+                                            REFERENCES
+
+
+  1. R. P. FEYNMAN, M. KISUNGER, AND F. RAVNDAL., Phys. Rev. D 3 (1971), 2706.
+ 2.   G. KNIES, R. G. M~~RHOUSE, AND H. OBERLACK, Phys. Rev. D 9 (1974), 2680; R. G. MOORHOUSE,
+      in “Electromagnetic Interactions of Hadrons” (A. Donnachie and G. Shaw, Ed.), Vol. 1, Plenum,
+      New York/London, 1976, and references quoted therein.
+  3. F. RAVNDAL, Nuovo Cimento A 18 (1973), 385; Left. Nuovo Cimento 3 (1972), 631.
+  4. R. E. CUTKOSKY et al., Phys. Rev. D 20 (1979), 2839.
+  5. G. H&LER et al., “Handbook of Pion-Nucleon-Scattering,”         Fachinformationszentrum   Energie,
+      Physik, Mathematik, Karlsruhe 1979, Physik Daten, Vol. 12-7.
+  6. S. ADLER, Ann. Phys. (N.Y.) 50 (1968), 89; Phys. Rev. D 12 (1975), 2644; S. ADLER et al., Phys.
+      Rev. D 13 (1976), 1216.
+  7. P. SCHREINER,F. VON HIPPEL, Nucl. Phys. 858 (1973), 333.
+  8. L. F. ABBOTT AND R. M. BARNETT, Phys. Rev. D 18 (1978), 3214; E. H. MONSAY, Phys. Rev.
+      D 18 (1978), 2277.
+  9. P. ANDREADIS et al., Ann. Phys. (N. Y.) 88 (1974), 242; A. LE YAOUANC et al., Nucl. Phys. B 125
+     (1977), 243.
+10. T. ABDULLAH AND F. CLOSE, Phys. Rev. D 5 (1972), 2332.
+11. G. L. Foorr AND G. NARDULLI, Nuci. Phys. B160 (1979), 116; 165 (1980), 162.
+12. C. H. LLEWELLYN SMITH, Phys. Rep. C3 (1972), 264, and further references quoted therein.
+13. K. SASAKI, Nucl. Phys. BllO (1976), 434; 5. G. K~)RNER, T. KOBAYASHI, AND C. AVILEZ, Phys.
+     Rev. D 18 (1978), 3178; V. F. DUSHENKOet al., Soviet J. Nucl. Phys. 24 (1976), 344; M. BLAGOJEVIC,
+     preprint Boris Kidric Institute, Beograd, BKl-TP13, July 1979.
+14. See, e.g., Particle Data Group, “Review of Particle Properties,” April 1980 ed., reprinted from
+     Rev. Mod. Phys. 52, No. 2 (1980), 34.
+15. K. GOTTFRIED AND J. D. JACKSON, Nuovo Cimento 33 (1964), 309; J. D. JACKX)N, Les Houches
+      1965, p. 327.
+16. R. L. WALKER, Phys. Rev. 182 (1969), 1729.
+17. S. L. ADLER, “Proceedings of the VI Hawaii Topical Conference in Particle Physics, 1975”
+     (P. N. Dobson, S. Pakvasa, V. Z. Peterson, and S. F. Tuan, Eds.), Honolulu 1976.
+18. R. P. FEYNMAN, “Photon Hadron Interactions,” Benjamin, Reading, Mass., 1972; see also
+     Ref. [l, Appendix] and Ref. [17].
+19. P. N. B~GOLIUBOV,       Ann. Inst. Henri PoincarP A 8 (1968), 162.
+20. S. GLASHOW,      Nucl. Phys. 22 (1961), 579; S. WEINBERG, Phys. Rev. Lett. 19 (1967), 1264; A.
+     SALAM, in “Elementary Particle Theory” (N. Svartholm, Ed.), p. 367, Almquist & Wiksells,
+     Stockholm, 1968.
+21. F. SCIULLI, “Proceedings of the Topical Conference on Neutrino Physics, Oxford, 1978” (A. G.
+     Michette and P. B. Renton, Eds.), p. 405, Oxford, 1978.
+22. R. L. WALKER,        “Proceedings of the 4th International Symposium on Electron and Photon
+     Interactions at High Energies, Liverpool, 1970” (D. W. Braben and R. E. Rand, Eds.), Daresbury,
+     1970; see also Ref. [16].
+23. W. J. METCALF AM) R. L. WALKER, Nucl. Phys. B 76 (1974), 253; R. G. M~~RHOUSE AND H.
+     OBERLACK, Phys. Left. B 43 (1973), 44; see also Ref. [2].
+24. F. RAVNDAL,      Phys. Rev. 04 (1971), 1466.
+25. M. Dswrr, “Proceedings of the Topical Conference on Neutrino Physics, Oxford, 1978” (A. G.
+     Michette and P. B. Renton, Eds.), p. 75, Oxford, 1978.
+                              NEUTRINO-EXCITATION         OF RESONANCES                                153
+
+26. M.   ROLLIER,     “Proceedings of the Topical Conference on Neutrino Physics, Oxford, 1978”
+    A. G. Michette and P. B. Renton, Eds.), p. 68, Oxford, 1978.
+27. T. EICHTEN     et al., Phys.  Left. B 46 (1973), 281.
+28. J. J. SAKURAI,     Phys. Rev. Let?. 35 (1975),   1037.
+29. G. LEVMAN,      “Proceedings of the Topical Conference on Neutrino Physics, Oxford, 1978” (A. G.
+    Michette and P. B. Renton, Eds.), p. 58, Oxford, 1978.
+30. S. J. BARISH    et al., Phys.  Rev. D 19 (1979). 2521 : J. CAMPBELL ct ul., Whys. Rev. Lett. 30 (1973).
+      335.
+31.   J. BELL et al., Phys. Reu. Left. 41 (1978), 1008, 1012.
+32.   P. ALLEN   et al., Nucl. Phys. B 176 (1980),  269.
+ 33. M. JAFFRE,Gargamelle Collaboration,       private communication.
+ 34. B. W. LEE, Phys. Lett. 840 (1972), 420.
+ 35. G. L. FOGLI, Parity violating effects in the weak N?r production, Bari preprint, April 19X0.
+36. P. ALLEN,    BEBC Collaboration, private communication.
+ 37. M. POHL, “Proceedings of the Topical Conference on Neutrino Physics, Oxford, 1978” (A. G.
+      Michette and P. B. Renton, Eds.), p. 78, Oxford, 1978; Aachen thesis, 1978, unpublished:
+     W. LERCHE et al., Phys. Lett. B 78 (1978), 510.
+ 38. P. SCHREINER, “Proceedings of the 1979 International Symposium on Lepton and Photon
+     interactions at High Energies” (T. B. W. Kirk and H. D. I. Abarbanel, Ed.), p. 291, Batavia.
+     Ill., 1979.
+39. S. J. BARISH   et al., Phys. Rev. Lett. 33 (1974), 448; P. SCHREINER,     ‘*Proceedings of the Inter-
+     national Neutrino Conference, Aachen, 1976” (H. Faissner, H. Reithler, and P. Zerwas, Eds.).
+     p. 333, Vieweg, Braunschweig, 1977; M. DERRICK        rt al., Phys. Rev. D 23 (1981), 569.
+40. M. DERRICK et al., Phys. Lett. 892 (1980), 363.
+41. W. KRENZ et al., Nucl. Phys. B 135 (1978), 45.
+42. T. HANSL, “Proceedings of the International Neutrino Conference, Aachen, 1976” (H. Faissner.
+     H. Reithler, and P. Zerwas, eds.), p. 278, Vieweg, Braunschweig, 1977: H. FAISSNERet al., Phys.
+     Lett. B 68 (1977), 377; H. DE WITT, Aachen-Padova         Collaboration, talk presented at the Int.
+     Neutrino Conference, Erice, 1980.
+43. W. LEE, “Proceedings of the International Neutrino Conference, Aachen, 1976” (H. Faissner.
+     H. Reithler, and P. Zerwas, Eds.), p. 319, Vieweg, Braunschweig, 1977: W. LEE ei al.. Phys. Rer.
+     Lett. 38 (1977), 202.
+44. 0. ERRIQUESet al., Phys. Lett. B 73 (1978), 350.
+45. S. ADLER, Phys. Rev. Lett. 33 (1974) 1511; see also Ref. [17]; J. SAKURAI. Lecture Notes in
+     Physics, Vol. 56, p. 258, Springer-Verlag, BerlinHeidelberg,     New York.
+46. D. REIN AND L. SEHGAL, to be published: M. POHL, Aachen thesis, 1978, unpublished.
+47. S. J. BARISH et a/., Phys. Lett. B91 (1980), 161.
+48. T. BOL.OGNESEet al., Phys. Lett. B81 (1979), 393.
+
