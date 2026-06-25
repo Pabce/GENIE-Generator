@@ -50,7 +50,8 @@ public:
 
   // Save/load to/from XML file
   void               SaveAsXml   (const string & filename, bool save_init = true) const;
-  XmlParserStatus_t  LoadFromXml (const string & filename, bool keep = false);
+  XmlParserStatus_t  LoadFromXml (const string & filename, bool keep = false,
+                                  bool mark_as_loaded = true);
 
   // Print available splines
   void   Print (ostream & stream) const;
@@ -96,7 +97,51 @@ public:
   void   SetNKnots (int    nk); ///< set default number of knots for building the spline
   void   SetMinE   (double Ev); ///< set default minimum energy for xsec splines
   void   SetMaxE   (double Ev); ///< set default maximum energy for xsec splines
+  void   SetFastSplineEval (bool on); ///< skip below-threshold integrations and summarize per-knot timing
+  void   SetFastSplineKnots (int nk); ///< evaluate only this many above-threshold knots and interpolate the rest
+  void   SetFastRESSplineKnots (int nk); ///< RES-only exact-knot override
+  void   SetFastDISSplineKnots (int nk); ///< DIS-only exact-knot override
+  void   SetFastSplineChecks (int nk); ///< exact guard knots for sparse fast splines
+  void   SetFastRESSplineChecks (int nk); ///< RES-only exact guard knot override
+  void   SetFastDISSplineChecks (int nk); ///< DIS-only exact guard knot override
+  void   SetFastSplineTolerance (double tol); ///< max guard relative difference before exact fallback
+  void   SetFastSplineAreaTolerance (double tol); ///< max guard area-difference before exact fallback
+  void   SetFastCOHSplineTolerance (double tol); ///< COH-only sparse guard tolerance override
+  void   SetFastRESSplineTolerance (double tol); ///< RES-only sparse guard tolerance override
+  void   SetFastQELSplineTolerance (double tol); ///< QEL-only sparse guard tolerance override
+  void   SetFastDISSplineTolerance (double tol); ///< DIS-only sparse guard tolerance override
+  void   SetFastDISSplineAreaTolerance (double tol); ///< DIS-only sparse area tolerance override
+  void   SetFastSplineRefineRounds (int nr); ///< extra sparse guard-promotion rounds before exact fallback
+  void   SetFastRESSplineRefineRounds (int nr); ///< RES-only sparse guard-promotion rounds
+  void   SetFastRESSplineRefineTolerance (double tol); ///< RES-only guard tolerance that triggers refinement
+  void   SetFastQELSplineRefineRounds (int nr); ///< QEL-only sparse guard-promotion rounds
+  void   SetFastDISSplineRefineRounds (int nr); ///< DIS-only sparse guard-promotion rounds
+  void   SetFastDISSplineRefineTolerance (double tol); ///< DIS-only guard tolerance that triggers refinement
+  void   SetFastSplineKnotJobs (int nj); ///< worker processes for exact knot integrations inside one spline
+  void   SetFastSplineQuietKnotWorkers (bool on); ///< silence stdout/stderr in exact-knot worker children
   bool   UseLogE   (void) const { return fUseLogE;  }
+  bool   FastSplineEval (void) const { return fFastSplineEval; }
+  int    FastSplineKnots (void) const { return fFastSplineKnots; }
+  int    FastRESSplineKnots (void) const { return fFastRESSplineKnots; }
+  int    FastDISSplineKnots (void) const { return fFastDISSplineKnots; }
+  int    FastSplineChecks (void) const { return fFastSplineChecks; }
+  int    FastRESSplineChecks (void) const { return fFastRESSplineChecks; }
+  int    FastDISSplineChecks (void) const { return fFastDISSplineChecks; }
+  int    FastSplineRefineRounds (void) const { return fFastSplineRefineRounds; }
+  int    FastSplineKnotJobs (void) const { return fFastSplineKnotJobs; }
+  double FastSplineTolerance (void) const { return fFastSplineTolerance; }
+  double FastSplineAreaTolerance (void) const { return fFastSplineAreaTolerance; }
+  double FastCOHSplineTolerance (void) const { return fFastCOHSplineTolerance; }
+  double FastRESSplineTolerance (void) const { return fFastRESSplineTolerance; }
+  double FastQELSplineTolerance (void) const { return fFastQELSplineTolerance; }
+  double FastDISSplineTolerance (void) const { return fFastDISSplineTolerance; }
+  double FastDISSplineAreaTolerance (void) const { return fFastDISSplineAreaTolerance; }
+  int    FastRESSplineRefineRounds (void) const { return fFastRESSplineRefineRounds; }
+  double FastRESSplineRefineTolerance (void) const { return fFastRESSplineRefineTolerance; }
+  int    FastQELSplineRefineRounds (void) const { return fFastQELSplineRefineRounds; }
+  int    FastDISSplineRefineRounds (void) const { return fFastDISSplineRefineRounds; }
+  double FastDISSplineRefineTolerance (void) const { return fFastDISSplineRefineTolerance; }
+  bool   FastSplineQuietKnotWorkers (void) const { return fFastSplineQuietKnotWorkers; }
   int    NKnots    (void) const { return fNKnots;   }
   double Emin      (void) const { return fEmin;     }
   double Emax      (void) const { return fEmax;     }
@@ -110,6 +155,28 @@ private:
   static XSecSplineList * fInstance;
 
   bool   fUseLogE;
+  bool   fFastSplineEval;
+  int    fFastSplineKnots;
+  int    fFastRESSplineKnots;
+  int    fFastDISSplineKnots;
+  int    fFastSplineChecks;
+  int    fFastRESSplineChecks;
+  int    fFastDISSplineChecks;
+  int    fFastSplineRefineRounds;
+  int    fFastSplineKnotJobs;
+  double fFastSplineTolerance;
+  double fFastSplineAreaTolerance;
+  double fFastCOHSplineTolerance;
+  double fFastRESSplineTolerance;
+  double fFastQELSplineTolerance;
+  double fFastDISSplineTolerance;
+  double fFastDISSplineAreaTolerance;
+  int    fFastRESSplineRefineRounds;
+  double fFastRESSplineRefineTolerance;
+  int    fFastQELSplineRefineRounds;
+  int    fFastDISSplineRefineRounds;
+  double fFastDISSplineRefineTolerance;
+  bool   fFastSplineQuietKnotWorkers;
   int    fNKnots;
   double fEmin;
   double fEmax;

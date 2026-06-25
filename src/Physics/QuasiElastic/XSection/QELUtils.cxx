@@ -94,7 +94,7 @@ double genie::utils::ComputeFullQELPXSec(genie::Interaction* interaction,
   const genie::NuclearModelI* nucl_model, const genie::XSecAlgorithmI* xsec_model,
   double cos_theta_0, double phi_0, double& Eb,
   genie::QELEvGen_BindingMode_t hitNucleonBindingMode, double min_angle_EM,
-  bool bind_nucleon)
+  bool bind_nucleon, const genie::Range1D_t* q2lim_override)
 {
   // If requested, set the initial hit nucleon 4-momentum to be off-shell
   // according to the binding mode specified in the function call
@@ -182,8 +182,13 @@ double genie::utils::ComputeFullQELPXSec(genie::Interaction* interaction,
 
   // Check the Q2 range. If we're outside of it, don't bother
   // with the rest of the calculation.
-  Range1D_t Q2lim = interaction->PhaseSpace().Q2Lim();
-  if (Q2 < Q2lim.min || Q2 > Q2lim.max) return 0.;
+  Range1D_t q2lim_storage;
+  const Range1D_t* q2lim = q2lim_override;
+  if (!q2lim) {
+    q2lim_storage = interaction->PhaseSpace().Q2Lim();
+    q2lim = &q2lim_storage;
+  }
+  if (Q2 < q2lim->min || Q2 > q2lim->max) return 0.;
 
   // Compute the QE cross section for the current kinematics
   double xsec = xsec_model->XSec(interaction, genie::kPSQELEvGen);

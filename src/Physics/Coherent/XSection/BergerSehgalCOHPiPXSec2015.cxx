@@ -7,6 +7,8 @@
 */
 //____________________________________________________________________________
 
+#include <cstdlib>
+
 #include <TMath.h>
 
 #include "Framework/Algorithm/AlgConfigPool.h"
@@ -28,13 +30,17 @@ using namespace genie::utils;
 
 //____________________________________________________________________________
 BergerSehgalCOHPiPXSec2015::BergerSehgalCOHPiPXSec2015() :
-  XSecAlgorithmI("genie::BergerSehgalCOHPiPXSec2015")
+  XSecAlgorithmI("genie::BergerSehgalCOHPiPXSec2015"),
+  fTIntegrationSteps(100),
+  fAnalyticTIntegration(false)
 {
 
 }
 //____________________________________________________________________________
 BergerSehgalCOHPiPXSec2015::BergerSehgalCOHPiPXSec2015(string config) :
-  XSecAlgorithmI("genie::BergerSehgalCOHPiPXSec2015", config)
+  XSecAlgorithmI("genie::BergerSehgalCOHPiPXSec2015", config),
+  fTIntegrationSteps(100),
+  fAnalyticTIntegration(false)
 {
 
 }
@@ -137,34 +143,51 @@ double BergerSehgalCOHPiPXSec2015::XSec(
   double dsigdtfit   = 0.0;
   int    xsec_stat   = 0;
   double dsig        = 0.0;
-  double tstep       = 100;
-  double logt_step   = TMath::Abs(log(tmax) - log(tmin)) / tstep;
-  double logt        = log(tmin) - logt_step/2.0;
-  double t_itt       = TMath::Exp(logt);
-  double t_width     = 0.0;
 
-  for (double t_step = 0; t_step<tstep; t_step++) {
-
-    logt = logt + logt_step;
-    t_itt = TMath::Exp(logt);
-    t_width = t_itt*logt_step;
-
+  if(fAnalyticTIntegration) {
     if (tpi <= 1.0 && fRSPionXSec == false) {
-      xsec_stat =  utils::hadxs::berger::PionNucleusXSec(tpi, ppistar, t_itt, A, tpilow, siglow, tpihigh, sighigh);
-      if(xsec_stat){
-        LOG("BergerSehgalCohPi", pERROR) << "Call to PionNucleusXSec code failed - return xsec of 0.0";
+      double t_integral = 0.0;
+      if(!this->PionNucleusTIntegral(tpi, ppistar, tmin, tmax, A, t_integral)) {
+        LOG("BergerSehgalCohPi", pERROR) << "Call to PionNucleusTIntegral code failed - return xsec of 0.0";
         return 0.0;
       }
-      dsigdzfit = siglow + (sighigh - siglow) * (tpi - tpilow) / (tpihigh - tpilow);
-      dsigdtfit = dsigdzfit / (2.0 * ppistar * ppistar);
-      // we are handed a cross section in mb, need to convert it to GeV^{-2}
-      dsig +=   1.0  * front * Ga2 * t_width * dsigdtfit * units::mb;
+      dsig = front * Ga2 * t_integral * units::mb;
     }
     else {
-      dsig += /*factor **/ front * Ga2 * t_width * RS_factor * exp(-1.0*b*t_itt);
+      dsig = front * Ga2 * RS_factor * this->ExpIntegral(b, tmin, tmax);
     }
-
   }
+  else {
+    double tstep       = (double) fTIntegrationSteps;
+    double logt_step   = TMath::Abs(log(tmax) - log(tmin)) / tstep;
+    double logt        = log(tmin) - logt_step/2.0;
+    double t_itt       = TMath::Exp(logt);
+    double t_width     = 0.0;
+
+    for (int t_step = 0; t_step<fTIntegrationSteps; t_step++) {
+
+      logt = logt + logt_step;
+      t_itt = TMath::Exp(logt);
+      t_width = t_itt*logt_step;
+
+      if (tpi <= 1.0 && fRSPionXSec == false) {
+        xsec_stat =  utils::hadxs::berger::PionNucleusXSec(tpi, ppistar, t_itt, A, tpilow, siglow, tpihigh, sighigh);
+        if(xsec_stat){
+          LOG("BergerSehgalCohPi", pERROR) << "Call to PionNucleusXSec code failed - return xsec of 0.0";
+          return 0.0;
+        }
+        dsigdzfit = siglow + (sighigh - siglow) * (tpi - tpilow) / (tpihigh - tpilow);
+        dsigdtfit = dsigdzfit / (2.0 * ppistar * ppistar);
+        // we are handed a cross section in mb, need to convert it to GeV^{-2}
+        dsig +=   1.0  * front * Ga2 * t_width * dsigdtfit * units::mb;
+      }
+      else {
+        dsig += /*factor **/ front * Ga2 * t_width * RS_factor * exp(-1.0*b*t_itt);
+      }
+
+    }
+  }
+
   xsec = dsig;
 
   // Correction for finite final state lepton mass.
@@ -213,6 +236,70 @@ double BergerSehgalCOHPiPXSec2015::XSec(
     xsec *= J;
   }
   return xsec;
+}
+//____________________________________________________________________________
+double BergerSehgalCOHPiPXSec2015::ExpIntegral(
+  double slope, double xmin, double xmax) const
+{
+  if(xmax <= xmin) return 0.0;
+  if(TMath::Abs(slope) < 1E-14) return xmax - xmin;
+  return (TMath::Exp(-1.0 * slope * xmin) -
+          TMath::Exp(-1.0 * slope * xmax)) / slope;
+}
+//____________________________________________________________________________
+bool BergerSehgalCOHPiPXSec2015::PionNucleusTIntegral(
+  double tpi, double ppistar, double tmin, double tmax, double A,
+  double & integral) const
+{
+  integral = 0.0;
+  if(tmax <= tmin || ppistar <= 0.0) return true;
+
+  double binedges[13] = {0.000, 0.076, 0.080, 0.100, 0.148, 0.162, 0.226, 0.486, 0.584, 0.662, 0.766, 0.870, 1.000};
+  double parones[13]  = {0.0, 11600.0, 14700.0, 18300.0, 21300.0, 22400.0, 16400.0, 5730.0, 4610.0, 4570.0, 4930.0, 5140.0, 5140.0};
+  double partwos[13]  = {0.0, 116.0, 109.0, 89.8, 91.0, 89.2, 80.8, 54.6, 55.2, 58.4, 60.5, 62.2, 62.2};
+  double factors[13]  = {0.0, 0.1612, 0.1662, 0.1906, 0.2452, 0.2604, 0.3273, 0.5784, 0.6682, 0.7384, 0.8304, 0.9206, 0.9206};
+
+  if(tpi > binedges[12]) return false;
+  int btu = 1;
+  while(true){
+    if(tpi > binedges[btu]) btu++;
+    else                    break;
+  }
+  btu--;
+  if(btu < 0) btu = 0;
+
+  int low_bin = btu;
+  int high_bin = btu + 1;
+  if(high_bin > 12) high_bin = 12;
+
+  double tpilow  = binedges[low_bin];
+  double tpihigh = binedges[high_bin];
+  double frac = 0.0;
+  if(tpihigh > tpilow) frac = (tpi - tpilow) / (tpihigh - tpilow);
+
+  double a13 = TMath::Power(A / 12.0, 1.3333333);
+  double a23 = TMath::Power(A / 12.0, 0.6666666);
+  double ppistar2 = ppistar * ppistar;
+
+  double bin_integrals[2] = {0.0, 0.0};
+  int bins[2] = {low_bin, high_bin};
+  for(int ibin = 0; ibin < 2; ++ibin) {
+    int bin = bins[ibin];
+    if(bin == 0) {
+      bin_integrals[ibin] = 0.0;
+      continue;
+    }
+    double factor2 = factors[bin] * factors[bin];
+    double amplitude = 2.0 * factor2 * parones[bin] * a13;
+    double slope = partwos[bin] * a23 * factor2 / ppistar2;
+    bin_integrals[ibin] =
+      amplitude * this->ExpIntegral(slope, tmin, tmax);
+  }
+
+  double dz_integral =
+    (1.0 - frac) * bin_integrals[0] + frac * bin_integrals[1];
+  integral = dz_integral / (2.0 * ppistar2);
+  return true;
 }
 //____________________________________________________________________________
 double BergerSehgalCOHPiPXSec2015::ExactKinematicTerm(const Interaction * interaction) const
@@ -308,9 +395,34 @@ void BergerSehgalCOHPiPXSec2015::LoadConfig(void)
   // for all pion energies.
   GetParam( "COH-UseRSPionXSec", fRSPionXSec ) ;
 
+  fTIntegrationSteps = 100;
+  const char * t_steps_env =
+    std::getenv("GENIE_GMKSPL_FAST_COH_T_STEPS");
+  if(t_steps_env && t_steps_env[0] != '\0') {
+    int requested_steps = atoi(t_steps_env);
+    if(requested_steps > 0) {
+      fTIntegrationSteps = requested_steps;
+      LOG("BergerSehgalCohPi", pNOTICE)
+        << "Using gmkspl fast COH numeric t integration steps: "
+        << fTIntegrationSteps;
+    } else {
+      LOG("BergerSehgalCohPi", pWARN)
+        << "Ignoring invalid GENIE_GMKSPL_FAST_COH_T_STEPS="
+        << t_steps_env;
+    }
+  }
+
+  fAnalyticTIntegration = false;
+  const char * analytic_env =
+    std::getenv("GENIE_GMKSPL_FAST_COH_ANALYTIC_T");
+  if(analytic_env && analytic_env[0] != '\0' && atoi(analytic_env) != 0) {
+    fAnalyticTIntegration = true;
+    LOG("BergerSehgalCohPi", pNOTICE)
+      << "Using gmkspl fast COH analytic t integration";
+  }
+
   //-- load the differential cross section integrator
   fXSecIntegrator =
     dynamic_cast<const XSecIntegratorI *> (this->SubAlg("XSec-Integrator"));
   assert(fXSecIntegrator);
 }
-//____________________________________________________________________________

@@ -54,12 +54,18 @@ namespace genie {
 
       double ExactKinematicTerm(const Interaction * i) const;
       double PionCOMAbsMomentum(const Interaction * i) const;
+      double ExpIntegral(double slope, double xmin, double xmax) const;
+      bool   PionNucleusTIntegral(
+               double tpi, double ppistar, double tmin, double tmax,
+               double A, double & integral) const;
 
       //-- private data members loaded from config Registry or set to defaults
       double fMa;          ///< axial mass
       double fRo;          ///< nuclear size scale parameter
       double fCos8c2;      ///< cos^2(Cabibbo angle)
       bool fRSPionXSec;    ///< Use Rein-Sehgal "style" pion-nucleon xsecs
+      int  fTIntegrationSteps; ///< Number of steps in the numeric t integral
+      bool fAnalyticTIntegration; ///< Use closed-form t integration
 
       const XSecIntegratorI * fXSecIntegrator;
   };

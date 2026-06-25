@@ -1,0 +1,2 @@
+key,n_ref,n_cand,max_abs,max_rel,max_rel_energy,area_ref,area_cand,area_rel
+"G18_10a_02_11a/genie::NuElectronPXSec/Default/nu:14;tgt:11;proc:Weak[NC],NuEEL;",30,30,0.0,0.0,0.01,0.0,0.0,0.0

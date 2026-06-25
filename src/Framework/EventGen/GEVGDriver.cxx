@@ -9,8 +9,17 @@
 //____________________________________________________________________________
 
 #include <cassert>
+#include <cerrno>
+#include <cstdio>
 #include <cstdlib>
+#include <map>
 #include <sstream>
+#include <vector>
+
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
 #include <TSystem.h>
 #include <TMath.h>
@@ -41,9 +50,159 @@
 #include "Framework/Utils/PrintUtils.h"
 
 using std::ostringstream;
+using std::vector;
 
 using namespace genie;
 using namespace genie::controls;
+
+namespace {
+
+int SplineWorkerJobs()
+{
+  const char * jobs_env = std::getenv("GENIE_GMKSPL_SPLINE_JOBS");
+  if(!jobs_env || jobs_env[0] == '\0') return 1;
+  int jobs = atoi(jobs_env);
+  return TMath::Max(1, jobs);
+}
+
+string SplineWorkerOutputName(size_t job_index)
+{
+  const char * tmpdir_env = std::getenv("TMPDIR");
+  string tmpdir = (tmpdir_env && tmpdir_env[0] != '\0') ? tmpdir_env : ".";
+  if(tmpdir[tmpdir.size()-1] != '/') tmpdir += "/";
+
+  ostringstream filename;
+  filename << tmpdir << "gmkspl-spline-worker-" << getpid()
+           << "-" << job_index << ".xml";
+  return filename.str();
+}
+
+struct SplineWorkerInfo {
+  SplineWorkerInfo() : index(0), filename("") { }
+  SplineWorkerInfo(size_t i, const string & f) : index(i), filename(f) { }
+  size_t index;
+  string filename;
+};
+
+struct SplineBuildTask {
+  SplineBuildTask() :
+    alg(0), interaction(0), emin(0.), emax(0.), nknots(0), key("") { }
+  SplineBuildTask(
+    const genie::XSecAlgorithmI * a,
+    genie::Interaction * i,
+    double emin_in,
+    double emax_in,
+    int nknots_in,
+    const string & key_in) :
+    alg(a), interaction(i), emin(emin_in), emax(emax_in),
+    nknots(nknots_in), key(key_in) { }
+
+  const genie::XSecAlgorithmI * alg;
+  genie::Interaction * interaction;
+  double emin;
+  double emax;
+  int nknots;
+  string key;
+};
+
+bool BuildMissingSplinesParallel(
+  const vector<SplineBuildTask> & tasks,
+  int max_workers)
+{
+  if(max_workers <= 1 || tasks.size() <= 1) return false;
+
+  LOG("GEVGDriver", pNOTICE)
+    << "Building " << tasks.size()
+    << " missing splines with up to " << max_workers
+    << " per-spline worker processes";
+
+  std::map<pid_t, SplineWorkerInfo> workers;
+  size_t next = 0;
+  bool failed = false;
+
+  while(next < tasks.size() || !workers.empty()) {
+    while(!failed && next < tasks.size() &&
+          int(workers.size()) < max_workers) {
+      string worker_output = SplineWorkerOutputName(next);
+      const SplineBuildTask & task = tasks[next];
+      pid_t pid = fork();
+
+      if(pid < 0) {
+        LOG("GEVGDriver", pERROR)
+          << "Failed to fork spline worker for " << task.key;
+        failed = true;
+        break;
+      }
+
+      if(pid == 0) {
+        LOG("GEVGDriver", pNOTICE)
+          << "Worker building spline for " << task.key;
+        XSecSplineList * xsl = XSecSplineList::Instance();
+        xsl->SetMinE(task.emin);
+        xsl->SetMaxE(task.emax);
+        xsl->SetNKnots(task.nknots);
+        xsl->CreateSpline(task.alg, task.interaction);
+        xsl->SaveAsXml(worker_output, false);
+        _exit(0);
+      }
+
+      workers.insert(std::map<pid_t, SplineWorkerInfo>::value_type(
+        pid, SplineWorkerInfo(next, worker_output)));
+      ++next;
+    }
+
+    if(workers.empty()) break;
+
+    int status = 0;
+    pid_t done = 0;
+    do {
+      done = waitpid(-1, &status, 0);
+    } while(done < 0 && errno == EINTR);
+    if(done < 0) {
+      LOG("GEVGDriver", pERROR)
+        << "Failed while waiting for spline workers";
+      failed = true;
+      break;
+    }
+
+    std::map<pid_t, SplineWorkerInfo>::iterator wit = workers.find(done);
+    if(wit == workers.end()) continue;
+
+    SplineWorkerInfo info = wit->second;
+    workers.erase(wit);
+
+    bool exited_ok = WIFEXITED(status) && WEXITSTATUS(status) == 0;
+    if(!exited_ok) {
+      LOG("GEVGDriver", pERROR)
+        << "Spline worker failed for task index " << info.index;
+      std::remove(info.filename.c_str());
+      failed = true;
+      continue;
+    }
+
+    XmlParserStatus_t load_status =
+      XSecSplineList::Instance()->LoadFromXml(info.filename, true, false);
+    std::remove(info.filename.c_str());
+    if(load_status != kXmlOK) {
+      LOG("GEVGDriver", pERROR)
+        << "Could not import spline worker output: " << info.filename;
+      failed = true;
+    }
+  }
+
+  if(failed) {
+    std::map<pid_t, SplineWorkerInfo>::const_iterator wit;
+    for(wit = workers.begin(); wit != workers.end(); ++wit) {
+      kill(wit->first, SIGTERM);
+      std::remove(wit->second.filename.c_str());
+    }
+    std::exit(1);
+  }
+
+  return true;
+}
+
+} // namespace
 
 //____________________________________________________________________________
 namespace genie {
@@ -589,6 +748,11 @@ void GEVGDriver::CreateSplines(int nknots, double emax, bool useLogE)
 
   EventGeneratorList::const_iterator evgliter; // event generator list iter
   InteractionList::iterator          intliter; // interaction list iter
+  int spline_worker_jobs = SplineWorkerJobs();
+  vector<SplineBuildTask> spline_tasks;
+  // Keep these lists alive while queued tasks hold pointers to their entries.
+  vector<InteractionList *> deferred_lists;
+  std::map<string, bool> planned_splines;
 
   // loop over all EventGenerator objects used in the current job
   for(evgliter = fEvGenList->begin();
@@ -614,35 +778,38 @@ void GEVGDriver::CreateSplines(int nknots, double emax, bool useLogE)
      xsl -> SetMinE( Emin ) ;
 
      double valid_Emax = evgen->ValidityContext().Emax();
+     double build_emax = emax;
 
      // if the user set a maximum energy, create the spline up to this
      // energy - otherwise use the upper limit of the validity range of
      // the current generator
-     if ( emax > 0 ) {
-       if ( emax > valid_Emax ) {
+     if ( build_emax > 0 ) {
+       if ( build_emax > valid_Emax ) {
          LOG("GEVGDriver", pWARN)
            << "Refusing to exceed validity range: Emax = " << valid_Emax;
        }
-       emax = TMath::Min(emax,valid_Emax); // don't exceed validity range
+       build_emax = TMath::Min(build_emax,valid_Emax); // don't exceed validity range
      } else {
-       emax = valid_Emax;
+       build_emax = valid_Emax;
      }
 
-     assert( emax > Emin );
+     assert( build_emax > Emin );
 
-     xsl -> SetMaxE( emax ) ;
+     xsl -> SetMaxE( build_emax ) ;
 
      // number of knots: use specified number. If not set, use 15 knots
      // per decade. Don't use less than 30 knots.
-     if ( nknots < 0 ) {
-       nknots = (int) (15 * TMath::Log10(emax-Emin));
+     int build_nknots = nknots;
+     if ( build_nknots < 0 ) {
+       build_nknots = (int) (15 * TMath::Log10(build_emax-Emin));
      }
-     nknots = TMath::Max(nknots,30);
+     build_nknots = TMath::Max(build_nknots,30);
 
-     xsl -> SetNKnots( nknots ) ;
+     xsl -> SetNKnots( build_nknots ) ;
 
      // loop over all interactions that can be generated and ask the
      // appropriate cross section algorithm to compute its cross section
+     vector<Interaction *> missing_interactions;
      for(intliter = ilst->begin(); intliter != ilst->end(); ++intliter) {
 
          // current interaction
@@ -657,14 +824,61 @@ void GEVGDriver::CreateSplines(int nknots, double emax, bool useLogE)
              SLOG("GEVGDriver", pDEBUG)
                << "The spline wasn't loaded at initialization. "
                << "I can build it now but it might take a while...";
-             xsl->CreateSpline(alg, interaction) ;
+             if(spline_worker_jobs > 1) {
+               string key = xsl->BuildSplineKey(alg, interaction);
+               if(planned_splines.find(key) == planned_splines.end()) {
+                 spline_tasks.push_back(SplineBuildTask(
+                   alg, interaction, Emin, build_emax, build_nknots, key));
+                 planned_splines[key] = true;
+               }
+             } else {
+               missing_interactions.push_back(interaction);
+             }
          } else {
              SLOG("GEVGDriver", pDEBUG) << "Spline was found";
          }
      } // loop over interaction that can be generated by this generator
+
+     if(spline_worker_jobs > 1) {
+       deferred_lists.push_back(ilst);
+       ilst = 0;
+       continue;
+     }
+
+     if(!missing_interactions.empty()) {
+       xsl->SetMinE(Emin);
+       xsl->SetMaxE(build_emax);
+       xsl->SetNKnots(build_nknots);
+       vector<Interaction *>::const_iterator missing_iter;
+       for(missing_iter = missing_interactions.begin();
+           missing_iter != missing_interactions.end(); ++missing_iter) {
+         xsl->CreateSpline(alg, *missing_iter);
+       }
+     }
      delete ilst;
      ilst = 0;
   } // loop over event generators
+
+  if(spline_worker_jobs > 1 && !spline_tasks.empty()) {
+    bool built_parallel = BuildMissingSplinesParallel(
+      spline_tasks, spline_worker_jobs);
+    if(!built_parallel) {
+      vector<SplineBuildTask>::const_iterator task_iter;
+      for(task_iter = spline_tasks.begin();
+          task_iter != spline_tasks.end(); ++task_iter) {
+        xsl->SetMinE(task_iter->emin);
+        xsl->SetMaxE(task_iter->emax);
+        xsl->SetNKnots(task_iter->nknots);
+        xsl->CreateSpline(task_iter->alg, task_iter->interaction);
+      }
+    }
+  }
+
+  vector<InteractionList *>::iterator deferred_iter;
+  for(deferred_iter = deferred_lists.begin();
+      deferred_iter != deferred_lists.end(); ++deferred_iter) {
+    delete *deferred_iter;
+  }
 
   LOG("GEVGDriver", pINFO) << *xsl; // print list of splines
 

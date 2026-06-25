@@ -17,6 +17,7 @@
 #define _QEL_UTILS_H_
 
 #include "Framework/Interaction/Interaction.h"
+#include "Framework/Utils/Range1.h"
 #include "Physics/NuclearState/NuclearModelI.h"
 #include "Framework/EventGen/XSecAlgorithmI.h"
 
@@ -59,7 +60,7 @@ namespace genie {
       const NuclearModelI* nucl_model, const XSecAlgorithmI* xsec_model,
       double cos_theta_0, double phi_0, double& Eb,
       QELEvGen_BindingMode_t hitNucleonBindingMode, double min_angle_EM = 0.,
-      bool bind_nucleon = true);
+      bool bind_nucleon = true, const Range1D_t* q2lim_override = 0);
 
     double CosTheta0Max(const genie::Interaction& interaction);
 

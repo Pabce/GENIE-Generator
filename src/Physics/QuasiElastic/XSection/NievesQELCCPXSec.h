@@ -113,6 +113,14 @@ private:
   /// for integrating the Coulomb potential
   Nieves_Coulomb_Rmax_t fCoulombRmaxMode;
 
+  mutable bool fVcrCacheValid;
+  mutable int fVcrCacheA;
+  mutable int fVcrCacheZ;
+  mutable double fVcrCacheRcurr;
+  mutable double fVcrCacheRmax;
+  mutable double fVcrCacheScale;
+  mutable double fVcrCacheValue;
+
   //Functions needed to calculate XSec:
 
   // Calculates values of CN, CT, CL, and imU, and stores them in the provided

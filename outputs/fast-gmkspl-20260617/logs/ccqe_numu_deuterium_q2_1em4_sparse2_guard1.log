@@ -1,0 +1,380 @@
+
+
+********************************************************************************************************
+
+oooooo   oooooo     oooo       .o.       ooooooooo.   ooooo      ooo ooooo ooooo      ooo   .oooooo.    
+ `888.    `888.     .8'       .888.      `888   `Y88. `888b.     `8' `888' `888b.     `8'  d8P'  `Y8b   
+  `888.   .8888.   .8'       .8"888.      888   .d88'  8 `88b.    8   888   8 `88b.    8  888           
+   `888  .8'`888. .8'       .8' `888.     888ooo88P'   8   `88b.  8   888   8   `88b.  8  888           
+    `888.8'  `888.8'       .88ooo8888.    888`88b.     8     `88b.8   888   8     `88b.8  888     ooooo 
+     `888'    `888'       .8'     `888.   888  `88b.   8       `888   888   8       `888  `88.    .88'  
+      `8'      `8'       o88o     o8888o o888o  o888o o8o        `8  o888o o8o        `8   `Y8bood8P'   
+                                                                                                        
+
+********************************************************************************************************
+
+                                THIS IS A DEVELOPMENT VERSION OF GENIE.
+                      IT HAS *NOT* BEEN FULLY VALIDATED AND IT HAS EXPERIMENTAL FEATURES.
+
+                                   USE THIS VERSION AT YOUR OWN RISK.
+
+ If you prefer to use a version with validated physics content, please see http://releases.genie-mc.org
+
+                            Site managers, please don't remove this notice!
+
+
+ GENIE will continue running in 15 seconds...
+
+
+
+
+
+*****************************************************************************************************************
+*                                                                                                               *
+*                                                   .oooooo.    oooooooooooo ooooo      ooo ooooo oooooooooooo  *
+*                                                  d8P'  `Y8b   `888'     `8 `888b.     `8' `888' `888'     `8  *
+*                                                 888            888          8 `88b.    8   888   888          *
+*                        Ndyooym          dN      888            888oooo8     8   `88b.  8   888   888oooo8     *
+*                     Nds//+sdmoy       d+m       888     ooooo  888    "     8     `88b.8   888   888    "     *
+*                   Nh+//ohN  m+s      N//syyN    `88.    .88'   888       o  8       `888   888   888       o  *
+*                 Ny+//od   Nh+oN       o///+      `Y8bood8P'   o888ooooood8 o8o        `8  o888o o888ooooood8  *
+*               Nh+//om   Nh+/yN       o///s                                                                    *
+*              d+//+d   my+/smmyhN    m///h                                      NEUTRINO MONTE CARLO GENERATOR *
+*            Ns///yN NdyoshNNs///d   h////yN                                                                    *
+*           mo//om        ms///+m   d///////oyhmN                                           Version 999.999.999 *
+*          N+//yN       ms////+N    h////////////oym                                                            *
+*          s//h       ho/+///sN     N///////////////od                                  http://www.genie-mc.org *
+*         N+/h     my++yh+//y       s/////////////////oN                                                        *
+*         Ns/m Nmy++ymNh//+d        s//////////////////+m                                                       *
+*          NhssoshN  Ny//sN         m///////////////////+                                                       *
+*                  Nmo/+ohdmN        mo//////////////////h            NmmN                                      *
+*              ms/+s//o/-----:+sdN     mhso+ooys/////////o      mhs+/------/ohN                                 *
+*    Nhd     N+-/o+/o+------------/shN     Ndy+//////////+ mhs+:---------------om                               *
+*  mo/sN    m:/oo/oo:-----------------:://////////////////-----------------------y                              *
+*  y//d    Noo++o+:----------:------------:://///////////:-------:/+osyso/:-------h                             *
+*  Nyo+syysooo+/--------------::--------------:://///////:----::////+ossyso/------:                             *
+*     NNNNNs--------------------:/::-------------:://///:-:://////////oosyo+:------                             *
+*          y---------------------:////:::-----------:////////////////+o++++/:-----/                             *
+*          m-----------------------://////////////////////////////+so/--:---------y                             *
+*           +------------------------://////////////////////////+yy:---+oh/--:y+-/N                             *
+*           N/-------------------------://////////////////////ohy/-------yy--os-/m                              *
+*            No--------------------------://///////////////+shs/---------/d++/-oN                               *
+*              mo--------------------------:////////////+shyo:------------sy/sm                                 *
+*                Ny+:------------------------::://///oyhyo:--------------/sd                                    *
+*                    mhso+/:------------------:/+oyhyo/----------:/+syhm                                        *
+*                           NmddhyyyssssyyyhdmmNNNmhhhyyyyhhddmN                                                *
+*                                                                                                               *
+*                                                             Copyright (c) 2003-2025, The GENIE Collaboration  *
+*                                                                                                               *
+*                                                                                                               *
+* Luis Alvarez-Ruso [6], Costas Andreopoulos [9], Adi Ashkenazi [13], Joshua Barrow [10,13], Steve Dytman [12], *
+*      Hugh Gallagher [14], Alfonso Andres Garcia Soto [5,6], Steven Gardiner [4], Matan Goldenberg [13],       *
+*  Robert Hatcher [4], Or Hen [10], Igor Kakorin [8], Konstantin Kuzmin [7,8], Weijun Li [11], Liang Liu [4],   *
+*   Xianguo Lu [15], Anselmo Meregaglia [2], Vadim Naumov [8], Afroditi Papadopoulou [1], Gabriel Perdue [3],   *
+*   Komninos-John Plows [11], Marco Roda [9], Alon Sportes [13], Noah Steinberg [4], Vladyslav Syrotenko [14],  *
+*                         Júlia Tena Vidal [13], Jeremy Wolcott [14], and Qiyu Yan [3,15]                       *
+*                                                                                                               *
+*                                            (The GENIE Collaboration)                                          *
+*                                                                                                               *
+*                                      [1] Argonne National Laboratory (ANL)                                    *
+*                                 [2] CENBG, Université de Bordeaux, CNRS/IN2P3                                 *
+*                             [3] University of the Chinese Academy of Sciences (UCAS)                          *
+*                                 [4] Fermi National Accelerator Laboratory (FNAL)                              *
+*                                      [5] Harvard University, Dept. of Physics                                 *
+*                                     [6] Instituto de Física Corpuscular (IFIC)                                *
+*      [7] Alikhanov Institute for Theoretical and Experimental Physics (ITEP) of NRC "Kurchatov Institute"     *
+*                                  [8] Joint Institute for Nuclear Research (JINR)                              *
+*                                   [9] University of Liverpool, Dept. of Physics                               *
+*                         [10] Massachusetts Institute of Technology (MIT), Dept. of Physics                    *
+*                                    [11] University of Oxford, Dept. of Physics                                *
+*                            [12] University of Pittsburgh, Dept. of Physics and Astronomy                      *
+*                              [13] Tel Aviv University, School of Physics and Astronomy                        *
+*                                [14] Tufts University, Dept. of Physics and Astronomy                          *
+*                                     [15] Warwick University, Dept. of Physics                                 *
+*                                                                                                               *
+*  Corresponding Author:                                                                                        *
+*  -                                                                                                            *
+*  Professor Costas Andreopoulos                                                                                *
+*  University of Liverpool, Department of Physics                                                               *
+*  Oliver Lodge Lab 316, Liverpool L69 7ZE, UK                                                                  *
+*  E-Mail: c.andreopoulos \at cern.ch                                                                           *
+*  Tel: +44-(0)1517-943201                                                                                      *
+*****************************************************************************************************************
+
+
+1781654357 NOTICE Messenger : [s] <SetPrioritiesFromXmlFile (136)> : Reading msg stream priorities from XML file: /Users/pbarham/opt/genie-dev/config/Messenger.xml
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (463)> : Parsing command line arguments
+1781654357 INFO TuneId : [n] <TuneId.cxx::Build (132)> : G18_10a_02_11a Tune configured 
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (477)> : Reading output filename
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (491)> : Reading number of knots/spline
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (501)> : Reading maximum spline energy
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (511)> : Not copying input splines to output
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (517)> : Reading neutrino PDG codes
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (529)> : Reading target nuclei PDG codes
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (541)> : No geometry file was specified
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (566)> : Unspecified random number seed - Using default
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (575)> : Unspecified input cross-section file
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (596)> : Using sparse fast spline mode with 2 exact above-threshold knots
+1781654357 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (631)> : Using command-line --q2-min override for the minimum Q2 phase-space cut: 0.0001 GeV^2
+1781654357 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (655)> : 
+
+****************************
+  gmkspl job configuration  
+****************************
+
+ Neutrino PDG codes : 14
+ Target PDG codes : 1000010020
+ Input ROOT geometry : 
+ Output cross-section file : outputs/fast-gmkspl-20260617/xml/ccqe_numu_deuterium_q2_1em4_sparse2_guard1.xml
+ Input cross-section file : 
+ Random number seed : -1
+ Fast spline evaluation : YES
+ Sparse fast spline exact knots : 2
+ Sparse fast spline guard knots : 1
+ Sparse fast spline guard tolerance : 999
+ gmkspl worker processes : 1
+1781654357 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (671)> : 
+ Q2 minimum override : 0.0001 GeV^2
+1781654357 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (674)> : 
+
+1781654357 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (676)> : Global running options:
+ GENIE tune: Standard GENIE tune: G18_10a_02_11a
+ - Prefix ............... : G
+ - Year ................. : 18
+ - Major model ID ....... : 10
+ - Minor model ID ....... : a
+ - Tuned param set ID ... : 02
+ - Fit dataset ID ....... : 11a
+ - Tune directory ....... : /Users/pbarham/opt/genie-dev/config/G18_10a/G18_10a_02_11a
+ - Base directory ....... : /Users/pbarham/opt/genie-dev/config
+
+ Event generator list: CCQE
+ User-specified message thresholds : 
+ Cache file : 
+ Unphysical event mask (bits: 15 -> 0) : 1111111111111111
+ Event record print level : 3
+ MC job status file refresh rate: 50
+ Pre-calculate all free-nucleon cross-sections? : No
+
+1781654357 INFO RunOpt : [n] <RunOpt.cxx::BuildTune (94)> : Building tune G18_10a_02_11a
+1781654357 INFO TuneId : [n] <TuneId.cxx::Build (132)> : G18_10a_02_11a Tune configured 
+1781654357 NOTICE gmkspl : [n] <gMakeSplines.cxx::main (216)> : Overriding Q2 minimum phase-space cut from command line: 0.0001 GeV^2
+1781654357 WARN AppInit : [n] <AppInit.cxx::XSecTable (86)> : No cross-section file was specified in the application inputs
+1781654357 WARN AppInit : [n] <AppInit.cxx::XSecTable (87)> : If none is loaded, event generation might be inefficient
+1781654357 NOTICE gmkspl : [n] <gMakeSplines.cxx::main (234)> : Building neutrino and target code lists
+1781654358 NOTICE gmkspl : [n] <gMakeSplines.cxx::main (237)> : Built neutrino and target code lists in 1.20757 s
+1781654358 INFO gmkspl : [n] <gMakeSplines.cxx::main (252)> : Neutrinos: 
+[-]
+ |---o           nu_mu (PDG code = 14)
+1781654358 INFO gmkspl : [n] <gMakeSplines.cxx::main (253)> : Targets: 
+[-]
+ |---o              H2 (PDG code = 1000010020)
+1781654358 NOTICE gmkspl : [n] <gMakeSplines.cxx::BuildSplinesForInitialState (329)> : Configuring event-generation driver for initial state nu-pdg:14;tgt-pdg:1000010020;
+1781654358 NOTICE Rndm : [n] <RandomGen.cxx::SetSeed (87)> : Setting default random number seed at random number generator initialization: 65539
+1781654358 NOTICE Decay : [n] <Decayer.cxx::LoadConfig (221)> : 
+Configured to decay: 
+[-]
+ |---o            rho- (PDG code = -213)
+ |---o            rho0 (PDG code = 113)
+ |---o            rho+ (PDG code = 213)
+ |---o             eta (PDG code = 221)
+ |---o           omega (PDG code = 223)
+ |---o            eta' (PDG code = 331)
+ |---o             phi (PDG code = 333)
+ |---o          Delta- (PDG code = 1114)
+ |---o          Delta0 (PDG code = 2114)
+ |---o          Delta+ (PDG code = 2214)
+ |---o         Delta++ (PDG code = 2224)
+ |---o        N0(1535) (PDG code = 102112)
+ |---o        N0(1520) (PDG code = 102114)
+ |---o        N0(1675) (PDG code = 102116)
+ |---o        N+(1535) (PDG code = 102212)
+ |---o        N+(1520) (PDG code = 102214)
+ |---o        N+(1675) (PDG code = 102216)
+ |---o    Delta-(1620) (PDG code = 111112)
+ |---o    Delta0(1620) (PDG code = 112112)
+ |---o        N0(1700) (PDG code = 112114)
+ |---o    Delta+(1620) (PDG code = 112212)
+ |---o        N+(1700) (PDG code = 112214)
+ |---o     Delta++1620 (PDG code = 112222)
+ |---o    Delta-(1700) (PDG code = 121114)
+ |---o    Delta0(1700) (PDG code = 122114)
+ |---o    Delta+(1700) (PDG code = 122214)
+ |---o     Delta++1700 (PDG code = 122224)
+ |---o        N0(1650) (PDG code = 132112)
+ |---o        N+(1650) (PDG code = 132212)
+ |---o    Delta-(1950) (PDG code = 201118)
+ |---o        N0(1440) (PDG code = 202112)
+ |---o        N0(1720) (PDG code = 202114)
+ |---o        N0(1680) (PDG code = 202116)
+ |---o    Delta0(1950) (PDG code = 202118)
+ |---o        N+(1440) (PDG code = 202212)
+ |---o        N+(1720) (PDG code = 202214)
+ |---o        N+(1680) (PDG code = 202216)
+ |---o    Delta+(1950) (PDG code = 202218)
+ |---o   Delta++(1950) (PDG code = 202228)
+ |---o    Delta-(1600) (PDG code = 211114)
+ |---o    Delta-(1905) (PDG code = 211116)
+ |---o        N0(1710) (PDG code = 212112)
+ |---o    Delta0(1600) (PDG code = 212114)
+ |---o    Delta0(1905) (PDG code = 212116)
+ |---o        N0(1970) (PDG code = 212118)
+ |---o        N+(1710) (PDG code = 212212)
+ |---o    Delta+(1600) (PDG code = 212214)
+ |---o    Delta+(1905) (PDG code = 212216)
+ |---o        N+(1970) (PDG code = 212218)
+ |---o   Delta++(1600) (PDG code = 212224)
+ |---o   Delta++(1905) (PDG code = 212226)
+ |---o    Delta-(1910) (PDG code = 221112)
+ |---o    Delta-(1920) (PDG code = 221114)
+ |---o    Delta0(1910) (PDG code = 222112)
+ |---o    Delta0(1920) (PDG code = 222114)
+ |---o    Delta+(1910) (PDG code = 222212)
+ |---o    Delta+(1920) (PDG code = 222214)
+ |---o     Delta++1910 (PDG code = 222222)
+ |---o   Delta++(1920) (PDG code = 222224)
+Configured to inhibit decays of: 
+[-]
+ |---o            D_s- (PDG code = -431)
+ |---o          D0_bar (PDG code = -421)
+ |---o              D- (PDG code = -411)
+ |---o              W- (PDG code = -24)
+ |---o            tau+ (PDG code = -15)
+ |---o            tau- (PDG code = 15)
+ |---o             pi0 (PDG code = 111)
+ |---o              D+ (PDG code = 411)
+ |---o              D0 (PDG code = 421)
+ |---o            D_s+ (PDG code = 431)
+ |---o        Sigma_c0 (PDG code = 4112)
+ |---o       Lambda_c+ (PDG code = 4122)
+ |---o        Sigma_c+ (PDG code = 4212)
+ |---o       Sigma_c++ (PDG code = 4222)
+
+1781654358 NOTICE Decay : [n] <Decayer.cxx::LoadConfig (221)> : 
+Configured to decay: 
+[-]
+ |---o            rho- (PDG code = -213)
+ |---o            rho0 (PDG code = 113)
+ |---o            rho+ (PDG code = 213)
+ |---o             eta (PDG code = 221)
+ |---o           omega (PDG code = 223)
+ |---o            eta' (PDG code = 331)
+ |---o             phi (PDG code = 333)
+ |---o          Delta- (PDG code = 1114)
+ |---o          Delta0 (PDG code = 2114)
+ |---o          Delta+ (PDG code = 2214)
+ |---o         Delta++ (PDG code = 2224)
+ |---o        N0(1535) (PDG code = 102112)
+ |---o        N0(1520) (PDG code = 102114)
+ |---o        N0(1675) (PDG code = 102116)
+ |---o        N+(1535) (PDG code = 102212)
+ |---o        N+(1520) (PDG code = 102214)
+ |---o        N+(1675) (PDG code = 102216)
+ |---o    Delta-(1620) (PDG code = 111112)
+ |---o    Delta0(1620) (PDG code = 112112)
+ |---o        N0(1700) (PDG code = 112114)
+ |---o    Delta+(1620) (PDG code = 112212)
+ |---o        N+(1700) (PDG code = 112214)
+ |---o     Delta++1620 (PDG code = 112222)
+ |---o    Delta-(1700) (PDG code = 121114)
+ |---o    Delta0(1700) (PDG code = 122114)
+ |---o    Delta+(1700) (PDG code = 122214)
+ |---o     Delta++1700 (PDG code = 122224)
+ |---o        N0(1650) (PDG code = 132112)
+ |---o        N+(1650) (PDG code = 132212)
+ |---o    Delta-(1950) (PDG code = 201118)
+ |---o        N0(1440) (PDG code = 202112)
+ |---o        N0(1720) (PDG code = 202114)
+ |---o        N0(1680) (PDG code = 202116)
+ |---o    Delta0(1950) (PDG code = 202118)
+ |---o        N+(1440) (PDG code = 202212)
+ |---o        N+(1720) (PDG code = 202214)
+ |---o        N+(1680) (PDG code = 202216)
+ |---o    Delta+(1950) (PDG code = 202218)
+ |---o   Delta++(1950) (PDG code = 202228)
+ |---o    Delta-(1600) (PDG code = 211114)
+ |---o    Delta-(1905) (PDG code = 211116)
+ |---o        N0(1710) (PDG code = 212112)
+ |---o    Delta0(1600) (PDG code = 212114)
+ |---o    Delta0(1905) (PDG code = 212116)
+ |---o        N0(1970) (PDG code = 212118)
+ |---o        N+(1710) (PDG code = 212212)
+ |---o    Delta+(1600) (PDG code = 212214)
+ |---o    Delta+(1905) (PDG code = 212216)
+ |---o        N+(1970) (PDG code = 212218)
+ |---o   Delta++(1600) (PDG code = 212224)
+ |---o   Delta++(1905) (PDG code = 212226)
+ |---o    Delta-(1910) (PDG code = 221112)
+ |---o    Delta-(1920) (PDG code = 221114)
+ |---o    Delta0(1910) (PDG code = 222112)
+ |---o    Delta0(1920) (PDG code = 222114)
+ |---o    Delta+(1910) (PDG code = 222212)
+ |---o    Delta+(1920) (PDG code = 222214)
+ |---o     Delta++1910 (PDG code = 222222)
+ |---o   Delta++(1920) (PDG code = 222224)
+Configured to inhibit decays of: 
+[-]
+ |---o            D_s- (PDG code = -431)
+ |---o          D0_bar (PDG code = -421)
+ |---o              D- (PDG code = -411)
+ |---o              W- (PDG code = -24)
+ |---o            tau+ (PDG code = -15)
+ |---o            tau- (PDG code = 15)
+ |---o             pi0 (PDG code = 111)
+ |---o              D+ (PDG code = 411)
+ |---o              D0 (PDG code = 421)
+ |---o            D_s+ (PDG code = 431)
+ |---o        Sigma_c0 (PDG code = 4112)
+ |---o       Lambda_c+ (PDG code = 4122)
+ |---o        Sigma_c+ (PDG code = 4212)
+ |---o       Sigma_c++ (PDG code = 4222)
+
+1781654358 NOTICE Nieves : [n] <NievesQELCCPXSec.cxx::LoadConfig (435)> : RPA=1, useCoulomb=1
+1781654358 INFO TransverseEnhancementFFModel : [n] <ConfigIsotopeMapUtils.cxx::LoadAllNucARangesForKey (61)> : For 0 < A < 12 -> using MagFF_RT_A = 0
+1781654358 INFO TransverseEnhancementFFModel : [n] <ConfigIsotopeMapUtils.cxx::LoadAllNucARangesForKey (61)> : For 11 < A < 420 -> using MagFF_RT_A = 5.19
+1781654358 INFO TransverseEnhancementFFModel : [n] <ConfigIsotopeMapUtils.cxx::LoadAllNucARangesForKey (61)> : For 0 < A < 12 -> using MagFF_RT_B = 1
+1781654358 INFO TransverseEnhancementFFModel : [n] <ConfigIsotopeMapUtils.cxx::LoadAllNucARangesForKey (61)> : For 11 < A < 420 -> using MagFF_RT_B = 0.376
+1781654358 NOTICE gmkspl : [n] <gMakeSplines.cxx::BuildSplinesForInitialState (336)> : Configured event-generation driver for initial state nu-pdg:14;tgt-pdg:1000010020; in 0.199312 s
+1781654358 WARN XSecSplLst : [s] <SplineExists (229)> : No splines for tune G18_10a_02_11a were found!
+1781654358 NOTICE XSecSplLst : [s] <CreateSpline (290)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::NievesQELCCPXSec/Dipole - Owns Substruc: [false]
+[-] Registry name: [genie::NievesQELCCPXSec/Dipole_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  34
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : CKM,FermiGas,NUCL
+ |-----------------------------------------> Coulomb   [bool] [unlocked] [l] : 1
+ |---------------------------------> DoPauliBlocking   [bool] [unlocked] [l] : 1
+ |------------------------------> FermiMomentumTable [string] [unlocked] [l] : Default
+ |----------------------------------> FormFactorsAlg    [alg] [unlocked] [l] : genie::LwlynSmithFFCC/Dipole
+ |------------> IntegralNuclearInfluenceCutoffEnergy [double] [unlocked] [l] : 10
+ |----------------------------> IntegralNuclearModel    [alg] [unlocked] [l] : genie::NuclearModelMap/Default
+ |----------------------> IntegralNucleonBindingMode [string] [unlocked] [l] : UseNuclearModel
+ |-----------------------------------------> NUCL-NR [double] [unlocked] [l] : 3
+ |-----------------------------------------> NUCL-R0 [double] [unlocked] [l] : 1.4
+ |---------------------------------> PauliBlockerAlg    [alg] [unlocked] [l] : genie::PauliBlocker/Default
+ |----------------------------------> PrintDebugData   [bool] [unlocked] [l] : 0
+ |--------------------------------> QEL-CC-XSecScale [double] [unlocked] [l] : 1
+ |--------------------------------> QEL-NC-XSecScale [double] [unlocked] [l] : 1
+ |------------------------------> RFG-MomentumCutOff [double] [unlocked] [l] : 0.5
+ |------------------> RFG-NucRemovalE@Pdg=1000030060 [double] [unlocked] [l] : 0.017
+ |------------------> RFG-NucRemovalE@Pdg=1000060120 [double] [unlocked] [l] : 0.025
+ |------------------> RFG-NucRemovalE@Pdg=1000080160 [double] [unlocked] [l] : 0.027
+ |------------------> RFG-NucRemovalE@Pdg=1000120240 [double] [unlocked] [l] : 0.032
+ |------------------> RFG-NucRemovalE@Pdg=1000180400 [double] [unlocked] [l] : 0.0295
+ |------------------> RFG-NucRemovalE@Pdg=1000200400 [double] [unlocked] [l] : 0.028
+ |------------------> RFG-NucRemovalE@Pdg=1000220480 [double] [unlocked] [l] : 0.03
+ |------------------> RFG-NucRemovalE@Pdg=1000260560 [double] [unlocked] [l] : 0.036
+ |------------------> RFG-NucRemovalE@Pdg=1000280580 [double] [unlocked] [l] : 0.036
+ |------------------> RFG-NucRemovalE@Pdg=1000822080 [double] [unlocked] [l] : 0.044
+ |--------------------------> RFG-UseParametrization   [bool] [unlocked] [l] : 0
+ |---------------------------------------------> RPA   [bool] [unlocked] [l] : 1
+ |----------------------------------------> RmaxMode [string] [unlocked] [l] : VertexGenerator
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::NewQELXSec/Default
+
+1781654358 NOTICE XSecSplLst : [s] <CreateSpline (316)> : Energy threshold for current interaction = 0.110161 GeV
+1781654389 NOTICE XSecSplLst : [s] <CreateSpline (490)> : Sparse fast spline genie::NievesQELCCPXSec/Dipole/nu:14;tgt:1000010020;N:2112;proc:Weak[CC],QES;: evaluated 3/30 knots in 30.7671 s integral time (30.7671 s wall time), interpolated 22, skipped 6 at/below-threshold knots, guard worst_rel=0.485099 at knot 18, fallback=NO
+1781654389 NOTICE gmkspl : [n] <gMakeSplines.cxx::BuildSplinesForInitialState (342)> : Created splines for initial state nu-pdg:14;tgt-pdg:1000010020; in 30.7681 s; total initial-state time 30.9675 s
+1781654389 NOTICE XSecSplLst : [s] <SaveAsXml (644)> : Saving XSecSplineList as XML in file: outputs/fast-gmkspl-20260617/xml/ccqe_numu_deuterium_q2_1em4_sparse2_guard1.xml

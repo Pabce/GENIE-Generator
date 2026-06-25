@@ -46,6 +46,7 @@ namespace utils {
        double DoEval(const double* xin) const;
        ROOT::Math::IBaseFunctionMultiDim* Clone(void) const;
 
+       void PrepareForIntegral();
        Interaction* GetInteractionPtr();
        const Interaction& GetInteraction() const;
 
@@ -55,6 +56,8 @@ namespace utils {
        Interaction* fInteraction;
        QELEvGen_BindingMode_t fHitNucleonBindingMode;
        double fMinAngleEM;
+       Range1D_t fCachedQ2Lim;
+       bool fHasCachedQ2Lim;
     };
 
   } // gsl   namespace
@@ -89,6 +92,9 @@ private:
   AlgId fVertexGenID;
   int fNumNucleonThrows;
   double fMinAngleEM;
+  bool fFastSkipKinematicCheck;
+  int fFastLowEnergyNucleonThrows;
+  double fFastLowEnergyThrowMaxE;
 
   // If false, the total cross section will be computed by integrating over
   // lepton scattering angles while preserving the momentum and removal energy

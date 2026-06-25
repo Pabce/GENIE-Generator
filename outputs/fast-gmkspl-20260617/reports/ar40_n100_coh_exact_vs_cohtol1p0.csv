@@ -1,0 +1,3 @@
+key,n_ref,n_cand,max_abs,max_rel,max_rel_energy,area_ref,area_cand,area_rel
+"G18_10a_02_11a/genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000180400;proc:Weak[NC],COH;hmult:(p=0,n=0,pi+=0,pi-=0,pi0=1,gamma=0,rho+=0,rho-=0,rho0=0);",100,100,1.3468104769999986e-13,0.7983098957487498,0.19617,2.453600142934203e-10,2.4646127548707314e-10,0.004468293006584785
+"G18_10a_02_11a/genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000180400;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);",100,100,1.9351342970000026e-13,0.628024304393717,0.34138,4.659337561064655e-10,4.676267317932797e-10,0.0036203569464942483

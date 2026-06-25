@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<messenger_config>
+  <!-- Keep XSecSplLst NOTICE summaries, but mute the high-volume
+       unphysical-x warnings that dominate full-list spline logs. -->
+  <priority msgstream="Interaction">ERROR</priority>
+  <priority msgstream="Kinematics">ERROR</priority>
+</messenger_config>

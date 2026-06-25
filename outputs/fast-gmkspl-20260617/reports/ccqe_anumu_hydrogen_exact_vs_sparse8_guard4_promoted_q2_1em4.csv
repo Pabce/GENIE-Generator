@@ -1,0 +1,2 @@
+key,n_ref,n_cand,max_abs,max_rel,max_rel_energy,area_ref,area_cand,area_rel
+"G18_10a_02_11a/genie::NievesQELCCPXSec/Dipole/nu:-14;tgt:1000010010;N:2212;proc:Weak[CC],QES;",30,30,2.1334236500000005e-13,0.01642409279570458,0.3414,6.879301561683285e-11,6.848076274308314e-11,0.00453902000006676

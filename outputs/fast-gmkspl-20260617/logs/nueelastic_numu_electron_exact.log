@@ -1,0 +1,215 @@
+
+
+********************************************************************************************************
+
+oooooo   oooooo     oooo       .o.       ooooooooo.   ooooo      ooo ooooo ooooo      ooo   .oooooo.    
+ `888.    `888.     .8'       .888.      `888   `Y88. `888b.     `8' `888' `888b.     `8'  d8P'  `Y8b   
+  `888.   .8888.   .8'       .8"888.      888   .d88'  8 `88b.    8   888   8 `88b.    8  888           
+   `888  .8'`888. .8'       .8' `888.     888ooo88P'   8   `88b.  8   888   8   `88b.  8  888           
+    `888.8'  `888.8'       .88ooo8888.    888`88b.     8     `88b.8   888   8     `88b.8  888     ooooo 
+     `888'    `888'       .8'     `888.   888  `88b.   8       `888   888   8       `888  `88.    .88'  
+      `8'      `8'       o88o     o8888o o888o  o888o o8o        `8  o888o o8o        `8   `Y8bood8P'   
+                                                                                                        
+
+********************************************************************************************************
+
+                                THIS IS A DEVELOPMENT VERSION OF GENIE.
+                      IT HAS *NOT* BEEN FULLY VALIDATED AND IT HAS EXPERIMENTAL FEATURES.
+
+                                   USE THIS VERSION AT YOUR OWN RISK.
+
+ If you prefer to use a version with validated physics content, please see http://releases.genie-mc.org
+
+                            Site managers, please don't remove this notice!
+
+
+ GENIE will continue running in 15 seconds...
+
+
+
+
+
+*****************************************************************************************************************
+*                                                                                                               *
+*                                                   .oooooo.    oooooooooooo ooooo      ooo ooooo oooooooooooo  *
+*                                                  d8P'  `Y8b   `888'     `8 `888b.     `8' `888' `888'     `8  *
+*                                                 888            888          8 `88b.    8   888   888          *
+*                        Ndyooym          dN      888            888oooo8     8   `88b.  8   888   888oooo8     *
+*                     Nds//+sdmoy       d+m       888     ooooo  888    "     8     `88b.8   888   888    "     *
+*                   Nh+//ohN  m+s      N//syyN    `88.    .88'   888       o  8       `888   888   888       o  *
+*                 Ny+//od   Nh+oN       o///+      `Y8bood8P'   o888ooooood8 o8o        `8  o888o o888ooooood8  *
+*               Nh+//om   Nh+/yN       o///s                                                                    *
+*              d+//+d   my+/smmyhN    m///h                                      NEUTRINO MONTE CARLO GENERATOR *
+*            Ns///yN NdyoshNNs///d   h////yN                                                                    *
+*           mo//om        ms///+m   d///////oyhmN                                           Version 999.999.999 *
+*          N+//yN       ms////+N    h////////////oym                                                            *
+*          s//h       ho/+///sN     N///////////////od                                  http://www.genie-mc.org *
+*         N+/h     my++yh+//y       s/////////////////oN                                                        *
+*         Ns/m Nmy++ymNh//+d        s//////////////////+m                                                       *
+*          NhssoshN  Ny//sN         m///////////////////+                                                       *
+*                  Nmo/+ohdmN        mo//////////////////h            NmmN                                      *
+*              ms/+s//o/-----:+sdN     mhso+ooys/////////o      mhs+/------/ohN                                 *
+*    Nhd     N+-/o+/o+------------/shN     Ndy+//////////+ mhs+:---------------om                               *
+*  mo/sN    m:/oo/oo:-----------------:://////////////////-----------------------y                              *
+*  y//d    Noo++o+:----------:------------:://///////////:-------:/+osyso/:-------h                             *
+*  Nyo+syysooo+/--------------::--------------:://///////:----::////+ossyso/------:                             *
+*     NNNNNs--------------------:/::-------------:://///:-:://////////oosyo+:------                             *
+*          y---------------------:////:::-----------:////////////////+o++++/:-----/                             *
+*          m-----------------------://////////////////////////////+so/--:---------y                             *
+*           +------------------------://////////////////////////+yy:---+oh/--:y+-/N                             *
+*           N/-------------------------://////////////////////ohy/-------yy--os-/m                              *
+*            No--------------------------://///////////////+shs/---------/d++/-oN                               *
+*              mo--------------------------:////////////+shyo:------------sy/sm                                 *
+*                Ny+:------------------------::://///oyhyo:--------------/sd                                    *
+*                    mhso+/:------------------:/+oyhyo/----------:/+syhm                                        *
+*                           NmddhyyyssssyyyhdmmNNNmhhhyyyyhhddmN                                                *
+*                                                                                                               *
+*                                                             Copyright (c) 2003-2025, The GENIE Collaboration  *
+*                                                                                                               *
+*                                                                                                               *
+* Luis Alvarez-Ruso [6], Costas Andreopoulos [9], Adi Ashkenazi [13], Joshua Barrow [10,13], Steve Dytman [12], *
+*      Hugh Gallagher [14], Alfonso Andres Garcia Soto [5,6], Steven Gardiner [4], Matan Goldenberg [13],       *
+*  Robert Hatcher [4], Or Hen [10], Igor Kakorin [8], Konstantin Kuzmin [7,8], Weijun Li [11], Liang Liu [4],   *
+*   Xianguo Lu [15], Anselmo Meregaglia [2], Vadim Naumov [8], Afroditi Papadopoulou [1], Gabriel Perdue [3],   *
+*   Komninos-John Plows [11], Marco Roda [9], Alon Sportes [13], Noah Steinberg [4], Vladyslav Syrotenko [14],  *
+*                         Júlia Tena Vidal [13], Jeremy Wolcott [14], and Qiyu Yan [3,15]                       *
+*                                                                                                               *
+*                                            (The GENIE Collaboration)                                          *
+*                                                                                                               *
+*                                      [1] Argonne National Laboratory (ANL)                                    *
+*                                 [2] CENBG, Université de Bordeaux, CNRS/IN2P3                                 *
+*                             [3] University of the Chinese Academy of Sciences (UCAS)                          *
+*                                 [4] Fermi National Accelerator Laboratory (FNAL)                              *
+*                                      [5] Harvard University, Dept. of Physics                                 *
+*                                     [6] Instituto de Física Corpuscular (IFIC)                                *
+*      [7] Alikhanov Institute for Theoretical and Experimental Physics (ITEP) of NRC "Kurchatov Institute"     *
+*                                  [8] Joint Institute for Nuclear Research (JINR)                              *
+*                                   [9] University of Liverpool, Dept. of Physics                               *
+*                         [10] Massachusetts Institute of Technology (MIT), Dept. of Physics                    *
+*                                    [11] University of Oxford, Dept. of Physics                                *
+*                            [12] University of Pittsburgh, Dept. of Physics and Astronomy                      *
+*                              [13] Tel Aviv University, School of Physics and Astronomy                        *
+*                                [14] Tufts University, Dept. of Physics and Astronomy                          *
+*                                     [15] Warwick University, Dept. of Physics                                 *
+*                                                                                                               *
+*  Corresponding Author:                                                                                        *
+*  -                                                                                                            *
+*  Professor Costas Andreopoulos                                                                                *
+*  University of Liverpool, Department of Physics                                                               *
+*  Oliver Lodge Lab 316, Liverpool L69 7ZE, UK                                                                  *
+*  E-Mail: c.andreopoulos \at cern.ch                                                                           *
+*  Tel: +44-(0)1517-943201                                                                                      *
+*****************************************************************************************************************
+
+
+1781654916 NOTICE Messenger : [s] <SetPrioritiesFromXmlFile (136)> : Reading msg stream priorities from XML file: /Users/pbarham/opt/genie-dev/config/Messenger.xml
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (463)> : Parsing command line arguments
+1781654916 INFO TuneId : [n] <TuneId.cxx::Build (132)> : G18_10a_02_11a Tune configured 
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (477)> : Reading output filename
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (491)> : Reading number of knots/spline
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (501)> : Reading maximum spline energy
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (511)> : Not copying input splines to output
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (517)> : Reading neutrino PDG codes
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (529)> : Reading target nuclei PDG codes
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (541)> : No geometry file was specified
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (566)> : Unspecified random number seed - Using default
+1781654916 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (575)> : Unspecified input cross-section file
+1781654916 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (655)> : 
+
+****************************
+  gmkspl job configuration  
+****************************
+
+ Neutrino PDG codes : 14
+ Target PDG codes : 11
+ Input ROOT geometry : 
+ Output cross-section file : outputs/fast-gmkspl-20260617/xml/nueelastic_numu_electron_exact.xml
+ Input cross-section file : 
+ Random number seed : -1
+ Fast spline evaluation : NO
+ Sparse fast spline exact knots : 0
+ Sparse fast spline guard knots : 0
+ Sparse fast spline guard tolerance : 0.25
+ gmkspl worker processes : 1
+1781654916 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (674)> : 
+
+1781654916 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (676)> : Global running options:
+ GENIE tune: Standard GENIE tune: G18_10a_02_11a
+ - Prefix ............... : G
+ - Year ................. : 18
+ - Major model ID ....... : 10
+ - Minor model ID ....... : a
+ - Tuned param set ID ... : 02
+ - Fit dataset ID ....... : 11a
+ - Tune directory ....... : /Users/pbarham/opt/genie-dev/config/G18_10a/G18_10a_02_11a
+ - Base directory ....... : /Users/pbarham/opt/genie-dev/config
+
+ Event generator list: NuEElastic
+ User-specified message thresholds : 
+ Cache file : 
+ Unphysical event mask (bits: 15 -> 0) : 1111111111111111
+ Event record print level : 3
+ MC job status file refresh rate: 50
+ Pre-calculate all free-nucleon cross-sections? : No
+
+1781654916 INFO RunOpt : [n] <RunOpt.cxx::BuildTune (94)> : Building tune G18_10a_02_11a
+1781654916 INFO TuneId : [n] <TuneId.cxx::Build (132)> : G18_10a_02_11a Tune configured 
+1781654916 WARN AppInit : [n] <AppInit.cxx::XSecTable (86)> : No cross-section file was specified in the application inputs
+1781654916 WARN AppInit : [n] <AppInit.cxx::XSecTable (87)> : If none is loaded, event generation might be inefficient
+1781654916 NOTICE gmkspl : [n] <gMakeSplines.cxx::main (234)> : Building neutrino and target code lists
+1781654917 NOTICE gmkspl : [n] <gMakeSplines.cxx::main (237)> : Built neutrino and target code lists in 1.0046 s
+1781654917 INFO gmkspl : [n] <gMakeSplines.cxx::main (252)> : Neutrinos: 
+[-]
+ |---o           nu_mu (PDG code = 14)
+1781654917 INFO gmkspl : [n] <gMakeSplines.cxx::main (253)> : Targets: 
+[-]
+ |---o              e- (PDG code = 11)
+1781654917 ERROR PDG : [n] <PDGLibrary.cxx::Find (93)> : Requested missing particle with PDG: 1000000000
+1781654917 WARN Target : [n] <Target.cxx::ForceNucleusValidity (367)> : Invalid target -- Reseting to Z = 0, A = 0
+1781654917 NOTICE gmkspl : [n] <gMakeSplines.cxx::BuildSplinesForInitialState (329)> : Configuring event-generation driver for initial state nu-pdg:14;tgt-pdg:11;
+1781654917 ERROR PDG : [n] <PDGLibrary.cxx::Find (93)> : Requested missing particle with PDG: 1000000000
+1781654917 WARN Target : [n] <Target.cxx::ForceNucleusValidity (367)> : Invalid target -- Reseting to Z = 0, A = 0
+1781654917 NOTICE gmkspl : [n] <gMakeSplines.cxx::BuildSplinesForInitialState (336)> : Configured event-generation driver for initial state nu-pdg:14;tgt-pdg:11; in 0.000445708 s
+1781654917 WARN XSecSplLst : [s] <SplineExists (231)> : No splines for tune G18_10a_02_11a were found!
+1781654917 NOTICE XSecSplLst : [s] <CreateSpline (292)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::NuElectronPXSec/Default - Owns Substruc: [false]
+[-] Registry name: [genie::NuElectronPXSec/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:   5
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : WeakInt
+ |-----------------------------------> FermiConstant [double] [unlocked] [l] : 1.16639e-05
+ |---------------------------> FineStructureConstant [double] [unlocked] [l] : 0.00729735
+ |-----------------------------------> WeinbergAngle [double] [unlocked] [l] : 0.501717
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::NuElectronXSec/Default
+
+1781654917 NOTICE XSecSplLst : [s] <CreateSpline (318)> : Energy threshold for current interaction = 0 GeV
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.01) =  0 x 1E-38 cm^2, evaluated in 0.0610798 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.0123899) =  0 x 1E-38 cm^2, evaluated in 0.000163 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.015351) =  0 x 1E-38 cm^2, evaluated in 2.2292e-05 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.0190197) =  0 x 1E-38 cm^2, evaluated in 9.375e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.0235652) =  0 x 1E-38 cm^2, evaluated in 8.833e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.0291971) =  0 x 1E-38 cm^2, evaluated in 8.75e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.0361749) =  0 x 1E-38 cm^2, evaluated in 8.625e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.0448204) =  0 x 1E-38 cm^2, evaluated in 8.916e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.055532) =  0 x 1E-38 cm^2, evaluated in 8.583e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.0688036) =  0 x 1E-38 cm^2, evaluated in 8.625e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.085247) =  0 x 1E-38 cm^2, evaluated in 8.542e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.10562) =  0 x 1E-38 cm^2, evaluated in 8.5e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.130862) =  0 x 1E-38 cm^2, evaluated in 8.542e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.162137) =  0 x 1E-38 cm^2, evaluated in 8.5e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.200887) =  0 x 1E-38 cm^2, evaluated in 8.5e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.248897) =  0 x 1E-38 cm^2, evaluated in 8.542e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.30838) =  0 x 1E-38 cm^2, evaluated in 8.584e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.38208) =  0 x 1E-38 cm^2, evaluated in 8.541e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.473394) =  0 x 1E-38 cm^2, evaluated in 8.542e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.586531) =  0 x 1E-38 cm^2, evaluated in 8.459e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.726706) =  0 x 1E-38 cm^2, evaluated in 8.5e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 0.900381) =  0 x 1E-38 cm^2, evaluated in 8.542e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 1.11556) =  0 x 1E-38 cm^2, evaluated in 8.708e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 1.38217) =  0 x 1E-38 cm^2, evaluated in 8.5e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 1.7125) =  0 x 1E-38 cm^2, evaluated in 8.541e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 2.12177) =  0 x 1E-38 cm^2, evaluated in 8.458e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 2.62885) =  0 x 1E-38 cm^2, evaluated in 8.5e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 3.25712) =  0 x 1E-38 cm^2, evaluated in 8.458e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 4.03554) =  0 x 1E-38 cm^2, evaluated in 8.5e-06 s
+1781654917 NOTICE XSecSplLst : [s] <operator() (419)> : xsec(E = 5) =  0 x 1E-38 cm^2, evaluated in 8.5e-06 s
+1781654917 NOTICE gmkspl : [n] <gMakeSplines.cxx::BuildSplinesForInitialState (342)> : Created splines for initial state nu-pdg:14;tgt-pdg:11; in 0.061693 s; total initial-state time 0.0621498 s
+1781654917 NOTICE XSecSplLst : [s] <SaveAsXml (646)> : Saving XSecSplineList as XML in file: outputs/fast-gmkspl-20260617/xml/nueelastic_numu_electron_exact.xml

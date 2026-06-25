@@ -1,0 +1,1349 @@
+
+
+********************************************************************************************************
+
+oooooo   oooooo     oooo       .o.       ooooooooo.   ooooo      ooo ooooo ooooo      ooo   .oooooo.    
+ `888.    `888.     .8'       .888.      `888   `Y88. `888b.     `8' `888' `888b.     `8'  d8P'  `Y8b   
+  `888.   .8888.   .8'       .8"888.      888   .d88'  8 `88b.    8   888   8 `88b.    8  888           
+   `888  .8'`888. .8'       .8' `888.     888ooo88P'   8   `88b.  8   888   8   `88b.  8  888           
+    `888.8'  `888.8'       .88ooo8888.    888`88b.     8     `88b.8   888   8     `88b.8  888     ooooo 
+     `888'    `888'       .8'     `888.   888  `88b.   8       `888   888   8       `888  `88.    .88'  
+      `8'      `8'       o88o     o8888o o888o  o888o o8o        `8  o888o o8o        `8   `Y8bood8P'   
+                                                                                                        
+
+********************************************************************************************************
+
+                                THIS IS A DEVELOPMENT VERSION OF GENIE.
+                      IT HAS *NOT* BEEN FULLY VALIDATED AND IT HAS EXPERIMENTAL FEATURES.
+
+                                   USE THIS VERSION AT YOUR OWN RISK.
+
+ If you prefer to use a version with validated physics content, please see http://releases.genie-mc.org
+
+                            Site managers, please don't remove this notice!
+
+
+ GENIE will continue running in 15 seconds...
+
+
+
+
+
+*****************************************************************************************************************
+*                                                                                                               *
+*                                                   .oooooo.    oooooooooooo ooooo      ooo ooooo oooooooooooo  *
+*                                                  d8P'  `Y8b   `888'     `8 `888b.     `8' `888' `888'     `8  *
+*                                                 888            888          8 `88b.    8   888   888          *
+*                        Ndyooym          dN      888            888oooo8     8   `88b.  8   888   888oooo8     *
+*                     Nds//+sdmoy       d+m       888     ooooo  888    "     8     `88b.8   888   888    "     *
+*                   Nh+//ohN  m+s      N//syyN    `88.    .88'   888       o  8       `888   888   888       o  *
+*                 Ny+//od   Nh+oN       o///+      `Y8bood8P'   o888ooooood8 o8o        `8  o888o o888ooooood8  *
+*               Nh+//om   Nh+/yN       o///s                                                                    *
+*              d+//+d   my+/smmyhN    m///h                                      NEUTRINO MONTE CARLO GENERATOR *
+*            Ns///yN NdyoshNNs///d   h////yN                                                                    *
+*           mo//om        ms///+m   d///////oyhmN                                           Version 999.999.999 *
+*          N+//yN       ms////+N    h////////////oym                                                            *
+*          s//h       ho/+///sN     N///////////////od                                  http://www.genie-mc.org *
+*         N+/h     my++yh+//y       s/////////////////oN                                                        *
+*         Ns/m Nmy++ymNh//+d        s//////////////////+m                                                       *
+*          NhssoshN  Ny//sN         m///////////////////+                                                       *
+*                  Nmo/+ohdmN        mo//////////////////h            NmmN                                      *
+*              ms/+s//o/-----:+sdN     mhso+ooys/////////o      mhs+/------/ohN                                 *
+*    Nhd     N+-/o+/o+------------/shN     Ndy+//////////+ mhs+:---------------om                               *
+*  mo/sN    m:/oo/oo:-----------------:://////////////////-----------------------y                              *
+*  y//d    Noo++o+:----------:------------:://///////////:-------:/+osyso/:-------h                             *
+*  Nyo+syysooo+/--------------::--------------:://///////:----::////+ossyso/------:                             *
+*     NNNNNs--------------------:/::-------------:://///:-:://////////oosyo+:------                             *
+*          y---------------------:////:::-----------:////////////////+o++++/:-----/                             *
+*          m-----------------------://////////////////////////////+so/--:---------y                             *
+*           +------------------------://////////////////////////+yy:---+oh/--:y+-/N                             *
+*           N/-------------------------://////////////////////ohy/-------yy--os-/m                              *
+*            No--------------------------://///////////////+shs/---------/d++/-oN                               *
+*              mo--------------------------:////////////+shyo:------------sy/sm                                 *
+*                Ny+:------------------------::://///oyhyo:--------------/sd                                    *
+*                    mhso+/:------------------:/+oyhyo/----------:/+syhm                                        *
+*                           NmddhyyyssssyyyhdmmNNNmhhhyyyyhhddmN                                                *
+*                                                                                                               *
+*                                                             Copyright (c) 2003-2025, The GENIE Collaboration  *
+*                                                                                                               *
+*                                                                                                               *
+* Luis Alvarez-Ruso [6], Costas Andreopoulos [9], Adi Ashkenazi [13], Joshua Barrow [10,13], Steve Dytman [12], *
+*      Hugh Gallagher [14], Alfonso Andres Garcia Soto [5,6], Steven Gardiner [4], Matan Goldenberg [13],       *
+*  Robert Hatcher [4], Or Hen [10], Igor Kakorin [8], Konstantin Kuzmin [7,8], Weijun Li [11], Liang Liu [4],   *
+*   Xianguo Lu [15], Anselmo Meregaglia [2], Vadim Naumov [8], Afroditi Papadopoulou [1], Gabriel Perdue [3],   *
+*   Komninos-John Plows [11], Marco Roda [9], Alon Sportes [13], Noah Steinberg [4], Vladyslav Syrotenko [14],  *
+*                         Júlia Tena Vidal [13], Jeremy Wolcott [14], and Qiyu Yan [3,15]                       *
+*                                                                                                               *
+*                                            (The GENIE Collaboration)                                          *
+*                                                                                                               *
+*                                      [1] Argonne National Laboratory (ANL)                                    *
+*                                 [2] CENBG, Université de Bordeaux, CNRS/IN2P3                                 *
+*                             [3] University of the Chinese Academy of Sciences (UCAS)                          *
+*                                 [4] Fermi National Accelerator Laboratory (FNAL)                              *
+*                                      [5] Harvard University, Dept. of Physics                                 *
+*                                     [6] Instituto de Física Corpuscular (IFIC)                                *
+*      [7] Alikhanov Institute for Theoretical and Experimental Physics (ITEP) of NRC "Kurchatov Institute"     *
+*                                  [8] Joint Institute for Nuclear Research (JINR)                              *
+*                                   [9] University of Liverpool, Dept. of Physics                               *
+*                         [10] Massachusetts Institute of Technology (MIT), Dept. of Physics                    *
+*                                    [11] University of Oxford, Dept. of Physics                                *
+*                            [12] University of Pittsburgh, Dept. of Physics and Astronomy                      *
+*                              [13] Tel Aviv University, School of Physics and Astronomy                        *
+*                                [14] Tufts University, Dept. of Physics and Astronomy                          *
+*                                     [15] Warwick University, Dept. of Physics                                 *
+*                                                                                                               *
+*  Corresponding Author:                                                                                        *
+*  -                                                                                                            *
+*  Professor Costas Andreopoulos                                                                                *
+*  University of Liverpool, Department of Physics                                                               *
+*  Oliver Lodge Lab 316, Liverpool L69 7ZE, UK                                                                  *
+*  E-Mail: c.andreopoulos \at cern.ch                                                                           *
+*  Tel: +44-(0)1517-943201                                                                                      *
+*****************************************************************************************************************
+
+
+1781663274 NOTICE Messenger : [s] <SetPrioritiesFromXmlFile (136)> : Reading msg stream priorities from XML file: /Users/pbarham/opt/genie-dev/config/Messenger.xml
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (610)> : Parsing command line arguments
+1781663274 INFO TuneId : [n] <TuneId.cxx::Build (132)> : G18_10a_02_11a Tune configured 
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (624)> : Reading output filename
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (638)> : Reading number of knots/spline
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (648)> : Reading maximum spline energy
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (658)> : Not copying input splines to output
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (664)> : Reading neutrino PDG codes
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (676)> : Reading target nuclei PDG codes
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (688)> : No geometry file was specified
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (713)> : Unspecified random number seed - Using default
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (722)> : Unspecified input cross-section file
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (743)> : Using sparse fast spline mode with 8 exact above-threshold knots
+1781663274 INFO gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (904)> : Using command-line --q2-min override for the minimum Q2 phase-space cut: 0.02 GeV^2
+1781663274 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (928)> : 
+
+****************************
+  gmkspl job configuration  
+****************************
+
+ Neutrino PDG codes : 14
+ Target PDG codes : 1000010020
+ Input ROOT geometry : 
+ Output cross-section file : outputs/fast-gmkspl-20260617/xml/cohpion_numu_deuterium_q2_0p02_sparse8_guard4_knotjobs4_analytic_t.xml
+ Input cross-section file : 
+ Random number seed : -1
+ Fast spline evaluation : YES
+ Sparse fast spline exact knots : 8
+ Sparse fast spline guard knots : 4
+ Sparse fast spline guard tolerance : 0.1
+ Sparse fast spline refine rounds : 0
+ Fast spline exact-knot worker processes : 4
+ Fast QEL nucleon throws override : 0
+ Fast QEL low-energy throws override : 0
+ Fast QEL low-energy max override : 0
+ Fast QEL relative tolerance override : 0
+ Fast QEL max eval override : 0
+ Fast QEL skip kinematic check : NO
+ Fast COH t quadrature steps override : 0
+ Fast COH analytic t integration : YES
+ gmkspl worker processes : 1
+1781663274 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (958)> : 
+ Q2 minimum override : 0.02 GeV^2
+1781663274 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (961)> : 
+
+1781663274 NOTICE gmkspl : [n] <gMakeSplines.cxx::GetCommandLineArgs (963)> : Global running options:
+ GENIE tune: Standard GENIE tune: G18_10a_02_11a
+ - Prefix ............... : G
+ - Year ................. : 18
+ - Major model ID ....... : 10
+ - Minor model ID ....... : a
+ - Tuned param set ID ... : 02
+ - Fit dataset ID ....... : 11a
+ - Tune directory ....... : /Users/pbarham/opt/genie-dev/config/G18_10a/G18_10a_02_11a
+ - Base directory ....... : /Users/pbarham/opt/genie-dev/config
+
+ Event generator list: COHPION
+ User-specified message thresholds : config/Messenger_fast_gmkspl.xml
+ Cache file : 
+ Unphysical event mask (bits: 15 -> 0) : 1111111111111111
+ Event record print level : 3
+ MC job status file refresh rate: 50
+ Pre-calculate all free-nucleon cross-sections? : No
+
+1781663274 NOTICE gmkspl : [n] <gMakeSplines.cxx::ApplyFastCOHOverrides (448)> : Overriding BergerSehgalCOHPiPXSec2015 t quadrature via GENIE_GMKSPL_FAST_COH_ANALYTIC_T=1
+1781663274 INFO RunOpt : [n] <RunOpt.cxx::BuildTune (94)> : Building tune G18_10a_02_11a
+1781663274 INFO TuneId : [n] <TuneId.cxx::Build (132)> : G18_10a_02_11a Tune configured 
+1781663274 NOTICE gmkspl : [n] <gMakeSplines.cxx::main (277)> : Overriding Q2 minimum phase-space cut from command line: 0.02 GeV^2
+1781663274 NOTICE Messenger : [s] <SetPrioritiesFromXmlFile (136)> : Reading msg stream priorities from XML file: config/Messenger_fast_gmkspl.xml
+1781663274 WARN AppInit : [n] <AppInit.cxx::XSecTable (86)> : No cross-section file was specified in the application inputs
+1781663274 WARN AppInit : [n] <AppInit.cxx::XSecTable (87)> : If none is loaded, event generation might be inefficient
+1781663274 NOTICE gmkspl : [n] <gMakeSplines.cxx::main (295)> : Building neutrino and target code lists
+1781663275 NOTICE gmkspl : [n] <gMakeSplines.cxx::main (298)> : Built neutrino and target code lists in 0.204215 s
+1781663275 INFO gmkspl : [n] <gMakeSplines.cxx::main (313)> : Neutrinos: 
+[-]
+ |---o           nu_mu (PDG code = 14)
+1781663275 INFO gmkspl : [n] <gMakeSplines.cxx::main (314)> : Targets: 
+[-]
+ |---o              H2 (PDG code = 1000010020)
+1781663275 NOTICE gmkspl : [n] <gMakeSplines.cxx::BuildSplinesForInitialState (473)> : Configuring event-generation driver for initial state nu-pdg:14;tgt-pdg:1000010020;
+1781663275 NOTICE Rndm : [n] <RandomGen.cxx::SetSeed (87)> : Setting default random number seed at random number generator initialization: 65539
+1781663275 NOTICE Decay : [n] <Decayer.cxx::LoadConfig (221)> : 
+Configured to decay: 
+[-]
+ |---o            rho- (PDG code = -213)
+ |---o            rho0 (PDG code = 113)
+ |---o            rho+ (PDG code = 213)
+ |---o             eta (PDG code = 221)
+ |---o           omega (PDG code = 223)
+ |---o            eta' (PDG code = 331)
+ |---o             phi (PDG code = 333)
+ |---o          Delta- (PDG code = 1114)
+ |---o          Delta0 (PDG code = 2114)
+ |---o          Delta+ (PDG code = 2214)
+ |---o         Delta++ (PDG code = 2224)
+ |---o        N0(1535) (PDG code = 102112)
+ |---o        N0(1520) (PDG code = 102114)
+ |---o        N0(1675) (PDG code = 102116)
+ |---o        N+(1535) (PDG code = 102212)
+ |---o        N+(1520) (PDG code = 102214)
+ |---o        N+(1675) (PDG code = 102216)
+ |---o    Delta-(1620) (PDG code = 111112)
+ |---o    Delta0(1620) (PDG code = 112112)
+ |---o        N0(1700) (PDG code = 112114)
+ |---o    Delta+(1620) (PDG code = 112212)
+ |---o        N+(1700) (PDG code = 112214)
+ |---o     Delta++1620 (PDG code = 112222)
+ |---o    Delta-(1700) (PDG code = 121114)
+ |---o    Delta0(1700) (PDG code = 122114)
+ |---o    Delta+(1700) (PDG code = 122214)
+ |---o     Delta++1700 (PDG code = 122224)
+ |---o        N0(1650) (PDG code = 132112)
+ |---o        N+(1650) (PDG code = 132212)
+ |---o    Delta-(1950) (PDG code = 201118)
+ |---o        N0(1440) (PDG code = 202112)
+ |---o        N0(1720) (PDG code = 202114)
+ |---o        N0(1680) (PDG code = 202116)
+ |---o    Delta0(1950) (PDG code = 202118)
+ |---o        N+(1440) (PDG code = 202212)
+ |---o        N+(1720) (PDG code = 202214)
+ |---o        N+(1680) (PDG code = 202216)
+ |---o    Delta+(1950) (PDG code = 202218)
+ |---o   Delta++(1950) (PDG code = 202228)
+ |---o    Delta-(1600) (PDG code = 211114)
+ |---o    Delta-(1905) (PDG code = 211116)
+ |---o        N0(1710) (PDG code = 212112)
+ |---o    Delta0(1600) (PDG code = 212114)
+ |---o    Delta0(1905) (PDG code = 212116)
+ |---o        N0(1970) (PDG code = 212118)
+ |---o        N+(1710) (PDG code = 212212)
+ |---o    Delta+(1600) (PDG code = 212214)
+ |---o    Delta+(1905) (PDG code = 212216)
+ |---o        N+(1970) (PDG code = 212218)
+ |---o   Delta++(1600) (PDG code = 212224)
+ |---o   Delta++(1905) (PDG code = 212226)
+ |---o    Delta-(1910) (PDG code = 221112)
+ |---o    Delta-(1920) (PDG code = 221114)
+ |---o    Delta0(1910) (PDG code = 222112)
+ |---o    Delta0(1920) (PDG code = 222114)
+ |---o    Delta+(1910) (PDG code = 222212)
+ |---o    Delta+(1920) (PDG code = 222214)
+ |---o     Delta++1910 (PDG code = 222222)
+ |---o   Delta++(1920) (PDG code = 222224)
+Configured to inhibit decays of: 
+[-]
+ |---o            D_s- (PDG code = -431)
+ |---o          D0_bar (PDG code = -421)
+ |---o              D- (PDG code = -411)
+ |---o              W- (PDG code = -24)
+ |---o            tau+ (PDG code = -15)
+ |---o            tau- (PDG code = 15)
+ |---o             pi0 (PDG code = 111)
+ |---o              D+ (PDG code = 411)
+ |---o              D0 (PDG code = 421)
+ |---o            D_s+ (PDG code = 431)
+ |---o        Sigma_c0 (PDG code = 4112)
+ |---o       Lambda_c+ (PDG code = 4122)
+ |---o        Sigma_c+ (PDG code = 4212)
+ |---o       Sigma_c++ (PDG code = 4222)
+
+1781663275 NOTICE Decay : [n] <Decayer.cxx::LoadConfig (221)> : 
+Configured to decay: 
+[-]
+ |---o            rho- (PDG code = -213)
+ |---o            rho0 (PDG code = 113)
+ |---o            rho+ (PDG code = 213)
+ |---o             eta (PDG code = 221)
+ |---o           omega (PDG code = 223)
+ |---o            eta' (PDG code = 331)
+ |---o             phi (PDG code = 333)
+ |---o          Delta- (PDG code = 1114)
+ |---o          Delta0 (PDG code = 2114)
+ |---o          Delta+ (PDG code = 2214)
+ |---o         Delta++ (PDG code = 2224)
+ |---o        N0(1535) (PDG code = 102112)
+ |---o        N0(1520) (PDG code = 102114)
+ |---o        N0(1675) (PDG code = 102116)
+ |---o        N+(1535) (PDG code = 102212)
+ |---o        N+(1520) (PDG code = 102214)
+ |---o        N+(1675) (PDG code = 102216)
+ |---o    Delta-(1620) (PDG code = 111112)
+ |---o    Delta0(1620) (PDG code = 112112)
+ |---o        N0(1700) (PDG code = 112114)
+ |---o    Delta+(1620) (PDG code = 112212)
+ |---o        N+(1700) (PDG code = 112214)
+ |---o     Delta++1620 (PDG code = 112222)
+ |---o    Delta-(1700) (PDG code = 121114)
+ |---o    Delta0(1700) (PDG code = 122114)
+ |---o    Delta+(1700) (PDG code = 122214)
+ |---o     Delta++1700 (PDG code = 122224)
+ |---o        N0(1650) (PDG code = 132112)
+ |---o        N+(1650) (PDG code = 132212)
+ |---o    Delta-(1950) (PDG code = 201118)
+ |---o        N0(1440) (PDG code = 202112)
+ |---o        N0(1720) (PDG code = 202114)
+ |---o        N0(1680) (PDG code = 202116)
+ |---o    Delta0(1950) (PDG code = 202118)
+ |---o        N+(1440) (PDG code = 202212)
+ |---o        N+(1720) (PDG code = 202214)
+ |---o        N+(1680) (PDG code = 202216)
+ |---o    Delta+(1950) (PDG code = 202218)
+ |---o   Delta++(1950) (PDG code = 202228)
+ |---o    Delta-(1600) (PDG code = 211114)
+ |---o    Delta-(1905) (PDG code = 211116)
+ |---o        N0(1710) (PDG code = 212112)
+ |---o    Delta0(1600) (PDG code = 212114)
+ |---o    Delta0(1905) (PDG code = 212116)
+ |---o        N0(1970) (PDG code = 212118)
+ |---o        N+(1710) (PDG code = 212212)
+ |---o    Delta+(1600) (PDG code = 212214)
+ |---o    Delta+(1905) (PDG code = 212216)
+ |---o        N+(1970) (PDG code = 212218)
+ |---o   Delta++(1600) (PDG code = 212224)
+ |---o   Delta++(1905) (PDG code = 212226)
+ |---o    Delta-(1910) (PDG code = 221112)
+ |---o    Delta-(1920) (PDG code = 221114)
+ |---o    Delta0(1910) (PDG code = 222112)
+ |---o    Delta0(1920) (PDG code = 222114)
+ |---o    Delta+(1910) (PDG code = 222212)
+ |---o    Delta+(1920) (PDG code = 222214)
+ |---o     Delta++1910 (PDG code = 222222)
+ |---o   Delta++(1920) (PDG code = 222224)
+Configured to inhibit decays of: 
+[-]
+ |---o            D_s- (PDG code = -431)
+ |---o          D0_bar (PDG code = -421)
+ |---o              D- (PDG code = -411)
+ |---o              W- (PDG code = -24)
+ |---o            tau+ (PDG code = -15)
+ |---o            tau- (PDG code = 15)
+ |---o             pi0 (PDG code = 111)
+ |---o              D+ (PDG code = 411)
+ |---o              D0 (PDG code = 421)
+ |---o            D_s+ (PDG code = 431)
+ |---o        Sigma_c0 (PDG code = 4112)
+ |---o       Lambda_c+ (PDG code = 4122)
+ |---o        Sigma_c+ (PDG code = 4212)
+ |---o       Sigma_c++ (PDG code = 4222)
+
+1781663275 NOTICE gmkspl : [n] <gMakeSplines.cxx::BuildSplinesForInitialState (480)> : Configured event-generation driver for initial state nu-pdg:14;tgt-pdg:1000010020; in 0.00289258 s
+1781663275 WARN XSecSplLst : [s] <SplineExists (275)> : No splines for tune G18_10a_02_11a were found!
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+ries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663275 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.26126 GeV
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.295451) = 6.03057e-06 x 1E-38 cm^2, evaluated in 0.643942 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.334116) = 0.000108582 x 1E-38 cm^2, evaluated in 0.645824 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.377842) = 0.00062385 x 1E-38 cm^2, evaluated in 0.651541 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.42729) = 0.00180561 x 1E-38 cm^2, evaluated in 0.65302 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.483209) = 0.00375493 x 1E-38 cm^2, evaluated in 0.654407 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.790286) = 0.0188962 x 1E-38 cm^2, evaluated in 0.668118 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.65295) = 0.0536996 x 1E-38 cm^2, evaluated in 0.675399 s
+1781663276 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.107089 x 1E-38 cm^2, evaluated in 0.669955 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.546446) = 0.00645267 x 1E-38 cm^2, evaluated in 0.778281 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 1.14293) = 0.035402 x 1E-38 cm^2, evaluated in 0.792521 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.39054) = 0.0721704 x 1E-38 cm^2, evaluated in 0.783348 s
+1781663277 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.42138) = 0.101493 x 1E-38 cm^2, evaluated in 0.782708 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 12, E = 0.617959) = 0.00991293 x 1E-38 cm^2, evaluated in 0.669853 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 13, E = 0.69883) = 0.0140993 x 1E-38 cm^2, evaluated in 0.672177 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 15, E = 0.89371) = 0.0241286 x 1E-38 cm^2, evaluated in 0.673042 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 16, E = 1.01067) = 0.0296482 x 1E-38 cm^2, evaluated in 0.674606 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 18, E = 1.29251) = 0.0414129 x 1E-38 cm^2, evaluated in 0.740239 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 19, E = 1.46166) = 0.0475524 x 1E-38 cm^2, evaluated in 0.734729 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 21, E = 1.86927) = 0.059889 x 1E-38 cm^2, evaluated in 0.734462 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.162306) = 3.04913e-08 x 1E-38 cm^2, evaluated in 0.775876 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.18839) = 2.25234e-06 x 1E-38 cm^2, evaluated in 0.779436 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.218666) = 2.08595e-05 x 1E-38 cm^2, evaluated in 0.778269 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.253807) = 0.000101404 x 1E-38 cm^2, evaluated in 0.783314 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.294596) = 0.000361002 x 1E-38 cm^2, evaluated in 0.606293 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.534713) = 0.00565114 x 1E-38 cm^2, evaluated in 0.612826 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.30756) = 0.0246118 x 1E-38 cm^2, evaluated in 0.619789 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.0553676 x 1E-38 cm^2, evaluated in 0.61471 s
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.162306) = 3.04913e-08 x 1E-38 cm^2, evaluated in 0.775876 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.18839) = 2.25234e-06 x 1E-38 cm^2, evaluated in 0.779436 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.218666) = 2.08595e-05 x 1E-38 cm^2, evaluated in 0.778269 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.253807) = 0.000101404 x 1E-38 cm^2, evaluated in 0.783314 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.294596) = 0.000361002 x 1E-38 cm^2, evaluated in 0.606293 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.534713) = 0.00565114 x 1E-38 cm^2, evaluated in 0.612826 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.30756) = 0.0246118 x 1E-38 cm^2, evaluated in 0.619789 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.0553676 x 1E-38 cm^2, evaluated in 0.61471 s
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.162306) = 3.04913e-08 x 1E-38 cm^2, evaluated in 0.775876 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.18839) = 2.25234e-06 x 1E-38 cm^2, evaluated in 0.779436 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.218666) = 2.08595e-05 x 1E-38 cm^2, evaluated in 0.778269 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.253807) = 0.000101404 x 1E-38 cm^2, evaluated in 0.783314 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.294596) = 0.000361002 x 1E-38 cm^2, evaluated in 0.606293 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.534713) = 0.00565114 x 1E-38 cm^2, evaluated in 0.612826 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.30756) = 0.0246118 x 1E-38 cm^2, evaluated in 0.619789 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.0553676 x 1E-38 cm^2, evaluated in 0.61471 s
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.162306) = 3.04913e-08 x 1E-38 cm^2, evaluated in 0.775876 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.18839) = 2.25234e-06 x 1E-38 cm^2, evaluated in 0.779436 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.218666) = 2.08595e-05 x 1E-38 cm^2, evaluated in 0.778269 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.253807) = 0.000101404 x 1E-38 cm^2, evaluated in 0.783314 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.294596) = 0.000361002 x 1E-38 cm^2, evaluated in 0.606293 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.534713) = 0.00565114 x 1E-38 cm^2, evaluated in 0.612826 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.30756) = 0.0246118 x 1E-38 cm^2, evaluated in 0.619789 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.0553676 x 1E-38 cm^2, evaluated in 0.61471 s
+(462)> : sparse exact xsec(knot = 22, E = 2.11389) = 0.0660594 x 1E-38 cm^2, evaluated in 0.728831 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.70339) = 0.0781986 x 1E-38 cm^2, evaluated in 0.687512 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 3.05718) = 0.084152 x 1E-38 cm^2, evaluated in 0.683997 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.45727) = 0.0900207 x 1E-38 cm^2, evaluated in 0.684152 s
+1781663279 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.90972) = 0.0958053 x 1E-38 cm^2, evaluated in 0.681618 s
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[CC],COH;hmult:(p=0,n=0,pi+=1,pi-=0,pi0=0,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 16.7643 s integral time (4.24805 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.144237 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (336)> : Creating cross section spline using the algorithm: 
+Algorithm Key: genie::BergerSehgalCOHPiPXSec2015/Default - Owns Substruc: [false]
+[-] Registry name: [genie::BergerSehgalCOHPiPXSec2015/Default_summary] - Write Status: [unlocked] - Inhibited Item Locking: [on] - # entries:  13
+ |-----------------------------------------> CKM-Vcd [double] [unlocked] [l] : 0.22
+ |-----------------------------------------> CKM-Vcs [double] [unlocked] [l] : 0.995
+ |-----------------------------------------> CKM-Vud [double] [unlocked] [l] : 0.97417
+ |-----------------------------------------> CKM-Vus [double] [unlocked] [l] : 0.2248
+ |------------------------------------------> COH-Ma [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-max [double] [unlocked] [l] : 1
+ |--------------------------------------> COH-Q2-min [double] [unlocked] [l] : 0
+ |------------------------------------------> COH-Ro [double] [unlocked] [l] : 1
+ |-------------------------------> COH-UseRSPionXSec   [bool] [unlocked] [l] : 0
+ |---------------------------------------> COH-t-max [double] [unlocked] [l] : 0.25
+ |------------------------------------> CabibboAngle [double] [unlocked] [l] : 0.22778
+ |-------------------------------------> CommonParam [string] [unlocked] [l] : Coherent,CKM
+ |---------------------------------> XSec-Integrator    [alg] [unlocked] [l] : genie::COHXSec/Default
+
+1781663279 NOTICE XSecSplLst : [s] <CreateSpline (362)> : Energy threshold for current interaction = 0.139833 GeV
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 6, E = 0.162306) = 3.04913e-08 x 1E-38 cm^2, evaluated in 0.775876 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 7, E = 0.18839) = 2.25234e-06 x 1E-38 cm^2, evaluated in 0.779436 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 8, E = 0.218666) = 2.08595e-05 x 1E-38 cm^2, evaluated in 0.778269 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 9, E = 0.253807) = 0.000101404 x 1E-38 cm^2, evaluated in 0.783314 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 10, E = 0.294596) = 0.000361002 x 1E-38 cm^2, evaluated in 0.606293 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 14, E = 0.534713) = 0.00565114 x 1E-38 cm^2, evaluated in 0.612826 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 20, E = 1.30756) = 0.0246118 x 1E-38 cm^2, evaluated in 0.619789 s
+1781663280 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 29, E = 5) = 0.0553676 x 1E-38 cm^2, evaluated in 0.61471 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 11, E = 0.34194) = 0.000957029 x 1E-38 cm^2, evaluated in 0.601843 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+xsec(knot = 17, E = 0.836162) = 0.0142254 x 1E-38 cm^2, evaluated in 0.611568 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 23, E = 2.0447) = 0.0352426 x 1E-38 cm^2, evaluated in 0.610943 s
+1781663281 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 28, E = 4.30771) = 0.0521521 x 1E-38 cm^2, evaluated in 0.604833 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 12, E = 0.396893) = 0.00201929 x 1E-38 cm^2, evaluated in 0.622921 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 13, E = 0.460678) = 0.00358897 x 1E-38 cm^2, evaluated in 0.620181 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 15, E = 0.620646) = 0.00816765 x 1E-38 cm^2, evaluated in 0.622846 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 16, E = 0.720389) = 0.0110644 x 1E-38 cm^2, evaluated in 0.627573 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 18, E = 0.97054) = 0.0175519 x 1E-38 cm^2, evaluated in 0.615208 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 19, E = 1.12651) = 0.0210247 x 1E-38 cm^2, evaluated in 0.611427 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 21, E = 1.51769) = 0.0281582 x 1E-38 cm^2, evaluated in 0.612487 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 22, E = 1.7616) = 0.0317059 x 1E-38 cm^2, evaluated in 0.611554 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 24, E = 2.3733) = 0.0387298 x 1E-38 cm^2, evaluated in 0.61284 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 25, E = 2.75472) = 0.042166 x 1E-38 cm^2, evaluated in 0.609244 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 26, E = 3.19742) = 0.0455496 x 1E-38 cm^2, evaluated in 0.605423 s
+1781663283 NOTICE XSecSplLst : [s] <operator() (462)> : sparse exact xsec(knot = 27, E = 3.71128) = 0.0488786 x 1E-38 cm^2, evaluated in 0.605762 s
+1781663283 NOTICE XSecSplLst : [s] <CreateSpline (736)> : Sparse fast spline genie::BergerSehgalCOHPiPXSec2015/Default/nu:14;tgt:1000010020;proc:Weak[NC],COH;hmult:(p=0,n=0,pi+=0,pi-=0,pi0=1,gamma=0,rho+=0,rho-=0,rho0=0);: evaluated 24/30 knots in 15.3772 s integral time (3.88731 s wall time), interpolated 0, skipped 6 at/below-threshold knots, guard worst_rel=0.431537 at knot 11, guard anchors=4, refine rounds=0, fallback=YES
+1781663283 NOTICE gmkspl : [n] <gMakeSplines.cxx::BuildSplinesForInitialState (486)> : Created splines for initial state nu-pdg:14;tgt-pdg:1000010020; in 8.13566 s; total initial-state time 8.13857 s
+1781663283 NOTICE XSecSplLst : [s] <SaveAsXml (904)> : Saving XSecSplineList as XML in file: outputs/fast-gmkspl-20260617/xml/cohpion_numu_deuterium_q2_0p02_sparse8_guard4_knotjobs4_analytic_t.xml

@@ -8,6 +8,10 @@
 */
 //____________________________________________________________________________
 
+#include <cerrno>
+#include <cstdlib>
+#include <string>
+
 #include "Framework/Algorithm/AlgConfigPool.h"
 #include "Framework/Algorithm/AlgFactory.h"
 #include "Framework/Conventions/GBuild.h"
@@ -35,6 +39,56 @@ using namespace genie;
 using namespace genie::constants;
 using namespace genie::utils::gsl;
 
+namespace {
+
+bool ReadPositiveIntEnv(const char * name, int & value)
+{
+  const char * text = std::getenv(name);
+  if(!text || text[0] == '\0') return false;
+
+  char * end = 0;
+  errno = 0;
+  long parsed = std::strtol(text, &end, 10);
+  if(errno != 0 || end == text || *end != '\0' || parsed <= 0) {
+    LOG("NewQELXSec", pWARN)
+      << "Ignoring invalid " << name << " override: " << text;
+    return false;
+  }
+
+  value = static_cast<int>(parsed);
+  return true;
+}
+
+bool ReadPositiveDoubleEnv(const char * name, double & value)
+{
+  const char * text = std::getenv(name);
+  if(!text || text[0] == '\0') return false;
+
+  char * end = 0;
+  errno = 0;
+  double parsed = std::strtod(text, &end);
+  if(errno != 0 || end == text || *end != '\0' || parsed <= 0.) {
+    LOG("NewQELXSec", pWARN)
+      << "Ignoring invalid " << name << " override: " << text;
+    return false;
+  }
+
+  value = parsed;
+  return true;
+}
+
+bool ReadBoolEnv(const char * name)
+{
+  const char * text = std::getenv(name);
+  if(!text || text[0] == '\0') return false;
+
+  std::string value(text);
+  return value == "1" || value == "true" || value == "TRUE" ||
+    value == "yes" || value == "YES";
+}
+
+} // namespace
+
 //____________________________________________________________________________
 NewQELXSec::NewQELXSec() : XSecIntegratorI("genie::NewQELXSec")
 {
@@ -53,7 +107,7 @@ double NewQELXSec::Integrate(const XSecAlgorithmI* model, const Interaction* in)
 
   Interaction* interaction = new Interaction( *in );
   interaction->SetBit( kISkipProcessChk );
-  //interaction->SetBit( kISkipKinematicChk );
+  if(fFastSkipKinematicCheck) interaction->SetBit( kISkipKinematicChk );
 
   const NuclearModelI* nucl_model = dynamic_cast<const NuclearModelI*>(
     model->SubAlg("IntegralNuclearModel") );
@@ -102,6 +156,7 @@ double NewQELXSec::Integrate(const XSecAlgorithmI* model, const Interaction* in)
   // If averaging over the initial nucleon distribution has been
   // disabled, just integrate over angles and return the result.
   if ( !fAverageOverNucleons ) {
+    func->PrepareForIntegral();
     double xsec_total = ig.Integral(kine_min, kine_max);
     delete func;
     return xsec_total;
@@ -129,6 +184,7 @@ double NewQELXSec::Integrate(const XSecAlgorithmI* model, const Interaction* in)
     }
 
     nucl_model->SetMomentum3( TVector3(0., 0., 0.) );
+    func->PrepareForIntegral();
     double xsec_total = ig.Integral(kine_min, kine_max);
     delete func;
     return xsec_total;
@@ -139,8 +195,13 @@ double NewQELXSec::Integrate(const XSecAlgorithmI* model, const Interaction* in)
   // to allow for using the local Fermi gas model). The MC estimator for the
   // total cross section is simply the mean of ig.Integral() for all of the
   // sampled nucleons.
+  int num_nucleon_throws = fNumNucleonThrows;
+  if(fFastLowEnergyNucleonThrows > 0 &&
+     probeE <= fFastLowEnergyThrowMaxE) {
+    num_nucleon_throws = fFastLowEnergyNucleonThrows;
+  }
   double xsec_sum = 0.;
-  for (int n = 0; n < fNumNucleonThrows; ++n) {
+  for (int n = 0; n < num_nucleon_throws; ++n) {
 
     // Select a new position for the initial hit nucleon (needed for the local
     // Fermi gas model, but other than slowing things down a bit, it doesn't
@@ -156,6 +217,7 @@ double NewQELXSec::Integrate(const XSecAlgorithmI* model, const Interaction* in)
 
     // The initial state variables have all been defined, so integrate over
     // the final lepton angles.
+    func->PrepareForIntegral();
     double xsec = ig.Integral(kine_min, kine_max);
 
     xsec_sum += xsec;
@@ -164,7 +226,7 @@ double NewQELXSec::Integrate(const XSecAlgorithmI* model, const Interaction* in)
   delete func;
 
   // MC estimator of the total cross section is the mean of the xsec values
-  double xsec_mean = xsec_sum / fNumNucleonThrows;
+  double xsec_mean = xsec_sum / num_nucleon_throws;
 
   return xsec_mean;
 }
@@ -200,16 +262,56 @@ void NewQELXSec::LoadConfig(void)
   // configuration for QELEventGenerator. Avoid duplication here to ensure
   // consistency.
   GetParamDef( "SF-MinAngleEMscattering", fMinAngleEM, 0. ) ;
+  fFastSkipKinematicCheck =
+    ReadBoolEnv("GENIE_GMKSPL_FAST_QEL_SKIP_KINEMATIC_CHECK");
+  if(fFastSkipKinematicCheck) {
+    LOG("NewQELXSec", pNOTICE)
+      << "Using GENIE_GMKSPL_FAST_QEL_SKIP_KINEMATIC_CHECK=1";
+  }
 
   // If true, then the integration of the total cross section will include an
   // MC integration over the initial state nuclear model
   GetParamDef( "AverageOverNucleons", fAverageOverNucleons, true );
+
+  int override_int = 0;
+  double override_double = 0.;
+  if(ReadPositiveDoubleEnv("GENIE_GMKSPL_FAST_QEL_REL_TOL", override_double)) {
+    fGSLRelTol = override_double;
+    LOG("NewQELXSec", pNOTICE)
+      << "Using GENIE_GMKSPL_FAST_QEL_REL_TOL=" << fGSLRelTol;
+  }
+  if(ReadPositiveIntEnv("GENIE_GMKSPL_FAST_QEL_MAX_EVAL", override_int)) {
+    fGSLMaxEval = static_cast<unsigned int>(override_int);
+    LOG("NewQELXSec", pNOTICE)
+      << "Using GENIE_GMKSPL_FAST_QEL_MAX_EVAL=" << fGSLMaxEval;
+  }
+  if(ReadPositiveIntEnv("GENIE_GMKSPL_FAST_QEL_THROWS", override_int)) {
+    fNumNucleonThrows = override_int;
+    LOG("NewQELXSec", pNOTICE)
+      << "Using GENIE_GMKSPL_FAST_QEL_THROWS=" << fNumNucleonThrows;
+  }
+  fFastLowEnergyNucleonThrows = 0;
+  fFastLowEnergyThrowMaxE = 0.3;
+  if(ReadPositiveDoubleEnv("GENIE_GMKSPL_FAST_QEL_LOW_E_MAX", override_double)) {
+    fFastLowEnergyThrowMaxE = override_double;
+    LOG("NewQELXSec", pNOTICE)
+      << "Using GENIE_GMKSPL_FAST_QEL_LOW_E_MAX="
+      << fFastLowEnergyThrowMaxE;
+  }
+  if(ReadPositiveIntEnv("GENIE_GMKSPL_FAST_QEL_LOW_E_THROWS", override_int)) {
+    fFastLowEnergyNucleonThrows = override_int;
+    LOG("NewQELXSec", pNOTICE)
+      << "Using GENIE_GMKSPL_FAST_QEL_LOW_E_THROWS="
+      << fFastLowEnergyNucleonThrows
+      << " for probe energies <= " << fFastLowEnergyThrowMaxE << " GeV";
+  }
 }
 
 genie::utils::gsl::FullQELdXSec::FullQELdXSec(const XSecAlgorithmI* xsec_model,
   const Interaction* interaction, QELEvGen_BindingMode_t binding_mode, double min_angle_EM)
   : fXSecModel( xsec_model ), fInteraction( new Interaction(*interaction) ),
-  fHitNucleonBindingMode( binding_mode ), fMinAngleEM( min_angle_EM )
+  fHitNucleonBindingMode( binding_mode ), fMinAngleEM( min_angle_EM ),
+  fHasCachedQ2Lim( false )
 {
   fNuclModel = dynamic_cast<const NuclearModelI*>( fXSecModel->SubAlg("IntegralNuclearModel") );
   assert( fNuclModel );
@@ -230,9 +332,24 @@ const Interaction& genie::utils::gsl::FullQELdXSec::GetInteraction() const
   return *fInteraction;
 }
 
+void genie::utils::gsl::FullQELdXSec::PrepareForIntegral()
+{
+  double Eb = 0.;
+  genie::utils::BindHitNucleon(*fInteraction, *fNuclModel, Eb,
+    fHitNucleonBindingMode);
+  fCachedQ2Lim = fInteraction->PhaseSpace().Q2Lim();
+  fHasCachedQ2Lim = true;
+}
+
 ROOT::Math::IBaseFunctionMultiDim* genie::utils::gsl::FullQELdXSec::Clone(void) const
 {
-  return new FullQELdXSec(fXSecModel, fInteraction, fHitNucleonBindingMode, fMinAngleEM);
+  FullQELdXSec* clone =
+    new FullQELdXSec(fXSecModel, fInteraction, fHitNucleonBindingMode, fMinAngleEM);
+  if (fHasCachedQ2Lim) {
+    clone->fCachedQ2Lim = fCachedQ2Lim;
+    clone->fHasCachedQ2Lim = true;
+  }
+  return clone;
 }
 
 unsigned int genie::utils::gsl::FullQELdXSec::NDim(void) const
@@ -259,7 +376,9 @@ double genie::utils::gsl::FullQELdXSec::DoEval(const double* xin) const
 
   // Compute the full differential cross section
   double xsec = genie::utils::ComputeFullQELPXSec(fInteraction, fNuclModel,
-    fXSecModel, cos_theta0, phi0, dummy_Eb, fHitNucleonBindingMode, fMinAngleEM, true);
+    fXSecModel, cos_theta0, phi0, dummy_Eb, fHitNucleonBindingMode,
+    fMinAngleEM, !fHasCachedQ2Lim,
+    fHasCachedQ2Lim ? &fCachedQ2Lim : 0);
 
   return xsec;
 }

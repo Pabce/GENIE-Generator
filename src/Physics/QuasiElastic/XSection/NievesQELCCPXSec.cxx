@@ -51,13 +51,27 @@ using namespace genie::utils;
 
 //____________________________________________________________________________
 NievesQELCCPXSec::NievesQELCCPXSec() :
-XSecAlgorithmI("genie::NievesQELCCPXSec")
+XSecAlgorithmI("genie::NievesQELCCPXSec"),
+fVcrCacheValid(false),
+fVcrCacheA(0),
+fVcrCacheZ(0),
+fVcrCacheRcurr(0.),
+fVcrCacheRmax(0.),
+fVcrCacheScale(0.),
+fVcrCacheValue(0.)
 {
 
 }
 //____________________________________________________________________________
 NievesQELCCPXSec::NievesQELCCPXSec(string config) :
-XSecAlgorithmI("genie::NievesQELCCPXSec", config)
+XSecAlgorithmI("genie::NievesQELCCPXSec", config),
+fVcrCacheValid(false),
+fVcrCacheA(0),
+fVcrCacheZ(0),
+fVcrCacheRcurr(0.),
+fVcrCacheRmax(0.),
+fVcrCacheScale(0.),
+fVcrCacheValue(0.)
 {
 
 }
@@ -514,6 +528,8 @@ void NievesQELCCPXSec::LoadConfig(void)
 
   // Scaling factor for the Coulomb potential
   GetParamDef( "CoulombScale", fCoulombScale, 1.0 );
+
+  fVcrCacheValid = false;
 }
 //___________________________________________________________________________
 void NievesQELCCPXSec::CNCTCLimUcalc(TLorentzVector qTildeP4,
@@ -866,22 +882,37 @@ double NievesQELCCPXSec::vcr(const Target * target, double Rcurr) const{
       Rcurr = Rmax;
     }
 
-    ROOT::Math::IBaseFunctionOneDim * func = new
-      utils::gsl::wrap::NievesQELvcrIntegrand(Rcurr,A,Z);
+    if(fVcrCacheValid &&
+       fVcrCacheA == A &&
+       fVcrCacheZ == Z &&
+       fVcrCacheRcurr == Rcurr &&
+       fVcrCacheRmax == Rmax &&
+       fVcrCacheScale == fCoulombScale) {
+      return fVcrCacheValue;
+    }
+
+    utils::gsl::wrap::NievesQELvcrIntegrand func(Rcurr,A,Z);
     ROOT::Math::IntegrationOneDim::Type ig_type =
       utils::gsl::Integration1DimTypeFromString("adaptive");
 
     double abstol = 1; // We mostly care about relative tolerance;
     double reltol = 1E-4;
     int nmaxeval = 100000;
-    ROOT::Math::Integrator ig(*func,ig_type,abstol,reltol,nmaxeval);
+    ROOT::Math::Integrator ig(func,ig_type,abstol,reltol,nmaxeval);
     double result = ig.Integral(0,Rmax);
-    delete func;
 
     // Multiply by Z to normalize densities to number of protons
     // Multiply by hbarc to put result in GeV instead of fm
     // Multiply by an extra configurable scaling factor that defaults to unity
-    return -kAem*4*kPi*result*fhbarc*fCoulombScale;
+    double potential = -kAem*4*kPi*result*fhbarc*fCoulombScale;
+    fVcrCacheValid = true;
+    fVcrCacheA = A;
+    fVcrCacheZ = Z;
+    fVcrCacheRcurr = Rcurr;
+    fVcrCacheRmax = Rmax;
+    fVcrCacheScale = fCoulombScale;
+    fVcrCacheValue = potential;
+    return potential;
   }else{
     // If target is not a nucleus the potential will be 0
     return 0.0;
