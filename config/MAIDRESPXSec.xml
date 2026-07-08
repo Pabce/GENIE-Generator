@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<alg_conf>
+
+<!--
+Configuration for the MAID2007 RES EM d^2xsec / dW dQ2 algorithm.
+
+This model is opt-in. No tune defaults are modified to use it.
+
+Configurable Parameters:
+.................................................................................................
+Name                    Type    Optional Comment
+.................................................................................................
+RES-EM-XSecScale        double  Yes      overall EM cross-section scale
+ResonanceNameList       string  No       list of resonances to use, CommonParam[MAID2007Resonances]
+XSecRoute               string  Yes      DirectAS or P33-only RSFBridge
+BreitWignerWeight       bool    Yes      include MAID Breit-Wigner
+BreitWignerMode         string  Yes      MAIDW2 or RSOriginal
+BreitWignerConventionCorrection
+                        string  Yes      None, W2ToLinear2MDelta, LinearToW2OneOver2MDelta,
+                                          W2ToLinear2W, LinearToW2OneOver2W, or
+                                          LinearToW2RSNativeMatch
+MAIDRunningWidthMode    string  Yes      RSOriginal or MAID2007 for MAIDW2 running width
+ApplyPiNBranchingToMAIDBW
+                        bool    Yes      apply MAID pi-N branching to MAIDW2 numerator
+UseDRJoinScheme         bool    Yes      zero RES above Wcut
+Wcut                    double  Yes      DIS/RES join threshold if enabled
+ApplyRSNativeWCut       bool    Yes      apply native RS resonance support truncation
+BreitWignerNorm         bool    Yes      legacy RES integrator W support truncation; keep false
+                                          for MAID so support is controlled by this model
+DeltaMass               double  Yes      Delta pole mass used in MAID formulas
+DeltaWidth              double  Yes      Delta width used in MAID formulas
+DeltaXr                 double  Yes      Delta hadronic-vertex scale
+Mass@Res                double  Yes      MAID2007 resonance mass
+Width@Res               double  Yes      MAID2007 resonance width
+PiBR@Res                double  Yes      MAID2007 pi-N branching ratio
+                                          used when ApplyPiNBranchingToMAIDBW=true
+Xr@Res                  double  Yes      MAID2007 hadronic-vertex scale
+PionMass                double  Yes      pion mass used in running Delta width
+UseRSFallbackForMissingResonances
+                        bool    Yes      use RS EM xsec when selected MAID coefficients are missing
+RSFallbackXSecAlg       alg     Yes      RS EM xsec fallback, used only when fallback is enabled
+MaxNWidthForN2Res       double  Yes      RSOriginal BW normalization/support limit
+MaxNWidthForN0Res       double  Yes      RSOriginal BW normalization/support limit
+MaxNWidthForGNRes       double  Yes      RSOriginal BW normalization/support limit
+HelicityAmplEMpAlg      alg     No       proton MAID helicity-amplitude model
+HelicityAmplEMnAlg      alg     No       neutron MAID helicity-amplitude model
+XSec-Integrator         alg     No
+-->
+
+  <param_set name="Default">
+    <param type="string" name="CommonParam"> NonResBackground,MAID2007Resonances </param>
+    <param type="double" name="RES-EM-XSecScale"> 1.0 </param>
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="bool"   name="BreitWignerWeight"> true </param>
+    <param type="string" name="BreitWignerMode"> MAIDW2 </param>
+    <param type="string" name="BreitWignerConventionCorrection"> None </param>
+    <param type="string" name="MAIDRunningWidthMode"> RSOriginal </param>
+    <param type="bool"   name="ApplyPiNBranchingToMAIDBW"> false </param>
+    <param type="bool"   name="UseDRJoinScheme"> true </param>
+    <param type="double" name="Wcut"> 1.7 </param>
+    <param type="bool"   name="ApplyRSNativeWCut"> false </param>
+    <param type="bool"   name="BreitWignerNorm"> false </param>
+    <param type="double" name="DeltaMass"> 1.232 </param>
+    <param type="double" name="DeltaWidth"> 0.13 </param>
+    <param type="double" name="DeltaXr"> 0.57 </param>
+
+    <param type="double" name="Mass@P11(1440)"> 1.440 </param>
+    <param type="double" name="Width@P11(1440)"> 0.350 </param>
+    <param type="double" name="PiBR@P11(1440)"> 0.70 </param>
+    <param type="double" name="Xr@P11(1440)"> 0.470 </param>
+    <param type="double" name="Mass@D13(1520)"> 1.530 </param>
+    <param type="double" name="Width@D13(1520)"> 0.130 </param>
+    <param type="double" name="PiBR@D13(1520)"> 0.60 </param>
+    <param type="double" name="Xr@D13(1520)"> 0.500 </param>
+    <param type="double" name="Mass@S11(1535)"> 1.535 </param>
+    <param type="double" name="Width@S11(1535)"> 0.100 </param>
+    <param type="double" name="PiBR@S11(1535)"> 0.40 </param>
+    <param type="double" name="Xr@S11(1535)"> 0.500 </param>
+    <param type="double" name="Mass@S31(1620)"> 1.620 </param>
+    <param type="double" name="Width@S31(1620)"> 0.150 </param>
+    <param type="double" name="PiBR@S31(1620)"> 0.25 </param>
+    <param type="double" name="Xr@S31(1620)"> 0.470 </param>
+    <param type="double" name="Mass@S11(1650)"> 1.690 </param>
+    <param type="double" name="Width@S11(1650)"> 0.100 </param>
+    <param type="double" name="PiBR@S11(1650)"> 0.85 </param>
+    <param type="double" name="Xr@S11(1650)"> 0.500 </param>
+    <param type="double" name="Mass@D15(1675)"> 1.675 </param>
+    <param type="double" name="Width@D15(1675)"> 0.150 </param>
+    <param type="double" name="PiBR@D15(1675)"> 0.45 </param>
+    <param type="double" name="Xr@D15(1675)"> 0.500 </param>
+    <param type="double" name="Mass@F15(1680)"> 1.680 </param>
+    <param type="double" name="Width@F15(1680)"> 0.135 </param>
+    <param type="double" name="PiBR@F15(1680)"> 0.70 </param>
+    <param type="double" name="Xr@F15(1680)"> 0.500 </param>
+    <param type="double" name="Mass@D33(1700)"> 1.740 </param>
+    <param type="double" name="Width@D33(1700)"> 0.450 </param>
+    <param type="double" name="PiBR@D33(1700)"> 0.15 </param>
+    <param type="double" name="Xr@D33(1700)"> 0.700 </param>
+    <param type="double" name="Mass@P13(1720)"> 1.740 </param>
+    <param type="double" name="Width@P13(1720)"> 0.250 </param>
+    <param type="double" name="PiBR@P13(1720)"> 0.20 </param>
+    <param type="double" name="Xr@P13(1720)"> 0.500 </param>
+    <param type="double" name="Mass@F35(1905)"> 1.905 </param>
+    <param type="double" name="Width@F35(1905)"> 0.350 </param>
+    <param type="double" name="PiBR@F35(1905)"> 0.10 </param>
+    <param type="double" name="Xr@F35(1905)"> 0.500 </param>
+    <param type="double" name="Mass@P31(1910)"> 1.910 </param>
+    <param type="double" name="Width@P31(1910)"> 0.250 </param>
+    <param type="double" name="PiBR@P31(1910)"> 0.25 </param>
+    <param type="double" name="Xr@P31(1910)"> 0.500 </param>
+    <param type="double" name="Mass@F37(1950)"> 1.945 </param>
+    <param type="double" name="Width@F37(1950)"> 0.280 </param>
+    <param type="double" name="PiBR@F37(1950)"> 0.40 </param>
+    <param type="double" name="Xr@F37(1950)"> 0.500 </param>
+
+    <param type="double" name="PionMass"> 0.13957039 </param>
+    <param type="bool"   name="UseRSFallbackForMissingResonances"> false </param>
+    <param type="double" name="MaxNWidthForN2Res"> 2.0 </param>
+    <param type="double" name="MaxNWidthForN0Res"> 6.0 </param>
+    <param type="double" name="MaxNWidthForGNRes"> 4.0 </param>
+
+    <param type="alg" name="HelicityAmplEMpAlg"> genie::MAIDHelicityAmplModelEMp/Default </param>
+    <param type="alg" name="HelicityAmplEMnAlg"> genie::MAIDHelicityAmplModelEMn/Default </param>
+    <param type="alg" name="RSFallbackXSecAlg"> genie::ReinSehgalRESPXSec/EM-NoPauliBlock </param>
+    <param type="alg" name="XSec-Integrator"> genie::MAIDRESXSecFast/Default </param>
+  </param_set>
+
+  <param_set name="DirectAS">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+  </param_set>
+
+  <param_set name="DirectAS-PiNChannelBW">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="string" name="MAIDRunningWidthMode"> MAID2007 </param>
+    <param type="bool"   name="ApplyPiNBranchingToMAIDBW"> true </param>
+  </param_set>
+
+  <param_set name="DirectAS-MAID2007Width">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="string" name="MAIDRunningWidthMode"> MAID2007 </param>
+  </param_set>
+
+  <param_set name="RSOriginalP33">
+    <param type="string" name="XSecRoute"> RSFBridge </param>
+    <param type="alg" name="HelicityAmplEMpAlg"> genie::MAIDHelicityAmplModelEMp/RSOriginalP33 </param>
+    <param type="alg" name="HelicityAmplEMnAlg"> genie::MAIDHelicityAmplModelEMn/RSOriginalP33 </param>
+  </param_set>
+
+  <param_set name="DirectAS-RSOriginal">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="alg" name="HelicityAmplEMpAlg"> genie::MAIDHelicityAmplModelEMp/RSOriginal </param>
+    <param type="alg" name="HelicityAmplEMnAlg"> genie::MAIDHelicityAmplModelEMn/RSOriginal </param>
+  </param_set>
+
+  <param_set name="UseRSFallback">
+    <param type="bool" name="UseRSFallbackForMissingResonances"> true </param>
+  </param_set>
+
+  <param_set name="DirectAS-RSOriginalP33">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="alg" name="HelicityAmplEMpAlg"> genie::MAIDHelicityAmplModelEMp/RSOriginalP33 </param>
+    <param type="alg" name="HelicityAmplEMnAlg"> genie::MAIDHelicityAmplModelEMn/RSOriginalP33 </param>
+  </param_set>
+
+  <param_set name="DirectAS-RSOriginalBW">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="string" name="BreitWignerMode"> RSOriginal </param>
+    <param type="string" name="BreitWignerConventionCorrection"> LinearToW2RSNativeMatch </param>
+    <param type="bool"   name="ApplyRSNativeWCut"> true </param>
+    <param type="bool"   name="UseDRJoinScheme"> true </param>
+  </param_set>
+
+  <param_set name="DirectAS-RSOriginal-RSOriginalBW">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="string" name="BreitWignerMode"> RSOriginal </param>
+    <param type="string" name="BreitWignerConventionCorrection"> LinearToW2RSNativeMatch </param>
+    <param type="bool"   name="ApplyRSNativeWCut"> true </param>
+    <param type="bool"   name="UseDRJoinScheme"> true </param>
+    <param type="alg" name="HelicityAmplEMpAlg"> genie::MAIDHelicityAmplModelEMp/RSOriginal </param>
+    <param type="alg" name="HelicityAmplEMnAlg"> genie::MAIDHelicityAmplModelEMn/RSOriginal </param>
+  </param_set>
+
+  <param_set name="DirectAS-RSOriginalP33-RSOriginalBW">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="string" name="BreitWignerMode"> RSOriginal </param>
+    <param type="string" name="BreitWignerConventionCorrection"> LinearToW2RSNativeMatch </param>
+    <param type="bool"   name="ApplyRSNativeWCut"> true </param>
+    <param type="bool"   name="UseDRJoinScheme"> true </param>
+    <param type="alg" name="HelicityAmplEMpAlg"> genie::MAIDHelicityAmplModelEMp/RSOriginalP33 </param>
+    <param type="alg" name="HelicityAmplEMnAlg"> genie::MAIDHelicityAmplModelEMn/RSOriginalP33 </param>
+  </param_set>
+
+  <param_set name="RSOriginalP33-QStar">
+    <param type="string" name="XSecRoute"> RSFBridge </param>
+    <param type="alg" name="HelicityAmplEMpAlg"> genie::MAIDHelicityAmplModelEMp/RSOriginalP33-QStar </param>
+    <param type="alg" name="HelicityAmplEMnAlg"> genie::MAIDHelicityAmplModelEMn/RSOriginalP33-QStar </param>
+  </param_set>
+
+</alg_conf>

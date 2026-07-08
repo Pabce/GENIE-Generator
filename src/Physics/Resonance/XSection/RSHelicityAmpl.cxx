@@ -37,6 +37,17 @@ RSHelicityAmpl::RSHelicityAmpl(const RSHelicityAmpl & hamp)
   f0Plus  = hamp.Amp0Plus();
 }
 //____________________________________________________________________________
+void RSHelicityAmpl::Set(double fm1, double fp1, double fm3, double fp3,
+                         double f0m, double f0p)
+{
+  fMinus1 = fm1;
+  fPlus1  = fp1;
+  fMinus3 = fm3;
+  fPlus3  = fp3;
+  f0Minus = f0m;
+  f0Plus  = f0p;
+}
+//____________________________________________________________________________
 void RSHelicityAmpl::Print(ostream & stream) const
 {
   stream << endl;

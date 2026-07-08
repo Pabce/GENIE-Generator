@@ -29,7 +29,14 @@ class RSHelicityAmplModelI : public Algorithm
 public:
   virtual ~RSHelicityAmplModelI();
 
-  // define the RSHelicityAmplModelI interface
+  // Optional hook for models that need the external electron kinematics.
+  // The second argument is the invariant Q^2, not the RS local |q_lab|^2.
+  virtual void SetKinematics(double W, double Q2, double M) const
+  {
+    (void) W;
+    (void) Q2;
+    (void) M;
+  }
   virtual const RSHelicityAmpl & Compute(Resonance_t res, const FKR & fkr) const = 0;
 
 protected:

@@ -265,6 +265,19 @@ Or changing the name of this parameter set
 
   </param_set>
 
+  <param_set name="MAID2007Resonances">
+    <!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	MAID2007 four-star resonance set used by the MAID electromagnetic RES model.
+    -->
+    <param type="string" name="ResonanceNameList">
+      P33(1232),P11(1440),D13(1520),S11(1535),S31(1620),S11(1650),
+      D15(1675),F15(1680),D33(1700),P13(1720),F35(1905),P31(1910),
+      F37(1950)
+    </param>
+
+  </param_set>
+
   <param_set name="Lepton">
     <param type="bool" name="ApplyCoulombCorrection"> false </param>
 

@@ -51,6 +51,9 @@ public:
   RSHelicityAmpl(const RSHelicityAmpl & hamp);
   ~RSHelicityAmpl() { }
 
+  void Set(double fm1, double fp1, double fm3, double fp3,
+           double f0m, double f0p);
+
   //! return helicity amplitude
   double AmpMinus1 (void) const  { return fMinus1; } /* f(-1) */
   double AmpPlus1  (void) const  { return fPlus1;  } /* f(+1) */

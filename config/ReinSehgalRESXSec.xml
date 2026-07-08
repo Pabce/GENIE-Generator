@@ -52,7 +52,11 @@ ESplineMax                  double  Yes  Emax in RES splines, xsec(E>Emax)=xsec(
   
   </param_set>
 
+  <param_set name="NoPauliBlock-MAID2007">
+    <param type="string" name ="CommonParam"> MAID2007Resonances </param>
+    <param type="bool"   name ="UsePauliBlockingForRES"> false </param>
+  </param_set>
+
  </alg_conf>
  
-
 

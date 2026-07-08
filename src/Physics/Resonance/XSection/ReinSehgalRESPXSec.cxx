@@ -199,6 +199,7 @@ double ReinSehgalRESPXSec::XSec(
   }
   assert(hamplmod);
 
+  hamplmod->SetKinematics(W, -q2, Mnuc);
   const RSHelicityAmpl & hampl = hamplmod->Compute(resonance, fFKR);
 
 #ifdef __GENIE_LOW_LEVEL_MESG_ENABLED__
@@ -451,17 +452,27 @@ void ReinSehgalRESPXSec::LoadConfig(void)
   fHAmplModelEMn    = 0;
 
   AlgFactory * algf = AlgFactory::Instance();
+  RgAlg hcc("genie::RSHelicityAmplModelCC", "Default");
+  RgAlg hncp("genie::RSHelicityAmplModelNCp", "Default");
+  RgAlg hncn("genie::RSHelicityAmplModelNCn", "Default");
+  RgAlg hemp("genie::RSHelicityAmplModelEMp", "Default");
+  RgAlg hemn("genie::RSHelicityAmplModelEMn", "Default");
+  this->GetParamDef("HelicityAmplCCAlg",  hcc,  hcc);
+  this->GetParamDef("HelicityAmplNCpAlg", hncp, hncp);
+  this->GetParamDef("HelicityAmplNCnAlg", hncn, hncn);
+  this->GetParamDef("HelicityAmplEMpAlg", hemp, hemp);
+  this->GetParamDef("HelicityAmplEMnAlg", hemn, hemn);
 
   fHAmplModelCC  = dynamic_cast<const RSHelicityAmplModelI *> (
-      algf->GetAlgorithm("genie::RSHelicityAmplModelCC","Default"));
+      algf->GetAlgorithm(hcc.name, hcc.config));
   fHAmplModelNCp = dynamic_cast<const RSHelicityAmplModelI *> (
-      algf->GetAlgorithm("genie::RSHelicityAmplModelNCp","Default"));
+      algf->GetAlgorithm(hncp.name, hncp.config));
   fHAmplModelNCn = dynamic_cast<const RSHelicityAmplModelI *> (
-      algf->GetAlgorithm("genie::RSHelicityAmplModelNCn","Default"));
+      algf->GetAlgorithm(hncn.name, hncn.config));
   fHAmplModelEMp = dynamic_cast<const RSHelicityAmplModelI *> (
-      algf->GetAlgorithm("genie::RSHelicityAmplModelEMp","Default"));
+      algf->GetAlgorithm(hemp.name, hemp.config));
   fHAmplModelEMn = dynamic_cast<const RSHelicityAmplModelI *> (
-      algf->GetAlgorithm("genie::RSHelicityAmplModelEMn","Default"));
+      algf->GetAlgorithm(hemn.name, hemn.config));
 
   assert( fHAmplModelCC  );
   assert( fHAmplModelNCp );

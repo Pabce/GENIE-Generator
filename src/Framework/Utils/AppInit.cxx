@@ -10,12 +10,16 @@
 
 // for exit()
 #include <cstdlib>
+#include <vector>
 
 #include <TSystem.h>
 
 //#include "Framework/Conventions/XmlParserStatus.h"
+#include "Framework/Algorithm/AlgConfigPool.h"
 #include "Framework/Messenger/Messenger.h"
 #include "Framework/Numerical/RandomGen.h"
+#include "Framework/ParticleData/BaryonResUtils.h"
+#include "Framework/Registry/Registry.h"
 #include "Framework/Utils/Cache.h"
 #include "Framework/Utils/XSecSplineList.h"
 #include "Framework/Utils/SystemUtils.h"
@@ -118,6 +122,53 @@ void genie::utils::app_init::CacheFile(string inp_file)
 {
   if(inp_file.size() > 0) {
     Cache::Instance()->OpenCacheFile(inp_file);
+  }
+}
+//___________________________________________________________________________
+void genie::utils::app_init::ResonanceNameList(
+  string resonance_name_list, string log_stream)
+{
+  if(resonance_name_list.empty()) return;
+
+  string clean = utils::str::FilterString(" \n\t", resonance_name_list);
+  std::vector<std::string> names = utils::str::Split(clean, ",");
+  string canonical = "";
+
+  for(size_t i = 0; i < names.size(); ++i) {
+    if(names[i].empty()) continue;
+    Resonance_t res = utils::res::FromString(names[i].c_str());
+    if(res == kNoResonance) {
+      LOG(log_stream.c_str(), pFATAL)
+        << "Unknown resonance in --resonances: " << names[i];
+      gAbortingInErr = true;
+      exit(1);
+    }
+    if(!canonical.empty()) canonical += ",";
+    canonical += utils::res::AsString(res);
+  }
+
+  if(canonical.empty()) {
+    LOG(log_stream.c_str(), pFATAL) << "Empty --resonances list";
+    gAbortingInErr = true;
+    exit(1);
+  }
+
+  AlgConfigPool * confp = AlgConfigPool::Instance();
+  const char * common_sets[] = { "Resonances", "MAID2007Resonances" };
+  for(unsigned int i = 0; i < sizeof(common_sets)/sizeof(common_sets[0]); ++i) {
+    Registry * r = confp->CommonList("Param", common_sets[i]);
+    if(!r) {
+      LOG(log_stream.c_str(), pWARN)
+        << "Could not find CommonParam[" << common_sets[i]
+        << "] to override ResonanceNameList";
+      continue;
+    }
+    r->UnLock();
+    r->Set("ResonanceNameList", canonical);
+    r->Lock();
+    LOG(log_stream.c_str(), pNOTICE)
+      << "Overriding CommonParam[" << common_sets[i]
+      << "] ResonanceNameList: " << canonical;
   }
 }
 //___________________________________________________________________________
