@@ -15,6 +15,8 @@ source "${release}/setup.sh" >/dev/null
 [[ "$(command -v gevgen)" == "${release}/bin/gevgen" ]]
 [[ "$(command -v gmkspl)" == "${release}/bin/gmkspl" ]]
 [[ "$(command -v genie-config)" == "${release}/bin/genie-config" ]]
+[[ -r "${release}/config/Messenger.xml" ]]
+[[ -d "${release}/data" ]]
 
 genie-config --features
 
@@ -29,4 +31,3 @@ done
 
 gconfigdump -h >/dev/null 2>&1 || true
 echo "validated=${release}"
-

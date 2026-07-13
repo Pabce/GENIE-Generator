@@ -99,6 +99,7 @@ configure_args=(
     src/make/Make.config \
     src/make/Make.config_no_paths \
     "${release}/src/make/"
+  cp -a config data "${release}/"
 ) >"${release}/build.log" 2>&1
 
 sed \
