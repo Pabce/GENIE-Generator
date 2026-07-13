@@ -94,6 +94,11 @@ configure_args=(
   ./configure "${configure_args[@]}"
   make -j "${jobs}"
   make install
+  mkdir -p "${release}/src/make"
+  install -m 0644 \
+    src/make/Make.config \
+    src/make/Make.config_no_paths \
+    "${release}/src/make/"
 ) >"${release}/build.log" 2>&1
 
 sed \
