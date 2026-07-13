@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<alg_conf>
+
+<!-- Neutron wrapper for the MAID2007 A/S to RS-f conversion. -->
+
+  <param_set name="Default">
+    <param type="alg" name="MAIDHelicityAmplAlg"> genie::MAIDHelicityAmplModelEMn/Default </param>
+    <param type="bool"   name="ApplyLuisWidthScale"> false </param>
+    <param type="double" name="LuisWidthScale"> 1.06321906614239 </param>
+    <param type="double" name="DeltaMass"> 1.232 </param>
+
+    <param type="double" name="AM@P33(1232)"> 300.0 </param>
+    <param type="double" name="AE@P33(1232)"> -6.37 </param>
+    <param type="double" name="AS@P33(1232)"> -12.4 </param>
+    <param type="double" name="BetaM@P33(1232)"> 0.01 </param>
+    <param type="double" name="BetaE@P33(1232)"> -0.021 </param>
+    <param type="double" name="BetaS@P33(1232)"> 0.12 </param>
+    <param type="double" name="GammaM@P33(1232)"> 0.23 </param>
+    <param type="double" name="GammaE@P33(1232)"> 0.16 </param>
+    <param type="double" name="GammaS@P33(1232)"> 0.23 </param>
+    <param type="double" name="DeltaS@P33(1232)"> 4.9 </param>
+    <param type="double" name="DipoleMass2"> 0.71 </param>
+  </param_set>
+
+  <param_set name="UnscaledMAID2007">
+    <param type="bool" name="ApplyLuisWidthScale"> false </param>
+    <param type="alg" name="MAIDHelicityAmplAlg"> genie::MAIDHelicityAmplModelEMn/UnscaledMAID2007 </param>
+  </param_set>
+
+  <param_set name="WidthScaledMAID2007">
+    <param type="bool" name="ApplyLuisWidthScale"> true </param>
+    <param type="alg" name="MAIDHelicityAmplAlg"> genie::MAIDHelicityAmplModelEMn/WidthScaledMAID2007 </param>
+  </param_set>
+
+</alg_conf>

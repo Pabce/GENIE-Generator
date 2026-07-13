@@ -32,6 +32,7 @@ namespace app_init
   void XSecTable      (string inpfile, bool require_table);
   void MesgThresholds (string inpfile);
   void CacheFile      (string inpfile);
+  void ResonanceNameList(string resonance_name_list, string log_stream);
 
 } // app_init namespace
 } // utils namespace

@@ -26,6 +26,11 @@ XSec-Integrator             alg
      <param type="alg" name="SingleRESDiffXSecAlg"> genie::ReinSehgalRESPXSec/Default       </param>
   </param_set>
 
-</alg_conf>
+  <param_set name="MAID2007">
 
+     <param type="string" name="CommonParam">   MAID2007Resonances    </param>
+
+  </param_set>
+
+</alg_conf>
 

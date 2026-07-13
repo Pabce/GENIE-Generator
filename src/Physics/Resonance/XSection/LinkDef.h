@@ -21,6 +21,7 @@
 #pragma link C++ class genie::ReinSehgalRESXSecWithCache;
 #pragma link C++ class genie::ReinSehgalRESXSecFast;
 #pragma link C++ class genie::ReinSehgalRESXSecWithCacheFast;
+#pragma link C++ class genie::MAIDRESXSecFast;
 
 #pragma link C++ class genie::RSHelicityAmpl;
 #pragma link C++ class genie::RSHelicityAmplModelI;
@@ -29,6 +30,14 @@
 #pragma link C++ class genie::RSHelicityAmplModelNCn;
 #pragma link C++ class genie::RSHelicityAmplModelEMp;
 #pragma link C++ class genie::RSHelicityAmplModelEMn;
+
+#pragma link C++ class genie::MAIDHelicityAmpl;
+#pragma link C++ class genie::MAIDHelicityAmplModelI;
+#pragma link C++ class genie::MAIDHelicityAmplModelEMp;
+#pragma link C++ class genie::MAIDHelicityAmplModelEMn;
+#pragma link C++ class genie::MAIDToRSHelicityAmplModelEMp;
+#pragma link C++ class genie::MAIDToRSHelicityAmplModelEMn;
+#pragma link C++ class genie::MAIDRESPXSec;
 
 // Wrappers for GSL/MathMore lib
 #pragma link C++ class genie::utils::gsl::d2XSecRESFast_dWQ2_E;

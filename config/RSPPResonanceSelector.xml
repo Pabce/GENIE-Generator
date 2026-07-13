@@ -18,5 +18,10 @@ ResonanceNameList           string  No   list of resonances to be taken into acc
 
   </param_set>
 
-</alg_conf>
+  <param_set name="MAID2007">
 
+    <param type="string" name="CommonParam"> MAID2007Resonances </param>
+
+  </param_set>
+
+</alg_conf>

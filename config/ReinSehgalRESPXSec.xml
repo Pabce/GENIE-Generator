@@ -31,7 +31,12 @@ RFG-UseParametrization      bool    No    use parametrization for Fermi momentum
                                             
 FermiMomentumTable          string  No    Table of Fermi momentum (kF) constants for various nuclei       CommonParam[FermiGas]
 XSec-Integrator             alg     No                    
--->
+HelicityAmplCCAlg           alg     Yes   CC helicity-amplitude model
+HelicityAmplNCpAlg          alg     Yes   NC proton helicity-amplitude model
+HelicityAmplNCnAlg          alg     Yes   NC neutron helicity-amplitude model
+HelicityAmplEMpAlg          alg     Yes   EM proton helicity-amplitude model
+HelicityAmplEMnAlg          alg     Yes   EM neutron helicity-amplitude model
+	-->
 
   <param_set name="Default"> 
     
@@ -54,10 +59,16 @@ XSec-Integrator             alg     No
 	 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	 Axial and vector masses for resonance production  
     -->
-    <param type="double" name="RES-Ma"> 1.120 </param>
-    <param type="double" name="RES-Mv"> 0.840 </param>
-    
-  </param_set>
+	    <param type="double" name="RES-Ma"> 1.120 </param>
+	    <param type="double" name="RES-Mv"> 0.840 </param>
+
+	    <param type="alg" name="HelicityAmplCCAlg">  genie::RSHelicityAmplModelCC/Default  </param>
+	    <param type="alg" name="HelicityAmplNCpAlg"> genie::RSHelicityAmplModelNCp/Default </param>
+	    <param type="alg" name="HelicityAmplNCnAlg"> genie::RSHelicityAmplModelNCn/Default </param>
+	    <param type="alg" name="HelicityAmplEMpAlg"> genie::RSHelicityAmplModelEMp/Default </param>
+	    <param type="alg" name="HelicityAmplEMnAlg"> genie::RSHelicityAmplModelEMn/Default </param>
+
+	  </param_set>
   
   <param_set name="WithPauliBlock"> 
    
@@ -85,6 +96,12 @@ XSec-Integrator             alg     No
 
   </param_set>
 
+  <param_set name="EM-NoPauliBlock-MAID2007F">
+
+    <param type="alg"  name="XSec-Integrator">  genie::ReinSehgalRESXSecFast/NoPauliBlock-MAID2007      </param>
+    <param type="alg"  name="HelicityAmplEMpAlg"> genie::MAIDToRSHelicityAmplModelEMp/Default    </param>
+    <param type="alg"  name="HelicityAmplEMnAlg"> genie::MAIDToRSHelicityAmplModelEMn/Default    </param>
+
+  </param_set>
+
 </alg_conf>
-
-

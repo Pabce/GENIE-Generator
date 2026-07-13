@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<alg_conf>
+
+<!--
+Configuration for the MAID2007 electromagnetic helicity amplitude model.
+
+The default constants reproduce the validation notebook in
+validation/maid_form_factor_validation using Drechsel, Kamalov, and Tiator,
+Eur. Phys. J. A 34, 69 (2007), Tables 6-8 and 10-13.
+
+Configurable Parameters:
+.................................................................................................
+Name                    Type    Optional Comment
+.................................................................................................
+AmplitudeSource         string  Yes      MAID2007, RSOriginal, or RSOriginalP33
+RSQConvention           string  Yes      RSLab or QStar for RSOriginalP33
+RSHelicityAmplAlg       alg     Yes      native RS EM helicity model for RSOriginal
+RES-Omega               double  Yes      native RS FKR Omega for RSOriginal
+RES-Zeta                double  Yes      native RS FKR Zeta for RSOriginal
+RSOriginalPhase         double  Yes      phase for visible original-RS A/S curves
+ApplyLuisWidthScale     bool    Yes      multiply A/S by sqrt(130/115), comparison only
+LuisWidthScale          double  Yes      explicit scale value
+DeltaMass               double  Yes      Delta pole mass used in MAID formulas
+AM@P33(1232)            double  Yes      MAID2007 reduced magnetic A0
+AE@P33(1232)            double  Yes      MAID2007 reduced electric A0
+AS@P33(1232)            double  Yes      MAID2007 reduced scalar A0
+BetaM@P33(1232)         double  Yes
+BetaE@P33(1232)         double  Yes
+BetaS@P33(1232)         double  Yes
+GammaM@P33(1232)        double  Yes
+GammaE@P33(1232)        double  Yes
+GammaS@P33(1232)        double  Yes
+DeltaS@P33(1232)        double  Yes
+A12@P11(1440)-A0        double  Yes      MAID2007 Roper Eq. 5.19 coefficient
+A12@P11(1440)-C1        double  Yes      MAID2007 Roper Eq. 5.19 coefficient
+A12@P11(1440)-C4        double  Yes      MAID2007 Roper Eq. 5.19 coefficient
+A12@P11(1440)-Beta      double  Yes      MAID2007 Roper Eq. 5.19 coefficient
+S12@P11(1440)-A0        double  Yes      MAID2007 Roper Eq. 5.20 coefficient
+S12@P11(1440)-C1        double  Yes      MAID2007 Roper Eq. 5.20 coefficient
+S12@P11(1440)-C4        double  Yes      MAID2007 Roper Eq. 5.20 coefficient
+S12@P11(1440)-Beta      double  Yes      MAID2007 Roper Eq. 5.20 coefficient
+A12@Res-Has/A0/Alpha/Beta
+                        mixed   Yes      MAID2007 Eq. 5.21 and Tables 7, 12
+A32@Res-Has/A0/Alpha/Beta
+                        mixed   Yes      MAID2007 Eq. 5.21 and Tables 7, 12
+S12@Res-Has/A0/Alpha/Beta
+                        mixed   Yes      MAID2007 Eq. 5.21 and Table 12
+DipoleMass2             double  Yes      dipole mass squared in GeV^2
+RSVectorMass            double  Yes      original RS vector mass for RSOriginalP33
+-->
+
+  <param_set name="Default">
+    <param type="string" name="AmplitudeSource"> MAID2007 </param>
+    <param type="string" name="RSQConvention"> RSLab </param>
+    <param type="alg"    name="RSHelicityAmplAlg"> genie::RSHelicityAmplModelEMp/Default </param>
+    <param type="bool"   name="ApplyLuisWidthScale"> false </param>
+    <param type="double" name="LuisWidthScale"> 1.06321906614239 </param>
+    <param type="double" name="DeltaMass"> 1.232 </param>
+
+    <param type="double" name="AM@P33(1232)"> 300.0 </param>
+    <param type="double" name="AE@P33(1232)"> -6.37 </param>
+    <param type="double" name="AS@P33(1232)"> -12.4 </param>
+    <param type="double" name="BetaM@P33(1232)"> 0.01 </param>
+    <param type="double" name="BetaE@P33(1232)"> -0.021 </param>
+    <param type="double" name="BetaS@P33(1232)"> 0.12 </param>
+    <param type="double" name="GammaM@P33(1232)"> 0.23 </param>
+    <param type="double" name="GammaE@P33(1232)"> 0.16 </param>
+    <param type="double" name="GammaS@P33(1232)"> 0.23 </param>
+    <param type="double" name="DeltaS@P33(1232)"> 4.9 </param>
+
+    <param type="double" name="A12@P11(1440)-A0"> -61.4 </param>
+    <param type="double" name="A12@P11(1440)-C1"> -1.22 </param>
+    <param type="double" name="A12@P11(1440)-C4"> -0.55 </param>
+    <param type="double" name="A12@P11(1440)-Beta"> 1.51 </param>
+    <param type="double" name="S12@P11(1440)-A0"> 4.2 </param>
+    <param type="double" name="S12@P11(1440)-C1"> 40.0 </param>
+    <param type="double" name="S12@P11(1440)-C4"> 1.5 </param>
+    <param type="double" name="S12@P11(1440)-Beta"> 1.75 </param>
+
+    <param type="bool"   name="A12@D13(1520)-Has"> true </param>
+    <param type="double" name="A12@D13(1520)-A0"> -27.0 </param>
+    <param type="double" name="A12@D13(1520)-Alpha"> 7.77 </param>
+    <param type="double" name="A12@D13(1520)-Beta"> 1.09 </param>
+    <param type="bool"   name="A32@D13(1520)-Has"> true </param>
+    <param type="double" name="A32@D13(1520)-A0"> 161.0 </param>
+    <param type="double" name="A32@D13(1520)-Alpha"> 0.69 </param>
+    <param type="double" name="A32@D13(1520)-Beta"> 2.10 </param>
+    <param type="bool"   name="S12@D13(1520)-Has"> true </param>
+    <param type="double" name="S12@D13(1520)-A0"> -63.6 </param>
+    <param type="double" name="S12@D13(1520)-Alpha"> 4.19 </param>
+    <param type="double" name="S12@D13(1520)-Beta"> 3.40 </param>
+
+    <param type="bool"   name="A12@S11(1535)-Has"> true </param>
+    <param type="double" name="A12@S11(1535)-A0"> 66.0 </param>
+    <param type="double" name="A12@S11(1535)-Alpha"> 1.61 </param>
+    <param type="double" name="A12@S11(1535)-Beta"> 0.70 </param>
+    <param type="bool"   name="S12@S11(1535)-Has"> true </param>
+    <param type="double" name="S12@S11(1535)-A0"> -2.0 </param>
+    <param type="double" name="S12@S11(1535)-Alpha"> 23.9 </param>
+    <param type="double" name="S12@S11(1535)-Beta"> 0.81 </param>
+
+    <param type="bool"   name="A12@S31(1620)-Has"> true </param>
+    <param type="double" name="A12@S31(1620)-A0"> 66.0 </param>
+    <param type="double" name="A12@S31(1620)-Alpha"> 1.86 </param>
+    <param type="double" name="A12@S31(1620)-Beta"> 2.50 </param>
+    <param type="bool"   name="S12@S31(1620)-Has"> true </param>
+    <param type="double" name="S12@S31(1620)-A0"> 16.2 </param>
+    <param type="double" name="S12@S31(1620)-Alpha"> 2.83 </param>
+    <param type="double" name="S12@S31(1620)-Beta"> 2.00 </param>
+
+    <param type="bool"   name="A12@S11(1650)-Has"> true </param>
+    <param type="double" name="A12@S11(1650)-A0"> 33.0 </param>
+    <param type="double" name="A12@S11(1650)-Alpha"> 1.45 </param>
+    <param type="double" name="A12@S11(1650)-Beta"> 0.62 </param>
+    <param type="bool"   name="S12@S11(1650)-Has"> true </param>
+    <param type="double" name="S12@S11(1650)-A0"> -3.5 </param>
+    <param type="double" name="S12@S11(1650)-Alpha"> 2.88 </param>
+    <param type="double" name="S12@S11(1650)-Beta"> 0.76 </param>
+
+    <param type="bool"   name="A12@D15(1675)-Has"> true </param>
+    <param type="double" name="A12@D15(1675)-A0"> 15.0 </param>
+    <param type="double" name="A12@D15(1675)-Alpha"> 0.10 </param>
+    <param type="double" name="A12@D15(1675)-Beta"> 2.00 </param>
+    <param type="bool"   name="A32@D15(1675)-Has"> true </param>
+    <param type="double" name="A32@D15(1675)-A0"> 22.0 </param>
+    <param type="double" name="A32@D15(1675)-Alpha"> 0.10 </param>
+    <param type="double" name="A32@D15(1675)-Beta"> 2.00 </param>
+    <param type="bool"   name="S12@D15(1675)-Has"> true </param>
+    <param type="double" name="S12@D15(1675)-A0"> 0.0 </param>
+    <param type="double" name="S12@D15(1675)-Alpha"> 0.0 </param>
+    <param type="double" name="S12@D15(1675)-Beta"> 0.0 </param>
+
+    <param type="bool"   name="A12@F15(1680)-Has"> true </param>
+    <param type="double" name="A12@F15(1680)-A0"> -25.0 </param>
+    <param type="double" name="A12@F15(1680)-Alpha"> 3.98 </param>
+    <param type="double" name="A12@F15(1680)-Beta"> 1.20 </param>
+    <param type="bool"   name="A32@F15(1680)-Has"> true </param>
+    <param type="double" name="A32@F15(1680)-A0"> 134.0 </param>
+    <param type="double" name="A32@F15(1680)-Alpha"> 1.00 </param>
+    <param type="double" name="A32@F15(1680)-Beta"> 2.22 </param>
+    <param type="bool"   name="S12@F15(1680)-Has"> true </param>
+    <param type="double" name="S12@F15(1680)-A0"> -44.0 </param>
+    <param type="double" name="S12@F15(1680)-Alpha"> 3.14 </param>
+    <param type="double" name="S12@F15(1680)-Beta"> 1.68 </param>
+
+    <param type="bool"   name="A12@D33(1700)-Has"> true </param>
+    <param type="double" name="A12@D33(1700)-A0"> 226.0 </param>
+    <param type="double" name="A12@D33(1700)-Alpha"> 1.91 </param>
+    <param type="double" name="A12@D33(1700)-Beta"> 1.77 </param>
+    <param type="bool"   name="A32@D33(1700)-Has"> true </param>
+    <param type="double" name="A32@D33(1700)-A0"> 210.0 </param>
+    <param type="double" name="A32@D33(1700)-Alpha"> 1.97 </param>
+    <param type="double" name="A32@D33(1700)-Beta"> 2.20 </param>
+    <param type="bool"   name="S12@D33(1700)-Has"> true </param>
+    <param type="double" name="S12@D33(1700)-A0"> 0.0 </param>
+    <param type="double" name="S12@D33(1700)-Alpha"> 0.0 </param>
+    <param type="double" name="S12@D33(1700)-Beta"> 0.0 </param>
+
+    <param type="bool"   name="A12@P13(1720)-Has"> true </param>
+    <param type="double" name="A12@P13(1720)-A0"> 73.0 </param>
+    <param type="double" name="A12@P13(1720)-Alpha"> 1.89 </param>
+    <param type="double" name="A12@P13(1720)-Beta"> 1.55 </param>
+    <param type="bool"   name="A32@P13(1720)-Has"> true </param>
+    <param type="double" name="A32@P13(1720)-A0"> -11.0 </param>
+    <param type="double" name="A32@P13(1720)-Alpha"> 16.0 </param>
+    <param type="double" name="A32@P13(1720)-Beta"> 1.55 </param>
+    <param type="bool"   name="S12@P13(1720)-Has"> true </param>
+    <param type="double" name="S12@P13(1720)-A0"> -53.0 </param>
+    <param type="double" name="S12@P13(1720)-Alpha"> 2.46 </param>
+    <param type="double" name="S12@P13(1720)-Beta"> 1.55 </param>
+
+    <param type="bool"   name="A12@F35(1905)-Has"> true </param>
+    <param type="double" name="A12@F35(1905)-A0"> 18.0 </param>
+    <param type="double" name="A12@F35(1905)-Alpha"> 0.0 </param>
+    <param type="double" name="A12@F35(1905)-Beta"> 0.0 </param>
+    <param type="bool"   name="A32@F35(1905)-Has"> true </param>
+    <param type="double" name="A32@F35(1905)-A0"> -28.0 </param>
+    <param type="double" name="A32@F35(1905)-Alpha"> 0.0 </param>
+    <param type="double" name="A32@F35(1905)-Beta"> 0.0 </param>
+    <param type="bool"   name="S12@F35(1905)-Has"> true </param>
+    <param type="double" name="S12@F35(1905)-A0"> 0.0 </param>
+    <param type="double" name="S12@F35(1905)-Alpha"> 0.0 </param>
+    <param type="double" name="S12@F35(1905)-Beta"> 0.0 </param>
+
+    <param type="bool"   name="A12@F37(1950)-Has"> true </param>
+    <param type="double" name="A12@F37(1950)-A0"> -94.0 </param>
+    <param type="double" name="A12@F37(1950)-Alpha"> 0.0 </param>
+    <param type="double" name="A12@F37(1950)-Beta"> 0.0 </param>
+    <param type="bool"   name="A32@F37(1950)-Has"> true </param>
+    <param type="double" name="A32@F37(1950)-A0"> -121.0 </param>
+    <param type="double" name="A32@F37(1950)-Alpha"> 0.0 </param>
+    <param type="double" name="A32@F37(1950)-Beta"> 0.0 </param>
+    <param type="bool"   name="S12@F37(1950)-Has"> true </param>
+    <param type="double" name="S12@F37(1950)-A0"> 0.0 </param>
+    <param type="double" name="S12@F37(1950)-Alpha"> 0.0 </param>
+    <param type="double" name="S12@F37(1950)-Beta"> 0.0 </param>
+
+    <param type="double" name="DipoleMass2"> 0.71 </param>
+    <param type="double" name="RSVectorMass"> 0.84 </param>
+    <param type="double" name="RES-Omega"> 1.05 </param>
+    <param type="double" name="RES-Zeta"> 0.76338 </param>
+    <param type="double" name="RSOriginalPhase"> -1.0 </param>
+  </param_set>
+
+  <param_set name="UnscaledMAID2007">
+    <param type="bool" name="ApplyLuisWidthScale"> false </param>
+  </param_set>
+
+  <param_set name="WidthScaledMAID2007">
+    <param type="bool" name="ApplyLuisWidthScale"> true </param>
+  </param_set>
+
+  <param_set name="RSOriginalP33">
+    <param type="string" name="AmplitudeSource"> RSOriginalP33 </param>
+    <param type="string" name="RSQConvention"> RSLab </param>
+    <param type="bool"   name="ApplyLuisWidthScale"> false </param>
+  </param_set>
+
+  <param_set name="RSOriginal">
+    <param type="string" name="AmplitudeSource"> RSOriginal </param>
+    <param type="alg"    name="RSHelicityAmplAlg"> genie::RSHelicityAmplModelEMp/Default </param>
+    <param type="bool"   name="ApplyLuisWidthScale"> false </param>
+  </param_set>
+
+  <param_set name="RSOriginalP33-QStar">
+    <param type="string" name="AmplitudeSource"> RSOriginalP33 </param>
+    <param type="string" name="RSQConvention"> QStar </param>
+    <param type="bool"   name="ApplyLuisWidthScale"> false </param>
+  </param_set>
+
+</alg_conf>

@@ -541,7 +541,21 @@ void Spline::FindClosestKnot(
 
   if(!pos && !neg) return;
 
+  int nknots = this->NKnots();
+  if(nknots <= 0) return;
+
+  if(x <= fXMin) {
+    fInterpolator->GetKnot(0, xknot, yknot);
+    return;
+  }
+  if(x >= fXMax) {
+    fInterpolator->GetKnot(nknots-1, xknot, yknot);
+    return;
+  }
+
   int iknot = fInterpolator->FindX(x);
+  if(iknot < 0) iknot = 0;
+  if(iknot >= nknots-1) iknot = nknots-2;
 
   double xp=0, yp=0, xn=0, yn=0;
   fInterpolator->GetKnot(iknot,  xn,yn);

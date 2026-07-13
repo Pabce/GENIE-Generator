@@ -14,3 +14,8 @@ src/Framework/Conventions/GVersion.h
 *.rootmap
 *_ROOT_DICT_*
 *.swp
+.vscode
+AGENTS.md
+CLAUDE.md
+build/
+src/scripts/build/ext/

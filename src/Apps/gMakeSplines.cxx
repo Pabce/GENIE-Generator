@@ -20,6 +20,7 @@
                   [--seed seed_number]
                   [--input-cross-sections xml_file]
                   [--em-q2-min q2_value]
+                  [--resonances resonance_name_list]
 
                   // command line args handled by RunOpt:
                   [--event-generator-list list_name] // default "Default"
@@ -64,6 +65,10 @@
               Override the minimum Q^2 threshold for electromagnetic scattering
               events (in GeV^2). This overrides the EM-Q2-min value from
               CommonParam.xml [Kinematics].
+           --resonances
+              Comma-separated baryon-resonance name list to run for, e.g.
+              'P33(1232),P11(1440)'. This overrides CommonParam.xml
+              [Resonances] and [MAID2007Resonances] for this job.
 
            --event-generator-list
               List of event generators to load in event generation drivers.
@@ -148,6 +153,7 @@ string   gOptInpXSecFile    = "";   // input cross-section file
 string   gOptOutXSecFile    = "";   // output cross-section file
 double   gOptEMQ2Min;               // EM Q2 minimum override value
 bool     gOptEMQ2MinSet     = false; // whether --em-q2-min was specified
+string   gOptResonances     = "";    // resonance list override
 
 //____________________________________________________________________________
 int main(int argc, char ** argv)
@@ -160,6 +166,10 @@ int main(int argc, char ** argv)
     exit(-1);
   }
   RunOpt::Instance()->BuildTune();
+
+  if(!gOptResonances.empty()) {
+    utils::app_init::ResonanceNameList(gOptResonances, "gmkspl");
+  }
 
   // Apply EM Q2 min override if specified on command line
   // This must be done after BuildTune() loads XML configs but before
@@ -363,6 +373,13 @@ void GetCommandLineArgs(int argc, char ** argv)
     gOptEMQ2MinSet = true;
   }
 
+  if( parser.OptionExists("resonances") ) {
+    LOG("gmkspl", pINFO) << "Reading resonance name-list override";
+    gOptResonances = parser.ArgAsString("resonances");
+  } else {
+    gOptResonances = "";
+  }
+
   //
   // print the command-line options
   //
@@ -378,6 +395,10 @@ void GetCommandLineArgs(int argc, char ** argv)
   if(gOptEMQ2MinSet) {
      LOG("gmkspl", pNOTICE)
        << "\n EM Q2 minimum override : " << gOptEMQ2Min << " GeV^2";
+  }
+  if(!gOptResonances.empty()) {
+     LOG("gmkspl", pNOTICE)
+       << "\n Resonance list override : " << gOptResonances;
   }
   LOG("gmkspl", pNOTICE) << "\n";
 
@@ -397,6 +418,7 @@ void PrintSyntax(void)
     << "\n    [--seed seed_number]"
     << "\n    [--input-cross-sections xml_file]"
     << "\n    [--em-q2-min q2_value]"
+    << "\n    [--resonances resonance_name_list]"
     << RunOpt::RunOptSyntaxString(false)
     << "\n";
 

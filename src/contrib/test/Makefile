@@ -42,6 +42,7 @@ TGT =	gtestAlgorithms 	 \
 	gtestRewght		 \
 	gtestRegistry		 \
 	gtestInteraction	 \
+	gtestMAID2007Helicity \
 	gtestResonances		 \
 	gtestKPhaseSpace	 \
 	gtestGAtmoFlux	
@@ -176,6 +177,10 @@ gtestInteraction: FORCE
 	$(CXX) $(CXXFLAGS) -c gtestInteraction.cxx $(CPP_INCLUDES)
 	$(LD) $(LDFLAGS) gtestInteraction.o $(LIBRARIES) -o $(GENIE_BIN_PATH)/gtestInteraction
 
+gtestMAID2007Helicity: FORCE
+	$(CXX) $(CXXFLAGS) -c gtestMAID2007Helicity.cxx $(CPP_INCLUDES)
+	$(LD) $(LDFLAGS) gtestMAID2007Helicity.o $(LIBRARIES) -o $(GENIE_BIN_PATH)/gtestMAID2007Helicity
+
 gtestResonances: FORCE
 	$(CXX) $(CXXFLAGS) -c gtestResonances.cxx $(CPP_INCLUDES)
 	$(LD) $(LDFLAGS) gtestResonances.o $(LIBRARIES) -o $(GENIE_BIN_PATH)/gtestResonances
@@ -227,6 +232,7 @@ clean: FORCE
 	$(RM) $(GENIE_BIN_PATH)/gtestRewght		
 	$(RM) $(GENIE_BIN_PATH)/gtestRegistry		
 	$(RM) $(GENIE_BIN_PATH)/gtestInteraction	
+	$(RM) $(GENIE_BIN_PATH)/gtestMAID2007Helicity
 	$(RM) $(GENIE_BIN_PATH)/gtestResonances		
 	$(RM) $(GENIE_BIN_PATH)/gtestKPhaseSpace	
 	$(RM) $(GENIE_BIN_PATH)/gtestGAtmoFlux	
@@ -262,6 +268,7 @@ distclean: FORCE
 	$(RM) $(GENIE_BIN_INSTALLATION_PATH)/gtestRewght		
 	$(RM) $(GENIE_BIN_INSTALLATION_PATH)/gtestRegistry		
 	$(RM) $(GENIE_BIN_INSTALLATION_PATH)/gtestInteraction	
+	$(RM) $(GENIE_BIN_INSTALLATION_PATH)/gtestMAID2007Helicity
 	$(RM) $(GENIE_BIN_INSTALLATION_PATH)/gtestResonances		
 	$(RM) $(GENIE_BIN_INSTALLATION_PATH)/gtestKPhaseSpace	
 	$(RM) $(GENIE_BIN_INSTALLATION_PATH)/gtestGAtmoFlux	

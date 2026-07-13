@@ -154,6 +154,10 @@
    <config alg="genie::RSHelicityAmplModelNCn">                  RSHelicityAmplModelNCn.xml                  </config>
    <config alg="genie::RSHelicityAmplModelEMp">                  RSHelicityAmplModelEMp.xml                  </config>
    <config alg="genie::RSHelicityAmplModelEMn">                  RSHelicityAmplModelEMn.xml                  </config>
+   <config alg="genie::MAIDHelicityAmplModelEMp">                MAIDHelicityAmplModelEMp.xml                </config>
+   <config alg="genie::MAIDHelicityAmplModelEMn">                MAIDHelicityAmplModelEMn.xml                </config>
+   <config alg="genie::MAIDToRSHelicityAmplModelEMp">            MAIDToRSHelicityAmplModelEMp.xml            </config>
+   <config alg="genie::MAIDToRSHelicityAmplModelEMn">            MAIDToRSHelicityAmplModelEMn.xml            </config>
    <config alg="genie::EngelFormFactor">                         EngelFormFactor.xml                         </config>
 
 
@@ -216,6 +220,8 @@
    <config alg="genie::ReinDFRPXSec">                       ReinDFRPXSec.xml                       </config>
    <config alg="genie::ReinSehgalCOHPiPXSec">               ReinSehgalCOHPiPXSec.xml               </config>
    <config alg="genie::ReinSehgalRESPXSec">                 ReinSehgalRESPXSec.xml                 </config>
+   <config alg="genie::MAIDRESPXSec">                       MAIDRESPXSec.xml                       </config>
+   <config alg="genie::MAIDRESXSecFast">                    MAIDRESXSecFast.xml                    </config>
    <config alg="genie::ReinSehgalSPPPXSec">                 ReinSehgalSPPPXSec.xml                 </config>
    <config alg="genie::ReinSehgalRESXSec">                  ReinSehgalRESXSec.xml                  </config>
    <config alg="genie::ReinSehgalSPPXSec">                  ReinSehgalSPPXSec.xml                  </config>
