@@ -49,7 +49,9 @@ git clone --no-local --no-checkout "${source_repo}" "${build_dir}"
 git -C "${build_dir}" checkout --detach "${source_ref}"
 
 unset ROOTSYS GXMLPATH
+set +u
 source "${lcg_view}"
+set -u
 
 export GENIE="${build_dir}"
 export PYTHIA6="${release}/external/pythia6"

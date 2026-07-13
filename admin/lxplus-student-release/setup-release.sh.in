@@ -22,7 +22,15 @@ if command -v module >/dev/null 2>&1; then
 fi
 
 unset ROOTSYS GXMLPATH
+_genie_restore_nounset=0
+case "$-" in
+  *u*) _genie_restore_nounset=1; set +u ;;
+esac
 source "@LCG_VIEW@"
+if [[ "${_genie_restore_nounset}" == "1" ]]; then
+  set -u
+fi
+unset _genie_restore_nounset
 
 export GENIE="@RELEASE_PREFIX@"
 export GENIE_STUDENT_RELEASE="@RELEASE_VERSION@"
@@ -43,4 +51,3 @@ echo "[GENIE student] release: ${GENIE_STUDENT_RELEASE}"
 echo "[GENIE student] GENIE:   ${GENIE}"
 echo "[GENIE student] ROOT:    $(root-config --version 2>/dev/null || echo unavailable)"
 echo "[GENIE student] gevgen:  $(command -v gevgen 2>/dev/null || echo unavailable)"
-
