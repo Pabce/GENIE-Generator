@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# Immutable setup for @RELEASE_VERSION@. Must be sourced.
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  echo "ERROR: source this file instead of executing it" >&2
+  exit 1
+fi
+
+_genie_path_prepend() {
+  local variable="$1"
+  local value="$2"
+  local current="${!variable-}"
+  [[ -d "${value}" ]] || return 0
+  case ":${current}:" in
+    *":${value}:"*) ;;
+    *) export "${variable}=${value}${current:+:${current}}" ;;
+  esac
+}
+
+if command -v module >/dev/null 2>&1; then
+  module purge >/dev/null 2>&1 || true
+fi
+
+unset ROOTSYS GXMLPATH
+source "@LCG_VIEW@"
+
+export GENIE="@RELEASE_PREFIX@"
+export GENIE_STUDENT_RELEASE="@RELEASE_VERSION@"
+export PYTHIA6="${GENIE}/external/pythia6"
+export TP6="${GENIE}/external/tpythia6"
+
+_genie_path_prepend CPATH "${TP6}/include"
+_genie_path_prepend ROOT_INCLUDE_PATH "${TP6}/include"
+_genie_path_prepend LD_LIBRARY_PATH "${PYTHIA6}/lib"
+_genie_path_prepend LD_LIBRARY_PATH "${TP6}/lib"
+_genie_path_prepend LD_LIBRARY_PATH "${GENIE}/lib"
+_genie_path_prepend PATH "${GENIE}/bin"
+
+hash -r
+unset -f _genie_path_prepend
+
+echo "[GENIE student] release: ${GENIE_STUDENT_RELEASE}"
+echo "[GENIE student] GENIE:   ${GENIE}"
+echo "[GENIE student] ROOT:    $(root-config --version 2>/dev/null || echo unavailable)"
+echo "[GENIE student] gevgen:  $(command -v gevgen 2>/dev/null || echo unavailable)"
+
