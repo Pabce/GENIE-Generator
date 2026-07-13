@@ -63,10 +63,11 @@ export LD_LIBRARY_PATH="${TP6}/lib:${PYTHIA6}/lib${LD_LIBRARY_PATH:+:${LD_LIBRAR
 
 pythia8_inc="$(pythia8-config --includedir)"
 pythia8_lib="$(pythia8-config --libdir)"
-lhapdf6_inc="$(lhapdf-config --incdir)"
-lhapdf6_lib="$(lhapdf-config --libdir)"
-log4cpp_inc="$(dirname "$(dirname "$(command -v log4cpp-config)")")/include"
-log4cpp_lib="$(dirname "$(dirname "$(command -v log4cpp-config)")")/lib"
+lcg_prefix="$(dirname "${lcg_view}")"
+lhapdf6_inc="${lcg_prefix}/include"
+lhapdf6_lib="${lcg_prefix}/lib"
+log4cpp_inc="${lcg_prefix}/include"
+log4cpp_lib="${lcg_prefix}/lib"
 
 configure_args=(
   "--prefix=${release}"
