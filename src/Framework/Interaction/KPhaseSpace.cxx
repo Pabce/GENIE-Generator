@@ -612,7 +612,11 @@ Range1D_t KPhaseSpace::Q2Lim(void) const
   bool is_dme   = pi.IsDarkMatterElastic();
   bool is_dmdis = pi.IsDarkMatterDeepInelastic();
 
-  if(!is_qel && !is_inel && !is_coh && !is_cevns && !is_dme && !is_dmdis) return Q2l;
+  // MEC has its own branch below; do not reject it before reaching it.
+  if(!is_qel && !is_inel && !is_coh && !is_cevns && !is_dme && !is_dmdis && !pi.IsMEC()) return Q2l;
+
+  // Tensor MEC has no struck cluster; preserve its separate phase-space path.
+  if (pi.IsMEC() && !fInteraction->InitState().Tgt().HitNucIsSet()) return Q2l;
 
   const InitialState & init_state = fInteraction->InitState();
   double Ev  = init_state.ProbeE(kRfHitNucRest);

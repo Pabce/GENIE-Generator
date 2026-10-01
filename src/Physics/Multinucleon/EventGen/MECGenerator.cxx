@@ -13,6 +13,9 @@
 
 #include <TMath.h>
 #include <memory>
+#include <stdexcept>
+#include <cmath>
+#include <algorithm>
 #include "Math/Minimizer.h"
 #include "Math/Factory.h"
 
@@ -22,6 +25,9 @@
 #include "Framework/Conventions/Controls.h"
 #include "Framework/EventGen/EVGThreadException.h"
 #include "Framework/Interaction/KPhaseSpace.h"
+#if __has_include("Framework/Interaction/KPhaseSpaceCuts.h")
+#include "Framework/Interaction/KPhaseSpaceCuts.h"
+#endif
 #include "Framework/EventGen/RunningThreadInfo.h"
 #include "Framework/EventGen/EventGeneratorI.h"
 #include "Framework/GHEP/GHepStatus.h"
@@ -243,29 +249,51 @@ void MECGenerator::SelectEmpiricalKinematics(GHepRecord * event) const
   Interaction * interaction = event->Summary();
   double Ev = interaction->InitState().ProbeE(kRfHitNucRest);
 
-  // **** NOTE / TODO:
-  // **** Hardcode bogus limits for the time-being
-  // **** Should be able to get limits via Interaction::KPhaseSpace
-  double Q2min =  0.01;
-  double Q2max =  8.00;
-  double Wmin  =  1.88;
-  double Wmax  =  3.00;
-
-  // Scan phase-space for the maximum differential cross section
-  // at the current neutrino energy
-  const int nq=30;
-  const int nw=20;
-  double dQ2 = (Q2max-Q2min) / (nq-1);
-  double dW  = (Wmax-Wmin )  / (nw-1);
-  double xsec_max =  0;
-  for(int iw=0; iw<nw; iw++) {
-    for(int iq=0; iq<nq; iq++) {
-      double Q2 = Q2min + iq*dQ2;
-      double W  = Wmin  + iw*dW;
-      interaction->KinePtr()->SetQ2(Q2);
-      interaction->KinePtr()->SetW (W);
-      double xsec = fXSecModel->XSec(interaction, kPSWQ2fE);
-      xsec_max = TMath::Max(xsec, xsec_max);
+  double Q2min = 0.01, Q2max = 8.0, Wmin = 1.88, Wmax = 3.0;
+  double xsec_max = 0.;
+  if (interaction->ProcInfo().IsEM()) {
+    // The old coarse 30x20 grid misses the entire low-energy physical region.
+    // Use physical limits and a conservative analytic bound for this model.
+    if (fXSecModel->Id().Name() != "genie::EmpiricalMECPXSec2015")
+      throw std::runtime_error("EM empirical MEC requires a verified rejection bound");
+    const double M = interaction->InitState().Tgt().HitNucMass();
+    const double ml = interaction->FSPrimLepton()->Mass();
+    const Range1D_t wl = kinematics::electromagnetic::InelWLim(Ev, ml, M);
+    Wmin = std::max(Wmin, wl.min);
+    Wmax = std::min(Wmax, wl.max);
+#if __has_include("Framework/Interaction/KPhaseSpaceCuts.h")
+    Q2min = std::max(Q2min, KPhaseSpaceCuts::Instance()->Q2MinCut(interaction,0.));
+#else
+    Q2min = std::max(Q2min, KPhaseSpace::GetQ2MinEM());
+#endif
+    const Range1D_t ql = kinematics::electromagnetic::InelQ2Lim_W(
+        Ev, ml, M, Wmin, Q2min);
+    Q2max = std::min(Q2max, ql.max);
+    if (!(Wmax > Wmin && Q2max > Q2min))
+      throw std::runtime_error("EM empirical MEC has empty sampling phase space");
+    const Registry &cfg = fXSecModel->GetConfig();
+    const double peak = cfg.GetDouble("EmpiricalMEC-Mass");
+    const double width = cfg.GetDouble("EmpiricalMEC-Width");
+    const double mq2 = cfg.GetDouble("EmpiricalMEC-Mq2d");
+    if (!(width > 0. && mq2 > 0.))
+      throw std::runtime_error("Invalid empirical MEC shape parameters");
+    const double wpeak = std::max(Wmin, std::min(Wmax, peak));
+    const double gaussian_max = std::exp(-0.5*std::pow((wpeak-peak)/width,2));
+    const double epmax = Ev-Q2min/(2*M);
+    // The EM expression reduces to alpha^2 Eprime^2/M^2 * dipole * Gaussian
+    // * [cos^2(theta/2)/(1+tau) + 2 sin^2(theta/2)]. The bracket is <=2,
+    // Eprime and the dipole decrease with Q2, and Gaussian<=gaussian_max.
+    xsec_max = (1.+1.e-12)*2*kAem2*epmax*epmax/(M*M)*
+        std::pow(1.+Q2min/mq2,-8.)*gaussian_max;
+    if (!(xsec_max > 0.) || !std::isfinite(xsec_max))
+      throw std::runtime_error("Invalid EM empirical MEC rejection bound");
+  } else {
+    // Preserve the legacy weak-interaction sampler in this EM-only repair.
+    const int nq=30, nw=20;
+    for(int iw=0; iw<nw; ++iw) for(int iq=0; iq<nq; ++iq) {
+      interaction->KinePtr()->SetQ2(Q2min+iq*(Q2max-Q2min)/(nq-1));
+      interaction->KinePtr()->SetW(Wmin+iw*(Wmax-Wmin)/(nw-1));
+      xsec_max=std::max(xsec_max,fXSecModel->XSec(interaction,kPSWQ2fE));
     }
   }
   LOG("MEC", pNOTICE) << "xsec_max (E = " << Ev << " GeV) = " << xsec_max;
@@ -295,6 +323,11 @@ void MECGenerator::SelectEmpiricalKinematics(GHepRecord * event) const
      interaction->KinePtr()->SetQ2(gQ2);
      interaction->KinePtr()->SetW (gW);
      double xsec = fXSecModel->XSec(interaction, kPSWQ2fE);
+
+     // Never silently clip an invalid rejection envelope and bias saved events.
+     if (interaction->ProcInfo().IsEM() &&
+         (!std::isfinite(xsec) || xsec < 0. || xsec > xsec_max*(1.+1.e-10)))
+       throw std::runtime_error("EM empirical MEC rejection bound violated");
 
      // Decide whether to accept the current kinematics
      double t = xsec_max * rnd->RndKine().Rndm();
