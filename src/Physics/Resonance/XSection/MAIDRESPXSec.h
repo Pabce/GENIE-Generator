@@ -33,6 +33,8 @@ typedef struct SMAID2007ResParam
   double mass;
   double width;
   double beta_pi;
+  double beta_2pi;
+  double beta_eta;
   double xr;
 }
 MAID2007ResParam_t;
@@ -61,8 +63,11 @@ private:
   double KGammaLab(double W, double M) const;
   double QLab(double W, double Q2, double M) const;
   double QPiCM(double W, double M) const;
+  double QMesonNCM(double W, double M, double meson_mass) const;
   double GammaRunning(Resonance_t res, double W, double M) const;
   double GammaPi(Resonance_t res, double W, double M) const;
+  double Gamma2Pi(Resonance_t res, double W, double M) const;
+  double GammaEta(Resonance_t res, double W, double M) const;
   double GammaTotal(Resonance_t res, double W, double M) const;
   double BreitWigner(Resonance_t res, double W, double M) const;
   double BreitWignerMAIDW2(Resonance_t res, double W, double M) const;
@@ -73,6 +78,8 @@ private:
   double ResonanceMass(Resonance_t res) const;
   double ResonanceWidth(Resonance_t res) const;
   double ResonancePiBranching(Resonance_t res) const;
+  double Resonance2PiBranching(Resonance_t res) const;
+  double ResonanceEtaBranching(Resonance_t res) const;
   double ResonanceXr(Resonance_t res) const;
   void   LoadMAID2007ResParams(void);
   void   LoadMAID2007ResParam(Resonance_t res, const string & res_name,
@@ -89,10 +96,15 @@ private:
   string fBreitWignerMode;
   string fBreitWignerConventionCorrection;
   string fMAIDRunningWidthMode;
+  string fMAIDTotalWidthMode;
   bool   fUseRSFallbackForMissingResonances;
   bool   fUseDRJoinScheme;
   bool   fApplyRSNativeWCut;
   bool   fApplyPiNBranchingToMAIDBW;
+  bool   fUseMAID2PiWidth;
+  bool   fUseMAIDEtaNWidth;
+  bool   fEtaNApplyDamping;
+  bool   fEtaNApplyMRoverW;
   double fWcut;
   double fXSecScaleEM;
   bool   fWghtBW;
@@ -100,6 +112,7 @@ private:
   double fDeltaWidth;
   double fDeltaXr;
   double fPionMass;
+  double fEtaNMass;
   double fN0ResMaxNWidths;
   double fN2ResMaxNWidths;
   double fGnResMaxNWidths;

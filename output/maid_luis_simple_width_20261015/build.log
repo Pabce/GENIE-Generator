@@ -1,0 +1,2 @@
+ld: warning: duplicate -rpath '/opt/homebrew/Cellar/root/6.40.00/lib/root' ignored
+ld: warning: ignoring duplicate libraries: '-lm', '-lpthread'

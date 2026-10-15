@@ -35,9 +35,11 @@ namespace {
     "F37(1950)";
 
   MAID2007ResParam_t maid_res_param(
-    double mass, double width, double beta_pi, double xr)
+    double mass, double width, double beta_pi, double beta_2pi,
+    double beta_eta, double xr)
   {
-    MAID2007ResParam_t param = { mass, width, beta_pi, xr };
+    MAID2007ResParam_t param =
+      { mass, width, beta_pi, beta_2pi, beta_eta, xr };
     return param;
   }
 
@@ -227,12 +229,18 @@ double MAIDRESPXSec::QLab(double W, double Q2, double M) const
 //____________________________________________________________________________
 double MAIDRESPXSec::QPiCM(double W, double M) const
 {
-  if(W <= 0.0) return 0.0;
+  return this->QMesonNCM(W, M, fPionMass);
+}
+//____________________________________________________________________________
+double MAIDRESPXSec::QMesonNCM(double W, double M, double meson_mass) const
+{
+  if(W <= 0.0 || M <= 0.0 || meson_mass <= 0.0) return 0.0;
   const double W2 = W*W;
-  const double mpi2 = fPionMass*fPionMass;
+  const double meson_mass2 = meson_mass*meson_mass;
   const double m2 = M*M;
   const double kallen =
-    W2*W2 + m2*m2 + mpi2*mpi2 - 2.0*(W2*m2 + W2*mpi2 + m2*mpi2);
+    W2*W2 + m2*m2 + meson_mass2*meson_mass2 -
+    2.0*(W2*m2 + W2*meson_mass2 + m2*meson_mass2);
   return TMath::Sqrt(TMath::Max(0.0, kallen)) / (2.0 * W);
 }
 //____________________________________________________________________________
@@ -278,8 +286,65 @@ double MAIDRESPXSec::GammaPi(Resonance_t res, double W, double M) const
   return beta_pi * gamma_running;
 }
 //____________________________________________________________________________
+double MAIDRESPXSec::Gamma2Pi(Resonance_t res, double W, double M) const
+{
+  const double beta_2pi = this->Resonance2PiBranching(res);
+  const double mr = this->ResonanceMass(res);
+  const double wr = this->ResonanceWidth(res);
+  const double xr = this->ResonanceXr(res);
+  const double q2pi = this->QMesonNCM(W, M, 2.0 * fPionMass);
+  const double q2pir = this->QMesonNCM(mr, M, 2.0 * fPionMass);
+  if(beta_2pi <= 0.0 || W <= 0.0 || mr <= 0.0 || wr <= 0.0 ||
+     q2pi <= 0.0 || q2pir <= 0.0) return 0.0;
+
+  const int L = utils::res::OrbitalAngularMom(res);
+  const double power = 2.0 * L + 4.0;
+  double barrier = 1.0;
+  if(xr > 0.0) {
+    barrier = TMath::Power(
+      (q2pir*q2pir + xr*xr)/(q2pi*q2pi + xr*xr), L + 2.0);
+  }
+  return beta_2pi * wr * TMath::Power(q2pi/q2pir, power) * barrier;
+}
+//____________________________________________________________________________
+double MAIDRESPXSec::GammaEta(Resonance_t res, double W, double M) const
+{
+  const double beta_eta = this->ResonanceEtaBranching(res);
+  const double mr = this->ResonanceMass(res);
+  const double wr = this->ResonanceWidth(res);
+  const double xr = this->ResonanceXr(res);
+  const double qeta = this->QMesonNCM(W, M, fEtaNMass);
+  const double qetar = this->QMesonNCM(mr, M, fEtaNMass);
+  if(beta_eta <= 0.0 || W <= 0.0 || mr <= 0.0 || wr <= 0.0 ||
+     qeta <= 0.0 || qetar <= 0.0) return 0.0;
+
+  const int L = utils::res::OrbitalAngularMom(res);
+  const double power = 2.0 * L + 1.0;
+  double barrier = 1.0;
+  if(fEtaNApplyDamping && L > 0 && xr > 0.0) {
+    barrier = TMath::Power(
+      (qetar*qetar + xr*xr)/(qeta*qeta + xr*xr), L);
+  }
+  double gamma = beta_eta * wr * TMath::Power(qeta/qetar, power) * barrier;
+  if(fEtaNApplyMRoverW) gamma *= mr/W;
+  return gamma;
+}
+//____________________________________________________________________________
 double MAIDRESPXSec::GammaTotal(Resonance_t res, double W, double M) const
 {
+  const string total_width_mode = uppercase_copy(fMAIDTotalWidthMode);
+  if(total_width_mode == "PIONONLY" || total_width_mode == "RUNNING") {
+    return this->GammaRunning(res, W, M);
+  }
+  if(total_width_mode == "FULLMAID" || total_width_mode == "MAID2007FULL") {
+    double gamma = this->GammaPi(res, W, M);
+    if(fUseMAID2PiWidth) gamma += this->Gamma2Pi(res, W, M);
+    if(fUseMAIDEtaNWidth) gamma += this->GammaEta(res, W, M);
+    return gamma;
+  }
+
+  LOG("MAIDRESPXSec", pWARN)
+    << "Unknown MAIDTotalWidthMode = " << fMAIDTotalWidthMode;
   return this->GammaRunning(res, W, M);
 }
 //____________________________________________________________________________
@@ -390,6 +455,20 @@ double MAIDRESPXSec::ResonancePiBranching(Resonance_t res) const
   return (iter != fMAID2007ResParams.end()) ? iter->second.beta_pi : 0.0;
 }
 //____________________________________________________________________________
+double MAIDRESPXSec::Resonance2PiBranching(Resonance_t res) const
+{
+  std::map<Resonance_t, MAID2007ResParam_t>::const_iterator iter =
+    fMAID2007ResParams.find(res);
+  return (iter != fMAID2007ResParams.end()) ? iter->second.beta_2pi : 0.0;
+}
+//____________________________________________________________________________
+double MAIDRESPXSec::ResonanceEtaBranching(Resonance_t res) const
+{
+  std::map<Resonance_t, MAID2007ResParam_t>::const_iterator iter =
+    fMAID2007ResParams.find(res);
+  return (iter != fMAID2007ResParams.end()) ? iter->second.beta_eta : 0.0;
+}
+//____________________________________________________________________________
 double MAIDRESPXSec::ResonanceXr(Resonance_t res) const
 {
   std::map<Resonance_t, MAID2007ResParam_t>::const_iterator iter =
@@ -442,31 +521,32 @@ void MAIDRESPXSec::LoadMAID2007ResParams(void)
   fMAID2007ResParams.clear();
 
   this->LoadMAID2007ResParam(
-    kP33_1232, "P33(1232)", maid_res_param(fDeltaMass, fDeltaWidth, 1.00, fDeltaXr));
+    kP33_1232, "P33(1232)",
+    maid_res_param(fDeltaMass, fDeltaWidth, 1.00, 0.00, 0.00, fDeltaXr));
   this->LoadMAID2007ResParam(
-    kP11_1440, "P11(1440)", maid_res_param(1.440, 0.350, 0.70, 0.470));
+    kP11_1440, "P11(1440)", maid_res_param(1.440, 0.350, 0.70, 0.30, 0.00, 0.470));
   this->LoadMAID2007ResParam(
-    kD13_1520, "D13(1520)", maid_res_param(1.530, 0.130, 0.60, 0.500));
+    kD13_1520, "D13(1520)", maid_res_param(1.530, 0.130, 0.60, 0.40, 0.00, 0.500));
   this->LoadMAID2007ResParam(
-    kS11_1535, "S11(1535)", maid_res_param(1.535, 0.100, 0.40, 0.500));
+    kS11_1535, "S11(1535)", maid_res_param(1.535, 0.100, 0.40, 0.20, 0.40, 0.500));
   this->LoadMAID2007ResParam(
-    kS31_1620, "S31(1620)", maid_res_param(1.620, 0.150, 0.25, 0.470));
+    kS31_1620, "S31(1620)", maid_res_param(1.620, 0.150, 0.25, 0.75, 0.00, 0.470));
   this->LoadMAID2007ResParam(
-    kS11_1650, "S11(1650)", maid_res_param(1.690, 0.100, 0.85, 0.500));
+    kS11_1650, "S11(1650)", maid_res_param(1.690, 0.100, 0.85, 0.15, 0.00, 0.500));
   this->LoadMAID2007ResParam(
-    kD15_1675, "D15(1675)", maid_res_param(1.675, 0.150, 0.45, 0.500));
+    kD15_1675, "D15(1675)", maid_res_param(1.675, 0.150, 0.45, 0.55, 0.00, 0.500));
   this->LoadMAID2007ResParam(
-    kF15_1680, "F15(1680)", maid_res_param(1.680, 0.135, 0.70, 0.500));
+    kF15_1680, "F15(1680)", maid_res_param(1.680, 0.135, 0.70, 0.30, 0.00, 0.500));
   this->LoadMAID2007ResParam(
-    kD33_1700, "D33(1700)", maid_res_param(1.740, 0.450, 0.15, 0.700));
+    kD33_1700, "D33(1700)", maid_res_param(1.740, 0.450, 0.15, 0.85, 0.00, 0.700));
   this->LoadMAID2007ResParam(
-    kP13_1720, "P13(1720)", maid_res_param(1.740, 0.250, 0.20, 0.500));
+    kP13_1720, "P13(1720)", maid_res_param(1.740, 0.250, 0.20, 0.80, 0.00, 0.500));
   this->LoadMAID2007ResParam(
-    kF35_1905, "F35(1905)", maid_res_param(1.905, 0.350, 0.10, 0.500));
+    kF35_1905, "F35(1905)", maid_res_param(1.905, 0.350, 0.10, 0.90, 0.00, 0.500));
   this->LoadMAID2007ResParam(
-    kP31_1910, "P31(1910)", maid_res_param(1.910, 0.250, 0.25, 0.500));
+    kP31_1910, "P31(1910)", maid_res_param(1.910, 0.250, 0.25, 0.75, 0.00, 0.500));
   this->LoadMAID2007ResParam(
-    kF37_1950, "F37(1950)", maid_res_param(1.945, 0.280, 0.40, 0.500));
+    kF37_1950, "F37(1950)", maid_res_param(1.945, 0.280, 0.40, 0.60, 0.00, 0.500));
 }
 //____________________________________________________________________________
 void MAIDRESPXSec::LoadMAID2007ResParam(
@@ -476,6 +556,8 @@ void MAIDRESPXSec::LoadMAID2007ResParam(
   this->GetParamDef("Mass@" + res_name,   param.mass,    def.mass);
   this->GetParamDef("Width@" + res_name,  param.width,   def.width);
   this->GetParamDef("PiBR@" + res_name,   param.beta_pi, def.beta_pi);
+  this->GetParamDef("TwoPiBR@" + res_name, param.beta_2pi, def.beta_2pi);
+  this->GetParamDef("EtaBR@" + res_name,   param.beta_eta, def.beta_eta);
   this->GetParamDef("Xr@" + res_name,     param.xr,      def.xr);
   fMAID2007ResParams[res] = param;
 }
@@ -494,16 +576,25 @@ void MAIDRESPXSec::LoadConfig(void)
     "MAIDRunningWidthMode",
     fMAIDRunningWidthMode,
     string("RSOriginal"));
+  this->GetParamDef(
+    "MAIDTotalWidthMode",
+    fMAIDTotalWidthMode,
+    string("PionOnly"));
   this->GetParamDef("UseDRJoinScheme", fUseDRJoinScheme, true);
   this->GetParamDef("Wcut", fWcut, 1.7);
   this->GetParamDef(
     "ApplyPiNBranchingToMAIDBW",
     fApplyPiNBranchingToMAIDBW,
     false);
+  this->GetParamDef("UseMAID2PiWidth", fUseMAID2PiWidth, false);
+  this->GetParamDef("UseMAIDEtaNWidth", fUseMAIDEtaNWidth, false);
+  this->GetParamDef("EtaNApplyDamping", fEtaNApplyDamping, false);
+  this->GetParamDef("EtaNApplyMRoverW", fEtaNApplyMRoverW, true);
   this->GetParamDef("DeltaMass", fDeltaMass, 1.232);
   this->GetParamDef("DeltaWidth", fDeltaWidth, 0.13);
   this->GetParamDef("DeltaXr", fDeltaXr, 0.57);
   this->GetParamDef("PionMass", fPionMass, kPionMass);
+  this->GetParamDef("EtaNMass", fEtaNMass, 0.547862);
   this->LoadMAID2007ResParams();
   this->GetParamDef(
     "UseRSFallbackForMissingResonances",

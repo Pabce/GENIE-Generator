@@ -1,0 +1,265 @@
+
+
+********************************************************************************************************
+
+oooooo   oooooo     oooo       .o.       ooooooooo.   ooooo      ooo ooooo ooooo      ooo   .oooooo.    
+ `888.    `888.     .8'       .888.      `888   `Y88. `888b.     `8' `888' `888b.     `8'  d8P'  `Y8b   
+  `888.   .8888.   .8'       .8"888.      888   .d88'  8 `88b.    8   888   8 `88b.    8  888           
+   `888  .8'`888. .8'       .8' `888.     888ooo88P'   8   `88b.  8   888   8   `88b.  8  888           
+    `888.8'  `888.8'       .88ooo8888.    888`88b.     8     `88b.8   888   8     `88b.8  888     ooooo 
+     `888'    `888'       .8'     `888.   888  `88b.   8       `888   888   8       `888  `88.    .88'  
+      `8'      `8'       o88o     o8888o o888o  o888o o8o        `8  o888o o8o        `8   `Y8bood8P'   
+                                                                                                        
+
+********************************************************************************************************
+
+                                THIS IS A DEVELOPMENT VERSION OF GENIE.
+                      IT HAS *NOT* BEEN FULLY VALIDATED AND IT HAS EXPERIMENTAL FEATURES.
+
+                                   USE THIS VERSION AT YOUR OWN RISK.
+
+ If you prefer to use a version with validated physics content, please see http://releases.genie-mc.org
+
+                            Site managers, please don't remove this notice!
+
+
+ GENIE will continue running in 15 seconds...
+
+
+
+
+
+*****************************************************************************************************************
+*                                                                                                               *
+*                                                   .oooooo.    oooooooooooo ooooo      ooo ooooo oooooooooooo  *
+*                                                  d8P'  `Y8b   `888'     `8 `888b.     `8' `888' `888'     `8  *
+*                                                 888            888          8 `88b.    8   888   888          *
+*                        Ndyooym          dN      888            888oooo8     8   `88b.  8   888   888oooo8     *
+*                     Nds//+sdmoy       d+m       888     ooooo  888    "     8     `88b.8   888   888    "     *
+*                   Nh+//ohN  m+s      N//syyN    `88.    .88'   888       o  8       `888   888   888       o  *
+*                 Ny+//od   Nh+oN       o///+      `Y8bood8P'   o888ooooood8 o8o        `8  o888o o888ooooood8  *
+*               Nh+//om   Nh+/yN       o///s                                                                    *
+*              d+//+d   my+/smmyhN    m///h                                      NEUTRINO MONTE CARLO GENERATOR *
+*            Ns///yN NdyoshNNs///d   h////yN                                                                    *
+*           mo//om        ms///+m   d///////oyhmN                                           Version 999.999.999 *
+*          N+//yN       ms////+N    h////////////oym                                                            *
+*          s//h       ho/+///sN     N///////////////od                                  http://www.genie-mc.org *
+*         N+/h     my++yh+//y       s/////////////////oN                                                        *
+*         Ns/m Nmy++ymNh//+d        s//////////////////+m                                                       *
+*          NhssoshN  Ny//sN         m///////////////////+                                                       *
+*                  Nmo/+ohdmN        mo//////////////////h            NmmN                                      *
+*              ms/+s//o/-----:+sdN     mhso+ooys/////////o      mhs+/------/ohN                                 *
+*    Nhd     N+-/o+/o+------------/shN     Ndy+//////////+ mhs+:---------------om                               *
+*  mo/sN    m:/oo/oo:-----------------:://////////////////-----------------------y                              *
+*  y//d    Noo++o+:----------:------------:://///////////:-------:/+osyso/:-------h                             *
+*  Nyo+syysooo+/--------------::--------------:://///////:----::////+ossyso/------:                             *
+*     NNNNNs--------------------:/::-------------:://///:-:://////////oosyo+:------                             *
+*          y---------------------:////:::-----------:////////////////+o++++/:-----/                             *
+*          m-----------------------://////////////////////////////+so/--:---------y                             *
+*           +------------------------://////////////////////////+yy:---+oh/--:y+-/N                             *
+*           N/-------------------------://////////////////////ohy/-------yy--os-/m                              *
+*            No--------------------------://///////////////+shs/---------/d++/-oN                               *
+*              mo--------------------------:////////////+shyo:------------sy/sm                                 *
+*                Ny+:------------------------::://///oyhyo:--------------/sd                                    *
+*                    mhso+/:------------------:/+oyhyo/----------:/+syhm                                        *
+*                           NmddhyyyssssyyyhdmmNNNmhhhyyyyhhddmN                                                *
+*                                                                                                               *
+*                                                             Copyright (c) 2003-2025, The GENIE Collaboration  *
+*                                                                                                               *
+*                                                                                                               *
+* Luis Alvarez-Ruso [6], Costas Andreopoulos [9], Adi Ashkenazi [13], Joshua Barrow [10,13], Steve Dytman [12], *
+*      Hugh Gallagher [14], Alfonso Andres Garcia Soto [5,6], Steven Gardiner [4], Matan Goldenberg [13],       *
+*  Robert Hatcher [4], Or Hen [10], Igor Kakorin [8], Konstantin Kuzmin [7,8], Weijun Li [11], Liang Liu [4],   *
+*   Xianguo Lu [15], Anselmo Meregaglia [2], Vadim Naumov [8], Afroditi Papadopoulou [1], Gabriel Perdue [3],   *
+*   Komninos-John Plows [11], Marco Roda [9], Alon Sportes [13], Noah Steinberg [4], Vladyslav Syrotenko [14],  *
+*                         Júlia Tena Vidal [13], Jeremy Wolcott [14], and Qiyu Yan [3,15]                       *
+*                                                                                                               *
+*                                            (The GENIE Collaboration)                                          *
+*                                                                                                               *
+*                                      [1] Argonne National Laboratory (ANL)                                    *
+*                                 [2] CENBG, Université de Bordeaux, CNRS/IN2P3                                 *
+*                             [3] University of the Chinese Academy of Sciences (UCAS)                          *
+*                                 [4] Fermi National Accelerator Laboratory (FNAL)                              *
+*                                      [5] Harvard University, Dept. of Physics                                 *
+*                                     [6] Instituto de Física Corpuscular (IFIC)                                *
+*      [7] Alikhanov Institute for Theoretical and Experimental Physics (ITEP) of NRC "Kurchatov Institute"     *
+*                                  [8] Joint Institute for Nuclear Research (JINR)                              *
+*                                   [9] University of Liverpool, Dept. of Physics                               *
+*                         [10] Massachusetts Institute of Technology (MIT), Dept. of Physics                    *
+*                                    [11] University of Oxford, Dept. of Physics                                *
+*                            [12] University of Pittsburgh, Dept. of Physics and Astronomy                      *
+*                              [13] Tel Aviv University, School of Physics and Astronomy                        *
+*                                [14] Tufts University, Dept. of Physics and Astronomy                          *
+*                                     [15] Warwick University, Dept. of Physics                                 *
+*                                                                                                               *
+*  Corresponding Author:                                                                                        *
+*  -                                                                                                            *
+*  Professor Costas Andreopoulos                                                                                *
+*  University of Liverpool, Department of Physics                                                               *
+*  Oliver Lodge Lab 316, Liverpool L69 7ZE, UK                                                                  *
+*  E-Mail: c.andreopoulos \at cern.ch                                                                           *
+*  Tel: +44-(0)1517-943201                                                                                      *
+*****************************************************************************************************************
+
+
+1789044923 NOTICE Messenger : [s] <SetPrioritiesFromXmlFile (136)> : Reading msg stream priorities from XML file: /Users/pbarham/opt/genie-dev/config/Messenger.xml
+1789044923 ERROR AlgConfigPool : [s] <LoadRegistries (296)> : The XML doc doesn't exist! (filename : ModelConfiguration.xml)
+1789044923 ERROR AlgConfigPool : [s] <LoadAlgConfig (106)> : Global parameter lists not available This can be normal if you are running Comparisons/Reweight in some cases
+1789044923 ERROR AlgConfigPool : [s] <LoadRegistries (296)> : The XML doc doesn't exist! (filename : TuneGeneratorList.xml)
+1789044923 WARN AlgConfigPool : [s] <LoadAlgConfig (121)> : Tune generator List not available
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=8 Q2=0.500000 A12 got 0.0151039 expected -0.0170035 diff 0.0321074 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=8 Q2=2.000000 A12 got 0.0728244 expected 0.0560192 diff 0.0168051 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=8 Q2=4.000000 A12 got 0.0293824 expected 0.0245715 diff 0.00481092 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=0.000000 A12 got -0.027 expected -0.0274 diff 0.0004 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=0.000000 A32 got 0.161 expected 0.1606 diff 0.0004 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=0.000000 S12 got -0.0636 expected -0.0635 diff 0.0001 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=0.500000 A12 got -0.0758412 expected -0.0789362 diff 0.00309498 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=0.500000 A32 got 0.0833409 expected 0.0684633 diff 0.0148776 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=0.500000 S12 got -0.0359598 expected -0.0359032 diff 5.65406e-05 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=2.000000 A12 got -0.0648393 expected -0.0568324 diff 0.00800686 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=2.000000 A32 got 0.0103525 expected 0.0244433 diff 0.0140909 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=2.000000 S12 got -0.000664443 expected -0.000663398 diff 1.04472e-06 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=4.000000 A12 got -0.0412088 expected -0.0276637 diff 0.013545 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=4.000000 A32 got 0.000301214 expected 0.0052756 diff 0.00497438 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=2 Q2=4.000000 S12 got -1.40118e-06 expected -1.39898e-06 diff 2.20312e-09 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=0.000000 A12 got 0.015 expected 0.0153 diff 0.0003 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=0.000000 A32 got 0.022 expected 0.0216 diff 0.0004 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=0.000000 S12 got 0 expected 0.0011 diff 0.0011 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=0.500000 A12 got 0.0057941 expected 0.00590998 diff 0.000115882 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=0.500000 A32 got 0.00886222 expected 0.0305951 diff 0.0217329 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=0.500000 S12 got 0 expected 0.000404667 diff 0.000404667 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=2.000000 A12 got 0.000329681 expected 0.000336275 diff 6.59363e-06 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=2.000000 A32 got 0.000773653 expected 0.0301049 diff 0.0293312 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=2.000000 S12 got 0 expected 2.01472e-05 diff 2.01472e-05 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=4.000000 A12 got 7.04472e-06 expected 7.18561e-06 diff 1.40894e-07 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=4.000000 A32 got 3.15872e-05 expected 0.015749 diff 0.0157174 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=5 Q2=4.000000 S12 got 0 expected 3.69009e-07 diff 3.69009e-07 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=0.000000 A12 got -0.025 expected -0.0251 diff 0.0001 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=0.000000 A32 got 0.134 expected 0.1343 diff 0.0003 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=0.500000 A12 got -0.0400907 expected -0.0379137 diff 0.00217695 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=0.500000 A32 got 0.0693464 expected 0.0635249 diff 0.00582149 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=0.500000 S12 got -0.0488178 expected -0.0504491 diff 0.00163128 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=2.000000 A12 got -0.0205748 expected -0.0178672 diff 0.00270762 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=2.000000 A32 got 0.0121394 expected 0.00835495 diff 0.00378449 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=2.000000 S12 got -0.0111264 expected -0.0093184 diff 0.001808 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=4.000000 A12 got -0.00673358 expected -0.00539974 diff 0.00133384 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=4.000000 A32 got 0.0012907 expected 0.000605529 diff 0.000685174 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=11 Q2=4.000000 S12 got -0.000719869 expected -0.000433872 diff 0.000285997 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=7 Q2=0.000000 S12 got 0 expected 0.0021 diff 0.0021 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=7 Q2=0.500000 A32 got 0.168641 expected 0.142838 diff 0.0258032 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=7 Q2=0.500000 S12 got 0 expected 0.000772547 diff 0.000772547 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=7 Q2=2.000000 A32 got 0.0303717 expected 0.0354765 diff 0.00510482 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=7 Q2=2.000000 S12 got 0 expected 3.84628e-05 diff 3.84628e-05 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=7 Q2=4.000000 A32 got 0.00114714 expected 0.00207319 diff 0.000926047 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=7 Q2=4.000000 S12 got 0 expected 7.04472e-07 diff 7.04472e-07 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=10 Q2=0.000000 A32 got -0.011 expected -0.0115 diff 0.0005 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=10 Q2=0.500000 A32 got -0.0447735 expected -0.0579702 diff 0.0131967 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=10 Q2=2.000000 A32 got -0.0150446 expected -0.0974246 diff 0.08238 tol 1e-12
+genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled res=10 Q2=4.000000 A32 got -0.0012153 expected -0.0695206 diff 0.0683053 tol 1e-12
+MAID2008 D13 A12 Q2=0.5 got -0.0758412 expected -0.0789362 diff 0.00309498 tol 1e-12
+MAID2008 D13 A32 Q2=0.5 got 0.0833409 expected 0.0684633 diff 0.0148776 tol 1e-12
+MAID2008 P13 A32 Q2=1.0 got -0.0381495 expected -0.0835611 diff 0.0454117 tol 1e-12
+MAID2008 P11 A12 Q2=0.4 got 0.00216948 expected -0.0278615 diff 0.030031 tol 1e-12
+MAID2008 D13 A12 Q2=0.5 got -0.0758412 expected -0.0789362 diff 0.00309498 tol 1e-12
+MAID2008 D13 A32 Q2=0.5 got 0.0833409 expected 0.0684633 diff 0.0148776 tol 1e-12
+MAID2008 P13 A32 Q2=1.0 got -0.0381495 expected -0.0835611 diff 0.0454117 tol 1e-12
+MAID2008 P11 A12 Q2=0.4 got 0.00216948 expected -0.0278615 diff 0.030031 tol 1e-12
+source switch MAID2008 res=8 Q2=0.500000 A12 got 0.0151039 expected -0.0170035 diff 0.0321074 tol 1e-12
+source switch MAID2008 res=8 Q2=2.000000 A12 got 0.0728244 expected 0.0560192 diff 0.0168051 tol 1e-12
+source switch MAID2008 res=8 Q2=4.000000 A12 got 0.0293824 expected 0.0245715 diff 0.00481092 tol 1e-12
+source switch MAID2008 res=2 Q2=0.000000 A12 got -0.027 expected -0.0274 diff 0.0004 tol 1e-12
+source switch MAID2008 res=2 Q2=0.000000 A32 got 0.161 expected 0.1606 diff 0.0004 tol 1e-12
+source switch MAID2008 res=2 Q2=0.000000 S12 got -0.0636 expected -0.0635 diff 0.0001 tol 1e-12
+source switch MAID2008 res=2 Q2=0.500000 A12 got -0.0758412 expected -0.0789362 diff 0.00309498 tol 1e-12
+source switch MAID2008 res=2 Q2=0.500000 A32 got 0.0833409 expected 0.0684633 diff 0.0148776 tol 1e-12
+source switch MAID2008 res=2 Q2=0.500000 S12 got -0.0359598 expected -0.0359032 diff 5.65406e-05 tol 1e-12
+source switch MAID2008 res=2 Q2=2.000000 A12 got -0.0648393 expected -0.0568324 diff 0.00800686 tol 1e-12
+source switch MAID2008 res=2 Q2=2.000000 A32 got 0.0103525 expected 0.0244433 diff 0.0140909 tol 1e-12
+source switch MAID2008 res=2 Q2=2.000000 S12 got -0.000664443 expected -0.000663398 diff 1.04472e-06 tol 1e-12
+source switch MAID2008 res=2 Q2=4.000000 A12 got -0.0412088 expected -0.0276637 diff 0.013545 tol 1e-12
+source switch MAID2008 res=2 Q2=4.000000 A32 got 0.000301214 expected 0.0052756 diff 0.00497438 tol 1e-12
+source switch MAID2008 res=2 Q2=4.000000 S12 got -1.40118e-06 expected -1.39898e-06 diff 2.20312e-09 tol 1e-12
+source switch MAID2008 res=5 Q2=0.000000 A12 got 0.015 expected 0.0153 diff 0.0003 tol 1e-12
+source switch MAID2008 res=5 Q2=0.000000 A32 got 0.022 expected 0.0216 diff 0.0004 tol 1e-12
+source switch MAID2008 res=5 Q2=0.000000 S12 got 0 expected 0.0011 diff 0.0011 tol 1e-12
+source switch MAID2008 res=5 Q2=0.500000 A12 got 0.0057941 expected 0.00590998 diff 0.000115882 tol 1e-12
+source switch MAID2008 res=5 Q2=0.500000 A32 got 0.00886222 expected 0.0305951 diff 0.0217329 tol 1e-12
+source switch MAID2008 res=5 Q2=0.500000 S12 got 0 expected 0.000404667 diff 0.000404667 tol 1e-12
+source switch MAID2008 res=5 Q2=2.000000 A12 got 0.000329681 expected 0.000336275 diff 6.59363e-06 tol 1e-12
+source switch MAID2008 res=5 Q2=2.000000 A32 got 0.000773653 expected 0.0301049 diff 0.0293312 tol 1e-12
+source switch MAID2008 res=5 Q2=2.000000 S12 got 0 expected 2.01472e-05 diff 2.01472e-05 tol 1e-12
+source switch MAID2008 res=5 Q2=4.000000 A12 got 7.04472e-06 expected 7.18561e-06 diff 1.40894e-07 tol 1e-12
+source switch MAID2008 res=5 Q2=4.000000 A32 got 3.15872e-05 expected 0.015749 diff 0.0157174 tol 1e-12
+source switch MAID2008 res=5 Q2=4.000000 S12 got 0 expected 3.69009e-07 diff 3.69009e-07 tol 1e-12
+source switch MAID2008 res=11 Q2=0.000000 A12 got -0.025 expected -0.0251 diff 0.0001 tol 1e-12
+source switch MAID2008 res=11 Q2=0.000000 A32 got 0.134 expected 0.1343 diff 0.0003 tol 1e-12
+source switch MAID2008 res=11 Q2=0.500000 A12 got -0.0400907 expected -0.0379137 diff 0.00217695 tol 1e-12
+source switch MAID2008 res=11 Q2=0.500000 A32 got 0.0693464 expected 0.0635249 diff 0.00582149 tol 1e-12
+source switch MAID2008 res=11 Q2=0.500000 S12 got -0.0488178 expected -0.0504491 diff 0.00163128 tol 1e-12
+source switch MAID2008 res=11 Q2=2.000000 A12 got -0.0205748 expected -0.0178672 diff 0.00270762 tol 1e-12
+source switch MAID2008 res=11 Q2=2.000000 A32 got 0.0121394 expected 0.00835495 diff 0.00378449 tol 1e-12
+source switch MAID2008 res=11 Q2=2.000000 S12 got -0.0111264 expected -0.0093184 diff 0.001808 tol 1e-12
+source switch MAID2008 res=11 Q2=4.000000 A12 got -0.00673358 expected -0.00539974 diff 0.00133384 tol 1e-12
+source switch MAID2008 res=11 Q2=4.000000 A32 got 0.0012907 expected 0.000605529 diff 0.000685174 tol 1e-12
+source switch MAID2008 res=11 Q2=4.000000 S12 got -0.000719869 expected -0.000433872 diff 0.000285997 tol 1e-12
+source switch MAID2008 res=7 Q2=0.000000 S12 got 0 expected 0.0021 diff 0.0021 tol 1e-12
+source switch MAID2008 res=7 Q2=0.500000 A32 got 0.168641 expected 0.142838 diff 0.0258032 tol 1e-12
+source switch MAID2008 res=7 Q2=0.500000 S12 got 0 expected 0.000772547 diff 0.000772547 tol 1e-12
+source switch MAID2008 res=7 Q2=2.000000 A32 got 0.0303717 expected 0.0354765 diff 0.00510482 tol 1e-12
+source switch MAID2008 res=7 Q2=2.000000 S12 got 0 expected 3.84628e-05 diff 3.84628e-05 tol 1e-12
+source switch MAID2008 res=7 Q2=4.000000 A32 got 0.00114714 expected 0.00207319 diff 0.000926047 tol 1e-12
+source switch MAID2008 res=7 Q2=4.000000 S12 got 0 expected 7.04472e-07 diff 7.04472e-07 tol 1e-12
+source switch MAID2008 res=10 Q2=0.000000 A32 got -0.011 expected -0.0115 diff 0.0005 tol 1e-12
+source switch MAID2008 res=10 Q2=0.500000 A32 got -0.0447735 expected -0.0579702 diff 0.0131967 tol 1e-12
+source switch MAID2008 res=10 Q2=2.000000 A32 got -0.0150446 expected -0.0974246 diff 0.08238 tol 1e-12
+source switch MAID2008 res=10 Q2=4.000000 A32 got -0.0012153 expected -0.0695206 diff 0.0683053 tol 1e-12
+source switch MAID2008 res=8 Q2=0.500000 A12 got 0.0151039 expected -0.0170035 diff 0.0321074 tol 1e-12
+source switch MAID2008 res=8 Q2=2.000000 A12 got 0.0728244 expected 0.0560192 diff 0.0168051 tol 1e-12
+source switch MAID2008 res=8 Q2=4.000000 A12 got 0.0293824 expected 0.0245715 diff 0.00481092 tol 1e-12
+source switch MAID2008 res=2 Q2=0.000000 A12 got -0.027 expected -0.0274 diff 0.0004 tol 1e-12
+source switch MAID2008 res=2 Q2=0.000000 A32 got 0.161 expected 0.1606 diff 0.0004 tol 1e-12
+source switch MAID2008 res=2 Q2=0.000000 S12 got -0.0636 expected -0.0635 diff 0.0001 tol 1e-12
+source switch MAID2008 res=2 Q2=0.500000 A12 got -0.0758412 expected -0.0789362 diff 0.00309498 tol 1e-12
+source switch MAID2008 res=2 Q2=0.500000 A32 got 0.0833409 expected 0.0684633 diff 0.0148776 tol 1e-12
+source switch MAID2008 res=2 Q2=0.500000 S12 got -0.0359598 expected -0.0359032 diff 5.65406e-05 tol 1e-12
+source switch MAID2008 res=2 Q2=2.000000 A12 got -0.0648393 expected -0.0568324 diff 0.00800686 tol 1e-12
+source switch MAID2008 res=2 Q2=2.000000 A32 got 0.0103525 expected 0.0244433 diff 0.0140909 tol 1e-12
+source switch MAID2008 res=2 Q2=2.000000 S12 got -0.000664443 expected -0.000663398 diff 1.04472e-06 tol 1e-12
+source switch MAID2008 res=2 Q2=4.000000 A12 got -0.0412088 expected -0.0276637 diff 0.013545 tol 1e-12
+source switch MAID2008 res=2 Q2=4.000000 A32 got 0.000301214 expected 0.0052756 diff 0.00497438 tol 1e-12
+source switch MAID2008 res=2 Q2=4.000000 S12 got -1.40118e-06 expected -1.39898e-06 diff 2.20312e-09 tol 1e-12
+source switch MAID2008 res=5 Q2=0.000000 A12 got 0.015 expected 0.0153 diff 0.0003 tol 1e-12
+source switch MAID2008 res=5 Q2=0.000000 A32 got 0.022 expected 0.0216 diff 0.0004 tol 1e-12
+source switch MAID2008 res=5 Q2=0.000000 S12 got 0 expected 0.0011 diff 0.0011 tol 1e-12
+source switch MAID2008 res=5 Q2=0.500000 A12 got 0.0057941 expected 0.00590998 diff 0.000115882 tol 1e-12
+source switch MAID2008 res=5 Q2=0.500000 A32 got 0.00886222 expected 0.0305951 diff 0.0217329 tol 1e-12
+source switch MAID2008 res=5 Q2=0.500000 S12 got 0 expected 0.000404667 diff 0.000404667 tol 1e-12
+source switch MAID2008 res=5 Q2=2.000000 A12 got 0.000329681 expected 0.000336275 diff 6.59363e-06 tol 1e-12
+source switch MAID2008 res=5 Q2=2.000000 A32 got 0.000773653 expected 0.0301049 diff 0.0293312 tol 1e-12
+source switch MAID2008 res=5 Q2=2.000000 S12 got 0 expected 2.01472e-05 diff 2.01472e-05 tol 1e-12
+source switch MAID2008 res=5 Q2=4.000000 A12 got 7.04472e-06 expected 7.18561e-06 diff 1.40894e-07 tol 1e-12
+source switch MAID2008 res=5 Q2=4.000000 A32 got 3.15872e-05 expected 0.015749 diff 0.0157174 tol 1e-12
+source switch MAID2008 res=5 Q2=4.000000 S12 got 0 expected 3.69009e-07 diff 3.69009e-07 tol 1e-12
+source switch MAID2008 res=11 Q2=0.000000 A12 got -0.025 expected -0.0251 diff 0.0001 tol 1e-12
+source switch MAID2008 res=11 Q2=0.000000 A32 got 0.134 expected 0.1343 diff 0.0003 tol 1e-12
+source switch MAID2008 res=11 Q2=0.500000 A12 got -0.0400907 expected -0.0379137 diff 0.00217695 tol 1e-12
+source switch MAID2008 res=11 Q2=0.500000 A32 got 0.0693464 expected 0.0635249 diff 0.00582149 tol 1e-12
+source switch MAID2008 res=11 Q2=0.500000 S12 got -0.0488178 expected -0.0504491 diff 0.00163128 tol 1e-12
+source switch MAID2008 res=11 Q2=2.000000 A12 got -0.0205748 expected -0.0178672 diff 0.00270762 tol 1e-12
+source switch MAID2008 res=11 Q2=2.000000 A32 got 0.0121394 expected 0.00835495 diff 0.00378449 tol 1e-12
+source switch MAID2008 res=11 Q2=2.000000 S12 got -0.0111264 expected -0.0093184 diff 0.001808 tol 1e-12
+source switch MAID2008 res=11 Q2=4.000000 A12 got -0.00673358 expected -0.00539974 diff 0.00133384 tol 1e-12
+source switch MAID2008 res=11 Q2=4.000000 A32 got 0.0012907 expected 0.000605529 diff 0.000685174 tol 1e-12
+source switch MAID2008 res=11 Q2=4.000000 S12 got -0.000719869 expected -0.000433872 diff 0.000285997 tol 1e-12
+source switch MAID2008 res=7 Q2=0.000000 S12 got 0 expected 0.0021 diff 0.0021 tol 1e-12
+source switch MAID2008 res=7 Q2=0.500000 A32 got 0.168641 expected 0.142838 diff 0.0258032 tol 1e-12
+source switch MAID2008 res=7 Q2=0.500000 S12 got 0 expected 0.000772547 diff 0.000772547 tol 1e-12
+source switch MAID2008 res=7 Q2=2.000000 A32 got 0.0303717 expected 0.0354765 diff 0.00510482 tol 1e-12
+source switch MAID2008 res=7 Q2=2.000000 S12 got 0 expected 3.84628e-05 diff 3.84628e-05 tol 1e-12
+source switch MAID2008 res=7 Q2=4.000000 A32 got 0.00114714 expected 0.00207319 diff 0.000926047 tol 1e-12
+source switch MAID2008 res=7 Q2=4.000000 S12 got 0 expected 7.04472e-07 diff 7.04472e-07 tol 1e-12
+source switch MAID2008 res=10 Q2=0.000000 A32 got -0.011 expected -0.0115 diff 0.0005 tol 1e-12
+source switch MAID2008 res=10 Q2=0.500000 A32 got -0.0447735 expected -0.0579702 diff 0.0131967 tol 1e-12
+source switch MAID2008 res=10 Q2=2.000000 A32 got -0.0150446 expected -0.0974246 diff 0.08238 tol 1e-12
+source switch MAID2008 res=10 Q2=4.000000 A32 got -0.0012153 expected -0.0695206 diff 0.0683053 tol 1e-12
+explicit beta override on MAID2008 got -0.0674254 expected -0.0464826 diff 0.0209427 tol 1e-12

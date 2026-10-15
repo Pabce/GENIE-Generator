@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-09-10T13:02:05.017711+00:00",
+  "git_head": "c373c89ec1ed44ffa833170807617f776f493bab",
+  "dirty_worktree": true,
+  "source_and_artifact_sha256": {
+    "config/MAIDHelicityAmplModelEMn.xml": "b2612d359f3bae395f0c0eb12efa4ad1257f52de9e5f6d1e60f89f08c60dbc5d",
+    "config/MAIDHelicityAmplModelEMp.xml": "7b416e3fc20f8c678f55d6c01e92f8992d834319c4ae6057bca39d2307bfd22d",
+    "src/Physics/Resonance/XSection/MAIDHelicityAmplModelEMp.cxx": "546b42f1c3a8a0d2b407c1d4c797adf41482bdb264694cc967edb54137bc019a",
+    "src/Physics/Resonance/XSection/MAIDHelicityAmplModelEMp.h": "a383bd696c451178912dcac3cac473d9f68ee9a7cefdd8dfd72c35cc7194e0a4",
+    "src/contrib/test/gtestMAID2007Helicity.cxx": "b0316ea3c651fca431251ff3fa1d6b7831d7bea1d56e2a8944aa9a9906f085d2",
+    "docs/MAID_AMPLITUDE_CONFIGURATION.md": "9e2224d4ffc24bf7aec5176896accc3aa42f2803f3ec4fb81e3f7b7851f1e50f",
+    "config/MAIDRESPXSec.xml": "894cb12dd93c25a36ad5bc7e47500ca3a55e1c43d4ade3016d1a62b606701052",
+    "src/Physics/Resonance/XSection/MAIDRESPXSec.cxx": "c715b5100c5185ac3ed8f4b300670e40c5713f0435d717bf28833c8b0c8dd9f5",
+    "lib/libGPhResXS-999.999.999.dylib": "ca6d706c6b9c4a2846b7cafa6e6e0c7905adf1f478c4c2f310409097cbd9467f",
+    "output/maid_luis_comparison/scan_before_after": "72d425cf49e78a1bc9d342bf12e8ea0281f73a3e3fde059759ebc6f3892ae6cb",
+    "validation/maid_luis_comparison/scan_before_after.cxx": "97eea3c4c7e19af0a900b12bb0be9ea28bb397448c5a0f76bdf122821f8c4236",
+    "validation/maid_luis_comparison/digitize_and_plot.py": "e09a269cb1fbafa11c792a8b16458bc59f4c4afe8d509d7826f1bb7f2a91527d",
+    "output/maid_luis_comparison_corrected/genie_before_after.csv": "5625706f811cd8fa8cc781ad35da5ea848bf65fb088dc62ee92572f1f6101384",
+    "output/maid_luis_comparison_corrected/maid_luis_before_after_comparison.pdf": "ba6b35eec48e0cb1c25a42264100148a356ea26e9c4d8747fb9f4f6de37988b1"
+  },
+  "regression": "PASS; new tests failed before fix and pass after fix",
+  "scan_rows": 1924,
+  "before_values_identical_to_original": true,
+  "remote_source_sync": "6 files matched SHA256; remote binaries not rebuilt",
+  "original_pdf_preserved": true
+}

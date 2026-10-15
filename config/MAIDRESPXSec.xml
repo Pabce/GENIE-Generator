@@ -21,8 +21,14 @@ BreitWignerConventionCorrection
                                           W2ToLinear2W, LinearToW2OneOver2W, or
                                           LinearToW2RSNativeMatch
 MAIDRunningWidthMode    string  Yes      RSOriginal or MAID2007 for MAIDW2 running width
+MAIDTotalWidthMode      string  Yes      PionOnly (default) or FullMAID
 ApplyPiNBranchingToMAIDBW
                         bool    Yes      apply MAID pi-N branching to MAIDW2 numerator
+UseMAID2PiWidth         bool    Yes      add MAID98 effective two-pion partial width in FullMAID
+UseMAIDEtaNWidth        bool    Yes      add eta-N partial width in FullMAID
+EtaNMass                double  Yes      eta mass used in eta-N partial width
+EtaNApplyDamping        bool    Yes      apply Xr damping to eta-N partial width
+EtaNApplyMRoverW        bool    Yes      multiply eta-N partial width by MR/W
 UseDRJoinScheme         bool    Yes      zero RES above Wcut
 Wcut                    double  Yes      DIS/RES join threshold if enabled
 ApplyRSNativeWCut       bool    Yes      apply native RS resonance support truncation
@@ -35,6 +41,8 @@ Mass@Res                double  Yes      MAID2007 resonance mass
 Width@Res               double  Yes      MAID2007 resonance width
 PiBR@Res                double  Yes      MAID2007 pi-N branching ratio
                                           used when ApplyPiNBranchingToMAIDBW=true
+TwoPiBR@Res             double  Yes      effective two-pion branching ratio in FullMAID
+EtaBR@Res               double  Yes      eta-N branching ratio in FullMAID
 Xr@Res                  double  Yes      MAID2007 hadronic-vertex scale
 PionMass                double  Yes      pion mass used in running Delta width
 UseRSFallbackForMissingResonances
@@ -56,7 +64,13 @@ XSec-Integrator         alg     No
     <param type="string" name="BreitWignerMode"> MAIDW2 </param>
     <param type="string" name="BreitWignerConventionCorrection"> None </param>
     <param type="string" name="MAIDRunningWidthMode"> RSOriginal </param>
+    <param type="string" name="MAIDTotalWidthMode"> PionOnly </param>
     <param type="bool"   name="ApplyPiNBranchingToMAIDBW"> false </param>
+    <param type="bool"   name="UseMAID2PiWidth"> false </param>
+    <param type="bool"   name="UseMAIDEtaNWidth"> false </param>
+    <param type="double" name="EtaNMass"> 0.547862 </param>
+    <param type="bool"   name="EtaNApplyDamping"> false </param>
+    <param type="bool"   name="EtaNApplyMRoverW"> true </param>
     <param type="bool"   name="UseDRJoinScheme"> true </param>
     <param type="double" name="Wcut"> 1.7 </param>
     <param type="bool"   name="ApplyRSNativeWCut"> false </param>
@@ -139,6 +153,82 @@ XSec-Integrator         alg     No
   <param_set name="DirectAS-MAID2007Width">
     <param type="string" name="XSecRoute"> DirectAS </param>
     <param type="string" name="MAIDRunningWidthMode"> MAID2007 </param>
+  </param_set>
+
+  <!-- MAID2008 helicities only; widths and the default W=1.7 RES/DIS join stay unchanged. -->
+  <param_set name="DirectAS-MAID2008">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="alg" name="HelicityAmplEMpAlg"> genie::MAIDHelicityAmplModelEMp/MAID2008 </param>
+    <param type="alg" name="HelicityAmplEMnAlg"> genie::MAIDHelicityAmplModelEMn/MAID2008 </param>
+  </param_set>
+
+  <!--
+  MAID98/MAID2007 total width: pi-N plus the MAID98 effective two-pion term;
+  S11(1535) also has eta-N.  The eta branching is deliberately set equal to
+  pi-N here, reproducing Luis's stated comparison convention.  The remaining
+  S11 branching (0.20) is assigned to the effective two-pion term so that all
+  pole-width branchings sum to one.
+  -->
+  <param_set name="DirectAS-FullMAIDWidth">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="string" name="MAIDRunningWidthMode"> MAID2007 </param>
+    <param type="string" name="MAIDTotalWidthMode"> FullMAID </param>
+    <param type="bool"   name="UseMAID2PiWidth"> true </param>
+    <param type="bool"   name="UseMAIDEtaNWidth"> true </param>
+    <param type="double" name="EtaNMass"> 0.547 </param>
+    <param type="bool"   name="EtaNApplyDamping"> false </param>
+    <param type="bool"   name="EtaNApplyMRoverW"> true </param>
+
+    <param type="double" name="TwoPiBR@P33(1232)"> 0.00 </param>
+    <param type="double" name="TwoPiBR@P11(1440)"> 0.30 </param>
+    <param type="double" name="TwoPiBR@D13(1520)"> 0.40 </param>
+    <param type="double" name="TwoPiBR@S11(1535)"> 0.20 </param>
+    <param type="double" name="EtaBR@S11(1535)"> 0.40 </param>
+    <param type="double" name="TwoPiBR@S31(1620)"> 0.75 </param>
+    <param type="double" name="TwoPiBR@S11(1650)"> 0.15 </param>
+    <param type="double" name="TwoPiBR@D15(1675)"> 0.55 </param>
+    <param type="double" name="TwoPiBR@F15(1680)"> 0.30 </param>
+    <param type="double" name="TwoPiBR@D33(1700)"> 0.85 </param>
+    <param type="double" name="TwoPiBR@P13(1720)"> 0.80 </param>
+    <param type="double" name="TwoPiBR@F35(1905)"> 0.90 </param>
+    <param type="double" name="TwoPiBR@P31(1910)"> 0.75 </param>
+    <param type="double" name="TwoPiBR@F37(1950)"> 0.60 </param>
+  </param_set>
+
+  <!-- Disable the normally default W=1.7 GeV RES/DIS join for a standalone RES comparison. -->
+  <param_set name="DirectAS-NoDRJoin">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="bool"   name="UseDRJoinScheme"> false </param>
+  </param_set>
+
+  <!-- Luis-comparison bundle: MAID2008, P33-only sqrt(130/115), full MAID width, and no W=1.7 cut. -->
+  <param_set name="DirectAS-MAID2008LuisComparison">
+    <param type="string" name="XSecRoute"> DirectAS </param>
+    <param type="string" name="MAIDRunningWidthMode"> MAID2007 </param>
+    <param type="string" name="MAIDTotalWidthMode"> FullMAID </param>
+    <param type="bool"   name="UseMAID2PiWidth"> true </param>
+    <param type="bool"   name="UseMAIDEtaNWidth"> true </param>
+    <param type="double" name="EtaNMass"> 0.547 </param>
+    <param type="bool"   name="EtaNApplyDamping"> false </param>
+    <param type="bool"   name="EtaNApplyMRoverW"> true </param>
+    <param type="bool"   name="UseDRJoinScheme"> false </param>
+    <param type="alg" name="HelicityAmplEMpAlg"> genie::MAIDHelicityAmplModelEMp/MAID2008-P33WidthScaled </param>
+    <param type="alg" name="HelicityAmplEMnAlg"> genie::MAIDHelicityAmplModelEMn/MAID2008-P33WidthScaled </param>
+
+    <param type="double" name="TwoPiBR@P33(1232)"> 0.00 </param>
+    <param type="double" name="TwoPiBR@P11(1440)"> 0.30 </param>
+    <param type="double" name="TwoPiBR@D13(1520)"> 0.40 </param>
+    <param type="double" name="TwoPiBR@S11(1535)"> 0.20 </param>
+    <param type="double" name="EtaBR@S11(1535)"> 0.40 </param>
+    <param type="double" name="TwoPiBR@S31(1620)"> 0.75 </param>
+    <param type="double" name="TwoPiBR@S11(1650)"> 0.15 </param>
+    <param type="double" name="TwoPiBR@D15(1675)"> 0.55 </param>
+    <param type="double" name="TwoPiBR@F15(1680)"> 0.30 </param>
+    <param type="double" name="TwoPiBR@D33(1700)"> 0.85 </param>
+    <param type="double" name="TwoPiBR@P13(1720)"> 0.80 </param>
+    <param type="double" name="TwoPiBR@F35(1905)"> 0.90 </param>
+    <param type="double" name="TwoPiBR@P31(1910)"> 0.75 </param>
+    <param type="double" name="TwoPiBR@F37(1950)"> 0.60 </param>
   </param_set>
 
   <param_set name="RSOriginalP33">

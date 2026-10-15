@@ -1,0 +1,136 @@
+{
+  "created_utc": "2026-10-15T14:12:44.424147+00:00",
+  "git_head": "475092fa64916cf34a20f6aa2ee1204c92a4a83f",
+  "dirty_worktree": true,
+  "native_genie_scan": true,
+  "rows_per_variant": 1924,
+  "full_values_identical_to_corrected_september_scan": true,
+  "before_and_kinematics_identical_between_width_variants": true,
+  "resolved_config_differences": [
+    {
+      "full": "|----------------------------> MAIDRunningWidthMode [string] [unlocked] [l] : MAID2007",
+      "simple": "|----------------------------> MAIDRunningWidthMode [string] [unlocked] [l] : RSOriginal"
+    },
+    {
+      "full": "|------------------------------> MAIDTotalWidthMode [string] [unlocked] [l] : FullMAID",
+      "simple": "|------------------------------> MAIDTotalWidthMode [string] [unlocked] [l] : PionOnly"
+    }
+  ],
+  "simple_S11_identical_to_before_below_W_1p7": true,
+  "native_vs_analytic_simple_comparison": {
+    "source": "/Users/pbarham/.codex/visualizations/2026/10/15/01a13fd0-0ef7-77f2-8057-25371ce51c92/luis-width-diagnosis/curves.csv",
+    "sha256": "528ebf7c2101c23c3878b5cffff0c5df81014f3c7d13f57f7dd61af4195fc09d",
+    "nonzero_values": 7220,
+    "max_relative_difference": 8.068071384929982e-10
+  },
+  "reference": {
+    "source": "Luis inclusive2d.pdf, 30 July 2026",
+    "individual_width_choice": "not explicitly recorded in source",
+    "ordinate_units": "not explicitly recorded in source",
+    "method": "previously extracted PDF vector paths"
+  },
+  "metric_description": "RMS divided by reference maximum within W2 window listed in comparison_metrics.csv; descriptive, no uncertainty model",
+  "metric_summary": [
+    {
+      "resonance": "total",
+      "reference": "luis_gamma_pi",
+      "panels_improved": 4,
+      "panels": 4,
+      "median_full_RMS_percent": 1.4480486637844856,
+      "median_simple_RMS_percent": 0.8744292169908926
+    },
+    {
+      "resonance": "total",
+      "reference": "luis_gamma_maid",
+      "panels_improved": 0,
+      "panels": 4,
+      "median_full_RMS_percent": 0.7040309184345825,
+      "median_simple_RMS_percent": 1.4786589516458148
+    },
+    {
+      "resonance": "P33_1232",
+      "reference": "P33_1232",
+      "panels_improved": 1,
+      "panels": 4,
+      "median_full_RMS_percent": 0.9591707301010626,
+      "median_simple_RMS_percent": 1.318995670052079
+    },
+    {
+      "resonance": "D13_1520",
+      "reference": "D13_1520",
+      "panels_improved": 4,
+      "panels": 4,
+      "median_full_RMS_percent": 1.763357756425768,
+      "median_simple_RMS_percent": 1.0539247796803255
+    },
+    {
+      "resonance": "S11_1535",
+      "reference": "S11_1535",
+      "panels_improved": 4,
+      "panels": 4,
+      "median_full_RMS_percent": 5.022549810276227,
+      "median_simple_RMS_percent": 0.6718434126361632
+    },
+    {
+      "resonance": "D33_1700",
+      "reference": "D33_1700",
+      "panels_improved": 4,
+      "panels": 4,
+      "median_full_RMS_percent": 2.63395725202331,
+      "median_simple_RMS_percent": 1.7016313909615866
+    },
+    {
+      "resonance": "P13_1720",
+      "reference": "P13_1720",
+      "panels_improved": 4,
+      "panels": 4,
+      "median_full_RMS_percent": 2.2827009239164644,
+      "median_simple_RMS_percent": 1.7887710402774233
+    }
+  ],
+  "pdf_pages": 6,
+  "visual_inspection": "All six pages rendered and inspected; no clipping or overlap",
+  "source_and_artifact_sha256": {
+    "validation/maid_luis_comparison/scan_before_after.cxx": "b02bc626292c487c1e814c43605b0af4413eef0a27ef434f5be2cd20649c5502",
+    "validation/maid_luis_comparison/plot_width_comparison.py": "f3bd6ad5abfc8af9a90d33f33159320dd68b5b1a2849ce97971fe4578dfc4f62",
+    "validation/maid_luis_comparison/README.md": "546c51a0895739bf77772b43ab7c585674a5326d88dc36b5823c5750557a8183",
+    "validation/maid_luis_comparison/digitize_and_plot.py": "e09a269cb1fbafa11c792a8b16458bc59f4c4afe8d509d7826f1bb7f2a91527d",
+    "config/MAIDRESPXSec.xml": "894cb12dd93c25a36ad5bc7e47500ca3a55e1c43d4ade3016d1a62b606701052",
+    "config/MAIDHelicityAmplModelEMp.xml": "7b416e3fc20f8c678f55d6c01e92f8992d834319c4ae6057bca39d2307bfd22d",
+    "config/MAIDHelicityAmplModelEMn.xml": "b2612d359f3bae395f0c0eb12efa4ad1257f52de9e5f6d1e60f89f08c60dbc5d",
+    "src/Physics/Resonance/XSection/MAIDRESPXSec.cxx": "c715b5100c5185ac3ed8f4b300670e40c5713f0435d717bf28833c8b0c8dd9f5",
+    "src/Physics/Resonance/XSection/MAIDHelicityAmplModelEMp.cxx": "546b42f1c3a8a0d2b407c1d4c797adf41482bdb264694cc967edb54137bc019a",
+    "lib/libGPhResXS-999.999.999.dylib": "ca6d706c6b9c4a2846b7cafa6e6e0c7905adf1f478c4c2f310409097cbd9467f",
+    "output/maid_luis_comparison/luis_digitized_curves.csv": "136ac32400f43e9a1dcaee47db3ac8c55f1844f873f3b266c9ee895cedfae3f2",
+    "output/maid_luis_comparison_corrected/genie_before_after.csv": "5625706f811cd8fa8cc781ad35da5ea848bf65fb088dc62ee92572f1f6101384",
+    "output/maid_luis_simple_width_20261015/D13_1520_full_vs_simple.png": "b2531afabb98c084bbee8adaf0c11155793bba5959d59f1cef94e0426b34b631",
+    "output/maid_luis_simple_width_20261015/D33_1700_full_vs_simple.png": "2387ef26f454cd51c82bfa274ed9a978d53c06f1164bba643c6a8e4a0e1a803e",
+    "output/maid_luis_simple_width_20261015/P13_1720_full_vs_simple.png": "051b5b39bf8b08559fabfb0b537549f68170e3efafb921f4a9300ee992761488",
+    "output/maid_luis_simple_width_20261015/P33_1232_full_vs_simple.png": "91d6f5514821ef99ca3992df71227d9211d8eb5be8397608e3ae0ada9075a3d4",
+    "output/maid_luis_simple_width_20261015/S11_1535_full_vs_simple.png": "c5e4ab666bb56aa8d653e67bd7078d5830b31e9ff1cd8848aae7781ef5a5a65a",
+    "output/maid_luis_simple_width_20261015/build.log": "2c1ae52363dab16755303ca626794d4ae328cd3917373cc7ff758580fc01a039",
+    "output/maid_luis_simple_width_20261015/build.sh": "fc20a62ee04ff8e119f4481b1061f3466baeeba58a8c70c9906399943b04fe70",
+    "output/maid_luis_simple_width_20261015/comparison_metrics.csv": "334a23e774d78c4aa94bf64c9cbc9228f39f80bb4c68de0af2ead116aac6ceed",
+    "output/maid_luis_simple_width_20261015/contact_sheet.png": "3cbfc8e27669d2d0d1613f5b9bc66307cd308d2fbac4ae5aa64c69a22811094d",
+    "output/maid_luis_simple_width_20261015/genie_full.csv": "7e34ff7c7b5d31e3a513e326cc484031ba5d70f04389f352edfb3422eed50c44",
+    "output/maid_luis_simple_width_20261015/genie_full.csv.after_config.txt": "cb5dfccaa4f33d6d18590365de83654c864f17b5e5bc845e162466b706c398dc",
+    "output/maid_luis_simple_width_20261015/genie_simple.csv": "9702f690ef9cd861f76eaca77fa41f04ecf9bf9f26d796faf7e7d48eba0ccfaf",
+    "output/maid_luis_simple_width_20261015/genie_simple.csv.after_config.txt": "5e1ffffd9ecebce3a8e1b13c6d0a9ae9e82c97ff7086ec26d2663fd72110073c",
+    "output/maid_luis_simple_width_20261015/maid08_full_vs_simple_width.pdf": "e529275a9bfc1644e222fb149f36b22f3dca5fd57492648ce5d2b1aea8aba2be",
+    "output/maid_luis_simple_width_20261015/scan_before_after": "06819a7d38325225721696a384fdf4f84b4dc0aa4f2fa871bc3ede8b450e9ca2",
+    "output/maid_luis_simple_width_20261015/scan_full.log": "f91dce5af2b9f26f3064b478680708d9668681432e45398b125f77d2377bca57",
+    "output/maid_luis_simple_width_20261015/scan_simple.log": "4d18e7fdfe89389d5e1e74ed55a4f32bfa49942a69dde167794d3a3421112291",
+    "output/maid_luis_simple_width_20261015/total_full_vs_simple.png": "d1e7352fb23977153120d81173fe71a1cc39fef8cc19720cc5be5fe5cc05b6ad"
+  },
+  "remote_source_sync": {
+    "host": "pbarhama@lxplus.cern.ch",
+    "root": "/afs/cern.ch/work/p/pbarhama/src/GENIE-Generator",
+    "verified_sha256": {
+      "validation/maid_luis_comparison/scan_before_after.cxx": "b02bc626292c487c1e814c43605b0af4413eef0a27ef434f5be2cd20649c5502",
+      "validation/maid_luis_comparison/plot_width_comparison.py": "f3bd6ad5abfc8af9a90d33f33159320dd68b5b1a2849ce97971fe4578dfc4f62",
+      "validation/maid_luis_comparison/README.md": "546c51a0895739bf77772b43ab7c585674a5326d88dc36b5823c5750557a8183"
+    },
+    "backup_dir": ".codex-backups/maid-simple-width-20261015",
+    "remote_build": "not run; curves produced by local native GENIE"
+  }
+}

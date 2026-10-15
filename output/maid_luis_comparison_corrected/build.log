@@ -1,0 +1,63 @@
+g++ -c  -m64 -pipe -Wshadow -W -Wall -Woverloaded-virtual -fsigned-char -fno-common -stdlib=libc++ -pthread -std=c++17 -m64 -I/opt/homebrew/Cellar/root/6.40.00/include/root  -O2   -I/opt/homebrew/opt/libxml2/include/libxml2 -I/opt/homebrew/Cellar/log4cpp/1.1.6/include -I/opt/homebrew/Cellar/root/6.40.00/include/root  -I/opt/homebrew/Cellar/lhapdf/6.5.4/include  -I/opt/homebrew/Cellar/gsl/2.8/include -I/Users/pbarham/opt/genie-dev/src/  MAIDHelicityAmplModelEMp.cxx
+rm -f _ROOT_DICT_PhResXS.*
+[package: Physics/Resonance/XSection] Generating ROOT dictionary ...
+ROOT_INCLUDE_PATH=/Users/pbarham/opt/genie-dev/lib:/Users/pbarham/opt/genie-dev/src:/Users/pbarham/opt/genie-dev/src/Physics/Resonance/XSection \
+          rootcling -f _ROOT_DICT_PhResXS.cc \
+                    -IPhysics/Resonance/XSection -IGENIE \
+                    -IGENIE/Physics/Resonance/XSection \
+                    -I../include -I../include/GENIE \
+                    -I../include/GENIE/Physics/Resonance/XSection \
+                    -inlineInputHeader \
+                    -s libGPhResXS.dylib \
+                  -rml libGPhResXS_rdict.pcm \
+                  -rmf libGPhResXS.rootmap \
+                   -I/opt/homebrew/opt/libxml2/include/libxml2 -I/opt/homebrew/Cellar/log4cpp/1.1.6/include -I/opt/homebrew/Cellar/root/6.40.00/include/root -I/Users/pbarham/opt/genie-dev/src/ BergerSehgalRESPXSec2014.h BostedChristyEMPXSec.h BSKLNBaseRESPXSec2014.h FKR.h GiBUURESFormFactor.h KuzminLyubushkinNaumovRESPXSec2014.h MAIDHelicityAmpl.h MAIDHelicityAmplModelEMn.h MAIDHelicityAmplModelEMp.h MAIDHelicityAmplModelI.h MAIDRESPXSec.h MAIDRESXSecFast.h MAIDToRSHelicityAmplModelEMn.h MAIDToRSHelicityAmplModelEMp.h MKSPPPXSec2020.h P33PaschosLalakulichPXSec.h ReinSehgalRESPXSec.h ReinSehgalRESXSec.h ReinSehgalRESXSecFast.h ReinSehgalRESXSecWithCache.h ReinSehgalRESXSecWithCacheFast.h ReinSehgalSPPPXSec.h ReinSehgalSPPXSec.h RESXSec.h RSHelicityAmpl.h RSHelicityAmplModelCC.h RSHelicityAmplModelEMn.h RSHelicityAmplModelEMp.h RSHelicityAmplModelI.h RSHelicityAmplModelNCn.h RSHelicityAmplModelNCp.h SPPXSec.h SPPXSecWithCache.h LinkDef.h
+sed -i.bak \
+	             -e "s/_rdict.pcm/.so/g"  \
+	             -e "s%^header *%header Physics/Resonance/XSection/%g" \
+	             -e "s%/Users/pbarham/opt/genie-dev/lib/%%g" \
+	     libGPhResXS.rootmap
+g++ -c  -m64 -pipe -Wshadow -W -Wall -Woverloaded-virtual -fsigned-char -fno-common -stdlib=libc++ -pthread -std=c++17 -m64 -I/opt/homebrew/Cellar/root/6.40.00/include/root  -O2   -I/opt/homebrew/opt/libxml2/include/libxml2 -I/opt/homebrew/Cellar/log4cpp/1.1.6/include -I/opt/homebrew/Cellar/root/6.40.00/include/root -I/Users/pbarham/opt/genie-dev/src/ _ROOT_DICT_PhResXS.cc
+In file included from _ROOT_DICT_PhResXS.cc:52:
+./MKSPPPXSec2020.h:198:27: warning: unused parameter 'hatype' [-Wunused-parameter]
+  198 |           auto Im(Current hatype, BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                           ^
+./MKSPPPXSec2020.h:198:53: warning: unused parameter 'lambda_k' [-Wunused-parameter]
+  198 |           auto Im(Current hatype, BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                                                     ^
+./MKSPPPXSec2020.h:198:83: warning: unused parameter 'lambda_2' [-Wunused-parameter]
+  198 |           auto Im(Current hatype, BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                                                                                   ^
+./MKSPPPXSec2020.h:198:113: warning: unused parameter 'lambda_1' [-Wunused-parameter]
+  198 |           auto Im(Current hatype, BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                                                                                                                 ^
+./MKSPPPXSec2020.h:313:31: warning: unused parameter 'res' [-Wunused-parameter]
+  313 |           auto Im(Resonance_t res, BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                               ^
+./MKSPPPXSec2020.h:313:54: warning: unused parameter 'lambda_k' [-Wunused-parameter]
+  313 |           auto Im(Resonance_t res, BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                                                      ^
+./MKSPPPXSec2020.h:313:84: warning: unused parameter 'lambda_2' [-Wunused-parameter]
+  313 |           auto Im(Resonance_t res, BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                                                                                    ^
+./MKSPPPXSec2020.h:313:114: warning: unused parameter 'lambda_1' [-Wunused-parameter]
+  313 |           auto Im(Resonance_t res, BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                                                                                                                  ^
+./MKSPPPXSec2020.h:352:37: warning: unused parameter 'lambda_k' [-Wunused-parameter]
+  352 |           auto Im(BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                                     ^
+./MKSPPPXSec2020.h:352:67: warning: unused parameter 'lambda_2' [-Wunused-parameter]
+  352 |           auto Im(BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                                                                   ^
+./MKSPPPXSec2020.h:352:97: warning: unused parameter 'lambda_1' [-Wunused-parameter]
+  352 |           auto Im(BosonPolarization lambda_k, NucleonPolarization lambda_2, NucleonPolarization lambda_1) -> S
+      |                                                                                                 ^
+11 warnings generated.
+[package: Physics/Resonance/XSection] Generating shared library ..dictionary=._ROOT_DICT_PhResXS
+g++ -dynamiclib -flat_namespace -single_module -undefined dynamic_lookup  BergerSehgalRESPXSec2014.o BostedChristyEMPXSec.o BSKLNBaseRESPXSec2014.o FKR.o GiBUURESFormFactor.o KuzminLyubushkinNaumovRESPXSec2014.o MAIDHelicityAmpl.o MAIDHelicityAmplModelEMn.o MAIDHelicityAmplModelEMp.o MAIDHelicityAmplModelI.o MAIDRESPXSec.o MAIDRESXSecFast.o MAIDToRSHelicityAmplModelEMn.o MAIDToRSHelicityAmplModelEMp.o MKSPPPXSec2020.o P33PaschosLalakulichPXSec.o ReinSehgalRESPXSec.o ReinSehgalRESXSec.o ReinSehgalRESXSecFast.o ReinSehgalRESXSecWithCache.o ReinSehgalRESXSecWithCacheFast.o ReinSehgalSPPPXSec.o ReinSehgalSPPXSec.o RESXSec.o RSHelicityAmpl.o RSHelicityAmplModelCC.o RSHelicityAmplModelEMn.o RSHelicityAmplModelEMp.o RSHelicityAmplModelI.o RSHelicityAmplModelNCn.o RSHelicityAmplModelNCp.o SPPXSec.o SPPXSecWithCache.o _ROOT_DICT_PhResXS.o  -o /Users/pbarham/opt/genie-dev/lib/libGPhResXS-999.999.999.dylib
+ld: warning: -single_module is obsolete
+[ ! -f libGPhResXS_rdict.pcm ] || cp libGPhResXS_rdict.pcm /Users/pbarham/opt/genie-dev/lib
+[ ! -f libGPhResXS.rootmap ] || cp libGPhResXS.rootmap /Users/pbarham/opt/genie-dev/lib
+ln -sf libGPhResXS-999.999.999.dylib /Users/pbarham/opt/genie-dev/lib/libGPhResXS.so
+[package: Physics/Resonance/XSection] Creating symbolic link to shared library ...
+ln -sf libGPhResXS-999.999.999.dylib /Users/pbarham/opt/genie-dev/lib/libGPhResXS.dylib

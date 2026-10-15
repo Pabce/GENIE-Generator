@@ -32,6 +32,8 @@ typedef struct SMAIDAmpFit
   bool   has;
   double a0;
   double alpha;
+  double a2;
+  double a4;
   double beta;
 }
 MAIDAmpFit_t;
@@ -40,6 +42,7 @@ typedef struct SMAIDP11Fit
 {
   double a0;
   double c1;
+  double c2;
   double c4;
   double beta;
 }
@@ -76,14 +79,16 @@ protected:
                     FKR & fkr) const;
   double KCM(double W, double Q2, double M) const;
   double KGammaLab(double W, double M) const;
-  void LoadMAID2007P11Fit(void);
-  void LoadMAID2007P11AmpFit(const string & key, MAIDP11Fit_t & fit,
-                             const MAIDP11Fit_t & def);
-  void LoadMAID2007Fits(void);
-  void LoadMAID2007Fit(Resonance_t res, const string & res_name,
-                       const MAIDTargetFit_t & def);
-  void LoadMAID2007AmpFit(const string & key, MAIDAmpFit_t & fit,
-                          const MAIDAmpFit_t & def);
+  void LoadMAIDP11Fit(void);
+  void LoadMAIDP11AmpFit(const string & key, MAIDP11Fit_t & fit,
+                         const MAIDP11Fit_t & def);
+  void LoadMAIDFits(void);
+  void LoadMAIDFit(Resonance_t res, const string & res_name,
+                   const MAIDTargetFit_t & def);
+  void LoadMAIDAmpFit(const string & key, MAIDAmpFit_t & fit,
+                      const MAIDAmpFit_t & def);
+  template<class T>
+  void GetMAIDFitParam(const string & key, T & value, const T & fallback) const;
 
   mutable MAIDHelicityAmpl fAmpl;
 
@@ -94,7 +99,10 @@ protected:
   string fAmplitudeSource;
   string fRSQConvention;
   bool   fUseNeutronAmplitudes;
+  // Kept for backwards-compatible comparison configurations: scale every A/S.
   bool   fApplyLuisWidthScale;
+  // Luis's Delta-width convention applies only to P33(1232).
+  bool   fApplyLuisP33WidthScale;
   double fLuisWidthScale;
   double fDeltaMass;
   double fAM0;

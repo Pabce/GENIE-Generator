@@ -30,43 +30,57 @@ using namespace genie::constants;
 namespace {
   MAIDAmpFit_t no_fit(void)
   {
-    MAIDAmpFit_t fit = { false, 0.0, 0.0, 0.0 };
+    MAIDAmpFit_t fit = { false, 0.0, 0.0, 0.0, 0.0, 0.0 };
     return fit;
   }
 
   MAIDAmpFit_t fit(double a0, double alpha, double beta)
   {
-    MAIDAmpFit_t fit = { true, a0, alpha, beta };
+    MAIDAmpFit_t fit = { true, a0, alpha, 0.0, 0.0, beta };
+    return fit;
+  }
+
+  MAIDAmpFit_t poly_fit(
+    double a0, double alpha, double a2, double a4, double beta)
+  {
+    MAIDAmpFit_t fit = { true, a0, alpha, a2, a4, beta };
     return fit;
   }
 
   MAIDAmpFit_t real_photon_fit(double a0)
   {
-    MAIDAmpFit_t fit = { true, a0, 0.0, 0.0 };
+    MAIDAmpFit_t fit = { true, a0, 0.0, 0.0, 0.0, 0.0 };
     return fit;
   }
 
-  MAIDP11Fit_t p11_fit(double a0, double c1, double c4, double beta)
+  MAIDP11Fit_t p11_fit(
+    double a0, double c1, double c2, double c4, double beta)
   {
-    MAIDP11Fit_t fit = { a0, c1, c4, beta };
+    MAIDP11Fit_t fit = { a0, c1, c2, c4, beta };
     return fit;
   }
 
   double eval_fit(const MAIDAmpFit_t & fit, double Q2)
   {
-    return fit.a0 * (1.0 + fit.alpha * Q2) * TMath::Exp(-fit.beta * Q2);
+    const double q4 = Q2 * Q2;
+    const double q8 = q4 * q4;
+    return fit.a0 *
+      (1.0 + fit.alpha * Q2 + fit.a2 * q4 + fit.a4 * q8) *
+      TMath::Exp(-fit.beta * Q2);
   }
 
   double eval_p11_fit(const MAIDP11Fit_t & fit, double Q2)
   {
-    const double q8 = TMath::Power(Q2, 4);
-    return fit.a0 * (1.0 + fit.c1 * Q2 + fit.c4 * q8) *
+    const double q4 = Q2 * Q2;
+    const double q8 = q4 * q4;
+    return fit.a0 * (1.0 + fit.c1 * Q2 + fit.c2 * q4 + fit.c4 * q8) *
       TMath::Exp(-fit.beta * Q2);
   }
 
   bool has_q2_fit(const MAIDAmpFit_t & fit)
   {
-    return fit.has && (fit.alpha != 0.0 || fit.beta != 0.0);
+    return fit.has &&
+      (fit.alpha != 0.0 || fit.a2 != 0.0 || fit.a4 != 0.0 || fit.beta != 0.0);
   }
 
   bool target_fit_has_q2_dependence(const MAIDTargetFit_t & target)
@@ -128,7 +142,7 @@ MAIDHelicityAmplModelEMp::Compute(const Interaction * interaction) const
 
   const string source = uppercase_copy(fAmplitudeSource);
   bool ok = false;
-  if(source == "MAID2007") {
+  if(source == "MAID2007" || source == "MAID2008") {
     ok = this->ComputeMAID2007(res, W, Q2, M);
   }
   else if(source == "RSORIGINAL") {
@@ -150,7 +164,9 @@ MAIDHelicityAmplModelEMp::Compute(const Interaction * interaction) const
 bool MAIDHelicityAmplModelEMp::ComputeMAID2007(
   Resonance_t res, double /*W*/, double Q2, double M) const
 {
-  const double scale = fApplyLuisWidthScale ? fLuisWidthScale : 1.0;
+  const double scale =
+    (fApplyLuisWidthScale ||
+     (res == kP33_1232 && fApplyLuisP33WidthScale)) ? fLuisWidthScale : 1.0;
 
   if(res != kP33_1232) {
     if(res == kP11_1440) {
@@ -326,39 +342,49 @@ double MAIDHelicityAmplModelEMp::KGammaLab(double W, double M) const
   return (W*W - M*M) / (2.0 * M);
 }
 //____________________________________________________________________________
-void MAIDHelicityAmplModelEMp::LoadMAID2007P11Fit(void)
+void MAIDHelicityAmplModelEMp::LoadMAIDP11Fit(void)
 {
+  const bool use_maid2008 =
+    !fUseNeutronAmplitudes && uppercase_copy(fAmplitudeSource) == "MAID2008";
   const MAIDP11Fit_t a12_def =
     fUseNeutronAmplitudes ?
-    p11_fit(54.1, 0.95, 0.0, 1.77) :
-    p11_fit(-61.4, -1.22, -0.55, 1.51);
+    p11_fit(54.1, 0.95, 0.0, 0.0, 1.77) :
+    (use_maid2008 ? p11_fit(-61.4, 0.871, -3.516, -0.158, 1.36) :
+                    p11_fit(-61.4, -1.22, 0.0, -0.55, 1.51));
   const MAIDP11Fit_t s12_def =
     fUseNeutronAmplitudes ?
-    p11_fit(-41.5, 2.98, 0.0, 1.55) :
-    p11_fit(4.2, 40.0, 1.5, 1.75);
+    p11_fit(-41.5, 2.98, 0.0, 0.0, 1.55) :
+    p11_fit(4.2, 40.0, 0.0, 1.5, 1.75);
 
-  this->LoadMAID2007P11AmpFit("A12@P11(1440)", fP11A12, a12_def);
-  this->LoadMAID2007P11AmpFit("S12@P11(1440)", fP11S12, s12_def);
+  this->LoadMAIDP11AmpFit("A12@P11(1440)", fP11A12, a12_def);
+  this->LoadMAIDP11AmpFit("S12@P11(1440)", fP11S12, s12_def);
 }
 //____________________________________________________________________________
-void MAIDHelicityAmplModelEMp::LoadMAID2007P11AmpFit(
+void MAIDHelicityAmplModelEMp::LoadMAIDP11AmpFit(
   const string & key, MAIDP11Fit_t & fit, const MAIDP11Fit_t & def)
 {
-  this->GetParamDef(key + "-A0",   fit.a0,   def.a0);
-  this->GetParamDef(key + "-C1",   fit.c1,   def.c1);
-  this->GetParamDef(key + "-C4",   fit.c4,   def.c4);
-  this->GetParamDef(key + "-Beta", fit.beta, def.beta);
+  this->GetMAIDFitParam(key + "-A0",   fit.a0,   def.a0);
+  this->GetMAIDFitParam(key + "-C1",   fit.c1,   def.c1);
+  this->GetMAIDFitParam(key + "-C2",   fit.c2,   def.c2);
+  this->GetMAIDFitParam(key + "-C4",   fit.c4,   def.c4);
+  this->GetMAIDFitParam(key + "-Beta", fit.beta, def.beta);
 }
 //____________________________________________________________________________
-void MAIDHelicityAmplModelEMp::LoadMAID2007Fits(void)
+void MAIDHelicityAmplModelEMp::LoadMAIDFits(void)
 {
   fMAID2007Fits.clear();
+  const bool use_maid2008 =
+    !fUseNeutronAmplitudes && uppercase_copy(fAmplitudeSource) == "MAID2008";
 
   const MAIDTargetFit_t d13 = fUseNeutronAmplitudes ?
     MAIDTargetFit_t{ fit(-77.0, -0.53, 1.55), fit(-154.0, 0.58, 1.75),
                      fit(13.6, 15.7, 1.57) } :
-    MAIDTargetFit_t{ fit(-27.0, 7.77, 1.09), fit(161.0, 0.69, 2.10),
-                     fit(-63.6, 4.19, 3.40) };
+    (use_maid2008 ?
+     MAIDTargetFit_t{ poly_fit(-27.4, 8.580, -0.252, 0.357, 1.20),
+                      poly_fit(160.6, -0.820, 0.541, -0.016, 1.06),
+                      poly_fit(-63.5, 4.19, 0.0, 0.0, 3.40) } :
+     MAIDTargetFit_t{ fit(-27.0, 7.77, 1.09), fit(161.0, 0.69, 2.10),
+                      fit(-63.6, 4.19, 3.40) });
   const MAIDTargetFit_t s11_1535 = fUseNeutronAmplitudes ?
     MAIDTargetFit_t{ fit(-51.0, 4.75, 1.69), no_fit(),
                      fit(28.5, 0.36, 1.55) } :
@@ -374,55 +400,90 @@ void MAIDHelicityAmplModelEMp::LoadMAID2007Fits(void)
   const MAIDTargetFit_t d15 = fUseNeutronAmplitudes ?
     MAIDTargetFit_t{ fit(-62.0, 0.01, 2.00), fit(-84.0, 0.01, 2.00),
                      fit(0.0, 0.0, 0.0) } :
-    MAIDTargetFit_t{ fit(15.0, 0.10, 2.00), fit(22.0, 0.10, 2.00),
-                     fit(0.0, 0.0, 0.0) };
+    (use_maid2008 ?
+     MAIDTargetFit_t{ poly_fit(15.3, 0.10, 0.0, 0.0, 2.00),
+                      poly_fit(21.6, 1.91, 0.18, 0.0, 0.69),
+                      poly_fit(1.1, 0.0, 0.0, 0.0, 2.00) } :
+     MAIDTargetFit_t{ fit(15.0, 0.10, 2.00), fit(22.0, 0.10, 2.00),
+                      fit(0.0, 0.0, 0.0) });
   const MAIDTargetFit_t f15 = fUseNeutronAmplitudes ?
     MAIDTargetFit_t{ fit(28.0, 0.0, 1.20), fit(-38.0, 4.09, 1.75),
                      fit(0.0, 0.0, 0.0) } :
-    MAIDTargetFit_t{ fit(-25.0, 3.98, 1.20), fit(134.0, 1.00, 2.22),
-                     fit(-44.0, 3.14, 1.68) };
-  const MAIDTargetFit_t d33 =
-    { fit(226.0, 1.91, 1.77), fit(210.0, 1.97, 2.20),
-      fit(0.0, 0.0, 0.0) };
+    (use_maid2008 ?
+     MAIDTargetFit_t{ poly_fit(-25.1, 3.780, -0.292, 0.080, 1.25),
+                      poly_fit(134.3, 1.016, 0.222, 0.237, 2.41),
+                      poly_fit(-44.0, 3.783, 0.0, 0.0, 1.85) } :
+     MAIDTargetFit_t{ fit(-25.0, 3.98, 1.20), fit(134.0, 1.00, 2.22),
+                      fit(-44.0, 3.14, 1.68) });
+  const MAIDTargetFit_t d33 = use_maid2008 ?
+    MAIDTargetFit_t{ poly_fit(226.0, 1.91, 0.0, 0.0, 1.77),
+                     poly_fit(210.0, 0.88, 1.71, 0.0, 2.02),
+                     poly_fit(2.1, 0.0, 0.0, 0.0, 2.00) } :
+    MAIDTargetFit_t{ fit(226.0, 1.91, 1.77), fit(210.0, 1.97, 2.20),
+                     fit(0.0, 0.0, 0.0) };
   const MAIDTargetFit_t p13 = fUseNeutronAmplitudes ?
     MAIDTargetFit_t{ fit(-3.0, 12.7, 1.55), fit(-31.0, 4.99, 1.55),
                      fit(0.0, 0.0, 0.0) } :
-    MAIDTargetFit_t{ fit(73.0, 1.89, 1.55), fit(-11.0, 16.0, 1.55),
-                     fit(-53.0, 2.46, 1.55) };
+    (use_maid2008 ?
+     MAIDTargetFit_t{ poly_fit(73.0, 1.89, 0.0, 0.0, 1.55),
+                      poly_fit(-11.5, 10.83, -0.66, 0.0, 0.43),
+                      poly_fit(-53.0, 2.46, 0.0, 0.0, 1.55) } :
+     MAIDTargetFit_t{ fit(73.0, 1.89, 1.55), fit(-11.0, 16.0, 1.55),
+                      fit(-53.0, 2.46, 1.55) });
   const MAIDTargetFit_t f35 =
     { real_photon_fit(18.0), real_photon_fit(-28.0), fit(0.0, 0.0, 0.0) };
   const MAIDTargetFit_t f37 =
     { real_photon_fit(-94.0), real_photon_fit(-121.0), fit(0.0, 0.0, 0.0) };
 
-  this->LoadMAID2007Fit(kD13_1520, "D13(1520)", d13);
-  this->LoadMAID2007Fit(kS11_1535, "S11(1535)", s11_1535);
-  this->LoadMAID2007Fit(kS31_1620, "S31(1620)", s31);
-  this->LoadMAID2007Fit(kS11_1650, "S11(1650)", s11_1650);
-  this->LoadMAID2007Fit(kD15_1675, "D15(1675)", d15);
-  this->LoadMAID2007Fit(kF15_1680, "F15(1680)", f15);
-  this->LoadMAID2007Fit(kD33_1700, "D33(1700)", d33);
-  this->LoadMAID2007Fit(kP13_1720, "P13(1720)", p13);
-  this->LoadMAID2007Fit(kF35_1905, "F35(1905)", f35);
-  this->LoadMAID2007Fit(kF37_1950, "F37(1950)", f37);
+  this->LoadMAIDFit(kD13_1520, "D13(1520)", d13);
+  this->LoadMAIDFit(kS11_1535, "S11(1535)", s11_1535);
+  this->LoadMAIDFit(kS31_1620, "S31(1620)", s31);
+  this->LoadMAIDFit(kS11_1650, "S11(1650)", s11_1650);
+  this->LoadMAIDFit(kD15_1675, "D15(1675)", d15);
+  this->LoadMAIDFit(kF15_1680, "F15(1680)", f15);
+  this->LoadMAIDFit(kD33_1700, "D33(1700)", d33);
+  this->LoadMAIDFit(kP13_1720, "P13(1720)", p13);
+  this->LoadMAIDFit(kF35_1905, "F35(1905)", f35);
+  this->LoadMAIDFit(kF37_1950, "F37(1950)", f37);
 }
 //____________________________________________________________________________
-void MAIDHelicityAmplModelEMp::LoadMAID2007Fit(
+void MAIDHelicityAmplModelEMp::LoadMAIDFit(
   Resonance_t res, const string & res_name, const MAIDTargetFit_t & def)
 {
   MAIDTargetFit_t target;
-  this->LoadMAID2007AmpFit("A12@" + res_name, target.a12, def.a12);
-  this->LoadMAID2007AmpFit("A32@" + res_name, target.a32, def.a32);
-  this->LoadMAID2007AmpFit("S12@" + res_name, target.s12, def.s12);
+  this->LoadMAIDAmpFit("A12@" + res_name, target.a12, def.a12);
+  this->LoadMAIDAmpFit("A32@" + res_name, target.a32, def.a32);
+  this->LoadMAIDAmpFit("S12@" + res_name, target.s12, def.s12);
   fMAID2007Fits[res] = target;
 }
 //____________________________________________________________________________
-void MAIDHelicityAmplModelEMp::LoadMAID2007AmpFit(
+void MAIDHelicityAmplModelEMp::LoadMAIDAmpFit(
   const string & key, MAIDAmpFit_t & fit, const MAIDAmpFit_t & def)
 {
-  this->GetParamDef(key + "-Has",   fit.has,   def.has);
-  this->GetParamDef(key + "-A0",    fit.a0,    def.a0);
-  this->GetParamDef(key + "-Alpha", fit.alpha, def.alpha);
-  this->GetParamDef(key + "-Beta",  fit.beta,  def.beta);
+  this->GetMAIDFitParam(key + "-Has",   fit.has,   def.has);
+  this->GetMAIDFitParam(key + "-A0",    fit.a0,    def.a0);
+  this->GetMAIDFitParam(key + "-Alpha", fit.alpha, def.alpha);
+  this->GetMAIDFitParam(key + "-A2",    fit.a2,    def.a2);
+  this->GetMAIDFitParam(key + "-A4",    fit.a4,    def.a4);
+  this->GetMAIDFitParam(key + "-Beta",  fit.beta,  def.beta);
+}
+//____________________________________________________________________________
+template<class T>
+void MAIDHelicityAmplModelEMp::GetMAIDFitParam(
+  const string & key, T & value, const T & fallback) const
+{
+  // GENIE overlays every named configuration on Default, not on the set
+  // named by AmplitudeSource. Keep the source tables in separate namespaces
+  // so a MAID2008 variant cannot inherit generic MAID2007 coefficients.
+  // Neutron fits retain the 2007 table. Missing XML entries use the compiled
+  // source-specific fallback, including zero polynomial coefficients.
+  const string source =
+    !fUseNeutronAmplitudes && uppercase_copy(fAmplitudeSource) == "MAID2008" ?
+    "MAID2008" : "MAID2007";
+  T baseline;
+  this->GetParamDef(source + "-" + key, baseline, fallback);
+  // Unqualified keys are reserved for deliberate per-coefficient overrides.
+  this->GetParamDef(key, value, baseline);
 }
 //____________________________________________________________________________
 void MAIDHelicityAmplModelEMp::Configure(const Registry & config)
@@ -442,6 +503,8 @@ void MAIDHelicityAmplModelEMp::LoadConfig(void)
   this->GetParamDef("AmplitudeSource", fAmplitudeSource, string("MAID2007"));
   this->GetParamDef("RSQConvention", fRSQConvention, string("RSLab"));
   this->GetParamDef("ApplyLuisWidthScale", fApplyLuisWidthScale, false);
+  this->GetParamDef(
+    "ApplyLuisP33WidthScale", fApplyLuisP33WidthScale, false);
   this->GetParamDef("LuisWidthScale", fLuisWidthScale, TMath::Sqrt(130.0/115.0));
   this->GetParamDef("DeltaMass", fDeltaMass, 1.232);
   this->GetParamDef("AM@P33(1232)", fAM0, 300.0);
@@ -469,7 +532,7 @@ void MAIDHelicityAmplModelEMp::LoadConfig(void)
     dynamic_cast<const RSHelicityAmplModelI *>(
       AlgFactory::Instance()->GetAlgorithm(rs_alg.name, rs_alg.config));
 
-  this->LoadMAID2007P11Fit();
-  this->LoadMAID2007Fits();
+  this->LoadMAIDP11Fit();
+  this->LoadMAIDFits();
 }
 //____________________________________________________________________________

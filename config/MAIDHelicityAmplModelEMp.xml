@@ -3,6 +3,14 @@
 <alg_conf>
 
 <!--
+Fit coefficients in Default are version-qualified (MAID2007-A32@Res-Beta,
+MAID2008-A32@Res-Beta, etc.). AmplitudeSource selects the table; named
+variants do not inherit coefficients from the MAID2008 parameter set.
+Unqualified keys such as A32@Res-Beta remain explicit user overrides and
+have precedence over the selected table. Keep generic fit keys OUT of Default.
+-->
+
+<!--
 Configuration for the MAID2007 electromagnetic helicity amplitude model.
 
 The default constants reproduce the validation notebook in
@@ -13,13 +21,14 @@ Configurable Parameters:
 .................................................................................................
 Name                    Type    Optional Comment
 .................................................................................................
-AmplitudeSource         string  Yes      MAID2007, RSOriginal, or RSOriginalP33
+AmplitudeSource         string  Yes      MAID2007, MAID2008, RSOriginal, or RSOriginalP33
 RSQConvention           string  Yes      RSLab or QStar for RSOriginalP33
 RSHelicityAmplAlg       alg     Yes      native RS EM helicity model for RSOriginal
 RES-Omega               double  Yes      native RS FKR Omega for RSOriginal
 RES-Zeta                double  Yes      native RS FKR Zeta for RSOriginal
 RSOriginalPhase         double  Yes      phase for visible original-RS A/S curves
 ApplyLuisWidthScale     bool    Yes      multiply A/S by sqrt(130/115), comparison only
+ApplyLuisP33WidthScale  bool    Yes      multiply only P33(1232) A/S by sqrt(130/115)
 LuisWidthScale          double  Yes      explicit scale value
 DeltaMass               double  Yes      Delta pole mass used in MAID formulas
 AM@P33(1232)            double  Yes      MAID2007 reduced magnetic A0
@@ -34,18 +43,20 @@ GammaS@P33(1232)        double  Yes
 DeltaS@P33(1232)        double  Yes
 A12@P11(1440)-A0        double  Yes      MAID2007 Roper Eq. 5.19 coefficient
 A12@P11(1440)-C1        double  Yes      MAID2007 Roper Eq. 5.19 coefficient
+A12@P11(1440)-C2        double  Yes      MAID2008 Q^4 coefficient
 A12@P11(1440)-C4        double  Yes      MAID2007 Roper Eq. 5.19 coefficient
 A12@P11(1440)-Beta      double  Yes      MAID2007 Roper Eq. 5.19 coefficient
 S12@P11(1440)-A0        double  Yes      MAID2007 Roper Eq. 5.20 coefficient
 S12@P11(1440)-C1        double  Yes      MAID2007 Roper Eq. 5.20 coefficient
+S12@P11(1440)-C2        double  Yes      MAID2008 Q^4 coefficient
 S12@P11(1440)-C4        double  Yes      MAID2007 Roper Eq. 5.20 coefficient
 S12@P11(1440)-Beta      double  Yes      MAID2007 Roper Eq. 5.20 coefficient
-A12@Res-Has/A0/Alpha/Beta
-                        mixed   Yes      MAID2007 Eq. 5.21 and Tables 7, 12
-A32@Res-Has/A0/Alpha/Beta
-                        mixed   Yes      MAID2007 Eq. 5.21 and Tables 7, 12
-S12@Res-Has/A0/Alpha/Beta
-                        mixed   Yes      MAID2007 Eq. 5.21 and Table 12
+A12@Res-Has/A0/Alpha/A2/A4/Beta
+                        mixed   Yes      MAID2007 and MAID2008 transition-fit coefficients
+A32@Res-Has/A0/Alpha/A2/A4/Beta
+                        mixed   Yes      MAID2007 and MAID2008 transition-fit coefficients
+S12@Res-Has/A0/Alpha/A2/A4/Beta
+                        mixed   Yes      MAID2007 and MAID2008 transition-fit coefficients
 DipoleMass2             double  Yes      dipole mass squared in GeV^2
 RSVectorMass            double  Yes      original RS vector mass for RSOriginalP33
 -->
@@ -55,6 +66,7 @@ RSVectorMass            double  Yes      original RS vector mass for RSOriginalP
     <param type="string" name="RSQConvention"> RSLab </param>
     <param type="alg"    name="RSHelicityAmplAlg"> genie::RSHelicityAmplModelEMp/Default </param>
     <param type="bool"   name="ApplyLuisWidthScale"> false </param>
+    <param type="bool"   name="ApplyLuisP33WidthScale"> false </param>
     <param type="double" name="LuisWidthScale"> 1.06321906614239 </param>
     <param type="double" name="DeltaMass"> 1.232 </param>
 
@@ -69,138 +81,256 @@ RSVectorMass            double  Yes      original RS vector mass for RSOriginalP
     <param type="double" name="GammaS@P33(1232)"> 0.23 </param>
     <param type="double" name="DeltaS@P33(1232)"> 4.9 </param>
 
-    <param type="double" name="A12@P11(1440)-A0"> -61.4 </param>
-    <param type="double" name="A12@P11(1440)-C1"> -1.22 </param>
-    <param type="double" name="A12@P11(1440)-C4"> -0.55 </param>
-    <param type="double" name="A12@P11(1440)-Beta"> 1.51 </param>
-    <param type="double" name="S12@P11(1440)-A0"> 4.2 </param>
-    <param type="double" name="S12@P11(1440)-C1"> 40.0 </param>
-    <param type="double" name="S12@P11(1440)-C4"> 1.5 </param>
-    <param type="double" name="S12@P11(1440)-Beta"> 1.75 </param>
+    <param type="double" name="MAID2007-A12@P11(1440)-A0"> -61.4 </param>
+    <param type="double" name="MAID2007-A12@P11(1440)-C1"> -1.22 </param>
+    <param type="double" name="MAID2007-A12@P11(1440)-C4"> -0.55 </param>
+    <param type="double" name="MAID2007-A12@P11(1440)-Beta"> 1.51 </param>
+    <param type="double" name="MAID2007-S12@P11(1440)-A0"> 4.2 </param>
+    <param type="double" name="MAID2007-S12@P11(1440)-C1"> 40.0 </param>
+    <param type="double" name="MAID2007-S12@P11(1440)-C4"> 1.5 </param>
+    <param type="double" name="MAID2007-S12@P11(1440)-Beta"> 1.75 </param>
 
-    <param type="bool"   name="A12@D13(1520)-Has"> true </param>
-    <param type="double" name="A12@D13(1520)-A0"> -27.0 </param>
-    <param type="double" name="A12@D13(1520)-Alpha"> 7.77 </param>
-    <param type="double" name="A12@D13(1520)-Beta"> 1.09 </param>
-    <param type="bool"   name="A32@D13(1520)-Has"> true </param>
-    <param type="double" name="A32@D13(1520)-A0"> 161.0 </param>
-    <param type="double" name="A32@D13(1520)-Alpha"> 0.69 </param>
-    <param type="double" name="A32@D13(1520)-Beta"> 2.10 </param>
-    <param type="bool"   name="S12@D13(1520)-Has"> true </param>
-    <param type="double" name="S12@D13(1520)-A0"> -63.6 </param>
-    <param type="double" name="S12@D13(1520)-Alpha"> 4.19 </param>
-    <param type="double" name="S12@D13(1520)-Beta"> 3.40 </param>
+    <param type="bool"   name="MAID2007-A12@D13(1520)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@D13(1520)-A0"> -27.0 </param>
+    <param type="double" name="MAID2007-A12@D13(1520)-Alpha"> 7.77 </param>
+    <param type="double" name="MAID2007-A12@D13(1520)-Beta"> 1.09 </param>
+    <param type="bool"   name="MAID2007-A32@D13(1520)-Has"> true </param>
+    <param type="double" name="MAID2007-A32@D13(1520)-A0"> 161.0 </param>
+    <param type="double" name="MAID2007-A32@D13(1520)-Alpha"> 0.69 </param>
+    <param type="double" name="MAID2007-A32@D13(1520)-Beta"> 2.10 </param>
+    <param type="bool"   name="MAID2007-S12@D13(1520)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@D13(1520)-A0"> -63.6 </param>
+    <param type="double" name="MAID2007-S12@D13(1520)-Alpha"> 4.19 </param>
+    <param type="double" name="MAID2007-S12@D13(1520)-Beta"> 3.40 </param>
 
-    <param type="bool"   name="A12@S11(1535)-Has"> true </param>
-    <param type="double" name="A12@S11(1535)-A0"> 66.0 </param>
-    <param type="double" name="A12@S11(1535)-Alpha"> 1.61 </param>
-    <param type="double" name="A12@S11(1535)-Beta"> 0.70 </param>
-    <param type="bool"   name="S12@S11(1535)-Has"> true </param>
-    <param type="double" name="S12@S11(1535)-A0"> -2.0 </param>
-    <param type="double" name="S12@S11(1535)-Alpha"> 23.9 </param>
-    <param type="double" name="S12@S11(1535)-Beta"> 0.81 </param>
+    <param type="bool"   name="MAID2007-A12@S11(1535)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@S11(1535)-A0"> 66.0 </param>
+    <param type="double" name="MAID2007-A12@S11(1535)-Alpha"> 1.61 </param>
+    <param type="double" name="MAID2007-A12@S11(1535)-Beta"> 0.70 </param>
+    <param type="bool"   name="MAID2007-S12@S11(1535)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@S11(1535)-A0"> -2.0 </param>
+    <param type="double" name="MAID2007-S12@S11(1535)-Alpha"> 23.9 </param>
+    <param type="double" name="MAID2007-S12@S11(1535)-Beta"> 0.81 </param>
 
-    <param type="bool"   name="A12@S31(1620)-Has"> true </param>
-    <param type="double" name="A12@S31(1620)-A0"> 66.0 </param>
-    <param type="double" name="A12@S31(1620)-Alpha"> 1.86 </param>
-    <param type="double" name="A12@S31(1620)-Beta"> 2.50 </param>
-    <param type="bool"   name="S12@S31(1620)-Has"> true </param>
-    <param type="double" name="S12@S31(1620)-A0"> 16.2 </param>
-    <param type="double" name="S12@S31(1620)-Alpha"> 2.83 </param>
-    <param type="double" name="S12@S31(1620)-Beta"> 2.00 </param>
+    <param type="bool"   name="MAID2007-A12@S31(1620)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@S31(1620)-A0"> 66.0 </param>
+    <param type="double" name="MAID2007-A12@S31(1620)-Alpha"> 1.86 </param>
+    <param type="double" name="MAID2007-A12@S31(1620)-Beta"> 2.50 </param>
+    <param type="bool"   name="MAID2007-S12@S31(1620)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@S31(1620)-A0"> 16.2 </param>
+    <param type="double" name="MAID2007-S12@S31(1620)-Alpha"> 2.83 </param>
+    <param type="double" name="MAID2007-S12@S31(1620)-Beta"> 2.00 </param>
 
-    <param type="bool"   name="A12@S11(1650)-Has"> true </param>
-    <param type="double" name="A12@S11(1650)-A0"> 33.0 </param>
-    <param type="double" name="A12@S11(1650)-Alpha"> 1.45 </param>
-    <param type="double" name="A12@S11(1650)-Beta"> 0.62 </param>
-    <param type="bool"   name="S12@S11(1650)-Has"> true </param>
-    <param type="double" name="S12@S11(1650)-A0"> -3.5 </param>
-    <param type="double" name="S12@S11(1650)-Alpha"> 2.88 </param>
-    <param type="double" name="S12@S11(1650)-Beta"> 0.76 </param>
+    <param type="bool"   name="MAID2007-A12@S11(1650)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@S11(1650)-A0"> 33.0 </param>
+    <param type="double" name="MAID2007-A12@S11(1650)-Alpha"> 1.45 </param>
+    <param type="double" name="MAID2007-A12@S11(1650)-Beta"> 0.62 </param>
+    <param type="bool"   name="MAID2007-S12@S11(1650)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@S11(1650)-A0"> -3.5 </param>
+    <param type="double" name="MAID2007-S12@S11(1650)-Alpha"> 2.88 </param>
+    <param type="double" name="MAID2007-S12@S11(1650)-Beta"> 0.76 </param>
 
-    <param type="bool"   name="A12@D15(1675)-Has"> true </param>
-    <param type="double" name="A12@D15(1675)-A0"> 15.0 </param>
-    <param type="double" name="A12@D15(1675)-Alpha"> 0.10 </param>
-    <param type="double" name="A12@D15(1675)-Beta"> 2.00 </param>
-    <param type="bool"   name="A32@D15(1675)-Has"> true </param>
-    <param type="double" name="A32@D15(1675)-A0"> 22.0 </param>
-    <param type="double" name="A32@D15(1675)-Alpha"> 0.10 </param>
-    <param type="double" name="A32@D15(1675)-Beta"> 2.00 </param>
-    <param type="bool"   name="S12@D15(1675)-Has"> true </param>
-    <param type="double" name="S12@D15(1675)-A0"> 0.0 </param>
-    <param type="double" name="S12@D15(1675)-Alpha"> 0.0 </param>
-    <param type="double" name="S12@D15(1675)-Beta"> 0.0 </param>
+    <param type="bool"   name="MAID2007-A12@D15(1675)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@D15(1675)-A0"> 15.0 </param>
+    <param type="double" name="MAID2007-A12@D15(1675)-Alpha"> 0.10 </param>
+    <param type="double" name="MAID2007-A12@D15(1675)-Beta"> 2.00 </param>
+    <param type="bool"   name="MAID2007-A32@D15(1675)-Has"> true </param>
+    <param type="double" name="MAID2007-A32@D15(1675)-A0"> 22.0 </param>
+    <param type="double" name="MAID2007-A32@D15(1675)-Alpha"> 0.10 </param>
+    <param type="double" name="MAID2007-A32@D15(1675)-Beta"> 2.00 </param>
+    <param type="bool"   name="MAID2007-S12@D15(1675)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@D15(1675)-A0"> 0.0 </param>
+    <param type="double" name="MAID2007-S12@D15(1675)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2007-S12@D15(1675)-Beta"> 0.0 </param>
 
-    <param type="bool"   name="A12@F15(1680)-Has"> true </param>
-    <param type="double" name="A12@F15(1680)-A0"> -25.0 </param>
-    <param type="double" name="A12@F15(1680)-Alpha"> 3.98 </param>
-    <param type="double" name="A12@F15(1680)-Beta"> 1.20 </param>
-    <param type="bool"   name="A32@F15(1680)-Has"> true </param>
-    <param type="double" name="A32@F15(1680)-A0"> 134.0 </param>
-    <param type="double" name="A32@F15(1680)-Alpha"> 1.00 </param>
-    <param type="double" name="A32@F15(1680)-Beta"> 2.22 </param>
-    <param type="bool"   name="S12@F15(1680)-Has"> true </param>
-    <param type="double" name="S12@F15(1680)-A0"> -44.0 </param>
-    <param type="double" name="S12@F15(1680)-Alpha"> 3.14 </param>
-    <param type="double" name="S12@F15(1680)-Beta"> 1.68 </param>
+    <param type="bool"   name="MAID2007-A12@F15(1680)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@F15(1680)-A0"> -25.0 </param>
+    <param type="double" name="MAID2007-A12@F15(1680)-Alpha"> 3.98 </param>
+    <param type="double" name="MAID2007-A12@F15(1680)-Beta"> 1.20 </param>
+    <param type="bool"   name="MAID2007-A32@F15(1680)-Has"> true </param>
+    <param type="double" name="MAID2007-A32@F15(1680)-A0"> 134.0 </param>
+    <param type="double" name="MAID2007-A32@F15(1680)-Alpha"> 1.00 </param>
+    <param type="double" name="MAID2007-A32@F15(1680)-Beta"> 2.22 </param>
+    <param type="bool"   name="MAID2007-S12@F15(1680)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@F15(1680)-A0"> -44.0 </param>
+    <param type="double" name="MAID2007-S12@F15(1680)-Alpha"> 3.14 </param>
+    <param type="double" name="MAID2007-S12@F15(1680)-Beta"> 1.68 </param>
 
-    <param type="bool"   name="A12@D33(1700)-Has"> true </param>
-    <param type="double" name="A12@D33(1700)-A0"> 226.0 </param>
-    <param type="double" name="A12@D33(1700)-Alpha"> 1.91 </param>
-    <param type="double" name="A12@D33(1700)-Beta"> 1.77 </param>
-    <param type="bool"   name="A32@D33(1700)-Has"> true </param>
-    <param type="double" name="A32@D33(1700)-A0"> 210.0 </param>
-    <param type="double" name="A32@D33(1700)-Alpha"> 1.97 </param>
-    <param type="double" name="A32@D33(1700)-Beta"> 2.20 </param>
-    <param type="bool"   name="S12@D33(1700)-Has"> true </param>
-    <param type="double" name="S12@D33(1700)-A0"> 0.0 </param>
-    <param type="double" name="S12@D33(1700)-Alpha"> 0.0 </param>
-    <param type="double" name="S12@D33(1700)-Beta"> 0.0 </param>
+    <param type="bool"   name="MAID2007-A12@D33(1700)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@D33(1700)-A0"> 226.0 </param>
+    <param type="double" name="MAID2007-A12@D33(1700)-Alpha"> 1.91 </param>
+    <param type="double" name="MAID2007-A12@D33(1700)-Beta"> 1.77 </param>
+    <param type="bool"   name="MAID2007-A32@D33(1700)-Has"> true </param>
+    <param type="double" name="MAID2007-A32@D33(1700)-A0"> 210.0 </param>
+    <param type="double" name="MAID2007-A32@D33(1700)-Alpha"> 1.97 </param>
+    <param type="double" name="MAID2007-A32@D33(1700)-Beta"> 2.20 </param>
+    <param type="bool"   name="MAID2007-S12@D33(1700)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@D33(1700)-A0"> 0.0 </param>
+    <param type="double" name="MAID2007-S12@D33(1700)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2007-S12@D33(1700)-Beta"> 0.0 </param>
 
-    <param type="bool"   name="A12@P13(1720)-Has"> true </param>
-    <param type="double" name="A12@P13(1720)-A0"> 73.0 </param>
-    <param type="double" name="A12@P13(1720)-Alpha"> 1.89 </param>
-    <param type="double" name="A12@P13(1720)-Beta"> 1.55 </param>
-    <param type="bool"   name="A32@P13(1720)-Has"> true </param>
-    <param type="double" name="A32@P13(1720)-A0"> -11.0 </param>
-    <param type="double" name="A32@P13(1720)-Alpha"> 16.0 </param>
-    <param type="double" name="A32@P13(1720)-Beta"> 1.55 </param>
-    <param type="bool"   name="S12@P13(1720)-Has"> true </param>
-    <param type="double" name="S12@P13(1720)-A0"> -53.0 </param>
-    <param type="double" name="S12@P13(1720)-Alpha"> 2.46 </param>
-    <param type="double" name="S12@P13(1720)-Beta"> 1.55 </param>
+    <param type="bool"   name="MAID2007-A12@P13(1720)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@P13(1720)-A0"> 73.0 </param>
+    <param type="double" name="MAID2007-A12@P13(1720)-Alpha"> 1.89 </param>
+    <param type="double" name="MAID2007-A12@P13(1720)-Beta"> 1.55 </param>
+    <param type="bool"   name="MAID2007-A32@P13(1720)-Has"> true </param>
+    <param type="double" name="MAID2007-A32@P13(1720)-A0"> -11.0 </param>
+    <param type="double" name="MAID2007-A32@P13(1720)-Alpha"> 16.0 </param>
+    <param type="double" name="MAID2007-A32@P13(1720)-Beta"> 1.55 </param>
+    <param type="bool"   name="MAID2007-S12@P13(1720)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@P13(1720)-A0"> -53.0 </param>
+    <param type="double" name="MAID2007-S12@P13(1720)-Alpha"> 2.46 </param>
+    <param type="double" name="MAID2007-S12@P13(1720)-Beta"> 1.55 </param>
 
-    <param type="bool"   name="A12@F35(1905)-Has"> true </param>
-    <param type="double" name="A12@F35(1905)-A0"> 18.0 </param>
-    <param type="double" name="A12@F35(1905)-Alpha"> 0.0 </param>
-    <param type="double" name="A12@F35(1905)-Beta"> 0.0 </param>
-    <param type="bool"   name="A32@F35(1905)-Has"> true </param>
-    <param type="double" name="A32@F35(1905)-A0"> -28.0 </param>
-    <param type="double" name="A32@F35(1905)-Alpha"> 0.0 </param>
-    <param type="double" name="A32@F35(1905)-Beta"> 0.0 </param>
-    <param type="bool"   name="S12@F35(1905)-Has"> true </param>
-    <param type="double" name="S12@F35(1905)-A0"> 0.0 </param>
-    <param type="double" name="S12@F35(1905)-Alpha"> 0.0 </param>
-    <param type="double" name="S12@F35(1905)-Beta"> 0.0 </param>
+    <param type="bool"   name="MAID2007-A12@F35(1905)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@F35(1905)-A0"> 18.0 </param>
+    <param type="double" name="MAID2007-A12@F35(1905)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2007-A12@F35(1905)-Beta"> 0.0 </param>
+    <param type="bool"   name="MAID2007-A32@F35(1905)-Has"> true </param>
+    <param type="double" name="MAID2007-A32@F35(1905)-A0"> -28.0 </param>
+    <param type="double" name="MAID2007-A32@F35(1905)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2007-A32@F35(1905)-Beta"> 0.0 </param>
+    <param type="bool"   name="MAID2007-S12@F35(1905)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@F35(1905)-A0"> 0.0 </param>
+    <param type="double" name="MAID2007-S12@F35(1905)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2007-S12@F35(1905)-Beta"> 0.0 </param>
 
-    <param type="bool"   name="A12@F37(1950)-Has"> true </param>
-    <param type="double" name="A12@F37(1950)-A0"> -94.0 </param>
-    <param type="double" name="A12@F37(1950)-Alpha"> 0.0 </param>
-    <param type="double" name="A12@F37(1950)-Beta"> 0.0 </param>
-    <param type="bool"   name="A32@F37(1950)-Has"> true </param>
-    <param type="double" name="A32@F37(1950)-A0"> -121.0 </param>
-    <param type="double" name="A32@F37(1950)-Alpha"> 0.0 </param>
-    <param type="double" name="A32@F37(1950)-Beta"> 0.0 </param>
-    <param type="bool"   name="S12@F37(1950)-Has"> true </param>
-    <param type="double" name="S12@F37(1950)-A0"> 0.0 </param>
-    <param type="double" name="S12@F37(1950)-Alpha"> 0.0 </param>
-    <param type="double" name="S12@F37(1950)-Beta"> 0.0 </param>
+    <param type="bool"   name="MAID2007-A12@F37(1950)-Has"> true </param>
+    <param type="double" name="MAID2007-A12@F37(1950)-A0"> -94.0 </param>
+    <param type="double" name="MAID2007-A12@F37(1950)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2007-A12@F37(1950)-Beta"> 0.0 </param>
+    <param type="bool"   name="MAID2007-A32@F37(1950)-Has"> true </param>
+    <param type="double" name="MAID2007-A32@F37(1950)-A0"> -121.0 </param>
+    <param type="double" name="MAID2007-A32@F37(1950)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2007-A32@F37(1950)-Beta"> 0.0 </param>
+    <param type="bool"   name="MAID2007-S12@F37(1950)-Has"> true </param>
+    <param type="double" name="MAID2007-S12@F37(1950)-A0"> 0.0 </param>
+    <param type="double" name="MAID2007-S12@F37(1950)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2007-S12@F37(1950)-Beta"> 0.0 </param>
 
     <param type="double" name="DipoleMass2"> 0.71 </param>
     <param type="double" name="RSVectorMass"> 0.84 </param>
     <param type="double" name="RES-Omega"> 1.05 </param>
     <param type="double" name="RES-Zeta"> 0.76338 </param>
     <param type="double" name="RSOriginalPhase"> -1.0 </param>
+
+    <!-- MAID2008 proton update: Tiator et al., CPC 33 (2009) 1069, Table 2.
+         Version-qualified defaults are inherited by EVERY named variant. -->
+
+    <param type="double" name="MAID2008-A12@P11(1440)-A0"> -61.4 </param>
+    <param type="double" name="MAID2008-A12@P11(1440)-C1"> 0.871 </param>
+    <param type="double" name="MAID2008-A12@P11(1440)-C2"> -3.516 </param>
+    <param type="double" name="MAID2008-A12@P11(1440)-C4"> -0.158 </param>
+    <param type="double" name="MAID2008-A12@P11(1440)-Beta"> 1.36 </param>
+    <param type="double" name="MAID2008-S12@P11(1440)-A0"> 4.2 </param>
+    <param type="double" name="MAID2008-S12@P11(1440)-C1"> 40.0 </param>
+    <param type="double" name="MAID2008-S12@P11(1440)-C2"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@P11(1440)-C4"> 1.50 </param>
+    <param type="double" name="MAID2008-S12@P11(1440)-Beta"> 1.75 </param>
+
+    <param type="bool"   name="MAID2008-A12@D13(1520)-Has"> true </param>
+    <param type="double" name="MAID2008-A12@D13(1520)-A0"> -27.4 </param>
+    <param type="double" name="MAID2008-A12@D13(1520)-Alpha"> 8.580 </param>
+    <param type="double" name="MAID2008-A12@D13(1520)-A2"> -0.252 </param>
+    <param type="double" name="MAID2008-A12@D13(1520)-A4"> 0.357 </param>
+    <param type="double" name="MAID2008-A12@D13(1520)-Beta"> 1.20 </param>
+    <param type="bool"   name="MAID2008-A32@D13(1520)-Has"> true </param>
+    <param type="double" name="MAID2008-A32@D13(1520)-A0"> 160.6 </param>
+    <param type="double" name="MAID2008-A32@D13(1520)-Alpha"> -0.820 </param>
+    <param type="double" name="MAID2008-A32@D13(1520)-A2"> 0.541 </param>
+    <param type="double" name="MAID2008-A32@D13(1520)-A4"> -0.016 </param>
+    <param type="double" name="MAID2008-A32@D13(1520)-Beta"> 1.06 </param>
+    <param type="bool"   name="MAID2008-S12@D13(1520)-Has"> true </param>
+    <param type="double" name="MAID2008-S12@D13(1520)-A0"> -63.5 </param>
+    <param type="double" name="MAID2008-S12@D13(1520)-Alpha"> 4.19 </param>
+    <param type="double" name="MAID2008-S12@D13(1520)-A2"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@D13(1520)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@D13(1520)-Beta"> 3.40 </param>
+
+    <param type="bool"   name="MAID2008-A12@D15(1675)-Has"> true </param>
+    <param type="double" name="MAID2008-A12@D15(1675)-A0"> 15.3 </param>
+    <param type="double" name="MAID2008-A12@D15(1675)-Alpha"> 0.10 </param>
+    <param type="double" name="MAID2008-A12@D15(1675)-A2"> 0.0 </param>
+    <param type="double" name="MAID2008-A12@D15(1675)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-A12@D15(1675)-Beta"> 2.00 </param>
+    <param type="bool"   name="MAID2008-A32@D15(1675)-Has"> true </param>
+    <param type="double" name="MAID2008-A32@D15(1675)-A0"> 21.6 </param>
+    <param type="double" name="MAID2008-A32@D15(1675)-Alpha"> 1.91 </param>
+    <param type="double" name="MAID2008-A32@D15(1675)-A2"> 0.18 </param>
+    <param type="double" name="MAID2008-A32@D15(1675)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-A32@D15(1675)-Beta"> 0.69 </param>
+    <param type="bool"   name="MAID2008-S12@D15(1675)-Has"> true </param>
+    <param type="double" name="MAID2008-S12@D15(1675)-A0"> 1.1 </param>
+    <param type="double" name="MAID2008-S12@D15(1675)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@D15(1675)-A2"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@D15(1675)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@D15(1675)-Beta"> 2.00 </param>
+
+    <param type="bool"   name="MAID2008-A12@F15(1680)-Has"> true </param>
+    <param type="double" name="MAID2008-A12@F15(1680)-A0"> -25.1 </param>
+    <param type="double" name="MAID2008-A12@F15(1680)-Alpha"> 3.780 </param>
+    <param type="double" name="MAID2008-A12@F15(1680)-A2"> -0.292 </param>
+    <param type="double" name="MAID2008-A12@F15(1680)-A4"> 0.080 </param>
+    <param type="double" name="MAID2008-A12@F15(1680)-Beta"> 1.25 </param>
+    <param type="bool"   name="MAID2008-A32@F15(1680)-Has"> true </param>
+    <param type="double" name="MAID2008-A32@F15(1680)-A0"> 134.3 </param>
+    <param type="double" name="MAID2008-A32@F15(1680)-Alpha"> 1.016 </param>
+    <param type="double" name="MAID2008-A32@F15(1680)-A2"> 0.222 </param>
+    <param type="double" name="MAID2008-A32@F15(1680)-A4"> 0.237 </param>
+    <param type="double" name="MAID2008-A32@F15(1680)-Beta"> 2.41 </param>
+    <param type="bool"   name="MAID2008-S12@F15(1680)-Has"> true </param>
+    <param type="double" name="MAID2008-S12@F15(1680)-A0"> -44.0 </param>
+    <param type="double" name="MAID2008-S12@F15(1680)-Alpha"> 3.783 </param>
+    <param type="double" name="MAID2008-S12@F15(1680)-A2"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@F15(1680)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@F15(1680)-Beta"> 1.85 </param>
+
+    <param type="bool"   name="MAID2008-A12@D33(1700)-Has"> true </param>
+    <param type="double" name="MAID2008-A12@D33(1700)-A0"> 226.0 </param>
+    <param type="double" name="MAID2008-A12@D33(1700)-Alpha"> 1.91 </param>
+    <param type="double" name="MAID2008-A12@D33(1700)-A2"> 0.0 </param>
+    <param type="double" name="MAID2008-A12@D33(1700)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-A12@D33(1700)-Beta"> 1.77 </param>
+    <param type="bool"   name="MAID2008-A32@D33(1700)-Has"> true </param>
+    <param type="double" name="MAID2008-A32@D33(1700)-A0"> 210.0 </param>
+    <param type="double" name="MAID2008-A32@D33(1700)-Alpha"> 0.88 </param>
+    <param type="double" name="MAID2008-A32@D33(1700)-A2"> 1.71 </param>
+    <param type="double" name="MAID2008-A32@D33(1700)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-A32@D33(1700)-Beta"> 2.02 </param>
+    <param type="bool"   name="MAID2008-S12@D33(1700)-Has"> true </param>
+    <param type="double" name="MAID2008-S12@D33(1700)-A0"> 2.1 </param>
+    <param type="double" name="MAID2008-S12@D33(1700)-Alpha"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@D33(1700)-A2"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@D33(1700)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@D33(1700)-Beta"> 2.00 </param>
+
+    <param type="bool"   name="MAID2008-A12@P13(1720)-Has"> true </param>
+    <param type="double" name="MAID2008-A12@P13(1720)-A0"> 73.0 </param>
+    <param type="double" name="MAID2008-A12@P13(1720)-Alpha"> 1.89 </param>
+    <param type="double" name="MAID2008-A12@P13(1720)-A2"> 0.0 </param>
+    <param type="double" name="MAID2008-A12@P13(1720)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-A12@P13(1720)-Beta"> 1.55 </param>
+    <param type="bool"   name="MAID2008-A32@P13(1720)-Has"> true </param>
+    <param type="double" name="MAID2008-A32@P13(1720)-A0"> -11.5 </param>
+    <param type="double" name="MAID2008-A32@P13(1720)-Alpha"> 10.83 </param>
+    <param type="double" name="MAID2008-A32@P13(1720)-A2"> -0.66 </param>
+    <param type="double" name="MAID2008-A32@P13(1720)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-A32@P13(1720)-Beta"> 0.43 </param>
+    <param type="bool"   name="MAID2008-S12@P13(1720)-Has"> true </param>
+    <param type="double" name="MAID2008-S12@P13(1720)-A0"> -53.0 </param>
+    <param type="double" name="MAID2008-S12@P13(1720)-Alpha"> 2.46 </param>
+    <param type="double" name="MAID2008-S12@P13(1720)-A2"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@P13(1720)-A4"> 0.0 </param>
+    <param type="double" name="MAID2008-S12@P13(1720)-Beta"> 1.55 </param>
+  </param_set>
+
+  <param_set name="MAID2008">
+    <param type="string" name="AmplitudeSource"> MAID2008 </param>
+  </param_set>
+
+  <param_set name="MAID2008-P33WidthScaled">
+    <param type="string" name="AmplitudeSource"> MAID2008 </param>
+    <param type="bool"   name="ApplyLuisP33WidthScale"> true </param>
   </param_set>
 
   <param_set name="UnscaledMAID2007">
